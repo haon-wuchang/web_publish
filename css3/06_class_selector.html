@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS Selector</title>
+    <style>
+        h1.main-title{font-family: '나눔손글씨 가람연꽃';
+                color: green;
+                font-size: 1.3em;}
+
+        h3.sub-title{font-family: '나눔손글씨 가람연꽃';
+            color: tomato;
+            font-size: 20px;}
+            
+        b.sub-title{font-family: '나눔손글씨 가람연꽃';
+            color: tomato;
+            font-size: 20px;}
+
+        .highlight-bg{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-title">class selector</h1>
+    <p>
+        <h3 class="sub-title">class selector sub title</h3>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Soluta deserunt laudantium saepe aut doloremque quos quibusdam placeat quasi fugit 
+        commodi deleniti harum doloribus maxime praesentium, voluptatum labore odio 
+        reprehenderit esse!
+    </p>
+    <p>
+        <h3 class="sub-title">class selector sub title</h3>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Soluta deserunt laudantium saepe aut doloremque quos quibusdam placeat quasi fugit 
+        commodi deleniti <b class="sub-title highlight-bg">harum doloribus maxime</b> praesentium, voluptatum labore odio 
+        reprehenderit esse!
+        <!-- 선택자안에 이름 여러개 적으려면 한칸 띄우고 다른이름 적으면됨  <b class="sub-title highlight-bg">-->
+    </p>
+</body>
+</html>
