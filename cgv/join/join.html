@@ -11,8 +11,62 @@
 
     <!-- content -->
     <div class="content"></div>
-        <h1>join</h1>
-
+        <div class="join form">
+            <h1>join Form</h1>
+            <form action="#" method="post"> <!--form마다 똑같은부분있으면 name 같게 해줘 login,join에서 input 비밀번호 name을 pw로 같게 ㄱ -->
+                <ul> <!-- ul 안하고 딴거해도댕-->
+                    <li>
+                        <label for=""><b>아이디</b></label>
+                        <span>사용할 수 없는 아이디 입니다.</span>
+                        <div>
+                            <input type="text" name="id" placeholder="아이디 입력(6~20자)">
+                            <button>중복확인</button>
+                        </div>
+                    </li>
+                    <li>
+                        <label for=""><b>비밀번호</b></label>
+                        <span>12자 이내의 비밀번호를 입력해주세요</span>
+                        <div>
+                            <input type="password" name="pw" placeholder="비밀번호 입력(문자,숫자,특수문자 포함 8~20자)">
+                        </div>
+                    </li>
+                    <li>
+                        <label for=""><b>비밀번호 확인</b></label>
+                        <span>비밀번호가 일치하지 않습니다</span>
+                        <div>
+                            <input type="password" name="pwcheck" placeholder="비밀번호 재입력">
+                        </div>
+                    </li>
+                    <li>
+                        <label for=""><b>이름</b></label>
+                        <div>
+                            <input type="text" name="name" placeholder="이름을 입력해주세요">
+                        </div>
+                    </li>
+                    <li>
+                        <label for=""><b>전화번호</b></label>
+                        <div>
+                            <input type="text" name="phonenumber" placeholder="휴대폰 번호 입력('-'제외 11자리 입력)">
+                        </div>  
+                    </li>
+                    <li>
+                        <label for=""><b>이메일주소</b></label>
+                        <div>
+                            <input type="email" name="emailname" placeholder="이메일 주소">
+                            <span>@</span>
+                            <select name="emaildomain">
+                                <option value="default">선택</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="daum.net">daum.net</option>
+                            </select>
+                        </div>
+                    </li>
+                        <button>가입하기</button>
+                        <button>가입취소</button>
+                </ul>
+            </form>
+        </div>
     <!-- footer -->
     <iframe src="/cgv/footer.html" frameborder="0" width="100%"></iframe>
 
