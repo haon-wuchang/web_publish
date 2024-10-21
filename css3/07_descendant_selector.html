@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desc selector, child selector</title>
     <style>
-        /*descendant 문법 : 조상tag 자손tag {속성: 값;}  */
-        /* child 문법 : 부모tag > 자식tag {속성: 값;} */
-         /*adjacent siblings selector 문법(바로다음에 나오는 형제tag끼리만 적용된다): 형제tag + 형제tag {속성: 값;}*/
         ul label{
             color: blue;
         }
-        ul.first > label { /* >는 부모자식에서만 가능해서 이건 적용이안됨
-                             ul의 자식은 li 임 label은 자손태그이므로 적용이 안된다.*/
+        ul.first > label { 
                             
             color: yellow;
         }
