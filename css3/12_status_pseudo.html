@@ -10,6 +10,7 @@
         input[type="radio"]:checked + label {background-color : orange}
         input[type="checkbox"]:checked + label { background-color: green;}
         ul > li:last-child button {color: white; background-color: gray;}
+        .not > li:not(:last-child) {background-color: olivedrab;}
     </style>
 </head>
 <body>
@@ -34,6 +35,15 @@
         <li>
             <button>사용가능</button>
             <button class="disable" disabled>사용불가능</button>
+        </li>
+        <li>
+            <ul class="not">
+                <li>list item1</li>
+                <li>list item2</li>
+                <li>list item3</li>
+                <li>list item4</li>
+                <li>list item5</li>
+            </ul>
         </li>
     </ul>
 </body>

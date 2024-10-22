@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>font-face</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kablammo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kablammo&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/fonts.css">
+    
+    <style>
+        p{width: 300px;}
+        h3{font-family: '나눔손글씨 가람연꽃';
+            color: orange;}
+
+        .btag {color: tomato;
+            font-family: "Kablammo", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+            "MORF" 0;}
+
+        h5 + p {font-family: "roboto";} 
+    </style>
+</head>
+<body>
+    <h1>Font관련 CSS</h1>
+    <h3>font-family 프로퍼티</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        <b class="btag">Facere unde consectetur amet a veritatis </b>cupiditate tenetur neque
+        necessitatibus aperiam reprehenderit, nihil quos ullam quasi quis, 
+        voluptate assumenda magni. Nesciunt, voluptatibus.</p>
+    <hr>
+    <h5>구글폰트 : open sans</h5>    
+    <p class="bb">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        <b class="btag roboto-bold">Facere unde consectetur amet a veritatis </b>cupiditate tenetur neque
+        necessitatibus aperiam reprehenderit, nihil quos ullam quasi quis, 
+        voluptate assumenda magni. Nesciunt, voluptatibus.</p>
+
+</body>
+</html>
