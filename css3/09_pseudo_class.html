@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo class selector</title>
+    <style>
+        h1::before {
+                content: "-";
+                color:purple }
+        h1::after {
+                content :"**" ;
+                color: green;}
+        h1:hover {background-color: silver;
+                    color: white;} /*hover: 마우스를 올리면 해당 속성이 적용되게 하는거 p.221*/
+        a{text-decoration: none;}
+        a:hover {text-decoration: underline;}
+        a:visited{color: red;}
+        input:focus{background-color: yellow;
+                    outline: dotted;} /*outline": ㅔ테두리*/
+        a:active{color:blue} 
+    </style>
+</head>
+<body>
+    <h1>Pseudo Class Selector</h1>
+    <p>
+        <a href="http://www.naver.com" target="_blank">네이버</a>
+        <a href="#">구글</a>
+    </p>
+    <div>
+        <input type="text">
+        <button>send</button>
+    </div>
+</body>
+</html>

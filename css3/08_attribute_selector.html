@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute selector</title>
+    <style>
+        [href] {text-decoration: none;} 
+        [href="http://daum.net"] {background-color: rgb(221, 224, 39);}
+        [class^="inner"] {color: blue;} /*class 가 inner로 시작하는 애들 모두 선택*/     
+        ul, ul > li {border: 1px solid orange;}
+        ul{list-style-type: none ;
+            padding: 10px;}
+
+            
+        [for="id"] {color: green;
+                    background-color: purple;}
+        input[type] {border: 1px solid lightskyblue;
+                    width: 70%;  
+                    padding: 10px;
+                    border-radius: 10px;} 
+    </style>
+</head>
+<body>
+    <h1>Attribute selector</h1>
+    <p>
+        <a href="#" target="_blank">네이버</a>
+        <a href="#" class="inner_attr1">구글</a>
+        <a href="http://daum.net" class="inner_attr2">다음</a>
+    </p>
+    <form action="#">
+        <ul>
+            <li> 
+                <label for="id">아이디</label> <!--for 에 들어가는 이름은 인풋의 네임과 동일하게 주는게 좋다-->
+                <input type="text" name="id">
+            </li>
+            <li>
+                <label for="pw">패스워드</label>
+                <input type="password" name="pw">
+            </li>
+            <li>
+                <button type="submit">로그인</button>
+                <button type="reset">취소</button>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

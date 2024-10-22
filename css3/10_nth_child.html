@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child</title>
+    <style>
+        ul {list-style-type: none;
+            padding: 0;}
+        ul.first li:first-child {color: blue;}
+        li:last-child{text-decoration: underline;}
+        li:nth-child(3) {background-color: yellowgreen;}  /*font -weight : 글씨 진하게*/
+        ul.first > li:nth-child(4) > a {color: tomato; text-decoration: none; font-weight: 1000;}
+        .box > article {width: 100px; height: 100px; border: 1px solid gold;}
+        article:first-child {background-color: aqua;}
+        article:nth-child(3) {background-color: palevioletred;}
+        /*article 이 하나밖에 없어서 걍 태그이름으로 적은거고 여러개면 class 이름 지정해서 하면댕*/
+    </style>
+</head>
+<body>
+    <h1>nth-child</h1>
+    <ul class="first">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li><a href="#">naver</a></li>
+        <li>React</li>
+    </ul>
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>React</li>
+    </ul>
+    <div class="box">
+        <article>국</article>
+        <article>수</article>
+        <article>과</article>
+        <article>탐</article>
+    </div>
+</body>
+</html>
