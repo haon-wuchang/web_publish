@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diplay</title>
+    <style>
+        .box1 {width: 50px; height: 50px;
+                background-color: aquamarine;
+                display: inline-block;}
+        .box2 {width: 50px; height: 50px;
+                background-color: rgb(234, 114, 238);
+                display: inline-block;}
+
+        .block {display: block;}
+        .inline {display: inline;}
+        .inline_block {display: inline-block;} /*인라인처럼 한줄로 놓고싶은데 width height 도 하고싶으면 inline-block 으로 하면댐*/
+        span {background-color: lightcoral;}
+        ul.subject > li {
+                width: 100px;
+                list-style-type: none;
+                display: inline-block;
+                border-right: 1px solid blue;
+                margin-left: 10px;
+                }
+        ul.subject {padding: 0;}
+        ul.subject li:last-child {border-right:none}
+        ul.lunch {display: table; padding: 0; background-color: lightskyblue;}
+        ul.lunch li {border:1px solid orange; display: table-cell; 
+                    width: 100px; padding:5px} /*display: table-cell 은 inline-block 임(width, height 적용되니까)*/
+         /* show box 에 마우스놓으면 밑에있는 div가 보이게 설정한거임 */
+        p.show-box:hover + div.box-group-show
+            {display: block;}
+        div.box-group-show{display: none;}
+         /* hidden box 에 마우스놓으면 밑에있는 div가 사라지게 설정한거임 */
+        p.hidden-box:hover + div.box-group-hidden
+            {display: none;}
+        div.box-group-hidden{display: block;}
+        h4:hover {opacity: 0.5; cursor: pointer;} /*커서 적용한거임*/
+        h3 {visibility: hidden;} /*display:none은 크기도 안잡히고 안보이는데 visibility는 크기는 유지되는데 안보이는거임*/
+    </style>
+</head>
+<body>
+    <h1>Display</h1>
+    <header>
+        <h1>Display</h1>
+        <h2>Heading</h2>
+        <h3>Visibility</h3>
+        <h4>Opacity</h4>
+    </header>
+    <p class="show-box">show box</p>
+    <div class="box-group-show">
+        <div class="box1"></div> <!-- <div>안에 컨텐츠가없으면 사이즈가 안나옴-->
+        <div class="box1"></div>
+    </div>
+    <p class="hidden-box">hidden box</p>
+    <div class="box-group-hidden">
+        <div class="box2"></div> <!-- <div>안에 컨텐츠가없으면 사이즈가 안나옴-->
+        <div class="box2"></div>
+    </div>
+
+    <span class="block">inline level element</span>
+    <span class="block">inline level element</span>
+    <hr>
+    <img src="/html/images/cgvlogo.png" alt="">
+    <img src="/html/images/cgvlogo.png" alt="">
+    <hr>
+    <ul class="subject">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+    </ul>
+    <ul class="lunch">
+        <li>된장찌개</li>
+        <li>김치찌개</li>
+        <li>돈까스</li>
+        <li>초밥</li>
+    </ul>
+</body>
+</html>

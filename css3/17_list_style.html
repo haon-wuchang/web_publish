@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list style</title>
+    <style>
+        ul > li {list-style-type: none;}
+        h1 + ul h3 + li > ul > li{/*border: 1px solid red; p.279*/ list-style-type: decimal;}
+        ol li {list-style-type: '-';}
+        .db li {list-style-type:'\1F60B';}
+    </style>
+</head>
+<body>
+    <h1>List style type</h1>
+    <ul>
+        <h3>front end</h3>
+        <li>
+            <h5>html</h5>
+            <ul>
+                <li>html4</li>
+                <li>html5</li>
+            </ul>
+        </li>
+        <li>css</li>
+        <li>javascript</li>
+        <li>react</li>
+    </ul>
+    <hr>
+    <ol>
+        <h3>back end</h3>
+        <li>nodejs</li>
+        <li>jsp</li>
+        <li>asp</li>
+        <li>php</li>
+    </ol>
+    <hr>
+    <ul class="db">
+        <h3>database</h3>
+        <li>mysql</li>
+        <li>oracle</li>
+        <li>tibero</li>
+        <li>maria</li>
+    </ul>
+</body>
+</html>

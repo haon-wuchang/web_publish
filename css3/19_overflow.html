@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>over flow</title>
+    <style>
+        div {
+            width: 400px; 
+            border: 1px solid red;
+            }
+        div p {width: 600px;
+            border: 1px solid blue;}
+        .auto {overflow: auto;} /* auto스크롤생김*/
+        .hidden {overflow: hidden;} /* hidden 넘어가는부분 안보이게처리*/
+        .scroll {overflow: scroll;} /* scroll x,y 축 둘다 스크롤 생김*/
+        .scroll-x {overflow-x: scroll;} /*scroll x 축에만 스크롤생김(가로) */
+        .scroll-y {overflow-y: scroll;} /* scroll y 축에 스크롤생김(세로)*/
+        .bg-image {background-repeat: no-repeat;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqfx6JS5bT289b43cm8LQqI_51kjZZCEpklA&s");
+            opacity: 0.5;}
+    </style>
+</head>
+<body>
+    <h1>Over Flow</h1>
+    <div class="auto bg-image">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga tenetur, 
+            praesentium nihil eveniet suscipit rem ipsum provident ipsa ea, 
+            repudiandae earum ad similique, consequuntur optio harum at voluptas ipsam! 
+            Cum!</p>
+    </div>
+    <div class="hidden">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga tenetur, 
+            praesentium nihil eveniet suscipit rem ipsum provident ipsa ea, 
+            repudiandae earum ad similique, consequuntur optio harum at voluptas ipsam! 
+            Cum!</p>
+    </div>
+    <div class="scroll">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga tenetur, 
+            praesentium nihil eveniet suscipit rem ipsum provident ipsa ea, 
+            repudiandae earum ad similique, consequuntur optio harum at voluptas ipsam! 
+            Cum!</p>
+    </div>
+    <div class="scroll-x">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga tenetur, 
+            praesentium nihil eveniet suscipit rem ipsum provident ipsa ea, 
+            repudiandae earum ad similique, consequuntur optio harum at voluptas ipsam! 
+            Cum!</p>
+    </div>
+    <div class="scroll-y">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga tenetur, 
+            praesentium nihil eveniet suscipit rem ipsum provident ipsa ea, 
+            repudiandae earum ad similique, consequuntur optio harum at voluptas ipsam! 
+            Cum!</p>
+    </div>
+</body>
+</html>
