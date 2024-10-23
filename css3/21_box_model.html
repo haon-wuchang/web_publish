@@ -8,21 +8,71 @@
         div {
             border: 1px solid green;
             }
+        .padding {
+            padding: 20px 10px 30px 50px; 
+                /* padding-top: 20px;
+                padding-right: 400px;
+                padding-bottom: 100px;
+                padding-left: 100px; */
+        /* t(top) r(right) b(bottom) l(left) */
+                /*padding:20px 이케만하면 trbl이 다 20px 으로들어감*/           
+    /* padding 20px 10px 30px 이케만하면 left가 없으니까 left는 right 값이랑 같은값이 적용된다 */
+            /* padding 20px 10px 만 하면 bl이 없는데 b는 t랑 같은값 들어가고 l은 r이랑 같은값들어감 */
+                /*margin border도 padding 과 같은 방법으로 됨  */
+        }
+        div.padding > h3 { border: 1px solid red;}
+        .margin{
+            margin: 20px 10px 30px 40px;
+            /* margin-top: 20px;
+            margin-right: 10px;
+            margin-bottom: 30px;
+            margin-left: 40px; */
+                }
+        .border {
+            border: 10px double blue;
+            border-bottom: none;
+            /*3가지 설정 중 하나라도빼면 적용안됨*/
+            /* border-width: 10px;
+            border-style: solid;
+            border-color: blue; */
+            /* 적은 순차적으로 내용이 바뀐다.  */
+            /* border-top: 5px dotted pink;
+            border-right: 5px dotted yellow;
+            border-bottom: 5px double red;
+            border-left: 5px solid gray; */}
+
+        .box-size{box-sizing: border-box; padding: 30px;}
+        
     </style>
 </head>
 <body>
     <h1>Box Model : content, padding, border, margin</h1>
-    <div>
+    <div class="padding">
+        <h3>padding</h3>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Error eius quidem in asperiores, velit ea aspernatur ipsa dolorem! Nam 
         corporis quam rem nobis numquam hic repellat ea excepturi fugit. Aliquam.
     </div>
-    <div>
+    <div class="margin">
+        <h3>margin</h3>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Error eius quidem in asperiores, velit ea aspernatur ipsa dolorem! Nam 
         corporis quam rem nobis numquam hic repellat ea excepturi fugit. Aliquam.
     </div>
-    <div>
+    <div class="border">
+        <h3>border</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Error eius quidem in asperiores, velit ea aspernatur ipsa dolorem! Nam 
+        corporis quam rem nobis numquam hic repellat ea excepturi fugit. Aliquam.
+    </div>
+    <div class="border margin padding">
+        <h3>test</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Error eius quidem in asperiores, velit ea aspernatur ipsa dolorem! Nam 
+        corporis quam rem nobis numquam hic repellat ea excepturi fugit. Aliquam.
+    </div>
+    <div class="box-size">
+        <h3>border box</h3>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         Error eius quidem in asperiores, velit ea aspernatur ipsa dolorem! Nam 
         corporis quam rem nobis numquam hic repellat ea excepturi fugit. Aliquam.
