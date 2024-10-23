@@ -12,25 +12,8 @@
         }
         h1 { 
             width: 300px;
-            /*position:relative =top,left 위치를 설정할수있다*/
-            /* position: relative; 
-            top: 20px;
-            left: 100px; */
         }
-        .border {
-            box-sizing: border-box;
-            /* padding: 10px; */
-            /* boder box : width에 border 사이즈가 추가된거  border10px 이 포함되서 300px임
-            border-box 총크기 280px*/
-            /* border box : 패딩,마진 등 포함하여 width 사이즈 고정 */
-        }]
-        .content {
-            box-sizing: content-box;
-            /* padding: 10px; */
-            /* width랑 border 따로여서 얘는 content만 300px 임 ,border총크기  320px */
         
-            /* content-box : 태그안의 컨텐츠 width 사이즈 고정\ 패딩,마진등의 값은 추가로 사이즈가 늘어남 */
-        }
         div {
             border: 1px solid silver;
             width: 500px;
@@ -38,21 +21,19 @@
         div > span {letter-spacing: 5px; }
         .relative {
             position: relative;
-            top:10px;
+            top:50px;
             left: 50px;
         }
         .absolute{
             position: absolute;
-            top: 20px;
-            left: 240px;
+            top: 40px;
+            right: 40px;
 
         }
     </style>
 </head>
 <body>
     <h1>position relative</h1> 
-    <!-- relative= 여기서는 h1기준에 맞춰서 top left가 배치됨 흠;;;;; -->
-     <!-- 앱솔루트는 부모의  지표를 기준으로 맞춰서 된당...'여기서 부모는 div가 되는거임'-->
     <div class="relative">
         <img src="/html/images/cgvlogo.png" alt="logo">
         <span class="absolute">DEEP DIVE SPACE</span>

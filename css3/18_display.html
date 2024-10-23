@@ -14,7 +14,7 @@
 
         .block {display: block;}
         .inline {display: inline;}
-        .inline_block {display: inline-block;} /*인라인처럼 한줄로 놓고싶은데 width height 도 하고싶으면 inline-block 으로 하면댐*/
+        .inline_block {display: inline-block;} 
         span {background-color: lightcoral;}
         ul.subject > li {
                 width: 100px;
@@ -27,7 +27,7 @@
         ul.subject li:last-child {border-right:none}
         ul.lunch {display: table; padding: 0; background-color: lightskyblue;}
         ul.lunch li {border:1px solid orange; display: table-cell; 
-                    width: 100px; padding:5px} /*display: table-cell 은 inline-block 임(width, height 적용되니까)*/
+                    width: 100px; padding:5px} 
          /* show box 에 마우스놓으면 밑에있는 div가 보이게 설정한거임 */
         p.show-box:hover + div.box-group-show
             {display: block;}
@@ -37,7 +37,7 @@
             {display: none;}
         div.box-group-hidden{display: block;}
         h4:hover {opacity: 0.5; cursor: pointer;} /*커서 적용한거임*/
-        h3 {visibility: hidden;} /*display:none은 크기도 안잡히고 안보이는데 visibility는 크기는 유지되는데 안보이는거임*/
+        h3 {visibility: hidden;} 
     </style>
 </head>
 <body>
@@ -55,7 +55,7 @@
     </div>
     <p class="hidden-box">hidden box</p>
     <div class="box-group-hidden">
-        <div class="box2"></div> <!-- <div>안에 컨텐츠가없으면 사이즈가 안나옴-->
+        <div class="box2"></div> 
         <div class="box2"></div>
     </div>
 
