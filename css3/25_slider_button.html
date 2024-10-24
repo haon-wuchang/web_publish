@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        .sliderwrapper{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: lightslategray;
+            position: relative;
+        }
+        .btn {
+            padding: 0 20px;
+            line-height: 30px; /*이렇게만 하고 마진탑 안넣으면확면에서 버튼이 완전 가운데로 안옴 살짝 밑으로내려감 */
+            color: antiquewhite;
+            background-color: black;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+        }
+        .next {right: -30px;}
+        .prev {left: -30px;}
+        .slider-img {
+            width: 600px;
+            height: 400px;
+        }
+        h1 { text-align: center;}
+    </style>
+</head>
+<body>
+    <h1>slider wrapper</h1>
+    <div class="sliderwrapper">
+        <img class="slider-img" src="https://img.cgv.co.kr/Movie/Thumbnail/StillCut/000088/88526/88526230727_727.jpg" alt="베놈">
+        <button class="btn next">next</button>
+        <button class="btn prev">prev</button>
+    </div>
+</body>
+</html>

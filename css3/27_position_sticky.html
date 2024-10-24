@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position sticky</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 60px auto 200px;
+        }
+        .content {
+            padding: 0 15px;
+            width: 380px;
+        }
+        .content h1 {
+            margin-top: 0;
+        }
+        .sidebar {
+            padding: 20px;
+            width: 170px;
+            background-color: darkmagenta;
+            color: white;
+            position: sticky;
+            top: 10px;
+        }
+        .sidebar h3 { /*h1h3 이런애들은 기본적으로 여백이 있어서 마진0줘서 없애는거임*/
+            margin: 0;
+        }
+        .content, .sidebar {
+            float: left; 
+        }
+        .cf::after {
+            clear: both;
+            content: "" ;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper cf">
+        <div class="content">
+            <h1>scroll down</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum, necessitatibus molestias!
+                Aliquam dolorum quasi quas dolor eum explicabo voluptatibus ut enim eligendi, 
+                sed dicta non?
+            </p>
+        </div>
+        <div class="sidebar">
+            <h3>sidebar</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Nulla voluptatum nihil facere fugiat cum.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

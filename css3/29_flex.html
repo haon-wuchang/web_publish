@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display-flex</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box/*border box :width에 패딩 이런값 다 포함*/;}
+        .parent {
+            /* padding: 0; */
+            height: 100px;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .parent div {
+            padding: 10px 30px;
+            border: 1px solid darkslateblue;
+            background-color: lightsteelblue;
+        }
+        </style>
+</head>
+<body>
+    <h1>Flex</h1>
+    <div class="parent">
+        <div><b>flex item1</b></div>
+        <div>flex item</div>
+        <div>flex item</div>
+        <div>flex item</div>
+        <div>flex item</div>
+    </div>
+</body>
+</html>
