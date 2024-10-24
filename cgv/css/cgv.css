@@ -1,0 +1,121 @@
+/****************************
+*  title: header style
+*  author : haon@test.com
+*  final date : 2024.10.24
+*****************************/
+header {
+    width: 1000px;
+    height: 150px;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+}
+.header-top, .header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-top ul, .header-bottom ul {
+    /* border: 1px solid green; */
+    display: flex;
+    list-style-type: none;           
+}
+.header-top {
+    padding: 20px 0;
+}
+.header-top ul li {
+    /* padding: 25px 10px; */
+    /* background-color:darkcyan ; */     
+}
+.header-top ul li a {
+    padding: 30px 10px;
+    text-decoration: none;
+    color:var(--color-primary);
+    /* background-color: aquamarine; */
+}
+.header-top-logo {
+    width: 320px;   /*밑에 자식요소가 있으면 부모한테width 설정 해줘야댕(블럭요소한정)*/
+    /* border: 1px solid blue; */
+    position: relative;
+}
+.header-top-logo > a > img {
+    width: 120px;
+}
+.header-top-logo > span {
+    top: 30px;
+    left: 120px;
+    position: absolute;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+.header-bottom {
+    height: 40px;
+    /* border: 1px solid gray; */          
+}
+.header-bottom dl {
+    display: none;
+}
+.header-bottom li {
+    padding: 10px 25px;
+}
+.header-bottom li a {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/****************************
+*  title: footer style
+*  author : haon@test.com
+*  final date : 2024.10.24
+*****************************/
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-footer-bg);
+}
+
+.footer-content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-intro + ul  {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-silver);
+}
+.footer-intro + ul a {
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.footer-intro + ul a:hover {
+    text-decoration: underline;
+}
+
+.footer-intro + ul li:nth-child(7) a {
+    text-decoration: underline;
+    color: var(--color-black);
+    font-weight: 700;
+}
+
+.footer-intro ~ p {
+    color: var(--color-primary);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 0;
+}
+
+.p {
+    margin-top: 20px;
+}
+.p2 {
+    margin-bottom: 20px;
+}

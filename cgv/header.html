@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGV-header</title>
-    <script src="https://kit.fontawesome.com/f6ead21f87.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/cgv/css/commons.css">
+    <link rel="stylesheet" href="/cgv/css/cgv.css">
 </head>
 <body>
-    <header style="background-color: rgb(239, 225, 248);">
-        <div>
-            <div>
+    <header>
+        <div class="header-top">
+            <div class="header-top-logo">
                 <a href="/cgv/index.html" target="_parent">
-                 <img src="/cgv/images/cgvlogo.png" 
+                    <img src="/cgv/images/cgvlogo.png" 
                         alt="CGV logo">
                 </a>
-                <span>DEEP DIVE SPACE</span>
+                <span class="font-color-gray">DEEP DIVE SPACE</span>
             </div>
             <div>
                 <img src="/cgv/images/hyundaicard.png" 
@@ -22,17 +23,15 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="/cgv/login/login.html" target="_parent">
-                        <i class="fa-solid fa-lock"></i>
-                        로그인</a></li>
                     <li><a href="/cgv/join/join.html" target="_parent">회원가입</a></li>
+                    <li><a href="/cgv/login/login.html" target="_parent">로그인</a></li>
                     <li><a href="/cgv/mycgv/mycgv.html" target="_parent">MY CGV</a></li>
                     <li><a href="/cgv/support/support.html" target="_parent">고객센터</a></li>
                 </ul>
             </nav>
         </div>
 <!-- cgv 헤더가 2줄이니까 div도 크게 2개로해서 묶어서 코드작성하기 -->
-        <div>
+        <div class="header-bottom">
             <ul>
                 <li>
                     <a href="">영화</a>

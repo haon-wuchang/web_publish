@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-primary: rgb(77,77,77);
+    --color-black: #050a13;
+    --color-white: #fff;
+    --color-border: tomato;
+    --color-silver: silver;
+    --color-footer-bg: rgb(248,248,248);
+}
