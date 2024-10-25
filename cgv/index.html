@@ -31,54 +31,115 @@
         <!-- 무비차트 리스트 -->
         <div class="content-moviechart">
             <div> <!-- 컨텐츠 가운데 정렬 -->
-                <article class="content-moviechart-title">
+                <article class="content-title-style">
                     <div>
-                        <span>무비차트</span>
+                        <span class="content-title-style-font">무비차트</span>
                         <span>&nbsp;</span>
-                        <span>상영예정작</span>
+                        <span class="content-title-style-font">상영예정작</span>
                     </div>
                     <div>
-                        <button>전체보기</button>
+                        <button class="total-view-button">전체보기 &gt;</button>
                     </div>
                 </article>
 
-                <article>
+                <article class="content-moviechart-list">
                     <ul>
-                        <!-- 무비차트리스트반복  -->
-                        <li>  
+                        <li>    <!-- 무비차트리스트반복  -->
                             <div>
                                 <img src="/cgv/images/movie-chart1.jpg" alt="무비차트1" width="200px">
                             </div>
-                            <div><h3>보통의 가족</h3></div>
-                            <div><h5>예매율 90%</h5></div>
+                            <div>
+                                <h3>보통의 가족</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 90%</h5>
+                            </div>
+                        </li>
+                        <li>   
+                            <div>
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88526/88526_320.jpg" alt="무비차트2" width="200px">
+                            </div>
+                            <div>
+                                <h3>베놈</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 80%</h5>
+                            </div>
+                        </li>
+                        <li>   
+                            <div>
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88539/88539_320.jpg" alt="무비차트3" width="200px">
+                            </div>
+                            <div>
+                                <h3>아마존 활명수</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 80%</h5>
+                            </div>
+                        </li>
+                        <li>   
+                            <div>
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88459/88459_320.jpg" alt="무비차트4" width="200px">
+                            </div>
+                            <div>
+                                <h3>글래디 에디터</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 80%</h5>
+                            </div>
+                        </li>
+                        <li>   
+                            <div>
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88488/88488_320.jpg" alt="무비차트5" width="200px">
+                            </div>
+                            <div>
+                                <h3>베테랑2</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 80%</h5>
+                            </div>
                         </li>
                     </ul>
                 </article>
             </div>
         </div>
-        <!-- 이벤트,특별관 기타 등 -->
-        <div>
+        
+        <div class="content-event-special"><!-- 이벤트,특별관 기타 등 -->
             <!-- EVENT -->
             <section> 
-                <div>
-                    <h3>EVENT</h3>
-                    <button>전체보기</button>
+                <div class="content-title-style">
+                    <h3 class="content-title-style-font">EVENT</h3>
+                    <button class="total-view-button">전체보기  &gt;</button>
                 </div>
                 <ul>
-                    <li>
+                    <li> 
                         <div>
-                            <img src="/cgv/images/event1.jpg" alt="EVENT 이미지" width="200px">
+                            <img src="/cgv/images/event1.jpg" alt="EVENT 이미지1" width="200px">
                         </div>
                         <p>[콜렉터블 무비머니]Vol. 1 맥스 달튼</p>
+                        <p>2024.09.25~2024.10.31</p>
+                    </li>
+                    <li> 
+                        <div>
+                            <img src="https://img.cgv.co.kr/WebApp/contents/eventV4/42386/17297657794310.jpg" alt="EVENT 이미지2" width="200px">
+                        </div>
+                        <p>[CGV] 10월 컬처위크</p>
+                        <p>2024.09.25~2024.10.31</p>
+                    </li>
+                    <li> 
+                        <div>
+                            <img src="https://img.cgv.co.kr/WebApp/contents/eventV4/42372/17295802409470.jpg" alt="EVENT 이미지3" width="200px">
+                        </div>
+                        <p>[베놈-라스트댄스]</p>
                         <p>2024.09.25~2024.10.31</p>
                     </li>
                 </ul>
             </section>
             <!-- 특별관 -->
             <section>
-                <div>
-                    <h3>특별관</h3>
-                    <button>전체보기</button>
+                <div class="content-title-style">
+                    <h3 class="content-title-style-font">특별관</h3>
+                    <button class="total-view-button">전체보기  &gt;</button>
                 </div>
                 <div>
                     <div>
@@ -108,29 +169,57 @@
             <section>
                 <div> <!-- 패키지-->
                     <div>
-                        <span><b>패키지</b></span>
-                        <button>더보기</button>
+                        <span class="package"><b>패키지</b></span>
+                        <button class="total-view-button-2">더보기</button>
                     </div>
                     <ul>
                         <li>
-                            <img src="/cgv/images/package1.jpg" alt="패키지1 이미지" width="80px">
+                            <img src="/cgv/images/package1.jpg" alt="패키지1 이미지">
                             <div>
                                 <p>우리 패키지</p>
                                 <p>62,000 원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://img.cgv.co.kr/GiftStore/Product/Pc/List/17170513228970.jpg" alt="패키지2 이미지">
+                            <div>
+                                <p>나랑 너 패키지</p>
+                                <p>35,000 원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://img.cgv.co.kr/GiftStore/Product/Pc/List/16778206767040.jpg" alt="패키지3 이미지">
+                            <div>
+                                <p>좋은 날 패키지</p>
+                                <p>18,000 원</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div> <!-- 영화관람권-->
                     <div>
-                        <span><b>영화관람권</b></span>
-                        <button>더보기</button>
+                        <span class="package"><b>영화관람권</b></span>
+                        <button class="total-view-button-2">더보기</button>
                     </div>
                     <ul>
                         <li>
-                            <img src="/cgv/images/movieticket.jpg" alt="티켓1 이미지" width="80px">
+                            <img src="/cgv/images/movieticket.jpg" alt="티켓1 이미지">
                             <div>
                                 <p>CGV 영화관람권</p>
+                                <p>13,000 원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://img.cgv.co.kr/GiftStore/Product/Pc/List/16104445886810.jpg" alt="티켓2 이미지" >
+                            <div>
+                                <p>IMAX 영화관람권</p>
+                                <p>13,000 원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://img.cgv.co.kr/GiftStore/Product/Pc/List/16105061088530.jpg" alt="티켓3 이미지" >
+                            <div>
+                                <p>4DX 영화관람권</p>
                                 <p>13,000 원</p>
                             </div>
                         </li>
@@ -138,14 +227,28 @@
                 </div>
                 <div> <!-- 기프트카드-->
                     <div>
-                        <span><b>기프트카드</b></span>
-                        <button>더보기</button>
+                        <span class="package"><b>기프트카드</b></span>
+                        <button class="total-view-button-2">더보기</button>
                     </div>
                     <ul>
                         <li>
-                            <img src="/cgv/images/giftcard.jpg" alt="기프트카드1 이미지" width="80px">
+                            <img src="/cgv/images/giftcard.jpg" alt="기프트카드1 이미지" >
                             <div>
                                 <p>PACONNIE A형</p>
+                                <p>금액충전형</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://img.cgv.co.kr/GiftStore/Product/Pc/List/15814158039890.jpg" alt="기프트카드2 이미지" >
+                            <div>
+                                <p>PACONNIE B형</p>
+                                <p>금액충전형</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://img.cgv.co.kr/GiftStore/Product/Pc/List/15814162227570.jpg" alt="기프트카드3 이미지">
+                            <div>
+                                <p>PACONNIE C형</p>
                                 <p>금액충전형</p>
                             </div>
                         </li>
@@ -162,7 +265,7 @@
                             <span>
                                 <a href="#">[시스템 점검]iOS 18 업데이트 관련 예매 서비스</a>
                             </span>
-                            <button>더보기</button>
+                            <button class="total-view-button-2">더보기</button>
                         </div>
                         <div><!--고객센터-->
                             <p><b>고객센터</b></p>

@@ -61,7 +61,8 @@ header {
     border-top: 1px solid gray;        
 }
 .header-bottom-content {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    padding-top: 5px;
 }
 .header-bottom dl {
     display: none;
@@ -260,9 +261,14 @@ footer {
 .content-top {
     width: 100%;
     background-color: black;
+    /* border: 1px solid red; */
+    position: relative;
+    top: -4px;
 }
  
-.content-top iframe, .content-moviechart > div {  /*iframe 은 인라인이라 블럭으로 바꿔야 속성적용댐*/
+.content-top iframe, 
+.content-moviechart > div,
+.content-event-special {  /*iframe 은 인라인이라 블럭으로 바꿔야 속성적용댐*/
     display: block;
     width: 1000px;
     margin: 0 auto;
@@ -270,30 +276,214 @@ footer {
 
 .content-moviechart {
     width: 100%;
-    background-color: var(--color-footer-bg);
     padding: 30px 0;
+    background-color: var(--color-footer-bg);
 }
 
-.content-moviechart-title {
+.content-title-style {
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+}
+
+
+.content-moviechart .content-title-style > div:first-child { 
+    width: 250px;
+    position: relative;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+article.content-title-style > div > span:first-child {
+    color: var(--color-black);
+}
+article.content-title-style > div > span:last-child {
+    right: 0;
+    color: gray;
+    position: absolute;
+}
+.content-moviechart .content-title-style > div > span:first-child + span {
+    top: 7px;
+    left: 45%;
+    width: 2px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    background-color: var(--color-silver);
+    /* border: 1px solid blue; */
+}
+
+
+/* 무비차트리스트 상영예정작 */
+
+.content-moviechart-list ul {
+    /* border: 1px solid red; */
+    list-style-type: none;
     display: flex;
     justify-content: space-between;
 }
 
-.content-moviechart-title > div > span {
-    font-size: 25px;
-    font-weight: 700;
+.content-moviechart-list ul li {
+    /* border: 1px solid blue; */
+    padding: 15px 15px 0 ;
 }
 
-.content-moviechart-title > div > span:first-child {
-    color: var(--color-black);
+.content-moviechart-list ul li:first-child {
+    padding-left: 0px;
 }
 
-.content-moviechart-title > div > span:last-child {
-    color: gray;
+.content-moviechart-list ul li:last-child {
+    padding-right: 0px;
 }
 
-.content-moviechart-title > div > span:first-child + span {
-    background-color: var(--color-silver);
-    font-size: 10px;
+.content-moviechart-list ul li img {
+    border-radius: 10px;
+    width: 170px;
+}
+
+.content-moviechart-list ul li h3 {
+    text-align: center;
+    padding: 8px 0;
+    color: var(--color-primary);
+}
+
+.content-moviechart-list ul li h5 {
+    text-align: center;
+    padding-top: 3px;
+    color: var(--color-primary);
+}
+
+/****************** 이벤트 섹션 
+*******************************
+***************/
+.content-event-special section:first-child {
     /* border: 1px solid red; */
 }
+
+/* ***************************
+*************************
+내가한부분 이벤트 
+*******************
+********************/
+.content-event-special section:first-child > div {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+.content-event-special section:first-child > ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+.content-event-special section:first-child > ul img {
+    width: 320px;
+    border-radius: 20px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+.content-event-special section:first-child > ul > li > div + p {
+   
+    font-weight: 700;
+    font-size: 17px;
+}
+.content-event-special section:first-child li > p:last-child {
+    /* border: 1px solid blue; */
+    font-size: 14px;
+    color: var(--color-primary);
+    padding-top: 5px;
+}
+/* 내가한부분 이벤트 끝 */
+/* 내가한부분 특별관 */
+.content-event-special section:nth-child(2) > div {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.content-event-special section:nth-child(2) > div:nth-child(2){
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.content-event-special section:nth-child(2) > div:nth-child(2) > div > img {
+    border: 1px solid red;
+    width: 500px;
+}
+
+.content-event-special section:nth-child(2) ul {
+    border: 1px solid red;
+    list-style-type: none;
+    width: 450px;
+}
+
+.content-event-special section:nth-child(2) ul li {
+    border-top: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    padding: 21px;
+}
+
+.content-event-special section:nth-child(2) ul li span:first-child {
+    /* border: 1px  solid red; */
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.content-event-special section:nth-child(2) ul li:last-child {
+    border-bottom: 1px solid gray;
+}
+
+/* 패키지 영화관람권 기프트카드 섹션 */
+.content-event-special section:nth-child(3) {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.content-event-special section:nth-child(3) > div {
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 310px;
+}
+
+.content-event-special section:nth-child(3) ul {
+    list-style-type: none;
+}
+
+.content-event-special section:nth-child(3) > div > div {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+
+.content-event-special section:nth-child(3) ul li {
+    /* border: 1px solid blue; */
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.content-event-special section:nth-child(3) ul li img {
+    width: 70px;
+    padding-right: 15px;
+}
+
+.content-event-special section:nth-child(3) ul li p {
+    font-weight: 600;
+    font-size: 14px;
+}
+/* 패키지 영화관람권 기프트카드 섹션 끝*/
+/* 내가한부분 특별관 끝*/
