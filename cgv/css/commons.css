@@ -13,8 +13,33 @@
     --color-moviechart : rgb(251,251,251);
     --color-font-primaty: rgb(34,34,34);
     --color-gray222: rgb(222,222,222);
+    --color-button: rgb(251,67,87);
+    --color-login-font: rgb(137,137,135);
 
 }
+
+.button-main-color {
+    background-color: var(--color-button);
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+}
+
+
+/* 컨텐츠가운데정렬 */
+.center-layout {
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid red;
+    margin-bottom: 80px;
+}
+
+.center-title {
+    border: 1px solid blue;
+    padding: 40px 15px 10px 15px;
+    margin-bottom: 30px;
+}
+
 
 /* 전체보기 틀  */
 .total-view-button {
