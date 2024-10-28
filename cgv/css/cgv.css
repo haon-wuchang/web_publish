@@ -363,127 +363,197 @@ article.content-title-style > div > span:last-child {
     /* border: 1px solid red; */
 }
 
-/* ***************************
-*************************
-내가한부분 이벤트 
-*******************
-********************/
-.content-event-special section:first-child > div {
+.content-event-list {
+    /* border: 1px solid red; */
     display: flex;
-    justify-content: space-between;
-    /* border: 1px solid blue; */
-    padding-top: 50px;
-    padding-bottom: 10px;
-}
-.content-event-special section:first-child > ul {
-    display: flex;
-    justify-content: space-between;
     list-style-type: none;
+    justify-content: space-between;
 }
-.content-event-special section:first-child > ul img {
-    width: 320px;
-    border-radius: 20px;
-    padding-bottom: 15px;
-    padding-top: 10px;
-}
-.content-event-special section:first-child > ul > li > div + p {
-   
-    font-weight: 700;
-    font-size: 17px;
-}
-.content-event-special section:first-child li > p:last-child {
+
+.content-event-list > li {
     /* border: 1px solid blue; */
-    font-size: 14px;
-    color: var(--color-primary);
-    padding-top: 5px;
-}
-/* 내가한부분 이벤트 끝 */
-/* 내가한부분 특별관 */
-.content-event-special section:nth-child(2) > div {
-    display: flex;
-    justify-content: space-between;
-    /* border: 1px solid blue; */
-    padding-top: 50px;
-    padding-bottom: 10px;
+    padding: 5px;
 }
 
-.content-event-special section:nth-child(2) > div:nth-child(2){
-    border: 1px solid blue;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 20px;
+.content-event-list  p {
+    padding: 5px;
+    /* border: 1px solid red; */
 }
 
-.content-event-special section:nth-child(2) > div:nth-child(2) > div > img {
-    border: 1px solid red;
-    width: 500px;
-}
 
-.content-event-special section:nth-child(2) ul {
-    border: 1px solid red;
-    list-style-type: none;
-    width: 450px;
-}
-
-.content-event-special section:nth-child(2) ul li {
-    border-top: 1px solid gray;
-    display: flex;
-    justify-content: space-between;
-    padding: 21px;
-}
-
-.content-event-special section:nth-child(2) ul li span:first-child {
-    /* border: 1px  solid red; */
+.event-content-title {
     font-weight: 600;
     font-size: 18px;
+    color: var(--color-primary);
+    margin-top: 10px;
+}
+.event-content-title2 {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--color-primary-);
 }
 
-.content-event-special section:nth-child(2) ul li:last-child {
+.content-event-list > li > div > img {
+    /* border: 1px solid red; */
+    width: 300px;
+    border-radius: 15px;
+}
+
+
+/* ***************특별관 */
+.special-content-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.special-content-list ul {
+    list-style-type: none;
+}
+
+.special-content-list div, 
+.special-content-list ul {
+    width: 480px;
+    /* border: 1px solid green; */
+}
+.special-content-list div img, 
+.special-content-list ul {
+    width: 480px;
+    /* border: 1px solid green; */
+}
+
+.special-content-list ul li {
+    padding: 16px 20px;
+    /* border: 1px solid green; */
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid gray;
+}
+
+.special-content-list ul li:last-child {
     border-bottom: 1px solid gray;
 }
 
-/* 패키지 영화관람권 기프트카드 섹션 */
-.content-event-special section:nth-child(3) {
+.special-content-list ul li span:last-child {
+    background-color: var(--color-footer-bg);
+    color: var(--color-primary);
+    font-size: 14px;
+    border-radius: 5px;
+    display: inline-block; /*인라인블럭으로하면 패딩적용되니까 회색부분 조금 늘릴수있음*/
+    padding: 5px;
+}
+
+.special-content-list ul li span:first-child {
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.special-content-list ul li:hover {
+    border-radius: 10px;
+    border: 2px solid black;
+    font-weight: 600;
+} 
+
+.special-content-list ul li:hover + li {
+    border-top: 1px solid white;
+} 
+
+/* 패키지영화관람권기프트카드 */
+.package-ex-content-list {
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
-    margin-top: 70px;
-    margin-bottom: 30px;
+    margin: 70px 0 40px 0;
 }
 
-.content-event-special section:nth-child(3) > div {
+.package-ex-content-border {
     border: 1px solid gray;
     border-radius: 10px;
-    width: 310px;
+    padding: 20px;
+    width: 320px;
 }
 
-.content-event-special section:nth-child(3) ul {
+.package-ex-content-border > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.package-ex-content-border ul {
     list-style-type: none;
+    /* border: 1px solid red; */
 }
 
-.content-event-special section:nth-child(3) > div > div {
+
+.package-ex-content-border ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.package-ex-content-border img {
+    width: 80px;
+}
+
+
+/* 마지막부분 */
+.notice-content-list{
+    padding-bottom: 70px;
+}
+
+.notice-content-list, 
+.notice-content-list > div:first-child {
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
-    padding: 15px 10px;
 }
 
-.content-event-special section:nth-child(3) ul li {
-    /* border: 1px solid blue; */
-    display: flex;
-    padding: 20px;
-    align-items: center;
+.notice-content-border {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    width: 750px;
+    height: 250px;
 }
 
-.content-event-special section:nth-child(3) ul li img {
-    width: 70px;
-    padding-right: 15px;
+.notice-content-border > div:last-child {
+    text-align: center;
+    padding: 15px;
 }
 
-.content-event-special section:nth-child(3) ul li p {
+.notice-content-border > div > div:first-child {
+    border-bottom: 1px solid gray;
+}
+
+
+.notice-content-border > div:first-child {
+    border-right: 1px solid gray;
+    padding: 15px;
+}
+
+.notice-font {
+    font-size: 16px;
     font-weight: 600;
-    font-size: 14px;
 }
-/* 패키지 영화관람권 기프트카드 섹션 끝*/
-/* 내가한부분 특별관 끝*/
+
+.call div > p {
+    font-size: 14px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+.call div > p:first-child {
+    font-weight: 600;
+}
+
+.call div > p:last-child {
+    color: var(--color-primary);
+}
+
+.call {
+    display: flex;
+    padding-top: 15px;
+}
+
+.faq {
+    padding-top: 15px;
+}
