@@ -853,10 +853,7 @@ article.content-title-style > div > span:last-child {
     margin: 0 auto;
 }
 
-.support-content > p {
-    font-size: 14px;
-    color: var(--color-primary);
-}
+
 
 
 .support-content > div {
@@ -886,8 +883,8 @@ article.content-title-style > div > span:last-child {
     width: 80px;
     height: 25px;
     padding: 5px 5px ;
-    background-color: black;
     color: white;
+    background-color: black;
     border: 1px solid gray;
     outline: 1px solid black;
     display: flex;
@@ -895,7 +892,7 @@ article.content-title-style > div > span:last-child {
     justify-content: center;
 }
 
-.support-content ul {
+.support-content > nav ul {
     border-bottom: 2px solid gray;
     display: flex;
     list-style-type: none;
@@ -904,34 +901,47 @@ article.content-title-style > div > span:last-child {
 
 .support-content ul li {
     /* border: 1px solid blue; */
-    text-align: center;
-    margin-right: 4px;
     font-size: 14px;
 }
 
 .support-content ul li:first-child a {
-    background-color: var(--color-button);  /*전체밑에 회색은 어떻게 없애냐??/ */
+    background-color: var(--color-button); 
+    border-left: 1px solid var(--color-button);
+
 }
 
 .support-content ul li a {
     text-decoration: none;
-    color: white;
-    padding: 7px 7px;
-    width: 90px;
     display: inline-block;
+    padding: 7px 7px;
+    width: 100px;
+    text-align: center;
     background-color: gray;
-    
+    color: white;
+    border: 1px solid white; /*a끼리 칸 떨어진게 아니라 보더로 색 넣어준거임*/
+    border-bottom: 1px solid gray;  
 }
 
+.support-content > p {
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+
 .support-content table {
-    margin-top: 15px;
     width: 800px;
+    margin-top: 15px;
     text-align: center;
     color: var(--color-primary);
     font-size: 13px;
-    border: none;
+}
+
+.support-content table,
+.support-content table th,
+.support-content table td {
     border-collapse:collapse;
 }
+
 
 .support-content table thead {
     background-color: var(--color-footer-bg);
@@ -945,30 +955,48 @@ article.content-title-style > div > span:last-child {
     color: var(--color-primary);
 }
 
-
-.support-content table tfoot {
-    border-top: 1px solid gray;
+.support-content table tbody a:hover{
+    text-decoration: underline;
+    font-weight: 600;
 }
 
-.support-content table thead th:nth-child(3) {
-    text-align: left;
+.support-content table tbody {
+    border-bottom: 1px solid gray;
 }
 
+.support-content table thead th:nth-child(3),
 .support-content table tbody td:nth-child(3) {
     text-align: left;
 }
-    
+
+.support-content table thead th:nth-child(3) {
+    text-indent: 3px;
+}
+
 .support-content table thead th { 
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .support-content table tbody td {
-    padding: 10px;
+    padding: 15px 0;
+    /* border: 1px solid red; */
 }
 
 .support-content table tfoot td {
-    padding: 20px;
+    padding: 20px 0;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 8px;
+}
+
+.support-content table thead th:first-child {
+    width: 70px;
+}
+.support-content table thead th:nth-child(2) {
+    width: 150px;
+}
+
+.support-content table thead th:nth-child(4),
+.support-content table thead th:nth-child(5) {
+    width: 120px;
 }
