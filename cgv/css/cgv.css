@@ -692,3 +692,283 @@ article.content-title-style > div > span:last-child {
     display: flex;
     justify-content: center;
 }
+
+/****************************
+*  title: join form style
+*  author : haon@test.com
+*  final date : 2024.10.28
+*****************************/
+
+
+.join-form form {
+    /* border: 1px solid green; */
+    width: 450px;
+    margin: 0 auto;
+ 
+}
+
+.join-title-font,  .join-form ul li label{  
+    font-size: 1em;
+    font-weight: 700;   
+    text-indent: 10px;
+    /* border: 1px solid red; */
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.join-form ul li label + span {
+    font-size: 0.7em;
+    font-weight: 500;
+    color: red;
+}
+
+.join-form ul {
+    list-style-type: none;
+    
+}
+
+.join-form ul li {
+    /* border: 1px solid red; */
+    padding-top: 8px;
+    
+}
+
+.join-form ul li div:not(.join-form ul li:nth-child(6) > div){
+    border: 1px solid var(--color-primary);  
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+
+.join-form ul li:nth-child(6) input,
+.join-form ul li:nth-child(6) select {
+    border: 1px solid var(--color-primary);  
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
+.join-form ul li:nth-child(6) select {
+    width: 50%;
+}
+.join-form ul li:nth-child(6) span {
+    margin: 0 15px;
+}
+
+.join-form ul li:first-child > div,
+.join-form ul li:nth-child(6) > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.join-form button
+{
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    padding: 7px 12px;
+    border: 1px solid white;
+    background-color: var(--color-button);
+    
+}
+
+.join-form ul li:first-child button {
+    margin-left: 10px;
+}
+
+.join-form ul li:last-child {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.join-form ul li:last-child button {
+   margin: 10px 5px;
+   width: 150px;
+   padding: 10px 0;
+}
+
+.join-form ul li:last-child button:last-child {
+    background-color: gray;
+    
+}
+
+.join-form ul li:first-child input{
+    width: 80%;
+    padding-left: 10px;
+    border: 1px solid white;
+}
+
+.join-form ul li:first-child input:focus,
+.join-form ul li input:focus:not(.join-form ul li:nth-child(6) input) {
+    border: none;
+    outline: none;
+}
+
+.join-form ul li input {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid white;
+}
+
+
+.join-form ul li:nth-child(6) input:focus {
+    outline: none;
+}
+
+/****************************
+*  title: mycgv form style
+*  author : haon@test.com
+*  final date : 2024.10.29
+*****************************/
+
+.mycgv div {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+.mycgv div span {
+    border: 1px solid red;
+    display: inline-block;
+    width: 200px;
+    padding: 20px;
+    margin: 30px 20px;
+    text-align: center; /*블럭요소에만 적용가능*/
+}
+.mycgv div span:hover {
+   background-color: lightseagreen;
+   color: white;
+   border: none;
+}
+
+/****************************
+*  title: support form style
+*  author : haon@test.com
+*  final date : 2024.10.29
+*****************************/
+
+.support-content {
+    /* border: 1px solid blue; */
+    width: 800px;
+    margin: 0 auto;
+}
+
+.support-content > p {
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+
+.support-content > div {
+    /* border: 1px solid red; */
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+}
+
+.support-content > div select{
+    width: 100px;
+    padding: 5px 5px ;
+    display: inline-block;
+    margin-right: 5px;
+    color: var(--color-primary);
+
+}
+
+.support-content > div input {
+    width: 200px;
+    padding: 5px 5px ;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.support-content > div button {
+    width: 80px;
+    height: 25px;
+    padding: 5px 5px ;
+    background-color: black;
+    color: white;
+    border: 1px solid gray;
+    outline: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.support-content ul {
+    border-bottom: 2px solid gray;
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.support-content ul li {
+    /* border: 1px solid blue; */
+    text-align: center;
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.support-content ul li:first-child a {
+    background-color: var(--color-button);  /*전체밑에 회색은 어떻게 없애냐??/ */
+}
+
+.support-content ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 7px 7px;
+    width: 90px;
+    display: inline-block;
+    background-color: gray;
+    
+}
+
+.support-content table {
+    margin-top: 15px;
+    width: 800px;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 13px;
+    border: none;
+    border-collapse:collapse;
+}
+
+.support-content table thead {
+    background-color: var(--color-footer-bg);
+    border-bottom: 1px solid var(--color-primary);
+    border-top: 1px solid var(--color-primary);
+    
+}
+
+.support-content table tbody a{
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+
+.support-content table tfoot {
+    border-top: 1px solid gray;
+}
+
+.support-content table thead th:nth-child(3) {
+    text-align: left;
+}
+
+.support-content table tbody td:nth-child(3) {
+    text-align: left;
+}
+    
+.support-content table thead th { 
+    padding: 10px;
+}
+
+.support-content table tbody td {
+    padding: 10px;
+}
+
+.support-content table tfoot td {
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 8px;
+}
