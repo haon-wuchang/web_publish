@@ -90,6 +90,12 @@ header {
     padding: 5px;
 }
 
+.header-bottom-search i {
+    /* border: 1px solid red; */
+    font-size: 25px;
+    color: var(--color-primary);
+}
+
 .header-menu-icon1 {
     /* border: 1px solid blue; */
     display: block;
@@ -195,6 +201,8 @@ header {
     left: 100px;
     top: 5px;
 }
+
+
 /****************************
 *  title: footer style
 *  author : haon@test.com
