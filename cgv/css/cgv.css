@@ -94,6 +94,7 @@ header {
     /* border: 1px solid red; */
     font-size: 25px;
     color: var(--color-primary);
+    cursor: pointer;
 }
 
 .header-menu-icon1 {
@@ -632,6 +633,8 @@ article.content-title-style > div > span:last-child {
     width: 70px;
     padding: 20px 0;
 }
+
+
 /****************************
 *  title: login form style
 *  author : haon@test.com
@@ -658,14 +661,19 @@ article.content-title-style > div > span:last-child {
 
 .login-form ul li {
     padding: 10px;
+    
 
     /* border: 1px solid red; */
 }
 
-.login-form input:not(input[type="checkbox"]),
-.login-form button {
-    width: 263px;
-    padding: 10px;
+
+.login-form input:not(input[type="checkbox"]) {
+    padding: 5px;
+    width: 273px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    
 }
 
 .login-form ul p {
@@ -682,6 +690,9 @@ article.content-title-style > div > span:last-child {
     outline-color: var(--color-button);
     outline-style: solid;
     outline-width: 2px;
+    width: 273px;
+    padding: 10px;
+    margin-left: 10px;
 }
 
 .login-form ul > li:nth-child(5) {
@@ -707,6 +718,21 @@ article.content-title-style > div > span:last-child {
     justify-content: center;
 }
 
+.loginlogo {
+    border: 1px solid gray;
+    width: 273px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-left: 10px;
+    outline: 1px solid gray;
+}
+
+.loginlogo i {
+    padding: 0 15px 0 10px;
+    border-right: 1px solid gray;
+
+}
 /****************************
 *  title: join form style
 *  author : haon@test.com

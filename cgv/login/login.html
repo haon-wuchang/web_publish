@@ -6,6 +6,7 @@
     <title>CGV</title>
     <link rel="stylesheet" href="/cgv/css/commons.css">
     <link rel="stylesheet" href="/cgv/css/cgv.css">
+    <script src="https://kit.fontawesome.com/f6ead21f87.js" crossorigin="anonymous"></script>
 </head>
 <body>
    <!-- header -->
@@ -21,10 +22,16 @@
                         <p>아이디 비밀번호를 입력하신 후, 로그인 버튼을 클릭해 주세요.</p>
                     </li>
                     <li>
-                        <input type="text" name="id" placeholder="아이디를 입력해주세요">
+                        <div class="loginlogo">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" name="id">
+                        </div>
                     </li>
                     <li>
-                        <input type="password" name="pw" placeholder="비밀번호를 입력해주세요">
+                        <div class="loginlogo">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" name="pw">
+                        </div>
                     </li>
                     <li>
                         <button class="button-main-color">로그인</button>
