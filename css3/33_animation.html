@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid gray;
+            /* animation-name: change-color;
+            animation-duration: 3s;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse; */
+            animation: change-color 3s 2s;
+        }
+        @keyframes change-color{
+            from {background-color: darkcyan;}
+            50% {background-color: rgb(124, 61, 28);}
+            to {background-color: darkslateblue;}
+        }
+        h1 {
+            opacity: 1;           
+            color: darkviolet;
+        }
+        @keyframes fadeup {
+            from {opacity: 1;}
+            to {opacity: 0.2;}
+        }
+        h1:hover {
+            animation: fadeup 3s 0s forwards 2;
+        }
+        .box-img {
+            width: 300px;
+            height: 300px;
+            border: 1px solid gray;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            animation: box-img 10s ease 0s 1 ;            
+        }
+        @keyframes box-img {
+            from{background-image: url(/cgv/images/CGV_BUGS.png);}
+            50%{background-image: url(/cgv/images/cgvlogo.png);}
+            to{background-image: url(/cgv/images/event1.jpg);}
+        }
+    </style>
+</head>
+
+<body>
+    <h1>animation style</h1>
+    <div class="box">box</div>
+    <div class="box-img"></div>
+</body>
+</html>

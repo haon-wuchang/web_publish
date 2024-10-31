@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>translate</title>
+    <style>
+        .translate {
+        }
+        .translate img {
+            width: 300px;
+            transition: 0.4s;
+
+        }
+        .translate img:hover { /*xy 축 동시적용안됨(trasform 여러개적으면 맨마지막에 적은거만적용됨*/
+            /* transform: translateX(50px);
+            transform: translateY(40px); */
+            transform: translate(150px ,140px) scale(2); 
+            /*동시적용하려면 이렇게 적으면댕
+            scale은 xy 축이동한후에 그 이동한 중심점에서 몇배 확대한거*/
+            transform: rotate(40deg);
+            /* transform: skewX(45deg); */
+        }
+       
+
+    </style>
+</head>
+<body>
+    <h1>Translate</h1>
+    <div class="translate ">
+        <img src="/cgv/images/movie-chart4.jpg" alt="">
+    </div>
+    <img class="rotate-scale-up" src="/cgv/images/event1.jpg" alt="">
+</body>
+</html>

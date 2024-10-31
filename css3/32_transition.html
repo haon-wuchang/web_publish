@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        div img {
+            /* width: 200px;
+            transition-property: width;
+            transition-duration: 1s;
+            transition-delay: 0;
+            transition-timing-function: ease-in; */
+            transition: width 1s 0s ease-in;
+        }
+
+        div img:hover {
+            width: 400px;
+        }
+        .frame {
+            width: 300px;
+            height: 500px;
+            border: 1px solid gray;
+            transition: height 3s 0s ease-in-out;
+        }
+
+        .frame p {
+            margin: 0;
+            padding: 0;
+            background-color: darkcyan;
+            height: 50px;
+            text-align: center;
+            color: white;
+            
+        }
+        .frame div {
+            height: 0;
+            transition: height 3s 0s ease-in-out;
+            background-color: rgb(121, 11, 168);
+        }
+        .frame p:hover + div {
+            height: 400px;
+        }
+        /* .frame:hover {
+            height: 500px;
+        } */
+
+
+    </style>
+</head>
+<body>
+    <h1>Transition style</h1>
+    <div>
+        <img src="/html/images/cgvlogo.png" alt="">
+    </div>
+    <hr>
+    <article class="frame">
+        <p>Frame</p>
+        <div></div>
+    </article>
+</body>
+</html>
