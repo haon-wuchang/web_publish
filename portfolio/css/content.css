@@ -1,0 +1,534 @@
+
+
+/***************************
+****************************
+    header
+    2024.11.01
+    haon
+    ****************************
+    ************** *********** */
+header {
+    margin: 0 auto;
+    width: 100%;
+    height: 650px;
+    /* border: 1px solid red; */
+}
+
+
+.header-all {
+    background-color: darkcyan;
+    height: 650px;
+}
+
+.header-logo-menu {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header-logo {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 200px;
+    padding: 10px;
+}
+
+.header-logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+}
+
+.header-logo a {
+    text-decoration: none;
+}
+
+.header-logo span {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    /* border: 1px solid black; */
+    /* display: inline-block; */
+    top: 18px;
+    left: 70px;
+    
+}
+
+.header-menu ul {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 10px;
+    
+}
+
+.header-menu ul li:not(.header-menu ul li:last-child) {
+    /* border: 1px solid red; */
+    margin-right: 20px;
+    
+}
+
+.header-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+
+.img-intro {
+    /* border: 1px solid red; */
+
+}
+
+.img-intro-img {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content:center ;
+    margin-top: 80px;
+}
+
+.img-intro-img img {
+    width: 300px; 
+    border-radius: 80px;
+}
+
+.img-intro-intro {
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content:center ;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.img-intro-intro p:not(.img-intro-intro p:last-child) {
+    /* border: 1px solid red; */
+    color: white;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.img-intro-intro p:last-child {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.img-intro-intro p:nth-child(2) span {
+    /* border: 1px solid red; */
+    color: rebeccapurple;
+   
+}
+.img-intro-btn {
+    display: flex;
+    justify-content:center ;
+    margin-top: 20px;
+}
+
+.img-intro-btn button {
+    width: 100px;
+    height: 30px;
+    background-color: rebeccapurple;
+    border: none;
+    border-radius: 5px;
+    font-weight: 550;
+    font-size: 14px;
+    color: white;
+}
+
+/***************************
+****************************
+    footer
+    2024.11.01
+    haon
+    ****************************
+    ************** *********** */
+
+footer {  /*바닥이 조금 띄워지는데 왜이럼...*/
+    width: 100%;
+    height: 240px;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+   
+  
+}
+
+.footer-all {
+    background-color: darkcyan;
+    height: 240px;
+    text-align: center;
+
+}
+.footer-div1 {
+    /* border: 1px solid red; */
+    color: white;
+    padding-top: 40px;
+}
+
+.footer-div1 p:first-child {
+    font-size: 22px;
+    font-weight: 600;
+   
+}
+
+.footer-div1 p:last-child {
+    font-size: 16px;
+    margin: 10px 0 ;
+}
+
+.footer-div2 {
+    margin: 15px 0 5px;
+}
+.footer-div2 a {
+    text-decoration: none;
+    padding: 0 3px;
+}
+
+.footer-div2 i, .back-to-top i {
+    font-size: 35px;
+    color: white;
+}
+
+.footer-all > p {
+    color: white;
+    font-size: 13px;
+    /* border: 1px solid red; */
+}
+
+.back-to-top {
+    /* border: 1px solid red; */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+.back-to-top a {
+    text-decoration: none;
+}
+
+
+/***************************
+****************************
+    content
+    2024.11.01
+    haon
+    ****************************
+    ************** *********** */
+
+.content-all {
+    width: 1200px;
+    margin: 0 auto;
+    /* border: 1px solid rebeccapurple; */
+    margin-top: 50px;
+}
+
+.about-me-all {
+    /* border: 1px solid red; */
+    text-align: center;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.about-me-font {
+    /* border: 1px solid green; */
+    margin-bottom: 30px;
+}
+
+.about-me-font h3 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.about-me-font p {
+    font-size: 17px;
+}
+
+.three-box {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.three-box div:first-child,
+.three-box div:nth-child(2),
+.three-box div:last-child {
+    /* border: 1px solid red; */
+    padding: 30px 10px 20px;
+    background-color: darkcyan;
+    border-radius: 10px;
+}
+
+.three-box div:first-child,
+.three-box div:nth-child(2) {
+    margin-right: 10px;
+}
+
+.three-box div:first-child i,
+.three-box div:nth-child(2) i,
+.three-box div:last-child i {
+    font-size: 80px;
+    color: rebeccapurple;
+    padding-bottom: 20px;
+}
+
+.three-p1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    /* border: 1px solid white; */
+    padding: 0 0 10px 0;
+}
+
+.three-p2 {
+    color: white;
+}
+
+.goo-sam-img {
+    /* border: 1px solid blue; */
+    text-align: left;
+    padding: 10px;
+}
+
+.google,
+.samsung {
+    display: flex;
+    /* border: 1px solid black; */
+
+}
+
+.google div,
+.samsung div {
+    padding: 0 15px;
+    font-size: 15px;
+}
+
+.google {
+ margin-bottom: 10px;
+
+}
+
+/******my skillls*****/
+
+.my-skills {
+    /* border: 1px solid blue; */
+    margin-top: 40px;
+    background-color: darkcyan;
+    color: white;
+}
+
+.my-skills-font {
+    /* border: 1px solid red; */
+    padding: 10px;
+    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.my-skills-font h3 {
+    font-size: 32px;
+    padding-bottom: 15px;
+    margin-top: 80px;
+}
+
+.my-skills-font h5 {
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.big-box {   /*가로1200 세로 800 패딩 20씩 그럼 가로1160 세로 760*/
+    /* border: 1px solid white; */
+    height: 700px;
+    position: relative;
+    padding: 20px;
+}
+
+.coding-skill-box {
+    /* border: 1px solid black; */
+    background-color: rgb(85, 134, 134);
+    position: absolute;
+    width: 700px;
+    height: 660px;
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    text-align: center;
+
+}
+
+.tool-box {
+    /* border: 1px solid black; */
+    width: 460px;
+    height: 350px;
+    position: absolute;
+    background-color: rgb(114, 202, 202);
+    right: 20px;
+    top: 20px;
+    z-index: 3;
+    padding: 30px;
+    text-align: center;
+}
+
+.etc-box {
+    /* border: 1px solid black; */
+    background-color: rgb(84, 165, 165);
+    position: absolute;
+    bottom: 21px;
+    right: 20px;
+    width: 460px;
+    height: 310px;
+    z-index: 2;
+    padding: 30px;
+    text-align: center;
+}
+
+.big-box-font {
+    font-size: 25px;
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+}
+
+.big-box h5 {
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 7px;
+}
+/******my works*****/
+
+.mywork {
+    width: 1200px;
+    /* border: 1px solid red; */
+    background-color: darkcyan;
+    /* padding-top: 100px; */
+    text-align: center;
+    height: 900px;
+}
+
+.mywork-title h3 {
+    /* border: 1px solid black; */
+    padding: 80px 0 20px ;
+    font-size: 32px;
+    color: white;
+}
+
+.mywork-title p {
+    font-size: 22px;
+    color: white;
+    padding: 0px 0 10px;
+}
+
+.mywork-btn {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+    padding: 30px 0;
+    justify-content: space-evenly;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.mywork-btn button {
+    width: 160px;
+    height: 40px;
+    border: 2px solid rebeccapurple;
+    background-color: darkcyan;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    
+}
+
+.mywork-img-all {
+    /* border: 1px solid red; */
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mywork-img-all img {
+    width: 240px;
+    height: 190px;
+    border-radius: 5px;
+}
+
+.mywork-img1,
+.mywork-img2 {
+    /* border: 1px solid white; */
+    margin: 19px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/******testimonial*****/
+
+.testimonial {
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.testimonial-title h3 {
+    font-size: 32px;
+    padding-bottom: 10px;
+}
+
+.testimonial-title p {
+    font-size: 18px;
+    padding-bottom: 50px;
+}
+
+.people1,
+.people2,
+.people3 {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.people1 img,
+.people2 img,
+.people3 img {
+    border-radius: 100%;
+}
+
+.people1 > div,
+.people3 > div {
+    border: 1px solid gray;
+    font: 16px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+
+.people2 > div {
+    border: 1px solid gray;
+    font: 16px;
+    border-radius: 10px;
+    margin-right: 30px;
+}
+.span-name {
+    color: rebeccapurple;
+}
+
+.people1 span,
+.people2 span,
+.people3 span {
+    font-size: 22px;
+    /* border: 1px solid red; */
+    font-weight: 600;
+}
+
+.span-div {
+    /* border: 1px solid red; */
+    margin: 10px 0;
+}
+
+.people2 {
+   flex-direction: row-reverse;
+}
