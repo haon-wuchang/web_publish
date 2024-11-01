@@ -396,6 +396,63 @@ footer {  /*바닥이 조금 띄워지는데 왜이럼...*/
     font-weight: 400;
     padding-bottom: 7px;
 }
+
+.pyo-all {
+    /* border: 1px solid red; */
+    margin-top: 80px;
+}
+.pyo{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.pyo-line {
+    /* border: 1px solid black; */
+    padding: 20px 10px;
+}
+
+.bar1 {
+    height: 10px;
+    background-color: rebeccapurple;
+    width: 90%;
+}
+.bar2 {
+    height: 10px;
+    background-color: rebeccapurple;
+    width: 70%;
+}
+.bar3 {
+    height: 10px;
+    background-color: rebeccapurple;
+    width: 0%;
+}
+.bar4 {
+    height: 10px;
+    background-color: rebeccapurple;
+    width: 0%;
+}
+.bar5 {
+    height: 10px;
+    background-color: rebeccapurple;
+    width: 0%;
+}
+.bar6 {
+    height: 10px;
+    background-color: rebeccapurple;
+    width: 0%;
+}
+
+
+
+
+
+
+
+
+
+
 /******my works*****/
 
 .mywork {
