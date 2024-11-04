@@ -9,15 +9,48 @@
     <script src="https://kit.fontawesome.com/f6ead21f87.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!--헤더-->
-    <iframe src="/portfolio/header.html" 
-    frameborder="0"
-    width="100%"
-    height="650px">
-    </iframe>
+    <header>
+        <div class="header-all"> <!--헤더전체-->
+            <div class="header-logo-menu"> <!-- 맨위의 로고와 메뉴들 전체-->
+                <div class="header-logo"> <!--왼쪽 로고-->
+                    <a href="/portfolio/index.html" target="_parent">
+                        <img src="/portfolio/images/wuchang-img.jpg">
+                    </a>
+                    <span>HAON</span>
+                </div>
+                <div class="header-menu"> <!-- 메뉴들 ul-->
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#About">About</a></li>
+                        <li><a href="#Skills">Skills</a></li>
+                        <li><a href="#My-Work" >My Work</a></li>
+                        <li><a href="#Testimonial" >Testimonial</a></li>
+                        <li><a href="#Contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="img-intro"><!--이미지 자기소개 전체 틀-->
+                <div class="img-intro-img">
+                    <img src="/portfolio/images/wuchang-img.jpg" alt="">
+                </div> 
+                <div class="img-intro-intro">
+                    <div>
+                        <p>Hello</p>
+                        <p>I'm 
+                            <span>
+                                dream coder</span>, HAON</p>
+                        <p>A software engineer currently residing in Seoul, South Korea</p>
+                    </div>
+                </div>
+                <div class="img-intro-btn">
+                    <button>Contact Me</button>
+                </div>
+            </div>
+        </div>
+    </header>
     <!--컨텐츠-->
     <div class="content-all"> <!--전체틀-->
-        <div class="about-me-all"> <!-- 어바웃미틀-->
+        <div class="about-me-all" id="About"> <!-- 어바웃미틀-->
             <div class="about-me-font"> <!-- 어바웃미와 글자-->
                 <h3>About me</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -61,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="my-skills"> <!--마이스킬 틀-->
+        <div class="my-skills" id="Skills"> <!--마이스킬 틀-->
             <div class="my-skills-font"> <!-- 글씨들 틀-->
                 <h3>My Skills</h3>
                 <h5>Skills & Attributes</h5>
@@ -141,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <div class="mywork"> <!-- 마이워크 틀-->
+        <div class="mywork" id="My-Work"> <!-- 마이워크 틀-->
             <div class="mywork-title"><!--제목 프로젝트-->
                 <h3>
                     My work
@@ -171,7 +204,7 @@
                 </div>
             </div>
         </div>
-        <div class="testimonial"> <!--testimonial 틀-->
+        <div class="testimonial" id="Testimonial"> <!--testimonial 틀-->
             <div class="testimonial-title"> <!--제목 글씨-->
                 <h3>Testimonial</h3>
                 <p>See what they say about me</p>
@@ -220,13 +253,29 @@
             </div>
         </div>
     </div>
+    <div>
+        <a href="#" class="arrow-up">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
 
-    <!--footer-->
-    <iframe src="/portfolio/footer.html" 
-    frameborder="0"
-    width="100%"
-    height="240px">
-    </iframe>
-
+    <footer id="Contact">
+        <div class="footer-all"> <!--푸터 전체틀-->
+            <div class="footer-div1">
+                <p>Let's Talk</p>
+                <p>haoony@gmail.com</p>
+            </div>
+            <div class="footer-div2">
+                <a href="#">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+            <p>Dream software engineer HAON . All right reserved</p>
+            
+        </div>
+    </footer>
 </body>
 </html>

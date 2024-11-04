@@ -1,4 +1,4 @@
-/*
+/* 
   selector 
   - class(.)
   - id(#)
@@ -12,6 +12,7 @@
 /*
   Global
 */
+
 :root {
     /* App Color */
     --color-primary: var(--color-black);
