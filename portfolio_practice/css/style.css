@@ -88,16 +88,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; /*header 위치 고정 */
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1; /*스ㅡ크롤링해도 위치 고정되서 보임*/
+    z-index: 1; 
 }
 .header__logo {
     display: flex;
     /* border: 1px solid white; */
     align-items: center;
-    gap: 8px; /*헤더로고 안에있는 애들(로고타이틀,로고이미지)의 사이간격띄울떄 사용*/
+    gap: 8px; 
 }
 
 .header__logo__title {
@@ -237,8 +237,8 @@ skills
     color: white;
 }
 .skills {
-    display: grid; /*칸 비율로 나누기*/ /*이렇게해도되고 플렉스로 코딩스킬이랑 툴&기타 2박스만들고 플렉스해도됨*/
-    grid-template-columns: 6fr 4fr; /*template cloumn은 몇칸으로 나눌건지 지금은 비율을 6:4로 한거임 3칸도됭*/
+    display: grid; 
+    grid-template-columns: 6fr 4fr; 
     margin: 2rem 0;
     border-radius: 8px;
     overflow: hidden;
@@ -259,7 +259,7 @@ skills
 
 .bar{
     display: flex;
-    flex-direction: column; /*컬럼 여러개일때ㅡㄴ 그리드 쓰기*/ /*flex-direction: column 이러근 html99%랑 막대바랑 각각  한줄씪 적용되도록 하는거*/
+    flex-direction: column; 
     padding: 1rem;
     gap: 0.5rem;
 }
@@ -283,7 +283,7 @@ skills
 .skills__etc {
     padding: 1rem;
     background-color: var(--color-primary);
-    filter: brightness(150%); /*150%밝게 */
+    filter: brightness(150%); 
 }
 /* 
 works
@@ -298,7 +298,7 @@ works
     gap: 1rem;
     margin: 2.5rem 0;
 }
-.category { /*8442숫자들을 카테고리안에 고정되어서 나오니까 카테고리를 relative로 하고 자식인 숫자들을 absolute로 하면댕*/
+.category { 
     color: var(--color-text);
     padding: 0.5rem 3rem;
     border: 1px solid var(--color-accent);
@@ -313,14 +313,14 @@ works
 .category__count {
     position: absolute;
     background-color: var(--color-orange);
-    top: -20px; /*애니메이션이 버튼위쪽에서 버튼안쪽칸으로 들어가는거라 ㅉ쫌 위에 놔야댕*/
+    top: -20px; 
     right: 10px;
     color: var(--color-text);
     border-radius: 100%;
     width: 28px;
     height: 28px;
     line-height: 28px; /*인라인요소의 크기지정할떄 사용*/
-    opacity: 0; /*투명도지정해서 우선 숫자애들 안보이게 나중에 보이게하려면 애니메이션으로 설정*/
+    opacity: 0; 
     transition: all 250ms ease-in;
 }
 .category:hover .category__count,
@@ -331,7 +331,7 @@ works
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(4,1fr);/*2행4열로 이미지졍렬\\ 이미지반복이니까 리피트적은거임*/
+    grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(2,1fr);
     gap: 1rem;
 }
@@ -340,35 +340,35 @@ works
     overflow: hidden;
 }
 .project__img {
-    width: 100%; /*부모의 크기에 맞춰서 100%임*/
+    width: 100%; 
     border-radius: 8px;
 }
 .project__metadata {
-    position: absolute; /*이미지 호버하면 이미지안에 ㄷ내용보잉게 하려고 앱솔루트임*/
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column; /* 플렉스하면 한줄로 다올라가는데 플렉스디렉션 컬럼은 한줄한줄 맞추는거라 두줄로 됨*/
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    opacity: 0; /*우선 글씨 안보이게 */
-    background-color: var(--color-primary); /*투명도 적용됐을떄 보이는색*/
+    opacity: 0; 
+    background-color: var(--color-primary); 
 }
 .project__metadata:hover {
     opacity: 0.8;
 
 }
-.project__metadata__title:after { /*글씨밑에 파란 바*/
+.project__metadata__title:after { 
     width: 50px;
     height: 2px;
-    content: ''; /*공백으로 만들거라서*/
+    content: ''; 
     display: block; 
     background-color: var(--color-accent);
     position: relative;
     margin: 0.8rem 0;
-    transform: translateX(50%); /*x좌표로 50%만큼 이동*/
+    transform: translateX(50%); 
 }
 /* 
 testimonial
@@ -383,8 +383,7 @@ testimonial
     margin-bottom: 2rem;
 }
 .testimonial:nth-child(even) .testimonial__img {
-    order: 1; /*기본화면에나오는정렬이 자식순번으로 나옴(기본값이 인덱스0-->이거 외웡) li의 자식이 이미지 0번 ,div 1번임
-    근데 내가 order(주문)을 1로해서 div가 먼저나오고  이미지가 나중에 나오는거임*/
+    order: 1; 
 }
 
 .testimonial__img {
