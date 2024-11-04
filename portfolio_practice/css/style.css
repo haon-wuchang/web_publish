@@ -1,0 +1,447 @@
+/*
+  selector 
+  - class(.)
+  - id(#)
+  - element
+  - parent > child
+
+  * 명명규칙 - class : header__naming
+  * 변수/상수 - --color-black : #ffffff
+*/
+
+/*
+  Global
+*/
+:root {
+    /* App Color */
+    --color-primary: var(--color-black);
+    --color-accent: var(--color-blue);
+    --color-text: var(--color-white);
+  
+    /* Color list */
+    --color-white: #ffffff;
+    --color-black: #050a13;
+    --color-blue: #03e8f9;
+    --color-orange: #fd6413;
+    --color-gray: #1b1e26;
+  
+    /* size */
+    --max-size-width: 1200px;
+  }
+  
+  /* 
+    Commons 
+  */
+  * {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  body{
+    /* Font-Type */
+    margin: 0;
+  }
+  h1, h2, h3, p, ul, nav {
+    margin: 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  button {
+    background-color: transparent;   
+    border: 0;
+    outline: 0;
+  }
+  button:focus {
+    outline: 1px solid var(--color-accent);
+  }
+  .max-container {
+    max-width: var(--max-size-width);
+    margin: auto;
+    /* border: 1px solid red; */
+  }
+  .section {
+    padding: 4rem; 
+    text-align: center;
+  }
+  .title {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+  }
+  .description {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  /* 
+  header 
+  */
+.header {
+    /* border: 1px solid white; */
+    background-color: var(--color-primary);
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /*header 위치 고정 */
+    top: 0;
+    left: 0;
+    z-index: 1; /*스ㅡ크롤링해도 위치 고정되서 보임*/
+}
+.header__logo {
+    display: flex;
+    /* border: 1px solid white; */
+    align-items: center;
+    gap: 8px; /*헤더로고 안에있는 애들(로고타이틀,로고이미지)의 사이간격띄울떄 사용*/
+}
+
+.header__logo__title {
+    font-size: 1.8rem;
+    color: var(--color-text);
+}
+.header__logo__img {
+    width: 36px;
+    height: 36px;
+    /* padding-right: 8px; */
+}
+
+.header__menu {
+    display: flex;
+    gap: 4px;
+    /* border: 1px solid white; */
+}
+
+.header__menu__item {
+    padding: 8px 16px;
+    color: var(--color-text);
+}
+
+.header__menu__item.active {
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+}
+
+.header__toggle { /*나중에 화면 작아질때만 나오는거라 우선 디스플레이 안나오게 해놓기*/
+    border: 1px solid white;
+    display: none;
+    color: var(--color-text);
+    font-size: 1.5rem; /*rem 이나 em 써서 크기고정행*/
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+}
+/* 
+home
+*/
+#home {
+    background-color:var(--color-primary) ;
+    color: var(--color-text);
+    padding: 5rem 1rem;
+    padding-top: 7rem;
+    text-align: center;
+}
+.home__avatar {
+    width: 250px;
+    height: 250px;
+    border: 5px solid var(--color-accent);
+    border-radius: 100%;
+}
+.home__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.home__title--strong {
+    color: var(--color-accent);
+}
+.home__description {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.home__contact {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border-radius: 0.3rem;
+    margin: 2rem;
+    padding: 0.5rem 1rem;
+    display: inline-block; /*얘가 한줄 다 차지하게 해주려고 인라인블럭한거임*/
+    font-weight: bold;
+    border-radius: 4px;
+
+}
+
+.home__contact:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: 2px solid var(--color-accent);
+}
+
+
+/* 
+about me
+*/
+.majors {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+}
+.major {
+    background-color: var(--color-gray);
+    color: var(--color-text);
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
+}
+.major__icon {
+    color: var(--color-accent);
+    font-size: 4rem;
+    margin: 1rem 0rem;
+}
+.major__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.jobs {
+    text-align: start;
+}
+.job {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.job__name {
+    color: var(--color-primary);
+}
+.job__period {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+}
+
+/* 
+skills
+*/
+#skill {
+    background-color: var(--color-gray);
+    color: white;
+}
+.skills {
+    display: grid; /*칸 비율로 나누기*/ /*이렇게해도되고 플렉스로 코딩스킬이랑 툴&기타 2박스만들고 플렉스해도됨*/
+    grid-template-columns: 6fr 4fr; /*template cloumn은 몇칸으로 나눌건지 지금은 비율을 6:4로 한거임 3칸도됭*/
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
+}
+.skill__title {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.sklls__coding {
+    grid-row: span 2;
+    background-color: var(--color-primary);
+    padding: 1rem;
+
+}
+
+.bar{
+    display: flex;
+    flex-direction: column; /*컬럼 여러개일때ㅡㄴ 그리드 쓰기*/ /*flex-direction: column 이러근 html99%랑 막대바랑 각각  한줄씪 적용되도록 하는거*/
+    padding: 1rem;
+    gap: 0.5rem;
+}
+.bar__metadata {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bar__bg {
+    width: 100%;
+    background-color: var(--color-gray);
+    height: 3px;
+}
+.bar__value {
+    background-color: var(--color-accent);
+    height: 3px;
+}
+.skills__tools {
+    padding: 1rem;
+}
+.skills__etc {
+    padding: 1rem;
+    background-color: var(--color-primary);
+    filter: brightness(150%); /*150%밝게 */
+}
+/* 
+works
+*/
+#work {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+}
+.category { /*8442숫자들을 카테고리안에 고정되어서 나오니까 카테고리를 relative로 하고 자식인 숫자들을 absolute로 하면댕*/
+    color: var(--color-text);
+    padding: 0.5rem 3rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+    font-size: 1.1rem;
+    position: relative;
+}
+.category--selected {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+.category__count {
+    position: absolute;
+    background-color: var(--color-orange);
+    top: -20px; /*애니메이션이 버튼위쪽에서 버튼안쪽칸으로 들어가는거라 ㅉ쫌 위에 놔야댕*/
+    right: 10px;
+    color: var(--color-text);
+    border-radius: 100%;
+    width: 28px;
+    height: 28px;
+    line-height: 28px; /*인라인요소의 크기지정할떄 사용*/
+    opacity: 0; /*투명도지정해서 우선 숫자애들 안보이게 나중에 보이게하려면 애니메이션으로 설정*/
+    transition: all 250ms ease-in;
+}
+.category:hover .category__count,
+.category--selected .category__count{
+    opacity: 1;
+    top: 0;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);/*2행4열로 이미지졍렬\\ 이미지반복이니까 리피트적은거임*/
+    grid-template-rows: repeat(2,1fr);
+    gap: 1rem;
+}
+.project {
+    position: relative;
+    overflow: hidden;
+}
+.project__img {
+    width: 100%; /*부모의 크기에 맞춰서 100%임*/
+    border-radius: 8px;
+}
+.project__metadata {
+    position: absolute; /*이미지 호버하면 이미지안에 ㄷ내용보잉게 하려고 앱솔루트임*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* 플렉스하면 한줄로 다올라가는데 플렉스디렉션 컬럼은 한줄한줄 맞추는거라 두줄로 됨*/
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /*우선 글씨 안보이게 */
+    background-color: var(--color-primary); /*투명도 적용됐을떄 보이는색*/
+}
+.project__metadata:hover {
+    opacity: 0.8;
+
+}
+.project__metadata__title:after { /*글씨밑에 파란 바*/
+    width: 50px;
+    height: 2px;
+    content: ''; /*공백으로 만들거라서*/
+    display: block; 
+    background-color: var(--color-accent);
+    position: relative;
+    margin: 0.8rem 0;
+    transform: translateX(50%); /*x좌표로 50%만큼 이동*/
+}
+/* 
+testimonial
+*/
+.testimonials {
+    margin: 3rem;
+}
+.testimonial {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.testimonial:nth-child(even) .testimonial__img {
+    order: 1; /*기본화면에나오는정렬이 자식순번으로 나옴(기본값이 인덱스0-->이거 외웡) li의 자식이 이미지 0번 ,div 1번임
+    근데 내가 order(주문)을 1로해서 div가 먼저나오고  이미지가 나중에 나오는거임*/
+}
+
+.testimonial__img {
+    border-radius: 100%;
+    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
+    width: 150px;
+    height: 150px;
+}
+
+.testimonial__bubble {
+    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
+    border-radius: 8px;
+    padding: 1rem;
+}
+.testimonial__bubble__name {
+    color: var(--color-accent);
+    display: inline-block;
+    margin-top: 0.3rem;
+    filter: brightness(70%);
+}
+/* 
+arrow-up
+*/
+
+.arrow--up {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    font-size: 3rem;
+    color: var(--color-text);
+    background-color: var(--color-primary);
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 100%;
+    text-align:center;
+    box-shadow: 5px 5px 0px 0px var(--color-accent);
+
+}
+
+/* 
+footer
+*/
+#contact {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+.contact__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    padding: 1rem;
+}
+.contact__link {
+    color: var(--color-text);
+}
+.contact__link:hover {
+    color: var(--color-accent);
+}
