@@ -81,4 +81,30 @@ header
 /* 
 main-home
 */
-
+#home {
+    text-align: center;
+    background-color: var(--color-main-bg);
+    color: white;
+    padding: 3rem 0;
+}
+.home__avatar {
+    width: 20rem;
+    height: 20rem;
+    border: 0.8rem solid var(--color-main);
+    border-radius: 100%;
+}
+.home__title {
+    font-size: 3rem;
+}
+.home__title--strong {
+    color: var(--color-main);
+}
+.home__description {
+    font-size: 1.5rem;
+}
+.home__contact {
+    background-color: var(--color-main);
+    color: black;
+   
+    
+}
