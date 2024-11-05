@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive2</title> 
+    <style>
+        #wrapper {
+            background-color: darkcyan;
+            width: 960px;
+            margin: auto;
+        }
+        section::after {
+            content: "";
+            display: block;
+            clear: both; /*섹션뒤에 이거해서 ㅁaside article은 한줄로 올라갔는데 푸터는 위쪽으로 정렬이 안된거임*/
+        }
+        aside {
+            width: 350px;
+            background-color: orange;
+            height: 200px;
+            float: left;
+            margin-bottom: 20px;
+        }
+        article {
+            width: 550px;
+            height: 200px;
+            background-color: orange;
+            float: right;
+        }
+        @media screen and (max-width: 960px) { 
+            #wrapper {width: 100%;} /*100%의 기준은 960px임 맥스가 960이니까*/
+        }
+        aside {
+            width: 36.45%; 
+        }
+        article {
+            width: 57.29%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive 2</h1>
+    <div id="wrapper">
+        <header>
+            <h1>header</h1>
+        </header>
+        <section>
+            <h1>section</h1>
+            <aside>
+                <h1>snb</h1>
+            </aside>
+            <article>
+                <h1>article</h1>
+            </article>
+        </section>
+        <footer>
+            <h1>footer</h1>
+        </footer>
+    </div>
+</body>
+</html>

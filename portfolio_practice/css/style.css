@@ -445,3 +445,176 @@ footer
 .contact__link:hover {
     color: var(--color-accent);
 }
+
+/***************************************** 
+2024.11.05 반응형 추가 
+반응형 media screen max width - 768 ~ 1024
+ ******************************************/
+ /* 윈도우키보드버튼이랑 점. 같이 누르면 이모지 추가 가능 */
+@media screen and (max-width : 768px) {
+    .section {
+        padding: 3rem 2rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .description {
+        font-size: 1rem;
+    }
+    .header {
+        flex-direction: column;
+        align-items: start;
+    }
+    .header__toggle {
+        display: block;
+    }
+    .header__menu {
+        display: none; /*화면 줄어들면 얘네는 삼지창 눌러야 보여야해서 우선 안보이게 설정*/
+    }
+    #home {
+        padding: 5rem 3rem;
+    }
+    .home__title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .majors {
+        flex-direction: column;
+        align-items: center;
+    }
+    .major {
+        width: 30rem;
+    }
+    .job {
+        justify-content: center;
+    }
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    .categories {
+        flex-direction: column;
+    }
+    .category {
+        width: 20rem;
+    }
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonial {
+        flex-direction: column;
+    }
+    .testimonial:nth-child(even) .testimonial__img {
+        order: 0;
+    }
+    .arrow--up {
+        bottom: 1.5rem;
+        right: 2rem;
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+
+
+/***************************************
+2024.11.05 반응형 추가
+반응형 media screen max width - 412 
+ ******************************************/
+ @media screen and (max-width : 412px) {
+    .section {
+        padding: 3rem 2rem;
+    }
+    .title {
+        font-size: 1.7rem;
+    }
+    .description {
+        font-size: 1.1rem;
+    }
+    .header {
+        flex-direction: column;
+        align-items: start;
+    }
+    .header__toggle {
+        display: block;
+    }
+    .header__logo__title {
+        font-size: 1.6rem;
+    }
+    .header__menu {
+        display: none; /*화면 줄어들면 얘네는 삼지창 눌러야 보여야해서 우선 안보이게 설정*/
+    }
+    .header__logo__img {
+        width: 2rem;
+        height: 2rem;
+    }
+    #home {
+        padding: 5rem 2rem 2rem;
+    }
+    .home__title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .home__description {
+        font-size: 1.1rem;
+    }
+    .home__avatar {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+    .majors {
+        flex-direction: column;
+        align-items: center;
+    }
+    .major {
+        width: 20rem;
+    }
+    .job {
+        justify-content: center;
+        padding: 0rem 1rem;
+    }
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    .skill > p:nth-child(2) {
+        font-size: 0.9rem;
+    }
+    .categories {
+        flex-direction: column;
+    }
+    .category {
+        width: 11rem;
+        font-size: 1rem;
+    }
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonial {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .testimonial:nth-child(even) .testimonial__img {
+        order: 0;
+    }
+    .testimonial__bubble {
+        width: 340px;
+    }
+    .testimonial__bubble > p:first-child {
+        font-size: 0.9rem;
+    }
+    .testimonial__img {
+        width: 150px;
+        height: 150px;
+    }
+    .arrow--up {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    footer > p:last-child {
+        font-size: 0.8rem;
+    }
+ }
