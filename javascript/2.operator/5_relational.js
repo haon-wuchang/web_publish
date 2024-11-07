@@ -14,7 +14,7 @@ console.log(3 < 2);
 console.log(3 >= 3);
 console.log(3 <= 4);
 console.log(3 == '4');   // 3 == 4 :여기서는 작은따옴표때고 봄
-console.log(3 == 'a');   // 3 == 67(a가 가지고있는 아스키코드값?으로 비교함) 
+console.log(3 == 'a');   // 3 == 67(a가 가지고있는 아스키코드값으로 비교를 하게된다) 
 console.log(3 === '4'); // 숫자(number) === 문자(string)
 console.log(3 == 'a'); // 숫자(number) === 문자(string)
 console.log(3 != 3);

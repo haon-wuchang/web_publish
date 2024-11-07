@@ -1,5 +1,3 @@
-//call by value  c= a; a가 기본변수이다  
-//기본변수가 갖고잇는값을 c에 넣어주는거
 
 let a = 100;
 let b ='홍길동';
@@ -11,8 +9,6 @@ console.log(c);
 console.log(a===c); 
 
 
-// call by reference  let cc=aa;  a가 기본변수이다  
-// 기본변수가 갖고잇는 주소를  c에 넣어주는거
 let aa=[1,2,3];
 let bb='홍길동';
 let cc=aa;
