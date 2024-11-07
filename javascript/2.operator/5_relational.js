@@ -25,10 +25,23 @@ let obj1 = {
     name:"사필안"
 };
 let obj2 = {
-    name:"사필안"
+    name:"범무구"
 };
+let obj3 = obj1;  //==>call by reference
 
 console.log(obj1);
 console.log(obj2);
+console.log(obj3);
 console.log(`obj1: ${obj1}`); //==>얘네는 메모리힙까지는 못가서 이름을 출력못함 주소만 가져온거임 근데 주소는 노출되면안대서 걍 오브젝트 이케 나옴
 console.log(`obj2: ${obj2}`);
+
+console.log(obj1 == obj2);//주소의 값으로비교해서 폴스임
+console.log(obj1 === obj2); //==>데이터타입과 주소의 값으로비교해서 폴스임
+console.log(typeof obj1 === typeof obj2);//타입은 오브젝트로 같음
+
+console.log(obj1 == obj3); //주소값같아서 트루
+console.log(obj1 === obj3); 
+console.log(typeof obj1 === typeof obj3);
+
+
+console.log(obj1.name == obj2.name); //==>메모리힙의 데이터까지가져와서 비교함
