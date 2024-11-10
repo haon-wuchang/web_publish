@@ -23,7 +23,7 @@ for( let i=1 ; i < 6 ; i++ ){
 //예제2
 //숫자배열을 출력하시오
 let numberList = ['🥨','🥯','🥪'];  
-console.log(`numberList.length=${numberList.length}`); 
+// console.log(`numberList.length=${numberList.length}`); 
 for(let i=0 ; i<=numberList.length-1 ; i++ ){ //i 를 또쓸수잇엉 위에있는 i쟤는 for 안에서만 사니까
     console.log(numberList[i]);   //numberlist에 잇는 index값 가져오는겅야
 }

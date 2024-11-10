@@ -38,6 +38,7 @@ console.log(choice);
 //해당하지않는경우 '해당 학생 없음' 으로 출력해주세요
 //출력포맷 : 실행결과 ==> '학생이름 ' 
 
+
 let name = undefined;
 let result = undefined;
 
