@@ -19,7 +19,6 @@ for(let i = 1; i<3 ; i++ ){
     console.log(rows);
 }
 
-
 2씩증가
 let count = 1;   //for 문 밖에다가 써야댕
 for(let i = 1; i<3 ; i++ ){
