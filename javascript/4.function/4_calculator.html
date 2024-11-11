@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script src="2_calculator.js"></script>
+    <script>
+        function dataInput(op){
+            // 계산기 처리를 위한 데이터 전처리
+            //  a<---document.gerelementById("number1 이거는 id 이름이양").value
+            // 위에처럼 써또 대도 document.querySelector().value; 얘로 써도댕 querySelector  이거는 하나만 선택가능 그리고 # 이거도 적어야댕 id 이니까
+            let a = document.querySelector("#number1");            
+            let b = document.querySelector("#number2");
+
+            if(a.value===""){
+                alert("첫번째 숫자를 입력해주세요");
+                a.focus();
+                // focus 쓰면 아무것도 입력안햇을떄 입력하라고 창뜨고 창닫으면 첫번쨰 인풋칸에 커서가 올라가게됨 거기적으라고
+            } else if(b.value===""){
+                alert("두번째 숫자를 입력해주세요");
+                b.focus();
+            } else{
+                calculator(parseInt(a.value),parseInt(b.value),op);
+            }           
+        }
+    </script>
+    <!-- 코드 줄이는 방법  ㅎㅁ흠.;.;
+    value  빼고 밑에 if 에서 비교하는곳에서 .value 적어주기
+     -->
+
+
+
+
+
+</head>
+<body>
+    <h1>계산기</h1>
+    <form action="#">
+        <ul>
+            <li>
+                <label for="">number1</label>
+                <input type="text" id="number1">
+            </li>
+            <li>
+                <label for="">number2</label>
+                <input type="text" id="number2">
+            </li>
+            <li>
+                <button type="button" onclick="dataInput('+')">+</button>  
+                <!-- onclick 함수호출하는애임 변수호출 x -->
+                <button type="button" onclick="dataInput('-')">-</button>
+                <button type="button" onclick="dataInput('*')">*</button>
+                <button type="button" onclick="dataInput('/')">/</button>
+                <button type="button" onclick="dataInput('%')">%</button>
+            </li>
+        </ul>
+        <div>
+            <span>실행결과 : </span>
+            <span></span>
+        </div>
+    </form>
+</body>
+</html>
+
+<!--  id는 중복적요안댐 class는 중복댕 -->
+
+  <!-- input이랑 버튼에  id 이름 적어주고 나중에 실행할때는  스크립트에서
+   document.getElementById("").value   이케하면댕댕  저 괄호안에 input id 적은거넣어쥬고 -->
+
+
+   <!-- 벨리데이션 체크 =유효성체크 : 인풋박스안에 정확한 값이 들어있는지 확인하는거
+    데이터가 입력되는 폼에 유효성체크(validation check) 를 반드시 진행해야함 -->
