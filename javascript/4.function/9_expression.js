@@ -3,7 +3,7 @@
 function add(){
     return 1+2;
 }
-
+console.log(add());
 //일반 함수 표현식
 let add2 = function() {     //let add2= 를 지우면 에러가뜬다
     return 1+2;
@@ -27,7 +27,7 @@ let add5 = (a,b,c,) => {
 console.log(add4(2,2));
 add5(1,2,3);
 
-console.log(add());
+
 console.log(add2());
 console.log(add3());  //함수호출할떄는 () 적어줘야댕
 
