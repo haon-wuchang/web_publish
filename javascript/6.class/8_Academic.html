@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy</title>
+    <script src="./8_Academic.js"></script>
+</head>
+<body>
+    <h1>Academic Signup</h1>
+    <ul>
+        <li>            
+            <input type="radio" name="type" value="1" checked><span>학생</span>
+            <input type="radio" name="type" value="2"><span>교수</span>
+            <input type="radio" name="type" value="3"><span>부모</span>
+            <input type="radio" name="type" value="4"><span>직원</span>
+        </li>
+        <li>
+            <label for="">성명</label>
+            <input type="text" id="name">
+        </li>
+        <li>
+            <label for="">나이</label>
+            <input type="text" id="age">
+        </li>
+        <li>
+            <label for="">주소</label>
+            <input type="text" id="address">
+        </li>
+        <li>
+            <label for="">학번</label>
+            <input type="text" id="sno">
+        </li>
+        <li>
+            <button type="button" onclick="signupCheck()">Signup</button>
+            <button type="reset">Cancle</button>          
+        </li>
+    </ul>
+</body>
+</html>
