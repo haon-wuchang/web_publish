@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academy</title>
     <script src="./8_Academic.js"></script>
+    <style>
+        #student {display: block;}  /*처음화면에는 학생정보폼만 나오게 한거임*/
+        #professor { display: none; }
+        #parent{display: none;}
+        #employee {display: none;}
+    </style>
 </head>
 <body>
     <h1>Academic Signup</h1>
     <ul>
         <li>            
-            <input type="radio" name="type" value="1" checked><span>학생</span>
-            <input type="radio" name="type" value="2"><span>교수</span>
-            <input type="radio" name="type" value="3"><span>부모</span>
-            <input type="radio" name="type" value="4"><span>직원</span>
-        </li>
+            <input type="radio" name="type" value="1" checked onchange="display('1')"><span>학생</span>
+            <input type="radio" name="type" value="2" onchange="display('2')"><span>교수</span>
+            <input type="radio" name="type" value="3" onchange="display('3')"><span>부모</span>
+            <input type="radio" name="type" value="4" onchange="display('4')"><span>직원</span>
+        </li>    
+    </ul>
+    <!--학생 정보 입력form-->   
+    <ul id="student">  <!-- 학생선택햇을때는 얘 보이게하고 다른애선택햇을때는 다른선택지창 보이게 행-->
         <li>
             <label for="">성명</label>
             <input type="text" id="name">
@@ -36,5 +45,79 @@
             <button type="reset">Cancle</button>          
         </li>
     </ul>
+    <!--교수 정보 입력form-->   
+    <ul id="professor"> 
+        <li>
+            <label for="">성명</label>
+            <input type="text" id="name">
+        </li>
+        <li>
+            <label for="">나이</label>
+            <input type="text" id="age">
+        </li>
+        <li>
+            <label for="">주소</label>
+            <input type="text" id="address">
+        </li>
+        <li>
+            <label for="">담당과목</label>
+            <input type="text" id="subject">
+        </li>
+        <li>
+            <button type="button" onclick="signupCheck()">Signup</button>
+            <button type="reset">Cancle</button>          
+        </li>
+    </ul>
+      <!--부모 정보 입력form-->   
+      <ul id="parent">  
+        <li>
+            <label for="">성명</label>
+            <input type="text" id="name">
+        </li>
+        <li>
+            <label for="">나이</label>
+            <input type="text" id="age">
+        </li>
+        <li>
+            <label for="">주소</label>
+            <input type="text" id="address">
+        </li>
+        <li>
+            <label for="">자녀명</label>
+            <input type="text" id="childName">
+        </li>
+        <li>
+            <button type="button" onclick="signupCheck()">Signup</button>
+            <button type="reset">Cancle</button>          
+        </li>
+    </ul>
+      <!--직원 정보 입력form-->   
+      <ul id="employee">  
+        <li>
+            <label for="">성명</label>
+            <input type="text" id="name">
+        </li>
+        <li>
+            <label for="">나이</label>
+            <input type="text" id="age">
+        </li>
+        <li>
+            <label for="">주소</label>
+            <input type="text" id="address">
+        </li>
+        <li>
+            <label for="">담당부서</label>
+            <input type="text" id="dept">
+        </li>
+        <li>
+            <button type="button" onclick="signupCheck()">Signup</button>
+            <button type="reset">Cancle</button>          
+        </li>
+    </ul>
+
+
+
+
+    
 </body>
 </html>
