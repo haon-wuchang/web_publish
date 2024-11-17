@@ -5,15 +5,15 @@
 
 */
 class Member {
-    #name;   // list=Object.keys 가 값을 못가져옴
+    #name;   
     #age;
     #address; 
-    constructor(name,age,address){ 
+    constructor(name,age,address){
         this.#name=name;
         this.#age=age;
         this.#address=address;
     }
-    get name () {return this.#name;}
+    get name () {return this.#name;}  
     get age () {return this.#age;}
     get address () {return this.#address;}
 }
@@ -37,7 +37,7 @@ class Professor extends Member {
         this.#subject=subject;
     }
     get subject() {return this.#subject;}
-    get values () {
+      get values () {
         return [this.name, this.age, this.address ,this.#subject];
     }
 }
@@ -49,7 +49,7 @@ class Parent extends Member {
         this.#childName=childName;
     }
     get childName() {return this.#childName;}
-    get values () {
+      get values () {
         return [this.name, this.age, this.address ,this.#childName];
     }
 }
@@ -61,7 +61,7 @@ class Employee extends Member {
         this.#dept=dept;
     }
     get dept() {return this.#dept;}
-    get values () {
+      get values () {
         return [this.name, this.age, this.address ,this.#dept];
     }
 }
@@ -71,10 +71,11 @@ const signupCheck= () => {
     let name, age, address, sno, subject, childName, dept ;
     let member = null;
 
+
     //입력되는 type 에 따라서 class 를 생성한다 
     switch(type.value) {
         case '1': 
-        name=document.querySelector('#student #name');  //id 라 # 쓰는거양
+        name=document.querySelector('#student #name');  
         age=document.querySelector('#student #age');
         address=document.querySelector('#student #address');
         sno=document.querySelector('#student #sno');
@@ -126,12 +127,11 @@ const signupCheck= () => {
 } //end of signupCheck
 
 
-//display : radio 버튼 선택시 선택폼 화면 전환 시키는 함수이다
-//  맨처음에는 아무것도 안나오게하고 radio 로 선택을하면 선택한 해당 폼만 나오게 정의한다
+//display : radio 버튼 선택시 선택폼 화면 전환 시키는 함수  맨첨엔 아무것도 안나오게하고 radio 선택함녀 해당 폼만 나오게 ㄱ
 const display = (type) => {
-    //화면전환시 맨 밑에 <ul> result가 안나오게 공백 넣기
+    //화면전환시 밑에 <ul> result가 안나오게
     document.querySelector('#result').innerHTML = '';
-    //맨처음 화면을 열었을떄 아무것도 안보이게 하기 위해 전부 display=none 으로 지정함
+
     document.querySelector('#student').style.display='none';
     document.querySelector('#professor').style.display='none';
     document.querySelector('#parent').style.display='none';
