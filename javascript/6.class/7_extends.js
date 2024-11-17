@@ -38,7 +38,7 @@ class Dog extends Animal{   //dog 에는 종류라는 필드추가됨
     }  
     getType = () => console.log(this.type);
     
-} //메모리힙에 Animal은 3개 생성됨 자식마다 하나씩임 근데 맨위에 classAnimal은 따로 생성되지않음ㄴ
+} 
 
 //동물원에서 동물을 관리하는 클래스 생성
 //속성 : #type(어떤동물인지), #동물의객체(pyu,trust,okidoki)
@@ -68,7 +68,7 @@ pyu.display(); pyu.sleep(); pyu.eat();
 trust.display(); trust.sleep(); trust.eat(); trust.getAge(); 
 okidoki.display(); okidoki.sleep(); okidoki.eat(); okidoki.getType();
 //pyu.display() 하게되면 name,color,emoji,taste 이런게 자식인 lion한테 없으니까 부모한테가서 가져옴
-
+console.clear();
 const zoo = new Zoo(Zoo.LION, pyu);
 console.log(zoo.type, zoo.animal);
 

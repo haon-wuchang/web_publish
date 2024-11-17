@@ -18,7 +18,7 @@ let user = null;
 const DID = 'test';
 const DPASS = '1234';
 function loginCheck() {
-    let id = document.querySelector('#id');  //id 값이 입력되는 폼객체를 카리킴 value 값 아님요
+    let id = document.querySelector('#id');  //id 값이 입력되는 폼객체를 가리킨다 value 값 아님
     let pass = document.querySelector('#pass');
     
     if(id.value===''){           //유효성체크임
@@ -27,22 +27,15 @@ function loginCheck() {
     } else if(pass.value===''){
         alert('비밀번호를 입력해주세요');
         pass.focus();
-    } else {   //입력받은 id password 값을 User class객체를 생성과 처리작업 //class로 만드는이유는 private 접근제어를 할수잇긷때문엥
+    } else {  //class로 만드는이유는 private 접근제어를 할수잇긷때문엥
         user = new User(id.value, pass.value);
         console.log(user.id, user.pass);
         
         if(DID===user.getId() && DPASS===user.getPass())  alert('로그인성공');
 
-        //아까 set get방식 2로 하면 if(DID===user.id() && DPASS===user.pass())  alert('로그인성공'); 이케 적으면 댕 
          else alert('로그인실패');
     }
 }   //함수만들때는 함수하나당 하나의 기능만 하게 만드는게 좋다
-
-
-
-
-
-
 
 
 
