@@ -1,6 +1,5 @@
 // 1. 배열의 '🍎' 요소를 '🍓'로 교체하라
 let fruits = ['🍎','🍍','🍎'];
-// output =>['🍓','🍍','🍓'];
 
 //1-1. for문으로 index 주소 변경하기
 for(let i = 0;i <fruits.length;i++){
