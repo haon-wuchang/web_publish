@@ -1,4 +1,4 @@
-
+//해당 배열을 출력하라
 let numbers = [1,2,3,4,5];
 
 //for
@@ -8,12 +8,13 @@ for(let i=0;i<numbers.length;i++){
 
 
 //forEach     
-// numbers.forEach((element) => console.log(`numbers = ${element}`)); //한줄이니까 {} 지워도 됨
-numbers.forEach((element,i) => console.log(`numbers[${i}] = ${element}`)); // 얘를 for 문 결과값처럼 쓸려고함
+numbers.forEach((element) => console.log(`numbers = ${element}`)); //한줄이니까 {} 지워도 됨
+// numbers.forEach((element,i) => console.log(`numbers[${i}] = ${element}`)); // 얘를 for 문 결과값처럼 쓸려고함
 
 
 
-//arrayReplace3 함수를 forEach 형태로 전환하기 (3_quiz 내용)
+// 1. 배열의 'x' 요소를 'z'로 교체하라
+//arrayReplace3 함수를 forEach 형태로 전환하기
 function arrayReplace3(array,origin,target){
     let arrayObj = Array.from(array);   //얕은복사 형식으로 작성함 from()
     arrayObj.forEach((element,index) => {
