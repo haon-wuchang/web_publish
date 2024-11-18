@@ -5,15 +5,13 @@ let numbers = [1,2,3,4,5];
 for(let i=0;i<numbers.length;i++){
     console.log(`numbers[${i}] = ${numbers[i]}`);
 }
-console.log(`---------------------`);
 
-//forEach     =>배열에서 사용되는 인스턴스함수라서 배열명.forEach(); 이렇게 사용해야된다. for 처럼 단독으로 작성 x
- //  numbers.forEach((변수이름) => {  });   변수이름은 아무거나 해도됨
 
+//forEach     
 // numbers.forEach((element) => console.log(`numbers = ${element}`)); //한줄이니까 {} 지워도 됨
 numbers.forEach((element,i) => console.log(`numbers[${i}] = ${element}`)); // 얘를 for 문 결과값처럼 쓸려고함
 
-console.log(`---------------------`);
+
 
 //arrayReplace3 함수를 forEach 형태로 전환하기 (3_quiz 내용)
 function arrayReplace3(array,origin,target){
