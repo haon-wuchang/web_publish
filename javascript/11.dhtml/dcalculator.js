@@ -34,5 +34,6 @@ function initForm() {
 
     //dcalculator 폼 출력
     document.querySelector('#calculatorForm').innerHTML = output;
-    
+
+
 }
