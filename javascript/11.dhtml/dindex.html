@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dcounter.js"></script>
+    <style>
+        .counter_container{
+            width: 160px;
+        }
+        #number{
+            font-size: 30px;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body> <!--d 붙은 파일들은 다이나믹html 쓸거라는거얌-->
+    <div id="content"></div> <!--content 부분을 .dcounter.js파일에 함수로 만들어랑-->
+
+
+    <!-- 인터프리터로 읽으면 head, body 순으로 읽음. 그러면 스크립트가 div 보다 위에 있으면 얘가먼저실행되고 
+     div가 실행됨
+    그래서 스크립트파일로가서 #content.innerHTML를 읽는데 아직 html의 바디 내용을 인터프리터로 읽지를 않아서
+    화면에 아무것도 안뜨는거임 그래서 스크립트가 div보다 나중에 나와야댐-->
+<!-- 근데 이거 위치를 안바꿔도 바디먼저 실행하고 자바스크립트 실행하는 함수가 있다 이건 js파일에 적어놓음 -->
+
+
+</body>
+</html>

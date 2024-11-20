@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .counter_container{
+            width: 160px;
+        }
+        #number{
+            font-size: 30px;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+    </style>
+    <script src="./counter.js"></script>
+</head>
+<body> 
+    <h1>Counter</h1>
+    <div class="counter_container">
+        <div id="number">0</div>  <!--얘는 값(value)이아니라 텍스트(Text)임 그래서 js에서 얘 값을 가져오려면 document.쿼리셀렉터('#number').textContent 이렇게됨-->
+        <!-- <input type='text id=input'>  이럴때는 값임 value 그래서 js에서 얘 값을 가져오려면 document.쿼리셀렉터('#input').value 이렇게 쓰는거야-->
+        <button type="button" onclick="counter('increment')">increment</button> <!--이버튼을 누르면 숫자가 늘어남-->
+        <button type="button" onclick="counter('decrement')">decrement</button> <!--이버튼을 누르면 숫자가 줄어듬-->
+    <!-- </div>   onclick= increment 괄호뺴면 힙에잇는 주소값만 주는거임 그래서 괄호까지넣어서 함수내용을 실행하는거양 -->
+</body>
+</html>
