@@ -1,5 +1,5 @@
 /*
-비동기식처리방식에서 callback함수 호출하는 방식을 봅시다
+비동기식처리방식에서 callback함수 호출하는 방식을 봅시다=react에서도 동일하다
 */
 //runInDelay(callback,dalay시간)
 function runInDelay(callback,seconds){
