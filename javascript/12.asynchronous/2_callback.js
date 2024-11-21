@@ -4,10 +4,7 @@
 //runInDelay(callback,dalay시간)
 function runInDelay(callback,seconds){
     setTimeout(callback,seconds);
-
-
 }
-
 
 runInDelay(function(){console.log(`타이머 3초 경과`)},3000);
 runInDelay(() => {console.log(`타이머 1초 경과`)},1000);
