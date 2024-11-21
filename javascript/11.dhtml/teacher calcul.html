@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <script type='module' src="./dcal-teacher.js"></script> 
+    <!-- script type='module' 이게 화면에 먼저 출력하는거같음 11/21-->
+    <style>
+        h1{
+            text-align: center;
+        }
+        div{
+            background-color:lightsteelblue;
+            width: 500px;
+            height: 500px;
+        }
+        ul{
+            padding: 20px 10px;
+        }
+        li {
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        ul li:first-child {
+            gap: 3rem;
+        }
+        ul li:nth-child(2){
+            gap: 2rem;
+        }
+        input{
+            width: 100px;
+            height: 20px;
+            border: none;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            border: none;
+
+        }
+        ul li:nth-child(3) button{
+            width: 100px;
+            background-color: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>
