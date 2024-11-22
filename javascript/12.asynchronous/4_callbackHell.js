@@ -1,6 +1,4 @@
-//비동기식 처리함수를 순차적으로 호출해서 실행하고자 할때 .
-//5초 1초 호출하면 1초 다음에 5초가 큐에 들어가자나 나는 5초 1초 이 순으로 하고싶음
-//이럴떄 유용한게 Promise 다
+
 function step1(init,callback) {
     let result = init + 1;
     callback(result);
