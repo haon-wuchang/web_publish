@@ -1,5 +1,5 @@
 import{kobisMovieList,kobisMovieDetail} from './kobisCommons.js';
-
+// 11/25 수업
 let mList = null; // 영화리스트를 가지고있는 전역변수. movieList 의 주소를 가지고있어야한다
 
 initform();    //위에 놨쓰니까 호이스팅 되도록 일반함수로 만들어주기
