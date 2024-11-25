@@ -1,4 +1,4 @@
-import{kobisMovieList} from './kobisCommons.js';
+import{kobisMovieList,kobisMovieDetail} from './kobisCommons.js';
 
 let mList = null; // 영화리스트를 가지고있는 전역변수. movieList 의 주소를 가지고있어야한다
 
@@ -66,9 +66,54 @@ function searchMovieCd(title) {
 }
 
 
-//영화리스트 검색 함수 
+//영화 상세 검색 함수 
 function searchMovieList(title) {
     let movieCd = searchMovieCd(title);
     console.log(`code ==> ${movieCd}`);
     
+    //movieCd를 api 에 넘겨서 상세정보 가져와서 출력하기
+    kobisMovieDetail(movieCd)
+        .then((result) => {
+            let info = result.movieInfoResult.movieInfo;
+
+            let display =`
+                        <ul>
+                            <li>
+                                <label>영화코드 : </label>
+                                <span>${info.movieCd}</span>
+                            </li>
+                            <li>
+                                <label>영화명 : </label>
+                                <span>${info.movieNm}</span>
+                            </li>
+                            <li>
+                                <label>영문영화명 : </label>
+                                <span>${info.movieNmEn}</span>
+                            </li>
+                            <li>
+                                <label>감독 : </label>
+                                `;
+
+                            info.directors.forEach((director) => {
+                                display += `<span>${director.peopleNm} | </span>`;
+                                display += `<span>${director.peopleNmEn}</span>`;
+                            });
+
+                            display+= `<li>
+                                       <label>배우명 : </label>
+                                       <ul>`;
+
+                            info.actors.forEach((actor) => {
+                                display += `<li><span>${actor.peopleNm} | </span>`;
+                                display += `<span>${actor.peopleNmEn}</span></li>`;   
+                            });
+
+                            display += `</ul>
+                            </li>
+                        </ul> `;
+            document.querySelector('#result').innerHTML = display;
+        })
+
+        .catch((error) => console.log(error));
+
 } //searchMovieList
