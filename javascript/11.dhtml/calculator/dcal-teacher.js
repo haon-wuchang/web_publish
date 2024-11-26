@@ -1,5 +1,5 @@
 //import
-import div,{sum, sub, mul} from './dcommons.js';
+import div,{sum, sub, mul} from '../dcommons.js';
 
 initForm();
 
