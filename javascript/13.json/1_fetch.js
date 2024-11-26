@@ -45,12 +45,7 @@ console.log(`일간박스오피스영화명 =>
 
 
 
-// 참고용 - await 들어잇는 함수만들때는 async 붙여준다
-// async function box() {
-//     let result = await fetch(url); 
-//     let jsonData = await result.json(); 
-//     console.log(jsonData); 
-//     }
+
 
 
 

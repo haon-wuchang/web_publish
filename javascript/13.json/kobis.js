@@ -1,6 +1,5 @@
 import{kobisBoxOffice as boxOffice} from './kobisCommons.js';
-//얘 이름이 너무 길어서 as로 boxOffice로 바꿈 해당파일안에서만 바꾼 이름으로 실행됨
-// 해당파일에 바꾸기 전 이름을 다 바꾼애로 내가 직접바꿔줘야댕
+
 initForm();
 
 function initForm() {
@@ -22,12 +21,10 @@ function initForm() {
 
 // 4. 기본 박스오피스 화면 출력 : 20100101
     searchBoxOffice('Daily','20100101');
+
 //5. 셀렉트박스에서 일별인지 주간인지 체크 후 해당하는 json 데이터 출력- 5-1 유효성체크하기
 
-    // 1. 검색 버튼에 이벤트 주기 (display 실행 한 후에 줘야함) 버튼여러개면 하나하나마다 이벤트추가해야함
-    //<방법1>
-    // document.querySelector('#searchBtn').addEventListener();
-    //<방법2>
+    // 1. 검색 버튼에 이벤트 주기 (display 실행 한 후에 줘야함) 
     let searchButton = document.querySelector('#searchBtn');
     searchButton.addEventListener('click',() => {
         
@@ -50,10 +47,10 @@ function initForm() {
     
 } // end of initForm
 
-//3-1. 일별 박스오피스 정보를 화면에 출력하는 내용 작성
+//3-1. 박스오피스 정보를 화면에 출력하는 내용 작성
 function searchBoxOffice(Ktype, searchDate) {
    boxOffice(Ktype, searchDate)  //Promise 객체로 리턴됨
-    .then((result) => {
+    .then((result) => { 
         // const rankType = Ktype.toLowerCase();      
         const type = result.boxOfficeResult.boxofficeType;
         const range = result.boxOfficeResult.showRange;   
