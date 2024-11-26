@@ -1,0 +1,4 @@
+인증키 : 7B3EZC1YSIK6Q39CJ484
+
+
+http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&detail=N&actor=이병헌&ServiceKey=7B3EZC1YSIK6Q39CJ484
