@@ -1,4 +1,4 @@
-// fetch(resourceURL) - 비동기식 처리 방식으로 네트워크를 통해 리소스를 가져옴
+
 
 //일별 박스오피스 정보를 코비스에서 가져오라
 let key =`82f82f55000c3a4465aa5bceb5a65f72`;
@@ -10,10 +10,11 @@ fetch(url)
     .then((response) => {console.log(response)})
     .catch((error) => {console.log(error)});
 
+console.log(`---------확인용-------------------`);
 
     //fetch =비동기임
     //fetch를 실행하면 reponse로 결과가 문자열로 나오게된다
-    // fetch는 json() 함수가 꼭 들어가야한다.
+
 
 // 2. JSON 데이터 가져오기
 // let result =  fetch(url); //JSON객체가 문자열 데이터타입으로 가져옴
@@ -32,14 +33,14 @@ fetch(url)
 //await 쓰면 얘가 실행될때까지 다음줄 먼저 실행하지않고 기다리는거임 
 let result = await fetch(url); 
 let jsonData = await result.json(); 
-console.log(`jsonData => ${jsonData}`); 
+console.log(`json데이터 => ${jsonData}`); 
 
 
-console.log(`boxofficeType => ${jsonData.boxOfficeResult.boxofficeType}`); 
+console.log(`박스오피스타입 => ${jsonData.boxOfficeResult.boxofficeType}`); 
 console.log(`showRange => ${jsonData.boxOfficeResult.showRange}`); 
-console.log(`dailyBoxOfficeList => 
+console.log(`일간박스오피스순위 => 
     ${jsonData.boxOfficeResult.dailyBoxOfficeList[4].rank}`); 
-console.log(`dailyBoxOfficeList => 
+console.log(`일간박스오피스영화명 => 
     ${jsonData.boxOfficeResult.dailyBoxOfficeList[4].movieNm}`); 
 
 

@@ -1,13 +1,9 @@
 /*
-// mdn 에서 뭐 찾을때 반환값에 promise잇으면 then, catch로 받으면댕
-없으면 걍 콜백함수로 받아서 큐로가서 기다리다가 루프로 실행 되는거임
+// 
 
 
-fetch(네트워크로 접속할서버의 주소 URL: )      // resolve(result),reject(error)
-    .then((result) => {결과에 해당하는로직})
-    .catch((error) => {});
 
-    얘의 실행결과를 프로미스가 성공햇는지 실패햇는지 알려줌
+
 
 */
 
