@@ -16,7 +16,7 @@ function initform(){
             <button type='button' id='search'>검색</button>
         </div>
         <div id='result'></div>
-    
+
     `;
     document.querySelector('body').innerHTML = output;
 
@@ -55,35 +55,53 @@ let btn = document
 function searchMovieResult(option,typeValue,title){
     kmdb(option,typeValue,title)
         .then((result) => {
-            let count = result.TotalCount;  // 안나오는뎅
+            let count = result.TotalCount; 
             let output = ``;
-            // console.log(count);
-            
 
             if(count){
                 let info = result.Data[0].Result[0];
                 let directors = result.Data[0].Result[0].directors.director;
                 let actors = result.Data[0].Result[0].actors.actor;
+                let posterArray = result.Data[0].Result[0].posters.split('|');
+                let stillArray = result.Data[0].Result[0].stlls.split('|');
+                //포스터랑 스틸컷 링크를 보면 | 이거로 구분되어있고 문자열이긲때문에 split으로 구분해서 나눠준거임 다 붙여놓으면 존나길고 내용가져오기 힘들어서
+                let staffs = result.Data[0].Result[0].staffs.staff;
+                let title = info.title.replaceAll('!HS','').replaceAll('!HE','');
+              
+                output += `
+                <div class="container">
+                    <div class="container-content">
+                        <h2>${title}</h2>
+                        <h5>${info.titleEng} - ${info.prodYear}년</h5>
+                        <hr>
+                        <p>${info.type} ◾ ${info.rating} ◾ ${info.nation} ◾ ${info.runtime}분 ◾ ${info.repRlsDate}</p>
+                        <p><span>제작사 : </span><span>${info.company}</span></p>
+                        <p><span>감독 : </span><span>${staffs[0].staffNm}</span></p>
+                        <p><span>출연진 : </span><span> `;
+                        actors.forEach((actor,index) => {
+                            if(index < 2){
+                                output += `${actor.actorNm}`;   
+                            }})
+                       output += ` 등</span></p>
+                    </div>
+                    <div class="container-img">
+                        <img src="${posterArray[0]}" alt="">
+                    </div>
+                </div>
+                <div class='container-stills'>
+                `;
                 
-                console.log(`영화명 ==> ${info.title}`);
-                console.log(`영화영문명 ==> ${info.titleEng}`);
-                console.log(`감독명 ==> ${directors[0].directorNm}`);
-                console.log(`감독영문명 ==> ${directors[0].directorEnNm}`);
-                console.log(`actors_length ==> ${actors.length}`);
-                                
-                actors.forEach((actor,index) => {
-                    if(index < 10){
-                        console.log(`배우명${index} ==> ${actor.actorNm}`);
-                        console.log(`배우영문명${index} ==> ${actor.actorEnNm}`);
-                        
-                    }
+                stillArray.forEach((still) => {
+                    output += `<img src='${still}'>`;
                 });
+                output += `</div>`;
+
+               
 
             } else {
                 output += `<h5>검색하신 데이터가 존재하지 않습니다.</h5>`;
             }
             document.querySelector('#result').innerHTML = output;
-
             
         })
         .catch((error) => console.log(error));
