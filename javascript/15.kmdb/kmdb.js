@@ -57,7 +57,7 @@ function searchMovieResult(option,typeValue,title){
         .then((result) => {
             let count = result.TotalCount; 
             let output = ``;
-            let actorFive = [];  //밑에 더보기 접기에서도 사용하기위해 if 블럭 밖에 사용
+            let actorFive = [];  //밑에 더보기, 접기에서도 사용하기위해 if 블럭 밖에 사용
             let actorAll = [];
 
 
