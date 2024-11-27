@@ -36,8 +36,8 @@ export async function kobisMovieDetail(movieCd){
     const jsonData = await movie.json();  
     return jsonData; 
 }
-
-// kmdb 연동해서 포스터 가져오기 함수
+///////////////////////////////////////////////////////////////////
+//💨 kmdb 연동해서 포스터 가져오기 함수
 export async function searchMoviePoster(movieNm,openDt) {
     const ServiceKey = `7B3EZC1YSIK6Q39CJ484`;
     const url = `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${movieNm}&releaseDts=${openDt}&ServiceKey=${ServiceKey}`;
@@ -49,6 +49,7 @@ export async function searchMoviePoster(movieNm,openDt) {
     
 }
 
+//////////////////////////////////////////////////////////////////
 //kmdb 영화상세정보가져오기 1127-오후수업
 export async function kmdbMovieDetail(movieNm, openDt) {
     const ServiceKey = `7B3EZC1YSIK6Q39CJ484`;
