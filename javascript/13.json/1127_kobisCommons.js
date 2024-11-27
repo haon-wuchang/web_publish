@@ -41,11 +41,20 @@ export async function kobisMovieDetail(movieCd){
 export async function searchMoviePoster(movieNm,openDt) {
     const ServiceKey = `7B3EZC1YSIK6Q39CJ484`;
     const url = `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${movieNm}&releaseDts=${openDt}&ServiceKey=${ServiceKey}`;
-
+    
     const result = await fetch(url);
     const jsonData = await result.json();
     return jsonData.Data[0].Result[0].posters.split('|')[0];
-
-
+    
+    
 }
 
+//kmdb 영화상세정보가져오기 1127-오후수업
+export async function kmdbMovieDetail(movieNm, openDt) {
+    const ServiceKey = `7B3EZC1YSIK6Q39CJ484`;
+    const url = `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&title=${movieNm}&releaseDts=${openDt}&ServiceKey=${ServiceKey}`;
+    
+    const result = await fetch(url);
+    const jsonData = await result.json();
+    return jsonData;
+}

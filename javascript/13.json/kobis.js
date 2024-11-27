@@ -49,7 +49,7 @@ function initForm() {
 
 //3-1. 박스오피스 정보를 화면에 출력하는 내용 작성
 function searchBoxOffice(Ktype, searchDate) {
-   boxOffice(Ktype, searchDate)  //Promise 객체로 리턴됨
+   boxOffice(Ktype, searchDate)  //Promise 객체로 리턴됨 --흠,, json() 으로 받은건 다 promise 로 리턴되는건가?
     .then((result) => { 
         // const rankType = Ktype.toLowerCase();      
         const type = result.boxOfficeResult.boxofficeType;
