@@ -43,7 +43,7 @@ function initform(){
                 title.focus();
             } else{
                 //kmdb API 연동 후  화면실행한 결과값 출력
-                searchMovieResult(option.value,typeValue.value,title.value);  //initform 안에잇는 let 으로선언한애들을밖에서도 사용하려고 파라미터로 값을 넣어줌
+                searchMovieResult(option.value,typeValue.value,title.value);
             }
             });  //let btn end
 
@@ -68,7 +68,6 @@ function searchMovieResult(option,typeValue,title){
                 let actors = result.Data[0].Result[0].actors.actor;
                 let posterArray = result.Data[0].Result[0].posters.split('|');
                 let stillArray = result.Data[0].Result[0].stlls.split('|');
-                //포스터랑 스틸컷 링크를 보면 | 이거로 구분되어있고 문자열이긲때문에 split으로 구분해서 나눠준거임 다 붙여놓으면 존나길고 내용가져오기 힘들어서
                 let staffs = result.Data[0].Result[0].staffs.staff;
                 let title = info.title.replaceAll('!HS','').replaceAll('!HE','');
                 

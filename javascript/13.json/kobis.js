@@ -49,9 +49,8 @@ function initForm() {
 
 //3-1. 박스오피스 정보를 화면에 출력하는 내용 작성
 function searchBoxOffice(Ktype, searchDate) {
-   boxOffice(Ktype, searchDate)  //Promise 객체로 리턴됨 --흠,, json() 으로 받은건 다 promise 로 리턴되는건가?
+   boxOffice(Ktype, searchDate)  //json() 은 Promise 객체로 리턴됨
     .then((result) => { 
-        // const rankType = Ktype.toLowerCase();      
         const type = result.boxOfficeResult.boxofficeType;
         const range = result.boxOfficeResult.showRange;   
     //Ktype이 Daily인지 Weekly 인지 확인하여 해당하는 값에 맞춰서 rankList 를 실행하라
@@ -61,10 +60,6 @@ function searchBoxOffice(Ktype, searchDate) {
     } else if(Ktype==='Weekly'){
         rankList = result.boxOfficeResult.weeklyBoxOfficeList;  //근데 이케함녀 랭크리스트는 if안에서만 살수잇음 그래서 if문밖에 let rankList=null 한거야
     }
-
-        // '{name: 홍길동}' 이렇게 되잇는걸 json 데이터로 바꿀때는  JSON.parse 이거 사용가능
-        //근데 레퍼런스한 문자열안에 ${~} 이렇게 되있는경우에는 사용을 못함 (result.boxOfficeResult.${~~}showRange)  이케가안되는거
-        // rankList = JSON.parse(rankList);
 
         //화면에 테이블형식으로 출력할거임 
         let display = `              
@@ -78,7 +73,6 @@ function searchBoxOffice(Ktype, searchDate) {
                         <th>당일 관객수</th>
                         <th>누적 관객수</th>                    
                     </tr>`;
-                ///+=  하나만들어서 계쏙중첩으로 돌아가게 하려고 +=쓴거야
             rankList.forEach((element) => {  //rankList[index] = element
                 display += `        
                     <tr>       
