@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/cgv/css/commons.css">
     <link rel="stylesheet" href="/cgv/css/cgv.css">
     <script src="https://kit.fontawesome.com/f6ead21f87.js" crossorigin="anonymous"></script>
+    <script src="/cgv/js/cgv-loginform.js"></script>
 </head>
 <body>
    <!-- header -->
@@ -24,17 +25,19 @@
                     <li>
                         <div class="loginlogo">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" name="id">
+                            <input type="text" name="id" id="id">  <!--1. 인풋태그들의 id 추가함-->
                         </div>
+                        <p id="check-msg-id"></p>
                     </li>
                     <li>
                         <div class="loginlogo">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" name="pw">
+                            <input type="password" name="pw" id="pw"> <!--1. 인풋태그들의 id 추가함-->
                         </div>
+                        <p id="check-msg-pw"></p>
                     </li>
-                    <li>
-                        <button class="button-main-color">로그인</button>
+                    <li>   <!-- 버튼 이벤트 처리를 위해 함수명 입력해줌 js에서 dhtml 로 할때는 이렇게 안줘도됨 html 파일에 잇는애를 js에서 이벤트 추가할거라 oncheck 한거임-->
+                        <button class="button-main-color" type="button" onclick="loginFormCheck()">로그인</button> 
                     </li>
                     <li>
                         <div>
