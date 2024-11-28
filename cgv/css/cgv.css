@@ -370,6 +370,7 @@ article.content-title-style > div > span:last-child {
 .content-moviechart-list ul li img {
     border-radius: 10px;
     width: 170px;
+    height: 250px;
 }
 
 .content-moviechart-list ul li h3 {
