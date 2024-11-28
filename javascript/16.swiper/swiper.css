@@ -1,0 +1,16 @@
+.swiper {
+    border: 1px solid red;
+    height: 500px;
+    width: 800px;
+    margin: auto;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lightsteelblue; */
+}
+
+
+
