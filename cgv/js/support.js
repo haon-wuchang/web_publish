@@ -25,9 +25,8 @@ function onChangeNoticeList(code){
             if(code === 'total'){
                 showNoticeList(jsonData.list);
             } else {
-                // notice,json 파일의 list 의 { } 이 한덩이를 object라고 한거임
-                let filterList = jsonData.list.filter((object) => {return object.code === code});  //filter가 실행되면 새로운 배열이 생성된다. 필터링한 (object.code === code)값을 새롭게만든 배열에 넣어주게된다
-                //filterList = [{},{}] 이런식으로 나오게 될거임     // 비교하는값이 하나라서 return 이랑 {} 삭제가능
+                let filterList = jsonData.list.filter((object) => {return object.code === code});  
+
     
                 //2. table 출력코드 생성 후 화면 출력
                 // showNoticeList(필터링한 배열객체);
@@ -36,11 +35,6 @@ function onChangeNoticeList(code){
 
         })
         .catch((error) => console.log(error));
-
-
-
-
-
 
 
 } //onChangeNoticeList end
