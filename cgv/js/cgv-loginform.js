@@ -32,7 +32,7 @@ function loginFormCheck() {
     const checkMsgPw = document.querySelector('#check-msg-pw');
 
     if(id.value===''){
-        checkMsgId.textContent = '아이디를 입력해주세요';
+        checkMsgId.textContent = '아이디를 입력해주세요'; //textContent는 span 태그일떄 사용하는거임
         checkMsgId.style.fontSize = '12px';
         checkMsgId.style.color = 'red';
         id.focus();

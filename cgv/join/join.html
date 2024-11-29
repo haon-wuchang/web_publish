@@ -25,8 +25,10 @@
                             <input type="text" name="id" 
                                 placeholder="아이디 입력(6~20자)"
                                 id='id' oninput="HandleChangeJoin(event)">
-                            <button>중복확인</button>
-                        </div>
+                            <!--4. idCheckButton의 파라미터에 event 를 넣는다-->
+                            <button type="button" onclick="idCheckButton(event)">중복확인</button>
+                            <input type='hidden' id="idCheckResult" value="default"><!--5.-->
+                        </div>        
                     </li>
                     <li>
                         <label for="" class="join-title-font">비밀번호</label>
@@ -43,7 +45,8 @@
                         <div>
                             <input type="password" name="pwcheck" 
                                 placeholder="비밀번호 재입력"
-                                id="cpw" oninput="HandleChangeJoin(event)">
+                                id="cpw" oninput="HandleChangeJoin(event)"
+                                onblur ='cpwCheck()'>
                         </div>
                     </li>
                     <li>
@@ -72,7 +75,7 @@
                                 placeholder="이메일 주소"
                                 id="email" oninput="HandleChangeJoin(event)">
                             <span>@</span>
-                            <select name="emaildomain" id="emaildomain">
+                            <select name="emaildomain" id="emaildomain" oninput="HandleChangeJoin(event)">
                                 <option value="default">선택</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="gmail.com">gmail.com</option>

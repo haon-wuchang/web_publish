@@ -6,6 +6,7 @@
     <title>CGV</title>
     <link rel="stylesheet" href="/cgv/css/commons.css">
     <link rel="stylesheet" href="/cgv/css/cgv.css">
+    <script src="/cgv/js/support.js"></script>
 </head>
 <body>
    <!-- header -->
@@ -26,173 +27,17 @@
                     <button>검색하기</button>
                 </div>
                 <nav>
-                    <ul>
-                        <li><a href="#">전체</a></li>
-                        <li><a href="#">시스템점검</a></li>
-                        <li><a href="#">극장</a></li>
-                        <li><a href="#">행사/이벤트</a></li>
-                        <li><a href="#">제휴이벤트</a></li>
-                        <li><a href="#">기타</a></li>
+                    <ul>    <!-- onclick 을 쓰면 script 부분에서 type=module 쓰면안댐!!-->
+                        <li><a onclick= "onChangeNoticeList('total')">전체</a></li>
+                        <li><a onclick= "onChangeNoticeList('system')">시스템점검</a></li>
+                        <li><a onclick= "onChangeNoticeList('theater')">극장</a></li>
+                        <li><a onclick= "onChangeNoticeList('event')">행사/이벤트</a></li>
+                        <li><a onclick= "onChangeNoticeList('connect-event')">제휴이벤트</a></li>
+                        <li><a onclick= "onChangeNoticeList('ex')">기타</a></li>
                     </ul>
                 </nav>
                 <p>총114건이 검색되었습니다.</p>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>번호</th>
-                            <th>구분</th>
-                            <th>제목</th>
-                            <th>등록일</th>
-                            <th>조회수</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>114</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">iOS 18 업데이트 관련 예매 서비스 이용 안내</a></td>
-                            <td>2024.09.13</td>
-                            <td>111964</td>
-                        </tr>
-                        <tr>
-                            <td>113</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">iOS 18 업데이트 관련 예매 서비스 이용 안내</a></td>
-                            <td>2024.09.08</td>
-                            <td>96423</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                        <tr>
-                            <td>112</td>
-                            <td>[시스템점검]</td>
-                            <td><a href="#">[CGV] 해피머니상품권 사용중지 안내</a></td>
-                            <td>2024.08.13</td>
-                            <td>1164</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5">1 2 3 4 5</td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
