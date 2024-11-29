@@ -25,14 +25,16 @@
                     <li>
                         <div class="loginlogo">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" name="id" id="id">  <!--1. 인풋태그들의 id 추가함-->
+                            <input type="text" name="id" id="id"
+                                oninput="handleChange(event)">  <!--1. 인풋태그들의 id 추가함 2. oninput 이벤트 추가-->
                         </div>
                         <p id="check-msg-id"></p>
                     </li>
                     <li>
                         <div class="loginlogo">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" name="pw" id="pw"> <!--1. 인풋태그들의 id 추가함-->
+                            <input type="password" name="pw" id="pw"
+                                oninput="handleChange(event)"> <!--1. 인풋태그들의 id 추가함-->
                         </div>
                         <p id="check-msg-pw"></p>
                     </li>

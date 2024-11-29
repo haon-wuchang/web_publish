@@ -1,6 +1,6 @@
 import{kobisBoxOffice, searchMoviePoster} from './kobisCommons.js';
 
-// 해설 숫자다음에 ㄱㄴㄷ 임
+// 해설 // 다음에 숫자다음에 ㄱㄴㄷ 임
 createMovieChartList(1);  //💨 9. 1이 기본화면이고 버튼을 누르면 2페이지로 넘어가게 만들것이다
 
 // index에 들어가는 무비차트 리스트 생성함수
@@ -12,14 +12,14 @@ function createMovieChartList(page) { //💨3. 1page는 영화포스터이미지
 
  //date.getFullYear(); 이거는 숫자니까 concat 함수를 쓸수없음 그래서 얘를 문자열로바꾸는 toString함수를 사용함
     const searchDate = date.getFullYear().toString().concat(date.getMonth()+1,date.getDate()-1)
-    
+    //Date 클래스에서 오늘날짜에서 하루전날짜를 가져와서 입력할거니까 위에처럼 date-1 한거임
 
     kobisBoxOffice('Daily',searchDate)
         .then((result) => {
-            const rankList = result.boxOfficeResult.dailyBoxOfficeList;
+            const rankList = result.boxOfficeResult.dailyBoxOfficeList; //코비스에서 이 경로에잇는박스오피스리스트를 랭크리스트라는 변수에 넣음/저렇게쓰면 너무 길자낭
             let posterList = [];  //Promise 객체 타입으로 10개의 포스터이미지가 저장됨
 
-            //랭크리스트로 이름 개봉일  가져와서 포스터가져오는함수에서 이름개봉일넣어서 포스터가져오기
+            //랭크리스트로 이름 개봉일  가져와서, 포스터가져오는함수에서 이름개봉일넣어서 포스터가져오기
             rankList.forEach((element) => {
                 let movieNm = element.movieNm;
                 let openDt = element.openDt.replaceAll('-','');
@@ -37,7 +37,7 @@ function createMovieChartList(page) { //💨3. 1page는 영화포스터이미지
                         i += idx;  //💨 8. i =idx 가 안되는이유는 이케하면 0값만 들어가기때문임
                         if(i< page * 5) {
                         //💨1. if 로 체크를 안하면 10개가 다 무비차트에 떠버리기때문에 기본적으로5개만뜨게 설정한다
-                        //💨2. 근데 이케 5로 값고정하면 나머지 애들은 출력을 못하자나 그래서 5말고 변수로 값을 가져오게해야ㅐ대
+                        //💨2. 근데 이케 if(i<5)로 값고정하면 나머지 애들은 출력을 못하자나 그래서 5말고 변수로 값을 가져오게해야ㅐ대
                         //💨4. page*5=> 해당페이지의 5개의 이미지를 보여준다
                         //💨 5. 2페이지를 하고싶으면 if의 i값도 바꿔줘야한다 1페이지면 i=0부터 시작하게 만든다
                         output += `
