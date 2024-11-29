@@ -20,30 +20,30 @@
                 <ul> 
                     <li>
                         <label for="" class="join-title-font">아이디</label>
-                        <span id="check-msg-id">사용할 수 없는 아이디 입니다</span>
+                        <span id="check-msg-id">아이디를 입력해주세요</span>
                         <div>
                             <input type="text" name="id" 
                                 placeholder="아이디 입력(6~20자)"
-                                id='id' oninput="HandleChangeJoin()">
+                                id='id' oninput="HandleChangeJoin(event)">
                             <button>중복확인</button>
                         </div>
                     </li>
                     <li>
                         <label for="" class="join-title-font">비밀번호</label>
-                        <span id="check-msg-pw">12자 이내의 비밀번호를 입력해주세요</span>
+                        <span id="check-msg-pw">비밀번호를 입력해주세요</span>
                         <div>
                             <input type="password" name="pw" 
                                 placeholder="비밀번호 입력(문자,숫자,특수문자 포함 8~20자)"
-                                id='pw' oninput="HandleChangeJoin()">
+                                id='pw' oninput="HandleChangeJoin(event)">
                         </div>
                     </li>
                     <li>
                         <label for="" class="join-title-font">비밀번호 확인</label>
-                        <span id="check-msg-cpw">비밀번호가 일치하지 않습니다</span>
+                        <span id="check-msg-cpw">비밀번호를 입력해주세요</span>
                         <div>
                             <input type="password" name="pwcheck" 
                                 placeholder="비밀번호 재입력"
-                                id="cpw" oninput="HandleChangeJoin()">
+                                id="cpw" oninput="HandleChangeJoin(event)">
                         </div>
                     </li>
                     <li>
@@ -52,7 +52,7 @@
                         <div>
                             <input type="text" name="name" 
                                 placeholder="이름을 입력해주세요"
-                                id="name" oninput="HandleChangeJoin()">
+                                id="name" oninput="HandleChangeJoin(event)">
                         </div>
                     </li>
                     <li>
@@ -61,7 +61,7 @@
                         <div>
                             <input type="text" name="phonenumber" 
                                 placeholder="휴대폰 번호 입력('-'제외 11자리 입력)"
-                                id="phone" oninput="HandleChangeJoin()">
+                                id="phone" oninput="HandleChangeJoin(event)">
                         </div>  
                     </li>
                     <li>
@@ -70,9 +70,9 @@
                         <div>
                             <input type="email" name="emailname" 
                                 placeholder="이메일 주소"
-                                id="email" oninput="HandleChangeJoin()">
+                                id="email" oninput="HandleChangeJoin(event)">
                             <span>@</span>
-                            <select name="emaildomain">
+                            <select name="emaildomain" id="emaildomain">
                                 <option value="default">선택</option>
                                 <option value="naver.com">naver.com</option>
                                 <option value="gmail.com">gmail.com</option>
@@ -81,8 +81,8 @@
                         </div>
                     </li>
                     <li>
-                        <button>가입하기</button>
-                        <button>가입취소</button>
+                        <button type="button" onclick="joinFormCheck()">가입하기</button>
+                        <button type="reset">가입취소</button>
                     </li>
                 </ul>
             </form>
