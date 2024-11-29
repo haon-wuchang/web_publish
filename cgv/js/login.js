@@ -1,7 +1,4 @@
 
-//html 파일에서 스크립트부분에 타입모듈 안적어야 얘가 실행이된다
-
-
 //ㄴ. input text 창에 값을 입력하면 아이디를입력해주세요 빨간색으로 뜨는게 파란색으로 아이디입력성공 이런식으로뜨게 만들어방
 // 아이디 비밀번호 실시간 입력 시 체크 하는 함수 정의 
 function handleChange(event){
@@ -32,7 +29,7 @@ function loginFormCheck() {
     const checkMsgPw = document.querySelector('#check-msg-pw');
 
     if(id.value===''){
-        checkMsgId.textContent = '아이디를 입력해주세요'; //textContent는 span 태그일떄 사용하는거임
+        checkMsgId.textContent = '아이디를 입력해주세요'; 
         checkMsgId.style.fontSize = '12px';
         checkMsgId.style.color = 'red';
         id.focus();

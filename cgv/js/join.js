@@ -96,7 +96,7 @@ function HandleChangeJoin(event) {
 } //HandleChangeJoin 끝
 
 // 아이디 중복확인 함수
-function idCheckButton(event) {  //4. 중복확인창 출력후 중복확인버튼색을 파랑으로 변경하기위해서 html 파일에서 파라미터로 event 르 ㄹ넣은것이다
+function idCheckButton(event) {  
     const did = 'test';
     const id = document.querySelector('#id');
     const idMsg = document.querySelector('#check-msg-id');
@@ -113,15 +113,13 @@ function idCheckButton(event) {  //4. 중복확인창 출력후 중복확인버�
         } else {
             alert('사용가능한 아이디입니다.');
             event.target.style.backgroundColor = 'blue';
-            document.querySelector('#idCheckResult').value = 'success'; //5. 가입하기 버튼을 눌럿을떄 중복확인을 햇는지 alert 를 띄워서 확인하기
-            // console.log(document.querySelector('#idCheckResult').value);
-            
+            document.querySelector('#idCheckResult').value = 'success';             
         }
     }
 }  //idCheckButton 끝
 
 
-//6.비밀번호 비밀번호확인 내용이 같은지 비교하기-> 커서가 비밀번호확인칸에서 빠져나올때 이벤트 진행함 onfocusout or onblur 사용
+//6.비밀번호 비밀번호확인 내용이 같은지 비교하기-> 
 // 비밀번호 비밀번호확인 일치여부 확인 함수
 function cpwCheck() {
     const pw = document.querySelector('#pw');
