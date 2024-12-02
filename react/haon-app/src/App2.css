@@ -1,5 +1,8 @@
-div{
+.container{
     background-color: lightseagreen;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .title {
