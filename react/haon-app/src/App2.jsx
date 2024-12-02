@@ -9,8 +9,7 @@ import AvatarList from './compenents/AvatarList.jsx' ;
 
 
 
-// 확장자를 jsx 로 주면 리액트로 화면을 만드는 파일이라는걸 알기위해 jsx 로 적은거임
-///js 로 하면 헷갈리니까  jsx 로 붙인거 필수는 아님용 js 로 해도대
+
 export default function App2() {
     const list = [
         {
@@ -30,7 +29,7 @@ export default function App2() {
         }
     ];
 
-    return (             //출력할때는 return (); 이렇게 적어줘야함 {} 금지! //리턴하게되면 index.js의  id root 에 내용이 들어가게된다
+    return (           
         <>
             <div className='container'>
                 <Avatar img='/images/wuchang.jpg' name='Wuchang' age='5'></Avatar>

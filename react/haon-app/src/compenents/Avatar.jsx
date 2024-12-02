@@ -9,16 +9,16 @@ import './Avatar.css';
 //     'age' : '5'
 //     }
 
-// export default function Avatar(props) {  //프롭스로 받기
-export default function Avatar({img,name,age}) {  //이건 구조분해 할당으로 받은거임 {name,img} 이렇게 순서 바꿔도 상관없음
+export default function Avatar(props) {  //프롭스로 받기
+// export default function Avatar({img,name,age}) {  //이건 구조분해 할당으로 받은거임 {name,img} 이렇게 순서 바꿔도 상관없음
 
     //이미지 주소 가져오기
     return(
     <div className='avatar-container'>
-        {/* <img src={props.img} className="avatar"/> */}   {/*프롭스로 받기*/} 
-        <img src={img} className="avatar"/>                 {/*이건 구조분해 할당으로 받은거임*/}
-        {/* <div>{props.name}</div> */}                     {/*프롭스로 받기*/} 
-        <div>{name}, {age}살</div>                          {/*이건 구조분해 할당으로 받은거임*/}   
+        /<img src={props.img} className="avatar"/>  {/*프롭스로 받기*/} 
+        {/* // <img src={img} className="avatar"/>                 이건 구조분해 할당으로 받은거임 */}
+        <div>{props.name}</div>                    {/*프롭스로 받기*/} 
+        {/* // <div>{name}, {age}살</div>                          이건 구조분해 할당으로 받은거임    */}
     </div>
     );    
 }
