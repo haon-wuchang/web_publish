@@ -1,10 +1,10 @@
-import AppButton from './components/AppButton.jsx';
+import AppSkz from './AppSkz.jsx';
 
 
 export default function App() {
   return (
     <div className="App">
-        <AppButton></AppButton>
+        <AppSkz></AppSkz>
     </div>
   );  
 }
