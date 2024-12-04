@@ -1,11 +1,12 @@
 // import AppSDwitter from './components/dwitter/AppDwitter.jsx';
+// import AppButton from './components/AppButton.jsx';
 import  './App.css';
-import App_Avatar from './App_avatar.js';
+import AppBoxOffice from './components/kobis/AppBoxOffice.jsx';
 
 export default function App() {
   return (
     <div className="App">
-        <App_Avatar></App_Avatar>
+        <AppBoxOffice></AppBoxOffice>
     </div>
   );  
 }

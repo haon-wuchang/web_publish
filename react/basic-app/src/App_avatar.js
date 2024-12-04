@@ -19,8 +19,7 @@ export default function App() {
       .catch(error => console.log(error));
   },[]);
 
-console.log(`imagelist => ${imageList}`);
-console.log(`avatarlist => ${avatarList}`);
+
 
 
 
