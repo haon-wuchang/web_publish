@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BoxOffice from "./BoxOffice.jsx";
+import './BoxOffice.css';
 
 export default function AppBoxOffice() {
     const [dailyBoxOffice, setDailyBoxOffice] = useState([]);
@@ -24,10 +25,12 @@ export default function AppBoxOffice() {
                         cnt = '당일관객수'
                         total = '누적관객수'
                         amount = '누적매출액'
+                        type = 'title'
                 ></BoxOffice>
             </div>
             <div className="content">
                 {dailyBoxOffice.map((boxoffice) => 
+                <div className="rank">
                     <BoxOffice 
                         rank = {boxoffice.rank}
                         title = {boxoffice.movieNm}
@@ -35,7 +38,9 @@ export default function AppBoxOffice() {
                         cnt = {boxoffice.audiCnt}
                         total = {boxoffice.audiAcc}
                         amount = {boxoffice.salesAmt}
+                        type = 'content'
                     ></BoxOffice>
+                </div>
                 )}
             </div>
         </>

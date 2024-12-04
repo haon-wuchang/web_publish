@@ -1,20 +1,15 @@
-.boxoffice {
-    display: flex;
-
+div.title, div.content {
+    width: 800px;
+    margin: auto;
 }
 
-/* .title {
-    width: 500px;
-    padding: 5px;
-    text-align: center;
-
-} */
-
-p{
-    padding: 5px;
-    border: 1px solid black;
+div.title p, div.content p{
     float: left;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0;
 }
-.content{
+
+div.content , div.rank {
     clear: both;
 }
