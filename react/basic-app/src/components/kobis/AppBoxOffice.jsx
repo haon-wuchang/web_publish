@@ -16,29 +16,28 @@ export default function AppBoxOffice() {
     return(
         <>
             <h1>KOBIS 박스오피스</h1>
-            <table border='1'>
-                <thead>
-                    <tr>
-                        <th>순위</th>
-                        <th>제목</th>
-                        <th>개봉일</th>
-                        <th>당일관객수</th>
-                        <th>누적관객수</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dailyBoxOffice.map((boxoffice) => 
-                        <BoxOffice 
-                            rank = {boxoffice.rank}
-                            title = {boxoffice.movieNm}
-                            open = {boxoffice.openDt}
-                            cnt = {boxoffice.audiCnt}
-                            total = {boxoffice.audiAcc}
-                         ></BoxOffice>
-                    )}
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+            <div className="title">
+                <BoxOffice 
+                        rank = '순위'
+                        title = '제목'
+                        open = '개봉일'
+                        cnt = '당일관객수'
+                        total = '누적관객수'
+                        amount = '누적매출액'
+                ></BoxOffice>
+            </div>
+            <div className="content">
+                {dailyBoxOffice.map((boxoffice) => 
+                    <BoxOffice 
+                        rank = {boxoffice.rank}
+                        title = {boxoffice.movieNm}
+                        open = {boxoffice.openDt}
+                        cnt = {boxoffice.audiCnt}
+                        total = {boxoffice.audiAcc}
+                        amount = {boxoffice.salesAmt}
+                    ></BoxOffice>
+                )}
+            </div>
         </>
     );
 }

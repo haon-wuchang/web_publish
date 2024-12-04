@@ -1,12 +1,14 @@
+import './BoxOffice.css';
 
-export default function BoxOffice({rank,title,open,cnt,total}) {
+export default function BoxOffice({rank,title,open,cnt,total,amount}) {
     return(
-            <tr>
-                <th>{rank}</th>
-                <th>{title}</th>
-                <th>{open}</th>
-                <th>{cnt}</th>
-                <th>{total}</th>
-            </tr>
+            <div className='boxoffice'>
+                <p>{rank}</p>
+                <p>{title}</p>
+                <p>{open}</p>
+                <p>{cnt}</p>
+                <p>{total}</p>
+                <p>{amount}</p>
+            </div>
     );
 }
