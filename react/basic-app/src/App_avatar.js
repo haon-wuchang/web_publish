@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Avatar from './components/Avatar.jsx';
 import AvatarImage from './components/AvatarImage.jsx';
@@ -5,17 +6,35 @@ import AvatarImageList from './components/AvatarImageList.jsx';
 import AvatarList from './components/AvatarList.jsx';
 
 export default function App() {
-  const imageList = [   //배열안에 오브젝트 리터럴형태로 내용 넣어!!
-    {'img': '/images/people1.webp'},
-    {'img': '/images/people2.webp'},
-    {'img': '/images/people3.webp'}
-  ];
+  const [imageList, setImageList ] = useState([]);
+  const [avatarList, setAvatarList ] = useState([]);
 
-  const avatarList = [   //배열안에 오브젝트 리터럴형태로 내용 넣어!!
-    {'img': '/images/people1.webp', 'name' : 'smith'},
-    {'img': '/images/people2.webp', 'name' : 'john'},
-    {'img': '/images/people3.webp', 'name' : 'kelly'}
-  ];
+  useEffect(() => {
+    fetch('data/avatar.json')
+      .then(result => result.json())
+      .then(jsonData => {
+        setImageList(jsonData.imageList);  //여긴 리턴안써도댄댕
+        setAvatarList(jsonData.avatarList);
+          })
+      .catch(error => console.log(error));
+  },[]);
+
+console.log(`imagelist => ${imageList}`);
+console.log(`avatarlist => ${avatarList}`);
+
+
+
+  // const imageList = [    이거를 따로 json 파일로 만들어서useEffect와 useState 로 값을 가져오는걸로 위에 작성함
+  //   {'img': '/images/people1.webp'},
+  //   {'img': '/images/people2.webp'},
+  //   {'img': '/images/people3.webp'}
+  // ];
+
+  // const avatarList = [   
+  //   {'img': '/images/people1.webp', 'name' : 'smith'},
+  //   {'img': '/images/people2.webp', 'name' : 'john'},
+  //   {'img': '/images/people3.webp', 'name' : 'kelly'}
+  // ];
 
   return (
     <div className="App">
