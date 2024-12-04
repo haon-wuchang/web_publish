@@ -1,10 +1,10 @@
-import AppSkz from './AppSkz.jsx';
-
+import AppSDwitter from './components/dwitter/AppDwitter.jsx';
+import  './App.css';
 
 export default function App() {
   return (
     <div className="App">
-        <AppSkz></AppSkz>
+        <AppSDwitter></AppSDwitter>
     </div>
   );  
 }

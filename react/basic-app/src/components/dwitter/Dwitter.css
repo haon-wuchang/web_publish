@@ -1,0 +1,53 @@
+.dwitter{
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    background-color: white;
+    
+}
+.dwitter-image{
+    /* float: left; */
+
+}
+.dwitter-image img{
+    width: 120px;
+    border-radius: 100%;
+}
+.title{
+    text-indent: 20px;
+    padding: 20px;
+}
+.content{
+    height: 50px;
+    text-indent: 20px;
+    margin-top: 5px;
+}
+
+.dwitter-container{
+    width: 1000px;
+    margin: auto;
+    background-color: rgb(99, 112, 129);
+    padding: 10px;
+}
+.dwitter-container h1{
+    color: white;
+}
+.dwitter-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    color: white;
+    justify-content: right;
+    margin-right: 15px;
+}
+
+.dwitter-menu li{
+border: 1px solid white;
+padding: 5px 10px;
+border-radius: 4px;
+font-size: 14px;
+}

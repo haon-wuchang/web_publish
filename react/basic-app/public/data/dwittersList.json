@@ -1,0 +1,38 @@
+[
+                {
+                    "img":"/images/felix.webp" ,
+                    "name":"필릭스" ,
+                    "id":"@yonglix" ,
+                    "date":"2024-12-01" ,
+                    "content":"감기조심해요~"
+                },
+                {
+                    "img":"/images/in.webp" ,
+                    "name":"아이엔" ,
+                    "id":"@innne" ,
+                    "date":"2024-12-03" ,
+                    "content":"클스마스 ㅎㅎ"
+                },
+                {
+                    "img":"/images/seungmin.webp" ,
+                    "name":"김승민" ,
+                    "id":"@sususu" ,
+                    "date":"2024-12-04" ,
+                    "content":"개졸려"
+                },
+                {
+                    "img":"/images/felix.webp" ,
+                    "name":"필릭스" ,
+                    "id":"@yonglix" ,
+                    "date":"2024-11-29" ,
+                    "content":"햄벅 먹고싶다"
+                },
+                {
+                    "img":"/images/felix.webp" ,
+                    "name":"필릭스" ,
+                    "id":"@yonglix" ,
+                    "date":"2024-11-25" ,
+                    "content":"놀고싶다 게임"
+                }
+            ]
+
