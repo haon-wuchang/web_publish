@@ -14,7 +14,7 @@ export default function BoxOffice({rank,title,open,cnt,total,amount,type}) {
                 <p style={{width :100}}>{open}</p>
                 <p style={{width :100}}>{cnt}</p>
                 <p style={{width :100}}>{total}</p>
-                <p style={{width :100}}>{amount}</p>
+                <p style={{width :120}}>{amount}</p>
             </div>
     );
 }

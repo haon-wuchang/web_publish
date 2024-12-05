@@ -1,0 +1,1042 @@
+/****************************
+*  title: header style
+*  author : haon@test.com
+*  final date : 2024.10.24
+*****************************/
+header {
+    width: 100%;
+    height: 160px;
+    margin: 0 auto;
+    border-bottom: 2px solid tomato;
+    /* border: 1px solid var(--color-border); */
+}
+.header-top, .header-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-top, .header-bottom-content {
+    width: 1000px;
+    margin: 0 auto;
+}
+.header-top ul, .header-bottom ul {
+    /* border: 1px solid green; */
+    display: flex;
+    list-style-type: none;     
+}
+.header-top {
+    padding: 20px 0;
+    /* border: 1px solid red; */
+}
+.header-top ul li {
+    /* padding: 25px 10px; */
+    /* background-color:darkcyan ; */  
+    margin-left: 40px;   
+}
+.header-top ul li a {
+    /* padding: 30px 10px; */
+    text-decoration: none;
+    color:var(--color-primary);
+    /* background-color: aquamarine; */
+}
+.header-top-logo {
+    width: 320px;   /*밑에 자식요소가 있으면 부모한테width 설정 해줘야댕(블럭요소한정)*/
+    /* border: 1px solid blue; */
+    position: relative;
+}
+.header-top-logo > a > img {
+    width: 120px;
+}
+.header-top-logo > span {
+    top: 30px;
+    left: 120px;
+    position: absolute;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+.header-bottom {
+    height: 40px;
+    width: 100%;
+    padding: 5px 0;  
+    border-top: 1px solid gray;        
+}
+.header-bottom-content {
+    /* border: 1px solid blue; */
+    padding-top: 5px;
+}
+.header-bottom dl {
+    display: none;
+}
+.header-bottom li {
+    padding: 10px 25px;
+    padding-left: 1px;
+}
+.header-bottom li a {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+.header-bottom-search {
+    border-right:1px solid gray;
+    border-left:1px solid gray;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+.header-bottom-search input {
+    width: 80%;
+    border: none;
+    padding: 5px;
+}
+
+.header-bottom-search i {
+    /* border: 1px solid red; */
+    font-size: 25px;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.header-menu-icon1 {
+    /* border: 1px solid blue; */
+    display: block;
+    width: 50px;
+    min-height: 55px;
+    /* overflow: hidden; */
+    position: relative;
+    text-align: center;
+}
+.header-menu-icon1 img {
+    width: 36px;
+    height: 36px;
+    /* border: 1px solid green */  
+}
+.header-menu-icon1 span {
+    width: 50px;
+    font-size: 11px;
+    height: 19px;    
+     /* border: 1px solid red; */
+     position: absolute;
+     bottom:0;
+     left: -1px;
+     font-weight: 600; 
+}
+.header-menu-icon2 {
+    /* border: 1px solid blue; */
+    display: block;
+    width: 50px;
+    min-height: 55px;
+    /* overflow: hidden; */
+    position: relative;
+    text-align: center;
+}
+.header-menu-icon2 img {
+    width: 36px;
+    height: 36px;
+    /* border: 1px solid green */
+}
+.header-menu-icon2 span {
+    width: 50px;
+    font-size: 11px;
+    height: 19px;
+    position: absolute;
+     /* border: 1px solid red; */
+     bottom:0;
+     left: -1px;
+     font-weight: 600;
+}
+
+.header-menu-icon3 {
+    /* border: 1px solid blue; */
+    display: block;
+    width: 50px;
+    min-height: 55px;
+    /* overflow: hidden; */
+    position: relative;
+    text-align: center;
+}
+.header-menu-icon3 img {
+    width: 36px;
+    height: 36px;
+    /* border: 1px solid green */
+}
+.header-menu-icon3 span {
+    width: 50px;
+    font-size: 11px;
+    height: 19px;
+    position: absolute;
+     /* border: 1px solid red; */
+     bottom:0;
+     left: -1px;
+     font-weight: 600;
+}
+
+.header-menu-icon4 {
+    /* border: 1px solid blue; */
+    display: block;
+    width: 50px;
+    min-height: 55px;
+    /* overflow: hidden; */
+    position: relative;
+    text-align: center;
+}
+.header-menu-icon4 img {
+    width: 36px;
+    height: 36px;
+    /* border: 1px solid green; */
+}
+.header-menu-icon4 span {
+    width: 50px;
+    font-size: 11px;
+    height: 19px;
+    position: absolute;
+    bottom:0;
+    left: -1px;
+     font-weight: 600;
+     /* border: 1px solid red; */
+}
+
+.header-top-card {
+    /* border: 1px solid red; */
+    position: relative;
+    left: 100px;
+    top: 5px;
+}
+
+
+/****************************
+*  title: footer style
+*  author : haon@test.com
+*  final date : 2024.10.24
+*****************************/
+
+footer {
+    width: 100%;
+    height: 450px;
+    background-color: var(--color-footer-bg);
+    margin-top: 60px;
+}
+
+
+.footer-content-top {
+    background-color: orange;
+    height: 180px;
+}
+
+.footer-content-top img {
+    margin-top: -60px;
+    /* border: 1px solid black; */
+}
+
+
+.footer-content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-intro > ul  {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-silver);
+}
+.footer-intro > ul a {
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.footer-intro > ul a:hover {
+    text-decoration: underline;
+}
+
+.footer-intro > ul li:nth-child(7) a {
+    text-decoration: underline;
+    color: var(--color-black);
+    font-weight: 700;
+}
+
+.footer-intro ~ p {
+    color: var(--color-primary);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 0;
+}
+
+.p {
+    margin-top: 20px;
+}
+.p2 {
+    margin-bottom: 20px;
+}
+
+
+.p2 > a {   /*관리자로그인페이지로 넘어가는 곳임*/
+    text-decoration: none;
+    color: var(--color-primary);
+    cursor: default;
+}
+/****************************
+*  title: content(index) style
+*  author : haon@test.com
+*  final date : 2024.10.25
+*****************************/
+
+.content-top {
+    width: 100%;
+    background-color: black;
+    /* border: 1px solid red; */
+    position: relative;
+    top: -4px;
+}
+ 
+.content-top iframe, 
+.content-moviechart > div,
+.content-event-special {  /*iframe 은 인라인이라 블럭으로 바꿔야 속성적용댐*/
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content-moviechart {
+    width: 100%;
+    padding: 30px 0;
+    background-color: var(--color-footer-bg);
+}
+
+.content-title-style {
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+}
+
+
+.content-moviechart .content-title-style > div:first-child { 
+    width: 250px;
+    position: relative;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+article.content-title-style > div > span:first-child {
+    color: var(--color-black);
+}
+article.content-title-style > div > span:last-child {
+    right: 0;
+    color: gray;
+    position: absolute;
+}
+.content-moviechart .content-title-style > div > span:first-child + span {
+    top: 7px;
+    left: 45%;
+    width: 2px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    background-color: var(--color-silver);
+    /* border: 1px solid blue; */
+}
+
+
+/* 무비차트리스트 상영예정작 */
+
+.content-moviechart-list ul {
+    /* border: 1px solid red; */
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-moviechart-list ul li {
+    /* border: 1px solid blue; */
+    padding: 15px 15px 0 ;
+}
+
+.content-moviechart-list ul li:first-child {
+    padding-left: 0px;
+}
+
+.content-moviechart-list ul li:last-child {
+    padding-right: 0px;
+}
+
+.content-moviechart-list ul li img {
+    border-radius: 10px;
+    width: 170px;
+}
+
+.content-moviechart-list ul li h3 {
+    text-align: center;
+    padding: 8px 0;
+    color: var(--color-primary);
+}
+
+.content-moviechart-list ul li h5 {
+    text-align: center;
+    padding-top: 3px;
+    color: var(--color-primary);
+}
+
+/****************** 이벤트 섹션 
+*******************************
+***************/
+.content-event-special section:first-child {
+    /* border: 1px solid red; */
+}
+
+.content-event-list {
+    /* border: 1px solid red; */
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.content-event-list > li {
+    /* border: 1px solid blue; */
+    padding: 5px;
+}
+
+.content-event-list  p {
+    padding: 5px;
+    /* border: 1px solid red; */
+}
+
+
+.event-content-title {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-top: 10px;
+}
+.event-content-title2 {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--color-primary-);
+}
+
+.content-event-list > li > div > img {
+    /* border: 1px solid red; */
+    width: 300px;
+    border-radius: 15px;
+}
+
+
+/* ***************특별관 */
+.special-content-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.special-content-list ul {
+    list-style-type: none;
+}
+
+.special-content-list div, 
+.special-content-list ul {
+    width: 480px;
+    /* border: 1px solid green; */
+}
+.special-content-list div img, 
+.special-content-list ul {
+    width: 480px;
+    /* border: 1px solid green; */
+}
+
+.special-content-list ul li {
+    padding: 16px 20px;
+    /* border: 1px solid green; */
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid gray;
+}
+
+.special-content-list ul li:last-child {
+    border-bottom: 1px solid gray;
+}
+
+.special-content-list ul li span:last-child {
+    background-color: var(--color-footer-bg);
+    color: var(--color-primary);
+    font-size: 14px;
+    border-radius: 5px;
+    display: inline-block; /*인라인블럭으로하면 패딩적용되니까 회색부분 조금 늘릴수있음*/
+    padding: 5px;
+}
+
+.special-content-list ul li span:first-child {
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.special-content-list ul li:hover {
+    border-radius: 10px;
+    border: 2px solid black;
+    font-weight: 600;
+} 
+
+.special-content-list ul li:hover + li {
+    border-top: 1px solid white;
+} 
+
+/* 패키지영화관람권기프트카드 */
+.package-ex-content-list {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 0 40px 0;
+}
+
+.package-ex-content-border {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px;
+}
+
+.package-ex-content-border > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.package-ex-content-border ul {
+    list-style-type: none;
+    /* border: 1px solid red; */
+}
+
+
+.package-ex-content-border ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.package-ex-content-border img {
+    width: 80px;
+}
+
+
+/* 마지막부분 ;*/
+.notice-content-list{
+    padding-bottom: 70px;
+}
+
+.notice-content-list, 
+.notice-content-list > div:first-child {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.notice-content-list > div:first-child {
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 230px;
+    width: 750px;
+}
+
+.notice-content-list > div:last-child img {
+    border-radius: 10px;
+    height: 230px;
+    width: 220px;
+}
+
+.notice-font {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.notice-div > div:nth-child(2) {    /*앱다운로드의 div*/
+    border-left: 1px solid gray;
+    padding: 15px;
+}
+
+.notice-div > div:nth-child(1) {    /*공지사항 FAQ div*/
+    padding: 15px;
+}
+
+
+.notice {
+    padding-bottom: 15px;
+    border-bottom: 1px solid gray;
+}
+
+.call {
+    padding-top: 15px;
+}
+
+.notice a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.call {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.call div {
+    font-size: 14px;
+    color: var(--color-primary);
+    padding-left: 15px;
+   
+}
+
+.call div > p:first-child {
+    font-weight: 600;
+    color: black;
+}
+
+.call div p {
+    padding-bottom: 8px;
+}
+
+.faq { 
+
+}
+
+.faq button {
+    border: 1px solid white;
+    display: inline-block;
+    height: 30px;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+
+.download {
+    text-align: center;
+}
+
+.download p {
+    font-size: 12px;
+}
+
+
+.download img {
+    width: 70px;
+    padding: 20px 0;
+}
+
+
+/****************************
+*  title: login form style
+*  author : haon@test.com
+*  final date : 2024.10.28
+*****************************/
+
+.login-form form {
+    /* border: 1px solid green; */
+    width: 850px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-login-font);
+    
+}
+
+.login-form ul {
+    list-style-type: none;
+    border-top:2px solid gray;
+    border-bottom:2px solid gray;
+    width: 420px;
+    padding: 10px 0;
+}
+
+.login-form ul li {
+    padding: 10px;
+    
+
+    /* border: 1px solid red; */
+}
+
+
+.login-form input:not(input[type="checkbox"]) {
+    padding: 5px;
+    width: 273px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    
+}
+
+.login-form ul p {
+    font-size: 12px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    /* padding-left: 50px; */
+    /* border: 1px solid blue; */
+}
+
+.login-form button {
+    outline-color: var(--color-button);
+    outline-style: solid;
+    outline-width: 2px;
+    width: 273px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.login-form ul > li:nth-child(5) {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    align-items: center;
+    font-size: 12px;
+    color: var(--color-primary);
+}
+
+.login-form ul > li:nth-child(5) div:last-child > :nth-child(2) {
+    padding-right: 5px;
+}
+
+.login-form ul > li:nth-child(5) div:last-child > a {
+    color: var(--color-login-font);
+    font-weight: 700;
+}
+
+.login-form ul > li:not(:last-child) {
+    display: flex;
+    justify-content: center;
+}
+
+.loginlogo {
+    border: 1px solid gray;
+    width: 273px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-left: 10px;
+    outline: 1px solid gray;
+}
+
+.loginlogo i {
+    padding: 0 15px 0 10px;
+    border-right: 1px solid gray;
+
+}
+/****************************
+*  title: join form style
+*  author : haon@test.com
+*  final date : 2024.10.28
+*****************************/
+
+
+.join-form form {
+    /* border: 1px solid green; */
+    width: 450px;
+    margin: 0 auto;
+ 
+}
+
+.join-title-font,  .join-form ul li label{  
+    font-size: 1em;
+    font-weight: 700;   
+    text-indent: 10px;
+    /* border: 1px solid red; */
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.join-form ul li label + span {
+    font-size: 0.7em;
+    font-weight: 500;
+    color: red;
+}
+
+.join-form ul {
+    list-style-type: none;
+    
+}
+
+.join-form ul li {
+    /* border: 1px solid red; */
+    padding-top: 8px;
+    
+}
+
+.join-form ul li div:not(.join-form ul li:nth-child(6) > div){
+    border: 1px solid var(--color-primary);  
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+
+.join-form ul li:nth-child(6) input,
+.join-form ul li:nth-child(6) select {
+    border: 1px solid var(--color-primary);  
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
+.join-form ul li:nth-child(6) select {
+    width: 50%;
+}
+.join-form ul li:nth-child(6) span {
+    margin: 0 15px;
+}
+
+.join-form ul li:first-child > div,
+.join-form ul li:nth-child(6) > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.join-form button
+{
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    padding: 7px 12px;
+    border: 1px solid white;
+    background-color: var(--color-button);
+    
+}
+
+.join-form ul li:first-child button {
+    margin-left: 10px;
+}
+
+.join-form ul li:last-child {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.join-form ul li:last-child button {
+   margin: 10px 5px;
+   width: 150px;
+   padding: 10px 0;
+}
+
+.join-form ul li:last-child button:last-child {
+    background-color: gray;
+    
+}
+
+.join-form ul li:first-child input{
+    width: 80%;
+    padding-left: 10px;
+    border: 1px solid white;
+}
+
+.join-form ul li:first-child input:focus,
+.join-form ul li input:focus:not(.join-form ul li:nth-child(6) input) {
+    border: none;
+    outline: none;
+}
+
+.join-form ul li input {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid white;
+}
+
+
+.join-form ul li:nth-child(6) input:focus {
+    outline: none;
+}
+
+/****************************
+*  title: mycgv form style
+*  author : haon@test.com
+*  final date : 2024.10.29
+*****************************/
+
+.mycgv div {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+.mycgv div span {
+    border: 1px solid red;
+    display: inline-block;
+    width: 200px;
+    padding: 20px;
+    margin: 30px 20px;
+    text-align: center; /*블럭요소에만 적용가능*/
+}
+.mycgv div span:hover {
+   background-color: lightseagreen;
+   color: white;
+   border: none;
+}
+
+/****************************
+*  title: support form style
+*  author : haon@test.com
+*  final date : 2024.10.29
+*****************************/
+
+.support-content {
+    /* border: 1px solid blue; */
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+
+
+.support-content > div {
+    /* border: 1px solid red; */
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+}
+
+.support-content > div select{
+    width: 100px;
+    padding: 5px 5px ;
+    display: inline-block;
+    margin-right: 5px;
+    color: var(--color-primary);
+
+}
+
+.support-content > div input {
+    width: 200px;
+    padding: 5px 5px ;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.support-content > div button {
+    width: 80px;
+    height: 25px;
+    padding: 5px 5px ;
+    color: white;
+    background-color: black;
+    border: 1px solid gray;
+    outline: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.support-content > nav ul {
+    border-bottom: 2px solid gray;
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.support-content ul li {
+    /* border: 1px solid blue; */
+    font-size: 14px;
+}
+
+.support-content ul li:first-child a {
+    background-color: var(--color-button); 
+    border-left: 1px solid var(--color-button);
+
+}
+
+.support-content ul li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px 7px;
+    width: 100px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+    border: 1px solid white; /*a끼리 칸 떨어진게 아니라 보더로 색 넣어준거임*/
+    border-bottom: 1px solid gray;  
+}
+
+.support-content > p {
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+
+.support-content table {
+    width: 800px;
+    margin-top: 15px;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 13px;
+}
+
+.support-content table,
+.support-content table th,
+.support-content table td {
+    border-collapse:collapse;
+}
+
+
+.support-content table thead {
+    background-color: var(--color-footer-bg);
+    border-bottom: 1px solid var(--color-primary);
+    border-top: 1px solid var(--color-primary);
+    
+}
+
+.support-content table tbody a{
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.support-content table tbody a:hover{
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.support-content table tbody {
+    border-bottom: 1px solid gray;
+}
+
+.support-content table thead th:nth-child(3),
+.support-content table tbody td:nth-child(3) {
+    text-align: left;
+}
+
+.support-content table thead th:nth-child(3) {
+    text-indent: 3px;
+}
+
+.support-content table thead th { 
+    padding: 10px 0;
+}
+
+.support-content table tbody td {
+    padding: 15px 0;
+    /* border: 1px solid red; */
+}
+
+.support-content table tfoot td {
+    padding: 20px 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 8px;
+}
+
+.support-content table thead th:first-child {
+    width: 70px;
+}
+.support-content table thead th:nth-child(2) {
+    width: 150px;
+}
+
+.support-content table thead th:nth-child(4),
+.support-content table thead th:nth-child(5) {
+    width: 120px;
+}
