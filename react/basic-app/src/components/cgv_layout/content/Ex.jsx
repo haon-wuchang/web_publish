@@ -1,5 +1,5 @@
 
-export default function Ex() {
+export default function Ex() {  //얘 이제 컴포넌트로 만들기 금요일 여기부터 할거임
     return(
         <section className="package-ex-content-list">
                 <div className="package-ex-content-border"> 
