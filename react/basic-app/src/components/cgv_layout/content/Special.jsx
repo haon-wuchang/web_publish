@@ -11,7 +11,7 @@ export default function Special() {
                         <img src="/images/special1.png" alt="특별관 1" width="400px" />
                     </div>
                     <ul>
-                        <li>
+                        <li>  
                             <span>SUITE CINEMA</span>
                             <span>#호텔 컨셉의 프리미엄관</span>
                         </li>
