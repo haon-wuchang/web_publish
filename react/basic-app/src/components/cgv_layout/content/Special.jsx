@@ -21,7 +21,7 @@ export default function Special() {
                         <img src="/images/special1.png" alt="특별관이미지" width="400px" />
                     </div>
                     <ul>
-                        {sList.map((item) =>
+                        {sList && sList.map((item) => //sList 의 값이 있을때만 map 을 돌리겠습니다
                             <li>  
                             <SpecialItem title={item.title} intro={item.intro}/> 
                             </li>

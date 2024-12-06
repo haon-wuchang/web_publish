@@ -12,7 +12,7 @@ export default function Package() {
 
     return(
         <section className="package-ex-content-list">
-            {pList.map((item) => 
+            {pList && pList.map((item) =>   //pList 가 존재할때만 map 을 돌려서 출력하겠습니다.
                 <PackageContent title={item.title} list={item.list}/> 
             )}
         </section>                         

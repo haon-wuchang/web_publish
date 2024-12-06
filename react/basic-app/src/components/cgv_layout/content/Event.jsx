@@ -17,7 +17,7 @@ export default function Event() {
                 <button className="total-view-button">전체보기  &gt;</button>
             </div>
             <ul className="content-event-list">
-                {eList.map((item) => 
+                {eList && eList.map((item) =>  //eList의 값이 있을때만 map 을 돌리겠습니다
                     <li> 
                         <EventItem src={item.src} title={item.title} date={item.date}/>
                     </li>
