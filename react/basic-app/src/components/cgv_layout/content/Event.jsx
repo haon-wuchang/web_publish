@@ -2,11 +2,11 @@ import EventItem from "./EventItem.jsx";
 import { useEffect, useState } from "react";
 
 export default function Event() {
-    const [eventList,setEventList] = useState([]);
+    const [eList,setEList] = useState([]);
     useEffect(()=>{
         fetch('/data/cgv_content.json')
             .then(data => data.json())
-            .then(jsonData => setEventList(jsonData.eventList))
+            .then(jsonData => setEList(jsonData.eventList))
             .catch(error => console.log(error));
     },[]);
 
@@ -17,7 +17,7 @@ export default function Event() {
                 <button className="total-view-button">전체보기  &gt;</button>
             </div>
             <ul className="content-event-list">
-                {eventList.map((item) => 
+                {eList.map((item) => 
                     <li> 
                         <EventItem src={item.src} title={item.title} date={item.date}/>
                     </li>

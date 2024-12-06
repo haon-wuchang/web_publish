@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import SpecialItem from "./SpecialItem.jsx";
 
 export default function Special() {
-    const [specialList,setSpecialList] = useState([]);
+    const [sList,setSList] = useState([]);
     useEffect(() => {
         fetch('/data/cgv_content.json')
             .then(data => data.json())
-            .then(jsonData => setSpecialList(jsonData.specialList))
+            .then(jsonData => setSList(jsonData.specialList))
             .catch(error => console.log(error));
     }, []);
 
@@ -21,7 +21,7 @@ export default function Special() {
                         <img src="/images/special1.png" alt="특별관이미지" width="400px" />
                     </div>
                     <ul>
-                        {specialList.map((item) =>
+                        {sList.map((item) =>
                             <li>  
                             <SpecialItem title={item.title} intro={item.intro}/> 
                             </li>

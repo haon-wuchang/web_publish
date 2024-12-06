@@ -2,17 +2,17 @@ import PackageContent from "./PackageContent.jsx";
 import { useEffect, useState } from "react";
 
 export default function Package() { 
-    const [packageList,setPackageList] = useState([]);
+    const [pList,setPList] = useState([]);
     useEffect(()=>{
         fetch('./data/cgv_content.json')
             .then((data) => data.json())
-            .then((jsonData) => setPackageList(jsonData.packageList))
+            .then((jsonData) => setPList(jsonData.packageList))
             .catch(error => console.log(error));
     },[]);
 
     return(
         <section className="package-ex-content-list">
-            {packageList.map((item) => 
+            {pList.map((item) => 
                 <PackageContent title={item.title} list={item.list}/> 
             )}
         </section>                         
