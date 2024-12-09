@@ -1,0 +1,39 @@
+.container{
+    /* border: 1px solid red; */
+    width: 250px;
+    padding: 10px;
+}
+
+
+img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.description p{
+    text-align: left;
+    margin: 3px;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.description p:not(p:first-child, p:last-child){
+    color: darkgray;
+}
+
+.p1,.p4 {
+    font-weight: bold;
+}
+
+.p4{
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+
+}
