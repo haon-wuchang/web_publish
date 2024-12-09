@@ -4,11 +4,34 @@
     padding: 10px;
 }
 
+.img{
+    position: relative;
+}
 
 img {
     width: 250px;
     height: 250px;
     border-radius: 10px;
+}
+.good {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 3px 6px;
+    font-size: 13px;
+}
+.heart{
+    position: absolute;
+    right: 0;
+    top: -10px;
+    margin: 0px;
+    padding: 3px 6px;
+    font-size: 3rem;
+    color: blue;
+
 }
 
 .description p{

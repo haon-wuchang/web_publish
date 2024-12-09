@@ -3,7 +3,11 @@
 export default function AirbnbComponent(props) {
     return(
     <div className="container">
-         <img src={props.img}/>
+        <div className="img">
+            <img src={props.img}/>
+            {props.good && <span className="good">게스트 선호</span>} 
+            <span className="heart" style={{color:props.color}}>♡</span>
+        </div>
          <div className="description">
              <p className="p1">{props.p1}</p>
              <p className="p2">{props.p2}</p>
@@ -12,4 +16,4 @@ export default function AirbnbComponent(props) {
          </div>
      </div>
     );
-}
+} //good의 값이 true일때만 출력
