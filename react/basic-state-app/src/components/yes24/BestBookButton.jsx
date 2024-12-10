@@ -35,7 +35,10 @@ export default function BestBookButton({qtyChange}) {
                     <span>{qty}</span>
                     <button type="button" onClick={() => {handleClick('+')}}>+</button>
                 </li>
-                <li><button type="button" className="btn1" onClick={() => {qtyChange(qty)}}>카트에 넣기</button></li>
+                <li><button type="button" 
+                    className="btn1" 
+                    onClick={() => {qtyChange(qty)}}>카트에 넣기</button>
+                </li>
                 <li><button type="button" className="btn2">바로구매</button></li>
                 <li><button type="button" className="btn3">리스트에 넣기</button></li>
             </ul>
