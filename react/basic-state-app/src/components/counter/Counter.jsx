@@ -1,14 +1,17 @@
 import { useState } from "react";
 
-export default function Counter() {
+export default function Counter({total, click}) {
     const [number, setNumber] = useState(0);
 
     function increment() {
   //useState가 관리를하기때문에 증감연산자 number++, number--를 사용하면 에러가 뜬다 
         (number < 10) ? setNumber(number+1): alert('더이상 값을 늘릴 수 없습니다');
+        click(number, '증가'); //click 은 핸들클릭이란는 함수를 가져오니까 ( ) 넣은거야..
     }
+
     function decrement() {
         (number > 0) ? setNumber(number-1): alert('더이상 값을 줄일 수 없습니다');
+        click(number, '감소');
     }
 
 
@@ -16,7 +19,7 @@ export default function Counter() {
         <div className="container">
             <div>
                 <span className="number">{number} / </span>
-                <span className="total-number">0</span>
+                <span className="total-number">{total}</span>
             </div>
             <button type="button" 
                     className="button"

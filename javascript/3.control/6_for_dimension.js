@@ -19,12 +19,12 @@ for(let i = 1; i<3 ; i++ ){
     console.log(rows);
 }
 
-2씩증가
-let count = 1;   //for 문 밖에다가 써야댕
+// 2씩증가
+let count1 = 1;   //for 문 밖에다가 써야댕
 for(let i = 1; i<3 ; i++ ){
     let rows ='';    
     for( let j = 1 ; j<4 ; j++ ){
-        rows += `${count += 2}\t`;   
+        rows += `${count1 += 2}\t`;   
      }
     console.log(rows);
 }
