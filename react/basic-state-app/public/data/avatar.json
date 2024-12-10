@@ -1,0 +1,17 @@
+[
+    {
+        "src" : "/images/people1.webp" ,
+        "name" : "leeknow" ,
+        "new" : true
+    },
+    {
+        "src" : "/images/people2.webp" ,
+        "name" : "jin", 
+        "new" : false
+    },
+    {
+        "src" : "/images/people3.webp" ,
+        "name" : "han", 
+        "new" : false   
+    }
+]
