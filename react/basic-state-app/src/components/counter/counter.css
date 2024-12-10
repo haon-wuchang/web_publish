@@ -1,0 +1,14 @@
+.container{
+    text-align: center;
+
+}
+
+.number{
+    font-size: 40px;
+    display: block;
+}
+
+.button {
+    margin: 20px 10px;
+    font-size: 15px;
+}

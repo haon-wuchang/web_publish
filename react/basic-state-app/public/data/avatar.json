@@ -2,16 +2,16 @@
     {
         "src" : "/images/people1.webp" ,
         "name" : "leeknow" ,
-        "new" : true
+        "isNew" : true
     },
     {
         "src" : "/images/people2.webp" ,
         "name" : "jin", 
-        "new" : false
+        "isNew" : false
     },
     {
         "src" : "/images/people3.webp" ,
         "name" : "han", 
-        "new" : false   
+        "isNew" : false   
     }
 ]

@@ -37,7 +37,7 @@ export default function AppAvatar(){
                     <AvatarBox 
                         src={item.src}
                         name={item.name}
-                        new={item.new}/>
+                        isNew={item.isNew}/>
                 </li>
             )}
         </ul>
