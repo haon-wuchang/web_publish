@@ -43,4 +43,3 @@ export default function AppAvatar(){
         </ul>
          );
 }
-//네트워크를 통해서 데이터를 못가져올때를 대비해서 &&  이거 쓰는거양!!!

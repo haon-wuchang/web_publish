@@ -14,7 +14,10 @@ export default function Counter() {
 
     return(
         <div className="container">
-            <span className="number">{number}</span>
+            <div>
+                <span className="number">{number} / </span>
+                <span className="total-number">0</span>
+            </div>
             <button type="button" 
                     className="button"
                     // onClick={() => {setNumber(number+1)}}>
@@ -22,7 +25,6 @@ export default function Counter() {
                         증가</button>
             <button type="button" 
                     className="button"
-                    // onClick={() => {setNumber(number-1)}}>
                     onClick={decrement}>
                         감소</button>          
         </div>
@@ -42,3 +44,6 @@ export default function Counter() {
 //4 감소버튼눌럿을때 마이너스 부분까지는 못가게 체크를 하고싶다
 // 증가버튼도 10까지만 갈수잇게 하고싶다
 // => 삼항연산자로 내용 작성하기
+
+// 5. 첫번쨰 카운터와 두번쨰 카운터의 토탈값을 출력하고싶다 <span class=total-number>
+// 토탈값은 appCounter 에서 정의해야한다
