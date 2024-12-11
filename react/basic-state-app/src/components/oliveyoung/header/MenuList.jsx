@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Menu from './Menu.jsx'
 
-export default function MenuList({id}) {
+export default function MenuList({count}) { //3333.  
     const [cartCount,setCartCount] = useState(0);  //111.
 
     const list = [
@@ -20,7 +20,7 @@ export default function MenuList({id}) {
                 {list && list.map(item =>     //item 하나만 받으니까 괄호 없어도댕
                     <li>  
                         <Menu text={item.text}  
-                            count={cartCount} /> 
+                            count={count} /> 
                         {/* {(item.text ==='장바구니')?<span>{cartCount}</span>
                         :''} */}
                     </li>

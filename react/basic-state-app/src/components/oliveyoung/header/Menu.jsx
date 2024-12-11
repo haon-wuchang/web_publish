@@ -1,7 +1,10 @@
 
-export default function Menu({text}) {
+export default function Menu({text,count}) {
     return (
-        <button type='button' className="header-menu-btn">{text}</button>
+
+        <button type='button' className="header-menu-btn">{text}
+        {text && text==='장바구니'?<span>({count})</span>:''}   
+        </button>  //555.
     );
 }
 
