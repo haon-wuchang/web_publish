@@ -6,14 +6,11 @@ import './olive.css';
 import { useState } from 'react';
 
 export default function AppOlive() {
-    // const [id, setId] = useState(''); 
-    
-
+  
     const [cartList, setCartList] = useState([]); 
 
     
     const oliveCart = (id) => {  
-        // setId(id);
         setCartList([...cartList, id]);
     } 
 
@@ -23,7 +20,7 @@ export default function AppOlive() {
         <>
             <Header1>
                 <img src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" />
-                <MenuList count={cartList.length}/> 
+                <MenuList countCart={cartList.length}/> 
             </Header1>
             <Body>
                 <ProductList cart={oliveCart}/>
