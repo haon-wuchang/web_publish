@@ -35,30 +35,54 @@ header img {
 .body{
     margin: auto;
     width: 1200px;
-    padding-top: 20px;
+    padding: 20px 0 0 0;
+    /* border: 1px solid red; */
+}
+.body-container{
+    /* border: 1px solid red; */
+    padding: 10px;
 }
 .body-img{
     width: 230px;
 }
+
 .body-ul{
     list-style-type: none;
     display: flex;
+    /* border: 1px solid blue; */
+    margin: 0;
+    padding: 0;
 }
 .product-container{
     width: 300px;
     text-align: center;
+    /* border: 1px solid red; */
+    
+
 }
 .title{
     font-weight: bold;
-    color: gray;
+    color : gray;
+    /* border: 1px solid red; */
+    padding: 0;
+    margin: 8px 0;
 }
 .description{
     font-size: 13px;
     margin-bottom: 10px;
     padding: 0 30px;
+    /* border: 1px solid red; */
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 .price{
     margin-bottom: 5px;
+    /* border: 1px solid red; */
+}
+.price span{
+    /* border: 1px solid red; */
+    padding: 4px 5px;
 }
 .original-price{
     color: gray;
@@ -67,9 +91,11 @@ header img {
     color: red;
     font-weight: bold;
     font-size: 18px;
-    margin-left: 8px;
+    
 }
-
+.tags {
+    margin-bottom: 30px;
+}
 .tags span{
     padding: 2px 6px;
     font-size: 13px;
@@ -85,7 +111,13 @@ header img {
 .tags-delivery{
     background-color: palevioletred;
 }
-
+.cart{
+    display: block;
+    color: gray;
+}
+.cart:hover {
+    color: tomato;
+}
 /*****************************
 **********footer css**********
 ******************************/

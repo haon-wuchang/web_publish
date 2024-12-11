@@ -1,51 +1,51 @@
+import { useEffect, useState } from "react";
 import Product from "./Product.jsx";
 
-export default function ProductList() {
-    const list =[
-        {
-            "img" : "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0021/A00000021395913ko.jpg?l=ko",
-            "title" : "메디힐",
-            "introduct" : "[올영1등크림] 에스트라 아토베리어365 크림 80ml 어워즈 한정기획 (+30ml+세라-히알 속수분 앰플 3ml)",
-            "price" : "39,900원",
-            "salePrice" : "28,900원",
-        },
-        {
-            "img" : "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0021/A00000021392508ko.jpg?l=ko",
-            "title" : "에스트라",
-            "introduct" : "[1위패드/100+100+14매] 메디힐 마데카소사이드 흔적패드 어워즈 한정기획",
-            "price" : "33,000원",
-            "salePrice" : "26,000원",
-        },
-        {
-            "img" : "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
-            "title" : "어노브",
-            "introduct" : "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오 기획4종 택1 (텐더블룸/웜페탈)",
-            "price" : "42,000원",
-            "salePrice" : "29,800원",
-        },
-        {
-            "img" : "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0013/A00000013906380ko.jpg?l=ko",
-            "title" : "정샘물",
-            "introduct" : "[2024 어워즈/올영쿠션 1위] 정샘물 에센셜 스킨누더 쿠션 어워즈 한정 기획 (글리터팟+립토퍼+물크림 미니)",
-            "price" : "45,000원",
-            "salePrice" : "36,000원",
-        }
-    ];
+export default function ProductList({cart}) {
+    const [list, setList] = useState([]);
+    useEffect(() => {
+        fetch('/data/olive.json')
+            .then(data=>data.json())
+            .then(jsonData => setList(jsonData))
+            .catch(error=>console.log(error));
+    },[]);
 
+    const totalCart = (id) => {//2.함수선언 밑 리턴부분에서 해당함수가져오게 작성 //3 자식의 id 값 가져오기
+        cart(id);   // 33. 앱올리브의 올리브카트함수를 호출한다
+    }
+
+
+    // console.log(`list-> ${list}`);
+    //=>
+    //index.js 에서 엄격모드가 한번 쫙일고 찍은다음에
+    //여기파일에서 패치비동기니까 넘어가고 리스트 또 찍고
+    //밑에 리턴애들 만들고 위로와서 패치실행해서 또 찍음 
+    //그래서 콘솔출력함녀 리스트 리스트 리스트(오브젝트)
+    //이케나옴 처음리스트찍히는건 엄격모드가
+    //두번째꺼는 비동기 넘어가고 찍은거
+    //세번째가 비동기처리하고 값까지 찍은거임
+    
     return (
-        <ul className="body-ul">
-            {list && list.map((item) =>
-            <li>
-                <Product 
-                    img={item.img}
-                    title={item.title}
-                    introduct={item.introduct}
-                    price={item.price}
-                    salePrice={item.salePrice}
-                />
-            </li>
-            )}
-        </ul>
+        <div className="body-container">        
+            <ul className="body-ul">          
+                {list && list.map((item) =>
+                <li>
+                    <Product 
+                        onClick = {totalCart}
+                        id={item.id}
+                        img={item.img}
+                        title={item.title}
+                        introduct={item.introduct}
+                        price={item.price}
+                        salePrice={item.salePrice}
+                        isSale={item.isSale}
+                        isTicket={item.isTicket}
+                        isDelivery={item.isDelivery}
+                    />
+                </li>
+                )}
+            </ul>
+        </div>
     );
-}
+}        
 
