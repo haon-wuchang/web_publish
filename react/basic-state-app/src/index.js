@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppCounter from './components/test/AppCounter.jsx';
+import AppOlive from './components/oliveyoung/AppOlive.jsx';
 //임포트할떄 별칭으로 사용해도된댕 AppCounter => AC  근데 보통은 파일명과 맞춰서 사용하지요 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppCounter />
+    <AppOlive />
   </React.StrictMode>
 );
 

@@ -1,0 +1,41 @@
+/*****************************
+**********header css**********
+******************************/
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+
+}
+header img {
+    width: 300px;
+    margin-left: 30px;
+}
+.header-menu{
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+    margin-right: 30px;
+}
+.header-menu li:not(li:last-child){
+    border-right: 1px solid gray;
+    padding-right: 10px;
+}
+.header-menu-btn{
+    border: none;
+    background-color: white;
+}
+
+
+/*****************************
+**********body css**********
+******************************/
+
+
+
+
+/*****************************
+**********footer css**********
+******************************/
