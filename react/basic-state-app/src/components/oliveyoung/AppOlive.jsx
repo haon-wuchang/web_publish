@@ -1,6 +1,7 @@
 import Header1 from './Header1.jsx'
 import MenuList from './header/MenuList.jsx'
 import Body from './Body.jsx'
+import ProductList from './body/ProductList.jsx';
 import './olive.css';
 
 export default function AppOlive() {
@@ -11,7 +12,7 @@ export default function AppOlive() {
                 <MenuList />
             </Header1>
             <Body>
-
+                <ProductList />
             </Body>
         </>
     );

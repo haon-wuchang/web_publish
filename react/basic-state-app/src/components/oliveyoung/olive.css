@@ -32,9 +32,59 @@ header img {
 /*****************************
 **********body css**********
 ******************************/
+.body{
+    margin: auto;
+    width: 1200px;
+    padding-top: 20px;
+}
+.body-img{
+    width: 230px;
+}
+.body-ul{
+    list-style-type: none;
+    display: flex;
+}
+.product-container{
+    width: 300px;
+    text-align: center;
+}
+.title{
+    font-weight: bold;
+    color: gray;
+}
+.description{
+    font-size: 13px;
+    margin-bottom: 10px;
+    padding: 0 30px;
+}
+.price{
+    margin-bottom: 5px;
+}
+.original-price{
+    color: gray;
+}
+.sale-price{
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 8px;
+}
 
-
-
+.tags span{
+    padding: 2px 6px;
+    font-size: 13px;
+    border-radius: 10px;
+    color: white;
+}
+.tags-sale{
+    background-color: tomato;
+}
+.tags-ticket{
+    background-color:limegreen;
+}
+.tags-delivery{
+    background-color: palevioletred;
+}
 
 /*****************************
 **********footer css**********
