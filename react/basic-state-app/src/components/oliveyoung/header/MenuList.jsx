@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Menu from './Menu.jsx'
 
-export default function MenuList({count}) { //3333.  
-    const [cartCount,setCartCount] = useState(0);  //111.
+export default function MenuList({count}) { 
+    const [cartCount,setCartCount] = useState(0);  
 
     const list = [
         {"text" : "회원가입"},
@@ -29,8 +29,5 @@ export default function MenuList({count}) { //3333.
         </div>
     );
 }
-// 222. <span> text 가 장바구니일때만 찍히게해야함
-//333. {(item.text ==='장바구니')?<span>{cartCount}</span>:''} 삼항연산자로 작성=> 이거는 메뉴안에 수량이 들어가는게 아니라 메뉴리스트의 장바구니 옆에 들어감
-// 444. <Menu text={item.text}   count={cartCount} />  => 이거는 메뉴안에 수량이 들어가게됨
 
 

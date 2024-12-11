@@ -4,7 +4,7 @@ export default function Menu({text,count}) {
 
         <button type='button' className="header-menu-btn">{text}
         {text && text==='장바구니'?<span>({count})</span>:''}   
-        </button>  //555.
+        </button>  
     );
 }
 

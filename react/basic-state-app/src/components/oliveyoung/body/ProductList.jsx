@@ -10,8 +10,8 @@ export default function ProductList({cart}) {
             .catch(error=>console.log(error));
     },[]);
 
-    const totalCart = (id) => {//2.함수선언 밑 리턴부분에서 해당함수가져오게 작성 //3 자식의 id 값 가져오기
-        cart(id);   // 33. 앱올리브의 올리브카트함수를 호출한다
+    const totalCart = (id) => {
+        cart(id);   
     }
 
 

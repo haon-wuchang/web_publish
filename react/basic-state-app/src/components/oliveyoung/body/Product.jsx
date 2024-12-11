@@ -3,9 +3,8 @@ import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
 
 export default function Product(props) {
     const handleCart = () => {
-        props.onClick(props.id); //=> 11.프로덕트리스트 컴포넌트의 토탈카트함수를 호출한다 /=> 프로턱트리스트를 호출하는거난 앱올리브이다.
+        props.onClick(props.id); 
     }
-//1. 장바구니아이콘에 온클릭 선언 후, 온클릭에서 실행될 함수를 정의, 그후 각각의상품을 id 를 통해서 구분한다(ex 메디힐 상품을 누르면 메디힐만 장바구니에 들어가야대니까 구분해놔야지)
     return (
         <div className="product-container">
             <div className="img-div">
