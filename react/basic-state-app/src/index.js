@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppAladin from './practice/aladin/Appaladin.jsx';
+import AppOlive from './practice/olive/AppOlive.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppAladin />
+    <AppOlive />
   </React.StrictMode>
 );
 

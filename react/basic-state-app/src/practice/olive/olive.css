@@ -1,0 +1,19 @@
+img {
+    width: 200px;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 30px;
+}
+.z {
+    width: 1000px;
+    margin: auto;
+}
+.zz{
+    width: 1000px;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+}
