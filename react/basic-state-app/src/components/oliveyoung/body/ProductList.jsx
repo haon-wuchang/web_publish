@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import Product from "./Product.jsx";
 
 export default function ProductList({cart}) {
-    const [list, setList] = useState([]);
+    const [list, setList] = useState([]);   //쌤은 프로덕트리스트
+
+    //9. 8번을 해결하기 위해서 화면출력용 리스트를 하나더 만든다
+    const [display,setDisplay] = useState([]);  //쌤은 리스트
+
     useEffect(() => {
         fetch('/data/olive.json')
             .then(data=>data.json())
-            .then(jsonData => setList(jsonData))
+            .then(jsonData => {
+                setList(jsonData)
+                setDisplay(jsonData)}) //12.
             .catch(error=>console.log(error));
     },[]);
     const totalCart = (id) => {
@@ -32,12 +38,36 @@ export default function ProductList({cart}) {
         // console.log(event.target.value);  //2-1.value 값만 가져오게 이렇게 작성함
         setType(event.target.value); //4. 벨류값을 type 이 가져오게 된다
     }
-    console.log(type);
+    // console.log(type);
     
     useEffect(() => {
-        console.log(`useEffect=> ${type}`);  //6. 벨류값 필터링을 진행한다
-        
-    }, [type]);  //5.디펜던시에 type 을 넣는다=>업데이트하곶자하는내용이 타입이니까 타입넣은거임 
+// 데이터가 해당 파일의 위에잇는 유즈이펙트의 jsonData에 잇기때문에 거기의 디펜던시에 타입을넣어도됨=> 실시간작업하기에 유용함
+//근데 지금은 다른 방법으로 진행할거임
+//6. list 를 필터링을 진행한다=>list.filter() =>  필터링한결과는 [] 새로운배열로 나오게된다.(맵도 마찬가지이다)map=> 결과['<li>~~~</li>',]
+    if(type==='total'){  //10.
+        setDisplay(display);
+    } else{  //11.
+        const filterList = list.filter((item)=>{  //7. 
+                //토탈은 기본값이라 필터링필요없음
+                    //=> filterList= [{item},{item}..]  // item.isSale === true는 안적어도 된다 짜피 트루 펄스밖에 없으니꺵 흠;
+                if(type==='sale' && item.isSale) {
+                    return item;
+                }else if(type==='coupon' && item.isTicket) {
+                    return item;
+                }else if(type==='today' && item.isDelivery) {
+                    return item;    // { } 이거잇어서 return 한거임
+                }
+            });
+            //7.필터링한 결과를 어딘가에 넣어준다 => filterList
+            //8.결과를 화면에 띄우는작업을한다 => 화면에 띄우는리스튼느 얘list 가(list 안에 jsonData 들어가잇자나) 담당하고잇으니까 얘한에 필터리스트를 넣는다
+            // setList(filterList);  //8-1.근데 이렇게만하면 앞전에 필터링한 갯수만 리스트가 받아와서 ㅄ같이 나온다
+            setDisplay(filterList);
+        }
+                
+            }, [type]);  //5.디펜던시에 type 을 넣는다=>업데이트하곶자하는내용이 타입이니까 타입넣은거임 
+
+    
+
 
     return (
         <>
@@ -49,7 +79,7 @@ export default function ProductList({cart}) {
         </div>
         
             <ul className="product-list-container">          
-                {list && list.map((item) =>
+                {display && display.map((item) =>  //9-1 
                 <li>
                     <Product 
                         onClick = {totalCart}

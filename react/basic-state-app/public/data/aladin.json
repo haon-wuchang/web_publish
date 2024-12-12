@@ -1,0 +1,43 @@
+{
+"books" : [
+        {
+            "img": "https://image.aladin.co.kr/product/4086/97/cover200/8936434128_2.jpg",
+            "title" : "[국내] 소년이 온다",
+            "type":"domestic",
+            "장르":"소설"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/27877/5/cover500/8954682154_3.jpg",
+            "title" : "[국외] 작별하지 않는다",
+            "type":"overseas"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35323/83/cover200/k002035376_1.jpg",
+            "title" : "[국외] 해피버쓰데이",
+            "type":"overseas"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/27877/5/cover500/8954682154_3.jpg",
+            "title" : "[국내] 작별하지 않는다",
+            "type":"domestic"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35323/83/cover200/k002035376_1.jpg",
+            "title" : "[국내] 해피버쓰데이",
+            "type":"domestic"
+        }
+    ],
+
+    "category" : [
+        {"name" : "에세이"},
+        {"name" : "소설"},
+        {"name" : "사회과학"},
+        {"name" : "자기계발"},
+        {"name" : "고전"}
+]
+
+
+
+
+
+}
