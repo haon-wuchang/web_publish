@@ -7,8 +7,8 @@ export default function Product(props) {
     }
     return (
         <div className="product-container">
-            <div className="img-div">
-                <img src={props.img} className="body-img"/>
+            <div>
+                <img src={props.img} />
                 <FontAwesomeIcon 
                     icon={faCartShopping} 
                     onClick={handleCart}
@@ -19,13 +19,13 @@ export default function Product(props) {
                 {props.introduct}
             </div>
             <div className="price">
-                <span className="original-price">{props.price}</span>
-                <span className="sale-price">{props.salePrice}</span>
+                <span className="sprice">{props.price}</span>
+                <span className="fprice">{props.salePrice}</span>
             </div>
             <div className="tags">
-                {props.isSale && <span className="tags-sale">세일</span>}
-               {props.isTicket && <span className="tags-ticket">쿠폰</span>}
-                {props.isDelivery && <span className="tags-delivery">오늘드림</span>}
+                {props.isSale && <span className="t1">세일</span>}
+               {props.isTicket && <span className="t2">쿠폰</span>}
+                {props.isDelivery && <span className="t3">오늘드림</span>}
             </div>
         </div>
     );

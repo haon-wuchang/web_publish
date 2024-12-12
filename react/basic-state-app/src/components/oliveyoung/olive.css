@@ -32,92 +32,89 @@ header img {
 /*****************************
 **********body css**********
 ******************************/
-.body{
+
+/*****************************
+**********teacher body css**********
+******************************/
+.body {
+    width: 1000px;
     margin: auto;
-    width: 1200px;
-    padding: 20px 0 0 0;
-    /* border: 1px solid red; */
 }
-.body-container{
-    /* border: 1px solid red; */
-    padding: 10px;
-}
-.body-img{
-    width: 230px;
-}
+.product-list-container {
+    /* display: flex;
+    gap: 40px; */
+    display: grid;    /*그리드를 사용해서 한행에 이미지가 4개만 나오게 한거임*/
+    grid-template-columns: repeat(4, 1fr);
 
-.body-ul{
     list-style-type: none;
-    display: flex;
-    /* border: 1px solid blue; */
-    margin: 0;
-    padding: 0;
+    margin: 20px 0;
 }
-.product-container{
-    width: 300px;
-    text-align: center;
-    /* border: 1px solid red; */
-    
+.product-container {
+    width: 200px;
+    /* height: 300px; */
+    padding: 30px 0;
+   
+}
 
+.product-container img {
+    width: 200px;
 }
-.title{
+.product-container .title {
+    color: gray;
     font-weight: bold;
-    color : gray;
-    /* border: 1px solid red; */
-    padding: 0;
-    margin: 8px 0;
+    text-align: center;
+    margin: 0 0 3px 0;
 }
-.description{
+.product-container .description {
     font-size: 13px;
     margin-bottom: 10px;
-    padding: 0 30px;
-    /* border: 1px solid red; */
-    height: 50px;
-    display: flex;
-    align-items: center;
+    height: 60px;
+    /* padding: 5px; */
 }
-.price{
-    margin-bottom: 5px;
-    /* border: 1px solid red; */
+.product-container .price {
+    text-align: center;
+   margin-bottom: 5px;
 }
-.price span{
-    /* border: 1px solid red; */
-    padding: 4px 5px;
-}
-.original-price{
+.product-container .sprice {
     color: gray;
 }
-.sale-price{
-    color: red;
-    font-weight: bold;
+.product-container .fprice {
     font-size: 18px;
-    
+    font-weight: bold;
+    color:red;
 }
-.tags {
-    margin-bottom: 30px;
+.product-container .tags {
+    text-align: center;
 }
-.tags span{
-    padding: 2px 6px;
-    font-size: 13px;
+.product-container .tags span {
+    display: inline-block;
+    height: 18px;
     border-radius: 10px;
-    color: white;
+    line-height: 17px ;
+    color: #fff ;
+    font-size: 13px ;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none ;
+    margin: 0 ;
+    padding: 2px 6px;
 }
-.tags-sale{
-    background-color: tomato;
+.product-container .t1 {
+    width: 40px;
+    background-color: #f65c60;
 }
-.tags-ticket{
-    background-color:limegreen;
+.product-container .t2 {
+    width: 40px;
+    background-color: #9bce26;
 }
-.tags-delivery{
-    background-color: palevioletred;
+.product-container .t3 {
+    width: 60px;
+    background-color: #f374b7;
 }
-.cart{
-    display: block;
-    color: gray;
+.cart {
+    color:gray;
+    text-align: left;
 }
 .cart:hover {
-    color: tomato;
+    color:coral;
 }
-/*****************************
-**********footer css**********
-******************************/

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Menu from './Menu.jsx'
 
 export default function MenuList({countCart}) { 
-    const [cartCount,setCartCount] = useState(0);  
 
     const list = [
         {"text" : "회원가입"},
