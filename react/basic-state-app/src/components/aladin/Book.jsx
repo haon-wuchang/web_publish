@@ -10,6 +10,4 @@ export default function Book({img,title}) {
     );
 }
 
-{/* <button type='button'className='cart'>장바구니</button>
-<button type='button'className='buy'>바로구매</button> */}
 

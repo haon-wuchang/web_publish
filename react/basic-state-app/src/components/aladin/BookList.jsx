@@ -3,14 +3,14 @@ import Book from './Book.jsx';
 export default function BookList() {
     const [books,setBooks] = useState([]);
     const [types,setTypes] =useState('total');
-    const [categorys,setCategorys] =useState([]); //추가
-    const [selectCategory, setSelectCategory] =useState(''); //추가
+    const [categorys,setCategorys] =useState([]); 
+    const [selectCategory, setSelectCategory] =useState('');
 
     useEffect(()=>{
         fetch('/data/aladin.json')
             .then(data=>data.json())
             .then(jsonData=>{
-                setCategorys(jsonData.category); //추가
+                setCategorys(jsonData.category); 
 
                 if(types==='total'){
                     setBooks(jsonData.books);
@@ -20,13 +20,13 @@ export default function BookList() {
                 }                
             })
             .catch(error=>console.log(error));
-    },[types,selectCategory])   //추가  디펜던시에는 여러개가 들어갈 수 있따.
+    },[types,selectCategory])  
 
     const handleClick = (evevt) =>{
         setTypes(evevt.target.value);
     }
 
-    const handleChangeCategoty = (evevt) => { //추가
+    const handleChangeCategoty = (evevt) => { 
         setSelectCategory(evevt.target.value);
     }
     return (
@@ -53,4 +53,6 @@ export default function BookList() {
     );
 }
 
-// <select> 추가
+
+//셀렉트랑 버튼이랑 합쳐서 출력되게하는건 나중에 한댕
+// 인풋버튼이 먼저 선택된후에 그다움에 셀렉트박스가 진행되어야한다.

@@ -13,11 +13,11 @@ export default function BookList() {
                 }else{
                     //setBooks에 국내도서만 넣고싶다하면 여기서 필터링을 해야함
                     const filterBooks = jsonData.filter((item)=> item.type===types); // 조건이 하나이고 한줄일떄는 이렇게 {}생략이가능하다
-                    setBooks(filterBooks) //필터링한결과인 국내도서는 books에 들어가게된다
+                    setBooks(filterBooks) 
                 }
             })
             .catch(error=>console.log(error));
-    },[types])  //types 값이 변하면 useEffect가 계속 반응해ㅓ서 값을 내논다
+    },[types])  
 
     const handleClick = (evevt) =>{
         setTypes(evevt.target.value);
