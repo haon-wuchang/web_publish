@@ -6,10 +6,10 @@ import CgvLoginForm from './CgvLoginForm.jsx';
 export default function AppForm() {
     return (
         <div>
-            <Login />
+            {/* <Login />
             <hr />
-            <UserInfo />
-            {/* <CgvLoginForm /> */}
+            <UserInfo /> */}
+            <CgvLoginForm />
         </div>
     );
 }

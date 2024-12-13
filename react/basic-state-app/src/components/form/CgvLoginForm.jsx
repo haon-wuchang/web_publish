@@ -1,19 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import './cgv.css';
 import './commons.css';
 
 export default function CgvLoginForm() {
     const init = {'id':'','pw':''};
     const [formData, setFormData] = useState(init);  
+    const idRef = useRef(null);
+    const pwRef = useRef(null);
 
     const handleInput = (event) => {
         const {name,value} = event.target;
         setFormData({...formData,[name]:value});
     }
+    const validate = () => {
+        if(idRef.current.value===''){
+            alert('x');
+            return false;
+        } else if(pwRef.current.value===''){
+            alert('x');
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     const handleSubmit = (event) => {    
         event.preventDefault();
-        console.log(formData);
+        if(validate())
+            console.log(formData);
+        
         
     }
     return (
@@ -32,6 +47,7 @@ export default function CgvLoginForm() {
                                 type="text" 
                                 name="id" 
                                 placeholder='아이디 입력'
+                                ref={idRef}
                                 onChange={handleInput}/>
                         </div>
                     </li>
@@ -41,6 +57,7 @@ export default function CgvLoginForm() {
                             <input 
                                 type="password" 
                                 name="pw" 
+                                ref={pwRef}
                                 placeholder='비밀번호 입력'
                                 onChange={handleInput}/>
                         </div>
