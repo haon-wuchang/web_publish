@@ -1,6 +1,7 @@
 import React from 'react';
 import UserInfo from './UserInfo.jsx';
 import Login from './Login.jsx';
+import CgvLoginForm from './CgvLoginForm.jsx';
 
 export default function AppForm() {
     return (
@@ -8,6 +9,7 @@ export default function AppForm() {
             <Login />
             <hr />
             <UserInfo />
+            {/* <CgvLoginForm /> */}
         </div>
     );
 }

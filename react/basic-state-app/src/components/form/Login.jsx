@@ -1,32 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react'; //1useRef        ref 는 유효성체크할떄 사용한다
 
 export default function Login() {
-    const initForm = {'id':'','password':''};  //초기값 지정=> 여기잇는id는 인풋의 name인 id 이다
-    const [form, setForm] = useState(initForm); //initForm 안에 내용을 여기 걍 넣어도되는데 그러면 코드 길어지니까 따로 변수 만들어서 넣은거임
-    //=>이벤트가 발생할때마다 초기값형식에 맞춰서 넣어주면 된다
+    const idRef = useRef(null); // 2(null)에는 객체의 주소값이 들어간다 .브라우저에 실행되면 돔객체에 주소값이 만들어진다
+    const passwordRef = useRef(null); // 2,   
+
+    const initForm = {'id':'','password':''};  
+    const [form, setForm] = useState(initForm);
 
     const handleChangeLoginForm = (event) => {
-        //아이디 비번이 변경되면 위에 선언한 setForm 함수를 이용하여 "id":"aaaa" 형식으로 저장하는 함수이다
-        const {name, value} = event.target;     //💥
-        console.log(`name=> ${name} value=> ${value}`); 
-        //그래서 이제 네임,벨류 값을 폼 에다가 넣어주면 된다
-
-        // setForm({[name]:value});  //오브젝트리터럴의 프로퍼티값을 변수로 입력하는 경우에는 [] 로 감싸야한다
-        //근데 이케만해주면 아디입력하면 비번은 언디파인나오고 , 아디입력후비번입력하면 비번만 값들어가고 아디는 언디파인이 뜨게된다
-        //=>마지막에 입력한 값만 들어가게된다
-        //form = {id":"" "password" :""}
-        //form = {id":"aaaa"}  <- id input 이벤트실행
-        //form = {password":"bbbb"}  <- password input 이벤트실행
-    
-        // 해결방법 : 스프레드 연산자를 사용한다  => 자바스크립트에서 공부햇으니 다시 복습해라
-        setForm({...form, [name]:value}); //기존의 form 값('id':'','password':'')을 가져오고 마지막에는 추가할애를 넣어주면 된다.
-        //form = {id":"aaaa" "password" :""}  <- id input 이벤트실행
-        //form = {id":"aaaa" "password" :"bbbb"}  <- password input 이벤트실행    
+        const {name, value} = event.target; 
+        setForm({...form, [name]:value}); 
+    } 
+    const validate = () => {  //5      방법1
+        if(idRef.current.value===''){//8 유효성체크
+            alert('아이디를 입력해주세요');
+            idRef.current.focus();
+            return false; // 9. 이거 잘 적어주래 근데 먼지모르겟음
+        }else if(passwordRef.current.value===''){
+            alert('비밀번호를 입력해주세요');
+            passwordRef.current.focus();
+            return false;
+        }else{
+            return true;
+        }
+        console.log(idRef.current.value); //6
+        console.log(passwordRef.current.value); //6 벨리데이트가 실행되는현재시점에서 아이디ref 값을 콘솔로 찍어본다
+        //7. 콘솔로찍게되면 빈값이 나온다(언디파인 아님용) ; 언디파인 안나온이유는 인풋입력폼칸의 디폴트값은 문자열이기때문이다.
     }
+
+    // const validate = () => {    //방법2
+    //     let result=true;
+    //     if(idRef.current.value===''){
+    //         alert('아이디를 입력해주세요');
+    //         idRef.current.focus();
+    //         result=false; 
+    //     }else if(passwordRef.current.value===''){
+    //         alert('비밀번호를 입력해주세요');
+    //         passwordRef.current.focus();
+    //         result=false;
+    //     }
+    //         return result;
+    // }
+
+
     const handleSubmit = (event) => {
-        event.preventDefault(); 
-        console.log(form);  
-        // submit(form);   이부분은 나중에 서버 연동할때 배울꺼임
+        event.preventDefault();  
+        if(validate()) {//4
+            console.log(form);  
+        }
     }
 
     return (
@@ -38,13 +59,18 @@ export default function Login() {
                     <input 
                         type="text" 
                         name="id" 
+                        ref={idRef}  //3         
                         value={form.id} 
                         onChange={handleChangeLoginForm}/>
                 </div>
                 <div>
                     <label htmlFor="">비밀번호</label>
                     <input 
-                        type="password" name="password" value={form.password} onChange={handleChangeLoginForm}/>
+                        type="password" 
+                        name="password" 
+                        ref={passwordRef} //3
+                        value={form.password} 
+                        onChange={handleChangeLoginForm}/>
                 </div>
                 <div>
                     <button type='submit'>로그인</button> 
