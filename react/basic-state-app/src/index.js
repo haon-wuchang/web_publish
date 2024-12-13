@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppAladin from './components/aladin2/AppAladin.jsx';
+import AppForm from './components/form/AppForm.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppAladin />
+    <AppForm />
   </React.StrictMode>
 );
 
