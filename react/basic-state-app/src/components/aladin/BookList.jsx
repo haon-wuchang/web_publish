@@ -16,7 +16,8 @@ export default function BookList() {
                     setBooks(jsonData.books);
                 }else{
                     const filterBooks = jsonData.books.filter((item)=> item.type===types); 
-                    setBooks(filterBooks) 
+                    setBooks(filterBooks) //18번줄 해설: 제이슨데이터의 북스를필터를돌린다
+                    //그중에서 타입이 타입스이애들을 셋북스에 넣어서 출력되게 해야하는것이다
                 }                
             })
             .catch(error=>console.log(error));
