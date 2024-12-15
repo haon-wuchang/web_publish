@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 
 export default function UserInfo() {
-    const nameRef = useRef(null);//
-    const addressRef = useRef(null);//
-    const ageRef = useRef(null);//
+    const nameRef = useRef(null);
+    const addressRef = useRef(null);
+    const ageRef = useRef(null);
 
     const initform = {'name' :'','address':'','age':''}; 
     const [form,setForm] = useState(initform); 
@@ -12,29 +12,27 @@ export default function UserInfo() {
         const {name,value}= event.target; 
         setForm({...form,[name]:value});
     }
-    
-    const validate = () => {  //
+    const validate = () => {  
         if(nameRef.current.value===''){
-            alert('빈칸금지');
+            alert('이름을 입력해주세요');
             nameRef.current.focus();
             return false;
         } else if(addressRef.current.value===''){
-            alert('빈칸금지');
+            alert('주소를 입력해주세요');
             addressRef.current.focus();
             return false;
         }else if(ageRef.current.value===''){
-            alert('빈칸금지');
+            alert('나이를 입력해 주세요');
             ageRef.current.focus();
             return false;
         }else{
             return true;
         }
-        
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();   
-        if(validate()) console.log(form);//
+        if(validate()) console.log(form);
     }
     return (
         <div>

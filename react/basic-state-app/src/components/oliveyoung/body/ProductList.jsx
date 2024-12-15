@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Product from "./Product.jsx";
 
 export default function ProductList({cart}) {
-    const [list, setList] = useState([]);   //쌤은 프로덕트리스트
+    const [list, setList] = useState([]);   
 
     //9. 8번을 해결하기 위해서 화면출력용 리스트를 하나더 만든다
-    const [display,setDisplay] = useState([]);  //쌤은 리스트
+    const [display,setDisplay] = useState([]);  
 
     useEffect(() => {
         fetch('/data/olive.json')

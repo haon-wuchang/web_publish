@@ -14,10 +14,12 @@ export default function CgvLoginForm() {
     }
     const validate = () => {
         if(idRef.current.value===''){
-            alert('x');
+            alert('아이디를 입력해주세요요');
+            idRef.current.focus();
             return false;
         } else if(pwRef.current.value===''){
-            alert('x');
+            alert('비밀번호를 입력해주세요');
+            pwRef.current.focus();
             return false;
         }else{
             return true;
@@ -26,8 +28,7 @@ export default function CgvLoginForm() {
 
     const handleSubmit = (event) => {    
         event.preventDefault();
-        if(validate())
-            console.log(formData);
+        if(validate()) console.log(formData);
         
         
     }
