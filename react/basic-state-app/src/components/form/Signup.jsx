@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import './commons.css';
 import './cgv.css';
 import {validateSignUp} from '../../apis/validate.js';
+import {errorCheckSignup} from '../../apis/errorCheck.js';
 
 export default function Signup() {
     const init = {'id':'','pw':'','pwcheck':'','name':'',
@@ -26,22 +27,8 @@ export default function Signup() {
     const handleChangeSignup = (event) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]:value});
-        if(name==='id' && value !==''){
-            setError({...error,['id']:''});
-        }else if(name==='pw' && value !==''){
-            setError({...error,['pw']:''});
-        }else if(name==='pwcheck' && value !==''){
-            setError({...error,['pwcheck']:''});
-        }else if(name==='name' && value !==''){
-            setError({...error,['name']:''});
-        }else if(name==='phonenumber' && value !==''){
-            setError({...error,['phonenumber']:''});
-        }else if(name==='emailname' && value !==''){
-            setError({...error,['emailname']:''});
-        }else if(name==='emaildomain' && value !=='default'){
-            setError({...error,['emaildomain']:''});
-        }
-
+        errorCheckSignup(name,value,error,setError);
+      
 }   
 
     //폼의 입력이 종료된후 submit 함수 

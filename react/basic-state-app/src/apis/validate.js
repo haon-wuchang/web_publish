@@ -64,6 +64,7 @@ export const validateSignUp = (param) => {
     let result = true;
     if(param.refs.idRef.current.value==''){
         param.setError({...param.error, ['id']:'빈칸입력해'})
+        // param.refs.idRef.current.style.setProperty('color','blue');
         param.refs.idRef.current.focus();
         result = false;
     } else if(param.refs.pwRef.current.value===''){
@@ -86,11 +87,12 @@ export const validateSignUp = (param) => {
         param.setError({...param.error, ['emailname']:'빈칸입력해'})
         param.refs.emailnameRef.current.focus();
         result = false;
-    }
-    
+    }   
     else if(param.refs.emaildomainRef.current.value==='default'){
         param.setError({...param.error, ['emaildomain']:'선택해'})
         param.refs.emaildomainRef.current.focus();
         result = false;
     } return result;
 }
+
+
