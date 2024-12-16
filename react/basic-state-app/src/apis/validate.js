@@ -1,21 +1,9 @@
 /********************* 
 CgvLoginForm 유효성체크 
 ************************/
-// export const validate = (idRef,pwRef,error,setError) => { //2💥얘는 함수니까 프롭스로 받으면안되고 파라미터로 받는거야
-//     if(idRef.current.value===''){
-//         setError({...error, ['id']:'아디입력해'});
-//         idRef.current.focus();
-//         return false;
-//     } else if(pwRef.current.value===''){
-//         setError({...error, ['pw']:'비번입력해'});
-//         pwRef.current.focus();
-//         return false;
-//     }else{
-//         return true;
-//     }
-// } / /3 자바스크립트에서 객체를 여려개 보낼떄는 {} 오브젝트 리터럴형태로 만들어서 넘기면 된다
-export const validate = (param) => {  // 5
-    if(param.refs.idRef.current.value===''){ //44
+
+export const validate = (param) => { 
+    if(param.refs.idRef.current.value===''){ 
         param.setError({...param.error, ['id']:'아디입력해'});
         param.refs.idRef.current.focus();
         return false;
@@ -27,9 +15,6 @@ export const validate = (param) => {  // 5
         return true;
     }
 }
-
-
-
 /********************* 
 Login2 유효성체크 
 ************************/
@@ -46,8 +31,6 @@ export const validateLogin2 = (param) => {
         return true;
     }
 }
-
-
 
 /********************* 
 UserInfo 유효성체크 
@@ -70,3 +53,44 @@ export const validateUserInfo = (param) => {
     }
 }
 
+
+
+/********************* 
+SignUp 유효성체크 
+************************/
+
+
+export const validateSignUp = (param) => {
+    let result = true;
+    if(param.refs.idRef.current.value==''){
+        param.setError({...param.error, ['id']:'빈칸입력해'})
+        param.refs.idRef.current.focus();
+        result = false;
+    } else if(param.refs.pwRef.current.value===''){
+        param.setError({...param.error, ['pw']:'빈칸입력해'})
+        param.refs.pwRef.current.focus();
+        result = false;
+    }else if(param.refs.pwcheckRef.current.value===''){
+        param.setError({...param.error, ['pwcheck']:'빈칸입력해'})
+        param.refs.pwcheckRef.current.focus();
+        result = false;
+    }else if(param.refs.nameRef.current.value===''){
+        param.setError({...param.error, ['name']:'빈칸입력해'})
+        param.refs.nameRef.current.focus();
+        result = false;
+    }else if(param.refs.phonenumberRef.current.value===''){
+        param.setError({...param.error, ['phonenumber']:'빈칸입력해'})
+        param.refs.phonenumberRef.current.focus();
+        result = false;
+    }else if(param.refs.emailnameRef.current.value===''){
+        param.setError({...param.error, ['emailname']:'빈칸입력해'})
+        param.refs.emailnameRef.current.focus();
+        result = false;
+    }
+    
+    else if(param.refs.emaildomainRef.current.value==='default'){
+        param.setError({...param.error, ['emaildomain']:'선택해'})
+        param.refs.emaildomainRef.current.focus();
+        result = false;
+    } return result;
+}
