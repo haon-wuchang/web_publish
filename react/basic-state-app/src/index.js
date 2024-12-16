@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppYes24 from './practice/yes24/AppYes24.jsx';
+import AppForm from './components/form/AppForm.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppYes24 />
+    <AppForm />
   </React.StrictMode>
 );
 

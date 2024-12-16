@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { validateUserInfo } from '../../apis/validate.js';
 
 export default function UserInfo() {
     const nameRef = useRef(null);
@@ -12,27 +13,11 @@ export default function UserInfo() {
         const {name,value}= event.target; 
         setForm({...form,[name]:value});
     }
-    const validate = () => {  
-        if(nameRef.current.value===''){
-            alert('이름을 입력해주세요');
-            nameRef.current.focus();
-            return false;
-        } else if(addressRef.current.value===''){
-            alert('주소를 입력해주세요');
-            addressRef.current.focus();
-            return false;
-        }else if(ageRef.current.value===''){
-            alert('나이를 입력해 주세요');
-            ageRef.current.focus();
-            return false;
-        }else{
-            return true;
-        }
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();   
-        if(validate()) console.log(form);
+        const param = {'nameRef':nameRef,'addressRef':addressRef,'ageRef':ageRef}
+        if(validateUserInfo(param)) console.log(form);
     }
     return (
         <div>
