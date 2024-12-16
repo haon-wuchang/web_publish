@@ -5,6 +5,7 @@ import './commons.css';
 //익스포트 임포트로 함수들을 다른곳에 저장해두고 불러오는 형태로 사용한다 ( 로직분리 )
 // => 우선은 validate.js 파일 만들어서 여기에는 유효성체크함수들만 모아놀것이다
 import { validate } from '../../apis/validate.js'; //1
+import { errorCheckCgvLoginForm } from '../../apis/errorCheck.js';
 
 export default function CgvLoginForm() {
     const init = {'id':'','pw':''};
@@ -21,11 +22,8 @@ export default function CgvLoginForm() {
     const handleInput = (event) => {
         const {name,value} = event.target;
         setFormData({...formData,[name]:value});
-        if(name==='id' && value !==''){
-            setError({...error,['id']:''});
-        } else if (name ==='pw' && value !==''){
-            setError({...error, ['pw']:''});
-        }
+        errorCheckCgvLoginForm(name,value,error,setError);
+       
     }
 
     const handleSubmit = (event) => {    

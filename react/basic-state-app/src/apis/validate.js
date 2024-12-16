@@ -96,3 +96,31 @@ export const validateSignUp = (param) => {
 }
 
 
+//TestJoin 
+export const validateTest = (ref,error,setError) => {
+    if(ref.idRef.current.value===''){
+        setError({...error, ['id']:'아디 입력해'})
+        ref.idRef.current.focus();
+        return false;
+    } else  if(ref.pwRef.current.value===''){
+        setError({...error, ['pw']:'비번 입력해'})
+        ref.pwRef.current.focus();
+        return false;
+    }else  if(ref.pwcheckRef.current.value===''){
+        setError({...error, ['pwcheck']:'비번확인 입력해'})
+        ref.pwcheckRef.current.focus();
+        return false;
+    }else  if(ref.nameRef.current.value===''){
+        setError({...error, ['name']:'이름 입력해'})
+        ref.nameRef.current.focus();
+        return false;
+    }else  if(ref.phonenumberRef.current.value===''){
+        setError({...error, ['phonenumber']:'폰 입력해'})
+        ref.phonenumberRef.current.focus();
+        return false;
+    }else  if(ref.emailnameRef.current.value===''){
+        setError({...error, ['emailname']:'이메일 입력해'})
+        ref.emailnameRef.current.focus();
+        return false;
+    }
+}
