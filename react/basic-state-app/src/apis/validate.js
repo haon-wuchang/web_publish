@@ -63,20 +63,20 @@ SignUp 유효성체크
 export const validateSignUp = (param) => {
     let result = true;
     if(param.refs.idRef.current.value==''){
-        param.setError({...param.error, ['id']:'빈칸입력해'})
+        param.setError({...param.error, ['id']:'아이디를 입력해'})
         // param.refs.idRef.current.style.setProperty('color','blue');
         param.refs.idRef.current.focus();
         result = false;
     } else if(param.refs.pwRef.current.value===''){
-        param.setError({...param.error, ['pw']:'빈칸입력해'})
+        param.setError({...param.error, ['pw']:'비밀번호를 입력해'})
         param.refs.pwRef.current.focus();
         result = false;
     }else if(param.refs.pwcheckRef.current.value===''){
-        param.setError({...param.error, ['pwcheck']:'빈칸입력해'})
+        param.setError({...param.error, ['pwcheck']:'비밀번호확인을 입력해'})
         param.refs.pwcheckRef.current.focus();
         result = false;
     }else if(param.refs.nameRef.current.value===''){
-        param.setError({...param.error, ['name']:'빈칸입력해'})
+        param.setError({...param.error, ['name']:'이름을 입력해'})
         param.refs.nameRef.current.focus();
         result = false;
     }else if(param.refs.phonenumberRef.current.value===''){
