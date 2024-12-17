@@ -5,6 +5,7 @@ import Login2 from './Login2.jsx';
 import CgvLoginForm from './CgvLoginForm.jsx';
 import Signup from './Signup.jsx';
 import TestJoin from './TestJoin.jsx';
+import Signup2 from './Signup2.jsx';
 
 export default function AppForm() {
     return (
@@ -13,7 +14,8 @@ export default function AppForm() {
             <hr />
             <UserInfo /> */}
             {/* <CgvLoginForm /> */}
-            <TestJoin />
+            {/* <TestJoin /> */}
+            <Signup2 />
             {/* <Login2 /> */}
             {/* <Signup />  */}
         </div>

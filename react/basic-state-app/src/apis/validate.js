@@ -124,3 +124,99 @@ export const validateTest = (ref,error,setError) => {
         return false;
     }
 }
+
+/********************* 
+SignUp2 유효성체크   => 코드존나기니까 entries ,values, keys 이런거 사용해서 중복된부분 하나로 만들기
+************************/
+export const validateSignup2 = (refs) => {
+    // const refValues = Object.values(refs);
+    // const refKeys = Object.keys(refs);
+    const refEntries = Object.entries(refs);
+    // console.log(refValues);   
+    // console.log(refKeys);   //0:idRef 이케 키값만 가져오게 찍힘
+    // console.log(refEntries); // 0: [idRef, {}]  키 벨류 둘다 가져오게 찍힘
+    // jobRef 라는 키값을 가지고 있을때는 value=default 니까 따로 설정해줘야함 나머지는 빈값일떄만 얼러트띄우면 대자나
+    
+    const msgs = {'idRef':'아이디','pwRef':'비밀번호','nameRef':'이름',
+                    'phone1Ref':'전화번호','phone2Ref':'전화번호','phone3Ref':'전화번호',
+                    'addressRef':'주소','birth1Ref':'생년월일','birth2Ref':'생년월일',
+                    'birth3Ref':'생년월일','emailRef':'이메일','introduce':'자기소개'
+    };
+
+    //💥 배열객체.map() or 배열.forEach() 함수 는 
+    // 배열객체를 순회하는것이 목적이므로 if 체크 후 focus 가 적용되지 않는다
+    //근데 for 문은 해당로직의 내용까지 전부를 처음부터 끝까지 한번 진행하고
+    //  그다음것을 순회 하게 된다. 따라서 for 문으로 돌리면 focus 가 적용되게 된다💥
+
+    for(const item of refEntries) {
+        const name = item[0];
+        const ref = item[1];
+        if(ref && ref.current.value === '') {
+            alert(`${msgs[name]} 을/를 입력해주세요`);
+            ref.current.focus();
+            return false;
+        }
+    }
+
+
+    // let result = true;
+    // if(refs.idRef.current.value===''){
+    //     alert('아이디를 입력해주세요');
+    //     refs.idRef.current.focus();
+    //     result = false;
+    // }else  if(refs.pwRef.current.value===''){
+    //     alert('비밀번호를 입력해주세요');
+    //     refs.pwRef.current.focus();
+    //     result = false;
+    // }else  if(refs.nameRef.current.value===''){
+    //     alert('이름을 입력해주세요');
+    //     refs.nameRef.current.focus();
+    //     result = false;
+    // }else  if(refs.phone1Ref.current.value===''){
+    //     alert('전화번호를 입력해주세요');
+    //     refs.phone1Ref.current.focus();
+    //     result = false;
+    // }else  if(refs.phone2Ref.current.value===''){
+    //     alert('전화번호를 입력해주세요');
+    //     refs.phone2Ref.current.focus();
+    //     result = false;
+    // }else  if(refs.phone3Ref.current.value===''){
+    //     alert('전화번호를 입력해주세요');
+    //     refs.phone3Ref.current.focus();
+    //     result = false;
+    // }else  if(refs.addressRef.current.value===''){
+    //     alert('주소를 입력해주세요');
+    //     refs.addressRef.current.focus();
+    //     result = false;
+    // }else  if(refs.birth1Ref.current.value===''){
+    //     alert('생년월일을 입력해주세요');
+    //     refs.birth1Ref.current.focus();
+    //     result = false;
+    // }else  if(refs.birth2Ref.current.value===''){
+    //     alert('생년월일을 입력해주세요');
+    //     refs.birth2Ref.current.focus();
+    //     result = false;
+    // }else  if(refs.birth3Ref.current.value===''){
+    //     alert('생년월일을 입력해주세요');
+    //     refs.birth3Ref.current.focus();
+    //     result = false;
+    // }else  if(refs.jobRef.current.value==='default'){
+    //     alert('직업을 선택해주세요');
+    //     refs.jobRef.current.focus();
+    //     result = false;
+    // }else  if(refs.genderRef.current.value===''){
+    //     alert('성별을 선택해주세요');            
+    //     refs.genderRef.current.focus();
+    //     result = false;
+    // }else  if(refs.emailRef.current.value===''){
+    //     alert('이메일을 입력해주세요');
+    //     refs.emailRef.current.focus();
+    //     result = false;
+    // }else  if(refs.introduceRef.current.value===''){
+    //     alert('자기소개를 입력해주세요');
+    //     refs.introduceRef.current.focus();
+    //     result = false;
+    // } return result;
+}
+
+
