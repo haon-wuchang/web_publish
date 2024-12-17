@@ -173,47 +173,13 @@ export const validateSignup2 = (refs) => {
     //     alert('전화번호를 입력해주세요');
     //     refs.phone1Ref.current.focus();
     //     result = false;
-    // }else  if(refs.phone2Ref.current.value===''){
-    //     alert('전화번호를 입력해주세요');
-    //     refs.phone2Ref.current.focus();
-    //     result = false;
-    // }else  if(refs.phone3Ref.current.value===''){
-    //     alert('전화번호를 입력해주세요');
-    //     refs.phone3Ref.current.focus();
-    //     result = false;
-    // }else  if(refs.addressRef.current.value===''){
-    //     alert('주소를 입력해주세요');
-    //     refs.addressRef.current.focus();
-    //     result = false;
-    // }else  if(refs.birth1Ref.current.value===''){
-    //     alert('생년월일을 입력해주세요');
-    //     refs.birth1Ref.current.focus();
-    //     result = false;
-    // }else  if(refs.birth2Ref.current.value===''){
-    //     alert('생년월일을 입력해주세요');
-    //     refs.birth2Ref.current.focus();
-    //     result = false;
-    // }else  if(refs.birth3Ref.current.value===''){
-    //     alert('생년월일을 입력해주세요');
-    //     refs.birth3Ref.current.focus();
-    //     result = false;
-    // }else  if(refs.jobRef.current.value==='default'){
-    //     alert('직업을 선택해주세요');
-    //     refs.jobRef.current.focus();
-    //     result = false;
-    // }else  if(refs.genderRef.current.value===''){
-    //     alert('성별을 선택해주세요');            
-    //     refs.genderRef.current.focus();
-    //     result = false;
-    // }else  if(refs.emailRef.current.value===''){
-    //     alert('이메일을 입력해주세요');
-    //     refs.emailRef.current.focus();
-    //     result = false;
-    // }else  if(refs.introduceRef.current.value===''){
-    //     alert('자기소개를 입력해주세요');
-    //     refs.introduceRef.current.focus();
-    //     result = false;
-    // } return result;
+    // }
 }
+
+
+/************************************
+SignUp 아이디 중복 체크   
+****************************************/
+
 
 

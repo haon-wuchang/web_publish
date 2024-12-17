@@ -4,6 +4,8 @@ import './cgv.css';
 import {validateSignUp} from '../../apis/validate.js';
 import {errorCheckSignup} from '../../apis/errorCheck.js';
 import { initFormNames } from '../../apis/initial-reduce.js';
+import { handleIdCheck } from '../../apis/validate.js';
+import { handlePasswordCheck } from '../../apis/validate.js';
 
 export default function Signup() {
     const initArray = ['id','pw','pwcheck','name','phonenumber',
@@ -16,7 +18,8 @@ export default function Signup() {
     // const errorInit = {'id':'','pw':'','pwcheck':'','name':'',
     //                 'phonenumber':'','emailname':'','emaildomain':''};
     const [error, setError] = useState(initFormNames(initArray));
-
+    const idMsgRef = useRef(null);
+    const pwMsgRef = useRef(null);
     const refs = {
         idRef : useRef(null),
         pwRef : useRef(null),
@@ -31,7 +34,9 @@ export default function Signup() {
     const handleChangeSignup = (event) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]:value});
-        errorCheckSignup(name,value,error,setError);      
+        idMsgRef.current.style.setProperty('color','red'); // 추가 : 사용가능한아디입니다 가 파란색으로 나오자나 거기서 아디를 다시 test 로 하면 파란글씨로 중복된 아디입니다 이케 떠서 걍 초기값을 빨강을 ㅗ준거야
+        pwMsgRef.current.style.setProperty('color','red');// 추가
+        errorCheckSignup(name,value,error,setError);   
 }   
 
     //폼의 입력이 종료된후 submit 함수 
@@ -40,18 +45,40 @@ export default function Signup() {
         const param = {'refs':refs,'error':error, 'setError':setError};
         if(validateSignUp(param)) console.log(formData);
     }
+
     const handleIdCheck = () => {  //추가
-        if(refs.idRef.current.value===''){
-            alert('아이디를 입력해주세요');
-            refs.idRef.current.focus();
-            return false;
+        const idV = refs.idRef.current;
+        if(idV.value===''){
+            errorCheckSignup('id',idV.value,error,setError);            
         }else {
             const did = 'test';
-            if(refs.idRef.current.value===did){
-                alert('이미 존재하는 아이디입니다');
-                refs.idRef.current.value='';
-            }else {
-                alert('사용가능한 아이디입니다');
+            if(idV.value===did){
+                setError({...error,['id']:'사용중인 아이디입니다'});
+                idV.focus();
+            }else{
+                setError({...error,['id']:'사용가능한 아이디입니다'});
+                idMsgRef.current.style.setProperty('color','blue');
+            }
+        }
+    }
+    const handlePasswordCheck = () => { //추가
+        const pwV =refs.pwRef.current;
+        const pwcV = refs.pwcheckRef.current;
+        if(pwV.value===''){
+            errorCheckSignup('pw',pwV.value,error,setError);
+            pwV.focus();
+        } else if(pwcV.value===''){
+            errorCheckSignup('pwcheck',pwcV.value,error,setError);
+            pwcV.focus();
+        }else{
+            if(pwV.value===pwcV.value){
+                setError({...error, ['pw']:'비밀번호가 일치합니다'});
+                pwMsgRef.current.style.setProperty('color','blue');
+            }else{
+                setError({...error, ['pw']:'비밀번호가 일치하지않습니다'});
+                //화면관리는 formData가 하니까 formData를 지워야함
+                setFormData({...formData,['pw']:'',['pwcheck']:''});
+                refs.pwcheckRef.current.focus();
             }
         }
     }
@@ -64,7 +91,7 @@ export default function Signup() {
                     <ul> 
                         <li>
                             <label for="" className="join-title-font">아이디</label>
-                            <span>{error.id}</span>
+                            <span ref={idMsgRef}>{error.id}</span>
                             <div>
                                 <input 
                                     type="text" 
@@ -78,7 +105,7 @@ export default function Signup() {
                         </li>
                         <li>
                             <label for="" className="join-title-font">비밀번호</label>
-                            <span>{error.pw}</span>
+                            <span ref={pwMsgRef}>{error.pw}</span>
                             <div>
                                 <input 
                                     type="password" 
@@ -99,7 +126,8 @@ export default function Signup() {
                                     placeholder="비밀번호 재입력" 
                                     onChange={handleChangeSignup}
                                     value={formData.pwcheck}
-                                    ref={refs.pwcheckRef}/>
+                                    ref={refs.pwcheckRef}
+                                    onBlur={handlePasswordCheck}/> 
                             </div>
                         </li>
                         <li>
