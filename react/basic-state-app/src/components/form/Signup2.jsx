@@ -1,24 +1,28 @@
 import React, { useState,useRef } from 'react';
 import { validateSignup2 } from '../../apis/validate.js';
 import './signup2.css';
+import { initFormNames } from '../../apis/initial-reduce.js';
 
 export default function Signup2() {
-    const init = {
-        'id':'',   // 얘의 id pw 부분이 name 이고 뒤에 빈값이 value 이다. 폼데이터에 넣고 변경이 일어날때마다 인풋의 벨류에 들어감
-        'pw':'',
-        'name':'',
-        'phone1':'',
-        'phone2':'',
-        'phone3':'',
-        'address':'',   //여기들어가는건 다 문자타입이다(input 이기때문에) 그래서'' 로 감싼거임
-        'birth1':'',
-        'birth2':'',
-        'birth3':'',
-        'job':'',
-        'gender':'',
-        'email':'',
-        'introduce':''
-    }
+    const initArray = ['id','pw','name','phone1','phone2','phone3','address', //2
+            'birth1','birth2','birth3','job','gender','email','introduce'];
+    // const init2 = initArray.reduce((acc,key)=> { //4계산한 콜백의 반환값이 acc 에 들어간다 / acc={'idRef':useRef(null)}; =>{}는 리턴타입에 적은애임
+    //     acc[key] = '';  //5 =>  이값을 {} 여기에 넣을거임   acc[키값]:'' ; key=currnetvalue 값임
+    //     return acc;  //
+    // },{}); //3 refs 를 리턴해서 받아올거라 {} 리턴타입에 이거 쓴거임
+    // console.log(init2);
+
+    //1.const init 부분 간결하게 바꾸기=>키값을 배열에 놓고 reduce()함수사용하면 코드 간결하게 작성가능 => useRef 적용된부분은 얘로 못함
+    // const init = { //여기들어가는건 다 문자타입이다(input 이기때문에) 그래서'' 로 감싼거임
+    //     'id':'',   // 얘의 id pw 부분이 name 이고 뒤에 빈값이 value 이다. 폼데이터에 넣고 변경이 일어날때마다 인풋의 벨류에 들어감
+    //     'pw':'',
+    //     'name':'','phone1':'',        
+    //     'phone2':'','phone3':'',        
+    //     'address':'', 'birth1':'',        
+    //     'birth2':'','birth3':'',
+    //     'job':'','gender':'',      
+    //     'email':'','introduce':''       
+    // }
     // const [formData,setFormData] = useState(init); 이거의 의미는
     // formdata = {
     //     birth1':'',
@@ -30,23 +34,18 @@ export default function Signup2() {
     //     'email':'',
     //     'introduce':''
     // } 이다
+
+
+    //react 전용 useRef 함수는 custom hook 등을 활용해야한다     
     const refs = {
-        idRef : useRef(null),
-        pwRef: useRef(null),
-        nameRef: useRef(null),
-        phone1Ref: useRef(null),
-        phone2Ref: useRef(null),
-        phone3Ref: useRef(null),
-        addressRef: useRef(null),
-        birth1Ref: useRef(null),
-        birth2Ref: useRef(null),
-        birth3Ref: useRef(null),
-        jobRef: useRef(null),
-        genderRef: useRef(null),
-        emailRef: useRef(null),
-        introduceRef: useRef(null)
+        idRef : useRef(null),pwRef: useRef(null),nameRef: useRef(null),       
+        phone1Ref: useRef(null),phone2Ref: useRef(null),phone3Ref: useRef(null),       
+        addressRef: useRef(null), birth1Ref: useRef(null),birth2Ref: useRef(null),       
+        birth3Ref: useRef(null),jobRef: useRef(null),genderRef: useRef(null),        
+        emailRef: useRef(null),introduceRef: useRef(null)        
     }
-    const [formData,setFormData] = useState(init);
+    
+    const [formData,setFormData] = useState(initFormNames(initArray));
 
     const handleSubmit = (event) => {
         event.preventDefault();

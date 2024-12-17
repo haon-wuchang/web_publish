@@ -3,15 +3,19 @@ import './commons.css';
 import './cgv.css';
 import {validateSignUp} from '../../apis/validate.js';
 import {errorCheckSignup} from '../../apis/errorCheck.js';
+import { initFormNames } from '../../apis/initial-reduce.js';
 
 export default function Signup() {
-    const init = {'id':'','pw':'','pwcheck':'','name':'',
-                'phonenumber':'','emailname':'','emaildomain':''};
-    const [formData, setFormData] = useState(init);
+    const initArray = ['id','pw','pwcheck','name','phonenumber',
+                        'emailname','emaildomain'];
+                            
+    // const init = {'id':'','pw':'','pwcheck':'','name':'',
+    //             'phonenumber':'','emailname':'','emaildomain':''};
+    const [formData, setFormData] = useState(initFormNames(initArray));
 
-    const errorInit = {'id':'','pw':'','pwcheck':'','name':'',
-                    'phonenumber':'','emailname':'','emaildomain':''};
-    const [error, setError] = useState(errorInit);
+    // const errorInit = {'id':'','pw':'','pwcheck':'','name':'',
+    //                 'phonenumber':'','emailname':'','emaildomain':''};
+    const [error, setError] = useState(initFormNames(initArray));
 
     const refs = {
         idRef : useRef(null),
@@ -27,8 +31,7 @@ export default function Signup() {
     const handleChangeSignup = (event) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]:value});
-        errorCheckSignup(name,value,error,setError);
-      
+        errorCheckSignup(name,value,error,setError);      
 }   
 
     //폼의 입력이 종료된후 submit 함수 
@@ -36,6 +39,21 @@ export default function Signup() {
         event.preventDefault();
         const param = {'refs':refs,'error':error, 'setError':setError};
         if(validateSignUp(param)) console.log(formData);
+    }
+    const handleIdCheck = () => {  //추가
+        if(refs.idRef.current.value===''){
+            alert('아이디를 입력해주세요');
+            refs.idRef.current.focus();
+            return false;
+        }else {
+            const did = 'test';
+            if(refs.idRef.current.value===did){
+                alert('이미 존재하는 아이디입니다');
+                refs.idRef.current.value='';
+            }else {
+                alert('사용가능한 아이디입니다');
+            }
+        }
     }
 
     return (
@@ -55,7 +73,7 @@ export default function Signup() {
                                     placeholder="아이디 입력(6~20자)"
                                     onChange={handleChangeSignup} 
                                     ref={refs.idRef}/>
-                                <button>중복확인</button>
+                                <button type='button' onClick={handleIdCheck}>중복확인</button>
                             </div>
                         </li>
                         <li>

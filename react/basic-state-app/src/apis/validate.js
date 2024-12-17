@@ -126,28 +126,24 @@ export const validateTest = (ref,error,setError) => {
 }
 
 /********************* 
-SignUp2 유효성체크   => 코드존나기니까 entries ,values, keys 이런거 사용해서 중복된부분 하나로 만들기
+SignUp2 유효성체크   
 ************************/
+
 export const validateSignup2 = (refs) => {
-    // const refValues = Object.values(refs);
-    // const refKeys = Object.keys(refs);
     const refEntries = Object.entries(refs);
-    // console.log(refValues);   
-    // console.log(refKeys);   //0:idRef 이케 키값만 가져오게 찍힘
     // console.log(refEntries); // 0: [idRef, {}]  키 벨류 둘다 가져오게 찍힘
-    // jobRef 라는 키값을 가지고 있을때는 value=default 니까 따로 설정해줘야함 나머지는 빈값일떄만 얼러트띄우면 대자나
     
     const msgs = {'idRef':'아이디','pwRef':'비밀번호','nameRef':'이름',
-                    'phone1Ref':'전화번호','phone2Ref':'전화번호','phone3Ref':'전화번호',
-                    'addressRef':'주소','birth1Ref':'생년월일','birth2Ref':'생년월일',
-                    'birth3Ref':'생년월일','emailRef':'이메일','introduce':'자기소개'
-    };
-
+        'phone1Ref':'전화번호','phone2Ref':'전화번호','phone3Ref':'전화번호',
+        'addressRef':'주소','birth1Ref':'생년월일','birth2Ref':'생년월일',
+        'birth3Ref':'생년월일','emailRef':'이메일','introduce':'자기소개'
+    };  //근데 이건 왜 만든거임?
+    
     //💥 배열객체.map() or 배열.forEach() 함수 는 
     // 배열객체를 순회하는것이 목적이므로 if 체크 후 focus 가 적용되지 않는다
     //근데 for 문은 해당로직의 내용까지 전부를 처음부터 끝까지 한번 진행하고
     //  그다음것을 순회 하게 된다. 따라서 for 문으로 돌리면 focus 가 적용되게 된다💥
-
+    
     for(const item of refEntries) {
         const name = item[0];
         const ref = item[1];
@@ -157,6 +153,7 @@ export const validateSignup2 = (refs) => {
             return false;
         }
     }
+    // jobRef 라는 키값을 가지고 있을때는 value=default 니까 따로 설정해줘야함-이건아직안배윰..
 
 
     // let result = true;
