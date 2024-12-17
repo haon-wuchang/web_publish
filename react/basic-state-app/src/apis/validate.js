@@ -131,18 +131,12 @@ SignUp2 유효성체크
 
 export const validateSignup2 = (refs) => {
     const refEntries = Object.entries(refs);
-    // console.log(refEntries); // 0: [idRef, {}]  키 벨류 둘다 가져오게 찍힘
     
     const msgs = {'idRef':'아이디','pwRef':'비밀번호','nameRef':'이름',
         'phone1Ref':'전화번호','phone2Ref':'전화번호','phone3Ref':'전화번호',
         'addressRef':'주소','birth1Ref':'생년월일','birth2Ref':'생년월일',
         'birth3Ref':'생년월일','emailRef':'이메일','introduce':'자기소개'
     };  //근데 이건 왜 만든거임?
-    
-    //💥 배열객체.map() or 배열.forEach() 함수 는 
-    // 배열객체를 순회하는것이 목적이므로 if 체크 후 focus 가 적용되지 않는다
-    //근데 for 문은 해당로직의 내용까지 전부를 처음부터 끝까지 한번 진행하고
-    //  그다음것을 순회 하게 된다. 따라서 for 문으로 돌리면 focus 가 적용되게 된다💥
     
     for(const item of refEntries) {
         const name = item[0];
@@ -178,8 +172,47 @@ export const validateSignup2 = (refs) => {
 
 
 /************************************
-SignUp 아이디 중복 체크   
+SignUp 아이디 중복 체크  
 ****************************************/
 
+export const handleIdCheck = (refs,errorCheckSignup,error,setError,idMsgRef) => {  //추가
+        const idV = refs.idRef.current;
+        if(idV.value===''){
+            errorCheckSignup('id',idV.value,error,setError);            
+        }else {
+            const did = 'test';
+            if(idV.value===did){
+                setError({...error,['id']:'사용중인 아이디입니다'});
+                idV.focus();
+            }else{
+                setError({...error,['id']:'사용가능한 아이디입니다'});
+                idMsgRef.current.style.setProperty('color','blue');
+            }
+        }
+    }
 
+/************************************
+SignUp 비밀번호 일치 체크  
+****************************************/
+export const handlePasswordCheck = (refs,errorCheckSignup,error,setError,pwMsgRef,setFormData,formData) => { //추가
+        const pwV =refs.pwRef.current;
+        const pwcV = refs.pwcheckRef.current;
+        if(pwV.value===''){
+            errorCheckSignup('pw',pwV.value,error,setError);
+            pwV.focus();
+        } else if(pwcV.value===''){
+            errorCheckSignup('pwcheck',pwcV.value,error,setError);
+            pwcV.focus();
+        }else{
+            if(pwV.value===pwcV.value){
+                setError({...error, ['pw']:'비밀번호가 일치합니다'});
+                pwMsgRef.current.style.setProperty('color','blue');
+            }else{
+                setError({...error, ['pw']:'비밀번호가 일치하지않습니다'});
+                //화면관리는 formData가 하니까 formData를 지워야함
+                setFormData({...formData,['pw']:'',['pwcheck']:''});
+                refs.pwcheckRef.current.focus();
+            }
+        }
+    }
 
