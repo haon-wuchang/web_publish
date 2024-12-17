@@ -6,7 +6,7 @@ export const initFormNames = (initArray) => {
         acc[key] = '';  
         return acc;  
     },{});
-    //{} 객체를 넘겨주기 위해서는 return init2; 을 해줘야한다
+    //{} 객체를 넘겨주기 위해서는 return init; 을 해줘야한다
     return init;
 }
 

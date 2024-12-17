@@ -56,7 +56,8 @@ fList.forEach((value,key,map) => console.log(value,key,map));
 console.log(`-----------8----------`);
 
 //순회 : for...of
-for(let element of fList)console.log(element);  // [key, value] 형태로 출력됨
+const fList2 = new Map([[ 1, 'one' ],[ 2, 'two' ]]); 
+for(let element of fList2)console.log(element);  // [key, value] 형태로 출력됨
 /*
 결과값
 [ 1, 'one' ]

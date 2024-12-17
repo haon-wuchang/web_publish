@@ -95,7 +95,15 @@ export const validateSignUp = (param) => {
 
 
 //TestJoin 
+export const valitest = () => {
+    const entri = Object.entries();
+    console.log(entri);
+    
+}
+
 export const validateTest = (ref,error,setError) => {
+
+
     if(ref.idRef.current.value===''){
         setError({...error, ['id']:'아디 입력해'})
         ref.idRef.current.focus();
@@ -129,18 +137,26 @@ SignUp2 유효성체크
 
 export const validateSignup2 = (refs) => {
     const refEntries = Object.entries(refs);
+    // // console.log(refEntries);
+    // 콘솔로그를 찍으면
+    // 0: ['idRef', {...}]   //entries 는 배열로 key.value 값이 나오는것같다다
+    // 1: ['pwRef', {...}]
+    // 2: ['nameRef', {...}]
+    
     
     const msgs = {'idRef':'아이디','pwRef':'비밀번호','nameRef':'이름',
         'phone1Ref':'전화번호','phone2Ref':'전화번호','phone3Ref':'전화번호',
         'addressRef':'주소','birth1Ref':'생년월일','birth2Ref':'생년월일',
         'birth3Ref':'생년월일','emailRef':'이메일','introduce':'자기소개'
-    };  //근데 이건 왜 만든거임?
+    };  
     
-    for(const item of refEntries) {
-        const name = item[0];
-        const ref = item[1];
-        if(ref && ref.current.value === '') {
-            alert(`${msgs[name]} 을/를 입력해주세요`);
+    for(const item of refEntries) {  //refEntries의 값이 item 에 들어가게된다.
+        const name = item[0]; //이게 'idRef'값 이고고
+        const ref = item[1]; //이게 {...} value 값 아닌가? 
+        if(ref && ref.current.value === '') {  //얘는 인풋의 value 값이 빈값이면
+            alert(`${msgs[name]} 을/를 입력해주세요`);  //💦 여기 [name] 은 왜들어간거지 
+            //msgs의 '아이디' 여기 부분이 출력되게 해야하자나 근데 왜 [name]item[0] 이 들어가?
+            // item[1] 이 들어가야 하는거 아니야? 여기 모르겟어 
             ref.current.focus();
             return false;
         }

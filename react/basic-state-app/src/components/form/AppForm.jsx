@@ -14,10 +14,10 @@ export default function AppForm() {
             <hr />
             <UserInfo /> */}
             {/* <CgvLoginForm /> */}
-            {/* <TestJoin /> */}
+            <TestJoin />
             {/* <Signup2 /> */}
             {/* <Login2 /> */}
-            <Signup /> 
+            {/* <Signup />  */}
         </div>
     );
 }

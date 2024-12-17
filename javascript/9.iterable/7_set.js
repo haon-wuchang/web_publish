@@ -14,7 +14,14 @@ console.log(mySet);
 
 
 //데이터 순회
-for(let value of mySet){
+let mySet1 = new Set();
+mySet.add(10);
+mySet.add('홍길동');
+mySet.add('홍길동'); 
+mySet.add({age : 20});
+mySet.add([1,2,3,4]);
+
+for(let value of mySet1){
     console.log(`value = ${value}`); 
 }
 /* 결과값

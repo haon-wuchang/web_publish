@@ -3,20 +3,28 @@
 
 
 //배열의 요소를 교체하는 함수를 정의하라-> 이런건 forEach 가 적합하긴함
+let numbers = [1,2,3,6,3,2,4,7,2,1];
+let result2 = replace(numbers, 2, 0);
+console.log(result2);
+
+let fruits = ['🥝','🍍','🍉','🥝','🥥','🍎','🥝'];
+let result = replace(fruits, '🥝','🍓');
+console.log(result); 
+
 
 //1. for ...of 사용
-// function replace(array,origin,target) {
-//     let resultArray = Array.from(array)  
-//     let index = 0;
-//     for(element of resultArray){
-//         if(element=== origin) {
-//             //splice(인덱스,1,교체할요소);
-//             resultArray.splice(index,1,target);
-//         }
-//         index++;  
-//     }
-//    return resultArray;
-// }
+function replace(array,origin,target) {
+    let resultArray = Array.from(array)  
+    let index = 0;
+    for(element of resultArray){
+        if(element=== origin) {
+            //splice(인덱스,1,교체할요소);
+            resultArray.splice(index,1,target);
+        }
+        index++;  
+    }
+   return resultArray;
+}
 
 // 2. for 사용  
 // function replace(array,origin,target) {
@@ -33,25 +41,18 @@
 
 
 //2. forEach 사용 
-function replace(array,origin,target) {
-    let resultArray = Array.from(array);  
+// function replace(array,origin,target) {
+//     let resultArray = Array.from(array);  
 
-    resultArray.forEach((element,index)=>{
-        if(element===origin){
-            resultArray.splice(index,1,target);
-        }
-    });
-    return resultArray;
-}
+//     resultArray.forEach((element,index)=>{
+//         if(element===origin){
+//             resultArray.splice(index,1,target);
+//         }
+//     });
+//     return resultArray;
+// }
 
 
-let numbers = [1,2,3,6,3,2,4,7,2,1];
-let result2 = replace(numbers, 2, 0);
-console.log(result2);
-
-let fruits = ['🥝','🍍','🍉','🥝','🥥','🍎','🥝'];
-let result = replace(fruits, '🥝','🍓');
-console.log(result); 
 
 
 
