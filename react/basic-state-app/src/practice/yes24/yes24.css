@@ -11,3 +11,14 @@
     margin: auto;
     border: 1px solid red;
 }
+.e{
+    width: 150px;
+    padding: 0 10px;
+}
+.aa{
+    display: flex;
+    align-items: center;
+}
+.span1{
+    font-size: 40px;
+}
