@@ -1,0 +1,36 @@
+.container {
+    width: 1000px;
+    margin: auto;
+    border: 1px solid red;
+}
+.div {
+    border: 1px solid blue;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.container-avatar{
+    display: flex;
+    align-items: center;
+    /* width: 300px; */
+    /* border: 1px solid red; */
+}
+.container-avatar p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0 10px;
+}
+.container-avatar img {
+    width: 140px;
+    border-radius: 7px;
+}
+.container-content{
+    padding: 0 30px;
+}
+.container-btn{
+    list-style-type: none;
+    background-color: lightcyan;
+    padding: 20px;
+}

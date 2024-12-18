@@ -41,44 +41,7 @@ export default function Signup() {
         const param = {'refs':refs,'error':error, 'setError':setError};
         if(validateSignUp(param)) console.log(formData);
     }
-
-    // const handleIdCheck = () => {  //추가
-    //     const idV = refs.idRef.current;
-    //     if(idV.value===''){
-    //         errorCheckSignup('id',idV.value,error,setError);            
-    //     }else {
-    //         const did = 'test';
-    //         if(idV.value===did){
-    //             setError({...error,['id']:'사용중인 아이디입니다'});
-    //             idV.focus();
-    //         }else{
-    //             setError({...error,['id']:'사용가능한 아이디입니다'});
-    //             idMsgRef.current.style.setProperty('color','blue');
-    //         }
-    //     }
-    // }
-    // const handlePasswordCheck = () => { //추가
-    //     const pwV =refs.pwRef.current;
-    //     const pwcV = refs.pwcheckRef.current;
-    //     if(pwV.value===''){
-    //         errorCheckSignup('pw',pwV.value,error,setError);
-    //         pwV.focus();
-    //     } else if(pwcV.value===''){
-    //         errorCheckSignup('pwcheck',pwcV.value,error,setError);
-    //         pwcV.focus();
-    //     }else{
-    //         if(pwV.value===pwcV.value){
-    //             setError({...error, ['pw']:'비밀번호가 일치합니다'});
-    //             pwMsgRef.current.style.setProperty('color','blue');
-    //         }else{
-    //             setError({...error, ['pw']:'비밀번호가 일치하지않습니다'});
-    //             //화면관리는 formData가 하니까 formData를 지워야함
-    //             setFormData({...formData,['pw']:'',['pwcheck']:''});
-    //             refs.pwcheckRef.current.focus();
-    //         }
-    //     }
-    // }
-
+    
     return (
         <div className="content">
             <div className="join-form center-layout">
@@ -96,7 +59,15 @@ export default function Signup() {
                                     placeholder="아이디 입력(6~20자)"
                                     onChange={handleChangeSignup} 
                                     ref={refs.idRef}/>
-                                <button type='button' onClick={handleIdCheck(refs,errorCheckSignup,error,setError,idMsgRef)}>중복확인</button>
+                                <button type='button' onClick={()=>{
+                                    const param = {
+                                        'idRef':refs.idRef,
+                                        'errorCheckSignup':errorCheckSignup,
+                                        'error':error,
+                                        'setError':setError,
+                                        'idMsgRef':idMsgRef
+                                    }
+                                     handleIdCheck(param)}}>중복확인</button>                               
                             </div>
                         </li>
                         <li>
@@ -122,9 +93,16 @@ export default function Signup() {
                                     placeholder="비밀번호 재입력" 
                                     onChange={handleChangeSignup}
                                     value={formData.pwcheck}
-                                    ref={refs.pwcheckRef}
-                                    onBlur={handlePasswordCheck(refs,errorCheckSignup,error,setError,pwMsgRef,setFormData,formData)}/> 
-                            </div>
+                                    ref={refs.pwcheckRef}//
+                                    onBlur={()=>{  
+                                        const param={'refs':refs, 
+                                                    'errorCheckSignup':errorCheckSignup,
+                                                    'error':error,'setError':setError,
+                                                    'setFormData':setFormData,
+                                                    'formData':formData,
+                                                    'pwMsgRef':pwMsgRef}
+                                          handlePasswordCheck(param)}}/>                                         
+                            </div> 
                         </li>
                         <li>
                             <label for="" className="join-title-font">이름</label>
