@@ -16,7 +16,7 @@ export default function AppBestSeller() {
             .then(data=>data.json())
             .then(jsonData=> {
                 setMenuList(jsonData.menuList);
-                if(category==='total'){
+                if(category==='total'){  //book 에 책정보가 있으니까 bookList 를 if 문에 넣어야함
                     setBookList(jsonData.bookList);
                 }else{  //category 값에 따라 필터링 처리 후 setBookList 에 추가하기
                     const filterArray = jsonData.bookList.filter((book)=>
@@ -41,7 +41,3 @@ export default function AppBestSeller() {
         </div>
     );
 }
-
-
-
-

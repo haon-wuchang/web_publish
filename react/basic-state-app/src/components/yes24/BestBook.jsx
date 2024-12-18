@@ -3,7 +3,6 @@ import BestBookAvatar from "./BestBookAvatar.jsx";
 import BestBookContent from "./BestBookContent.jsx";
 
 export default function BestBook({list}) {
-
     return (
         <>
         {list && list.map((item,index)=>

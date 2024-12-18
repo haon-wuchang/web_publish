@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppBestSeller from './components/yes24/AppBestSeller.jsx';
+// import AppBestSeller from './components/yes24/AppBestSeller.jsx';
+import AppYes24 from './practice/yes24/AppYes24.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppBestSeller />
+    <AppYes24 />
   </React.StrictMode>
 );
 

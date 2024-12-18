@@ -1,0 +1,13 @@
+.a {
+    list-style-type: none;
+}
+.b{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.c{
+    width: 1000px;
+    margin: auto;
+    border: 1px solid red;
+}
