@@ -1,40 +1,149 @@
 {
     "menuList" : [
         {
+            "category" : "total",
             "name" : "종합",
             "href" : "#",
             "bg" : "white",
             "color" : "black"
         },
         {
+            "category" : "realtime",
             "name" : "실시간",
             "href" : "#",
             "bg" : "white",
             "color" : "black"
         },
         {
+            "category" : "hotprice",
             "name" : "특가",
             "href" : "#",
             "bg" : "white",
             "color" : "black"
         },
         {
+            "category" : "day",
             "name" : "일별",
             "href" : "#",
             "bg" : "white",
             "color" : "black"
         },
         {
+            "category" : "monthweek",
             "name" : "월별/주별",
             "href" : "#",
             "bg" : "white",
             "color" : "black"
         },
         {
+            "category" : "steady",
             "name" : "스테디셀러",
             "href" : "#",
             "bg" : "white",
             "color" : "black"
+        }
+    ],
+    "bookList"  :  [
+        {
+            "category" : "realtime",
+            "rank" : "1" ,
+            "img" : "https://image.yes24.com/goods/13137546/L",
+            "suggest"  :  true,
+            "today"  :  true,
+            "novel" : "",
+            "type"  :  "도서",
+            "title"  :  "소년이 온다",
+            "novelWriter" : "",
+            "author"  :  "한강 저",
+            "company"  :  "창비",
+            "pubDate"  :  "2014년 5월",
+            "price"  :  "13,500원",
+            "perSale"  :  "10",
+            "point"  :  "750"
+        },
+        {
+            "category" : "hotprice",
+            "rank" : "2" ,
+            "img" : "https://image.yes24.com/goods/108422348/L",
+            "suggest"  :  false,
+            "today"  :  true,
+            "novel" : "",
+            "type"  :  "도서",
+            "title"  :  "채식주의자",
+            "novelWriter" : "",
+            "author"  :  "한강 저",
+            "company"  :  "창비",
+            "pubDate"  :  "2022년 3월",
+            "price"  :  "13,500원",
+            "perSale"  :  "10",
+            "point"  :  "750"
+        },
+        {
+            "category" : "day",
+            "rank" : "3" ,
+            "img" : "https://image.yes24.com/goods/103495056/L",
+            "suggest"  :  true,
+            "today"  :  true,
+            "novel" : "",
+            "type"  :  "도서",
+            "title"  :  "작별하지 않는다",
+            "novelWriter" : "",
+            "author"  :  "한강 저",
+            "company"  :  "문학동네",
+            "pubDate"  :  "2021년 9월",
+            "price"  :  "15,120원",
+            "perSale"  :  "10",
+            "point"  :  "840"
+        },
+        {
+            "category" : "monthweek",
+            "rank" : "4" ,
+            "img" : "https://image.yes24.com/goods/11467936/L",
+            "suggest"  :  false,
+            "today"  :  false,
+            "novel" : "",
+            "type"  :  "도서",
+            "title"  :  "서랍에 저녁을 넣어 두었다",
+            "novelWriter" : "",
+            "author"  :  "한강 저",
+            "company"  :  "문학과지성사",
+            "pubDate"  :  "2013년 11월",
+            "price"  :  "10,800원",
+            "perSale"  :  "10",
+            "point"  :  "600"
+        },
+        {
+            "category" : "steady",
+            "rank" : "5" ,
+            "img" : "https://image.yes24.com/goods/60524285/L",
+            "suggest"  :  false,
+            "today"  :  true,
+            "novel" : "",
+            "type"  :  "도서",
+            "title"  :  "흰",
+            "novelWriter" : "",
+            "author"  :  "한강 저",
+            "company"  :  "문학동네",
+            "pubDate"  :  "2018년 4월",
+            "price"  :  "13,050원",
+            "perSale"  :  "10",
+            "point"  :  "720"
+        },{
+            "category" : "realtime",
+            "rank" : "6" ,
+            "img" : "https://image.yes24.com/goods/140072103/L",
+            "suggest"  :  false,
+            "today"  :  false,
+            "novel" : "",
+            "type"  :  "도서",
+            "title"  :  "흔한남매 18",
+            "novelWriter" : "",
+            "author"  :  "흔한남매 원저",
+            "company"  :  "문학동네",
+            "pubDate"  :  "2018년 4월",
+            "price"  :  "13,050원",
+            "perSale"  :  "10",
+            "point"  :  "720"
         }
     ]
 }

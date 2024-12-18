@@ -4,11 +4,12 @@
     border: 1px solid red;
 }
 .div {
-    border: 1px solid blue;
+    /* border-bottom: 1px solid lightgray; */
+    border-top: 1px solid lightgray;
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    padding: 30px 10px;
 
 }
 .container-avatar{
@@ -24,10 +25,13 @@
 }
 .container-avatar img {
     width: 140px;
-    border-radius: 7px;
+    border-radius: 5px;
 }
 .container-content{
-    padding: 0 30px;
+    /* border: 1px solid green; */
+    padding: 0 15px;
+    text-align: left;
+    width: 600px;
 }
 .container-btn{
     list-style-type: none;
