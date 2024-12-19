@@ -8,19 +8,6 @@ import CgvLoginForm from '../form/CgvLoginForm.jsx';
 import Signup from '../form/Signup.jsx';
 import AppBestSeller from '../yes24/AppBestSeller.jsx';
 
-//browserRouter 안에 Routes 가 포함되고 Routes 안에 Route 가 포함된다 
-// // 얘네는 다 대문자니까 컴포넌트임 그래서 해당파일의 return 안에 넣어줘야한다
-
-// export default function AppRouter() {
-//     return (
-//         <browserRouter>
-//             <Routes>
-//                <Route path='/'element={데이터 넣으면 됨} ></Route>
-//             </Routes>
-//         </browserRouter>
-//     ); // 이게 기본 틀이다.
-// }
-
 export default function AppRouter() {
     return (
         <BrowserRouter>

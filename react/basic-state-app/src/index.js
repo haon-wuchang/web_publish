@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppRouter from './components/router/AppRouter.jsx';
-import AppForm from './components/form/AppForm.jsx';
+import AppRouter2 from './components/router2/AppRouter2.jsx';
+import AppAvatar from './components/avatar/AppAvatar.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppRouter />
+    <AppRouter2 />
   </React.StrictMode>
 );
 
