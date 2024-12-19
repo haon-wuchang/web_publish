@@ -1,5 +1,4 @@
-import React from 'react';
-import Title from "./Title.jsx";
+//여기에 잇는 내용 써 이파일은 지울파일임
 
 export default function TitleList() {
     const titleList =[
