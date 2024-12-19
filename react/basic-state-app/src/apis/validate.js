@@ -147,48 +147,34 @@ export const validateSignup2 = (refs) => {
     const msgs = {'idRef':'아이디','pwRef':'비밀번호','nameRef':'이름',
         'phone1Ref':'전화번호','phone2Ref':'전화번호','phone3Ref':'전화번호',
         'addressRef':'주소','birth1Ref':'생년월일','birth2Ref':'생년월일',
-        'birth3Ref':'생년월일','emailRef':'이메일','introduce':'자기소개'
+        'birth3Ref':'생년월일','emailRef':'이메일','introduceRef':'자기소개',
+        'jobRef':'직업'
     };  
     
     for(const item of refEntries) {  //refEntries의 값이 item 에 들어가게된다.
         const name = item[0]; //이게 'idRef'값 이고고
         const ref = item[1]; //이게 {...} value 값 아닌가? 
-        if(ref && ref.current.value === '') {  //얘는 인풋의 value 값이 빈값이면
-            alert(`${msgs[name]} 을/를 입력해주세요`);  //💦 여기 [name] 은 왜들어간거지 
-            //msgs의 '아이디' 여기 부분이 출력되게 해야하자나 근데 왜 [name]item[0] 이 들어가?
-            // item[1] 이 들어가야 하는거 아니야? 여기 모르겟어 
-            ref.current.focus();
-            return false;
+        if(name !== 'jobRef'){  //직업 선택칸도 얼러트 뜨게 만듬 12/19
+            if(ref.current.value === '') {  //얘는 인풋의 value 값이 빈값이면
+                alert(`${msgs[name]} 을/를 입력해주세요`);  //💦 여기 [name] 은 왜들어간거지 
+                ref.current.focus();
+                return false;                 
+                //msgs의 '아이디' 여기 부분이 출력되게 해야하자나 근데 왜 [name]item[0] 이 들어가?
+                // item[1] 이 들어가야 하는거 아니야? 여기 모르겟어 
+            }
+            }else{
+                if(ref.current.value === 'default') {  
+                    alert(`${msgs[name]} 을/를 선택해주세요`); 
+                    ref.current.focus();
+                    return false;  
+                }
+            }        
         }
-    }
-    // jobRef 라는 키값을 가지고 있을때는 value=default 니까 따로 설정해줘야함-이건아직안배윰..
-
-
-    // let result = true;
-    // if(refs.idRef.current.value===''){
-    //     alert('아이디를 입력해주세요');
-    //     refs.idRef.current.focus();
-    //     result = false;
-    // }else  if(refs.pwRef.current.value===''){
-    //     alert('비밀번호를 입력해주세요');
-    //     refs.pwRef.current.focus();
-    //     result = false;
-    // }else  if(refs.nameRef.current.value===''){
-    //     alert('이름을 입력해주세요');
-    //     refs.nameRef.current.focus();
-    //     result = false;
-    // }else  if(refs.phone1Ref.current.value===''){
-    //     alert('전화번호를 입력해주세요');
-    //     refs.phone1Ref.current.focus();
-    //     result = false;
-    // }
 }
-
 
 /************************************
 SignUp 아이디 중복 체크  
 ****************************************/
-//구조분해할당으로 받음
 export const handleIdCheck = ({idRef,errorCheckSignup,setError,error,idMsgRef}) => {  
     const idV = idRef.current;
     if(idV.value===''){
