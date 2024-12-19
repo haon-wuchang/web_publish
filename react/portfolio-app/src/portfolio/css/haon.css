@@ -1,0 +1,112 @@
+
+
+:root {
+    --color-main: rgb(238, 255, 0);
+    --color-main-bg: darkslateblue;
+}
+
+/* 전체size 1200px */
+* {
+    margin: 0;
+    padding: 0;
+}  
+
+/* 중복되는애들 먼저 적용 */
+.title {
+    font-size: 3rem;
+}
+
+.description {
+    font-size: 1.5rem;
+}
+
+.section {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* 
+header
+*/
+.header {
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-main-bg);
+    color: white;
+    align-items: center;
+    padding: 2rem 1rem;
+
+}
+.header__logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5rem;
+}
+.header__logo__title {
+    font-size: 2rem;
+}
+.header__menu {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+}
+.header__menu__item {
+    color: white;
+    padding: 0.5rem 2rem;
+}
+.header__menu__item:hover {
+    border: 1px solid var(--color-main);
+    border-radius: 5px;
+}
+
+.active{
+    border: 1px solid var(--color-main);
+    border-radius: 5px;
+}
+
+#menu_toggle {  /*3단바*/
+    display: none;
+}
+/* 
+main-home
+*/
+#home {
+    text-align: center;
+    background-color: var(--color-main-bg);
+    color: white;
+    padding: 3rem 0;
+}
+.home__avatar {
+    width: 20rem;
+    height: 20rem;
+    border: 0.8rem solid var(--color-main);
+    border-radius: 100%;
+}
+.home__title {
+    font-size: 3rem;
+}
+.home__title--strong {
+    color: var(--color-main);
+}
+.home__description {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.home__contact {
+    background-color: var(--color-main);
+    color: black;
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    
+}
