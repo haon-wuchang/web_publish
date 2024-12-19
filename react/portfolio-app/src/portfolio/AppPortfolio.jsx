@@ -1,17 +1,22 @@
 import React from 'react';
 import Header from './Header.jsx';
+import HeaderIcon from './header/HeaderIcon.jsx';
+import MenuList from './header/MenuList.jsx';
 import Content from './Content.jsx';
+import HeaderContent from './content/HeaderContent.jsx';
+import AboutMe from './content/about_me/AboutMe.jsx';
 import Footer from './Footer.jsx';
-import CommonsImg from './CommonsImg.jsx';
 
 export default function AppPortfolio() {
     return (
         <div>
             <Header>
-                <CommonsImg />
+                <HeaderIcon />
+                <MenuList />
             </Header>
             <Content>
-
+                <HeaderContent />
+                <AboutMe />
             </Content>
             <Footer>
 
