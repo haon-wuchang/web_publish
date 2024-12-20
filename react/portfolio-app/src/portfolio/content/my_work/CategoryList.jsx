@@ -5,7 +5,7 @@ export default function CategoryList({handleGrand,categoryList}) {
   
     const handleCategory = (type) => {
         handleGrand(type);
-        
+        // console.log(type);       
     }
 
     return (
@@ -17,8 +17,7 @@ export default function CategoryList({handleGrand,categoryList}) {
                     spanClass={item.spanClass}
                     number={item.number}
                     type={item.type}
-                    handleMom={handleCategory}/>
-            
+                    handleMom={handleCategory}/>            
             )}  
         </ul>
     );

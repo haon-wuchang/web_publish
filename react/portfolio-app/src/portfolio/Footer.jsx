@@ -1,6 +1,7 @@
 import React from 'react';
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-// import {faGithub,faLinkedin} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGithub,faLinkedin} from '@fortawesome/free-brands-svg-icons';
+
 
 export default function Footer() {
     return (
@@ -10,12 +11,12 @@ export default function Footer() {
             <ul className="contact__links">
                 <li>
                     <a className="contact__link" href="http://github.com">
-                        {/* <FontAwesomeIcon icon={faGithub} /> */}
+                        <FontAwesomeIcon icon={faGithub} />
                     </a>
                 </li>
                 <li>
                     <a className="contact__link" href="http://linkedin.com">
-                        {/* <FontAwesomeIcon icon={faLinkedin} /> */}
+                        <FontAwesomeIcon icon={faLinkedin} />
                     </a>
                 </li>
             </ul>

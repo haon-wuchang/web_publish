@@ -1,12 +1,12 @@
 import React from 'react';
 import Major from './Major.jsx';
 import {faMobile,faServer} from '@fortawesome/free-solid-svg-icons';
-
+import {faHtml5} from '@fortawesome/free-brands-svg-icons';
 
 export default function MajorList() {
     const iconList = [
         {
-        "icon":"faHtml5 ",
+        "icon":faHtml5,
         "iconNm":"Front-end",
         "descript":"HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
         },

@@ -4,7 +4,7 @@ import CategoryList from './CategoryList.jsx';
 import ProjectList from './ProjectList.jsx';
 
 export default function MyWork() {
-    const [type,setType] = useState('total');
+    const [type,setType] = useState('all');
     const [categoryList, setCategoryList] = useState([]);
     const [projectList,setProjectList] = useState([]);
     
@@ -13,7 +13,7 @@ export default function MyWork() {
             .then(data=>data.json())
             .then(jsonData=> {
                 setCategoryList(jsonData.categoryList);
-                if(type==='total'){
+                if(type==='all'){
                     setProjectList(jsonData.projectList)}
                 else{
                     const filterArray = jsonData.projectList.filter((item)=>
@@ -26,7 +26,9 @@ export default function MyWork() {
 
     const handlecateList = (type) => {
         setType(type);
+        // console.log(type);
     }
+    
     const titleList = {
         "title" : "My work",
         "description" : "Projects",
