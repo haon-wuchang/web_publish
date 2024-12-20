@@ -26,9 +26,12 @@ export default function MyWork() {
 
     const handlecateList = (type) => {
         setType(type);
-        // console.log(type);
     }
-    
+    const tet = projectList.filter((t)=>t.type==='front').length;
+    const tet2 = projectList.filter((t)=>t.type==='back').length;
+    const tet3 = projectList.filter((t)=>t.type==='mobile').length;  
+    let total = tet+tet2+tet3;
+
     const titleList = {
         "title" : "My work",
         "description" : "Projects",
@@ -39,7 +42,8 @@ export default function MyWork() {
             <Title list={titleList}/>
             <CategoryList 
                 handleGrand={handlecateList}
-                categoryList={categoryList}/>
+                categoryList={categoryList}
+                test={total}/>
             <ProjectList projectList={projectList}/>
         </section>
     );
