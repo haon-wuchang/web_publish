@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Project({img,num,etc}) {
+export default function Project({img,num,etc,type}) {
 
     return (
         <li className="project">
