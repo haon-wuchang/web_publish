@@ -121,11 +121,13 @@
     padding: 8px 16px;
     color: var(--color-text);
     /* border: 1px solid white; */
-
 }
-
-.header__menu__item.active {
+.header__menu__item:hover{
     border: 1px solid var(--color-accent);
+    border-radius: 4px;
+}
+.header__menu__item.active {
+    /* border: 1px solid var(--color-accent);  */
     border-radius: 4px;
 }
 
