@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import './index.css';
-import AppPortfolio from './portfolio/AppPortfolio.jsx';
+// import AppPortfolio from './portfolio/AppPortfolio.jsx';
+import MyWork from './number_test/my_work copy/MyWork.jsx';
 // import reportWebVitals from './reportWebVitals';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -9,7 +10,7 @@ const root = ReactDOM.createRoot(document.querySelector('body'));
 
 root.render(
   <React.StrictMode>
-    <AppPortfolio />
+    <MyWork />
   </React.StrictMode>
 );
 

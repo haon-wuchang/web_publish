@@ -4,7 +4,6 @@ export default function Category({btnClass,name,spanClass,number,type,handleMom}
     const handleClick = () => {
         handleMom(type);
         // console.log(type);
-        
     }
 
     return (
