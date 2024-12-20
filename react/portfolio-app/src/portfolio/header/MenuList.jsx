@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Menu from "./Menu.jsx";
 
 export default function MenuList() {
-    const menuNameList = [
-        {"menuName":"Home", "href":"#home","classNm":"header__menu__item active"},
-        {"menuName":"About","classNm":"header__menu__item", "href":"#about"},
-        {"menuName":"Skills","classNm":"header__menu__item", "href":"#skill"},
-        {"menuName":"My work","classNm":"header__menu__item", "href":"#work"},
-        {"menuName":"Testimonial","classNm":"header__menu__item" ,"href":"#testimonial"},
-        {"menuName":"Contact", "classNm":"header__menu__item", "href":"#contact"}
-    ]
+    const [menuNameList, setMenuNameList] = useState([]);
+    useEffect(()=>{
+        fetch('/json_data/project.json')
+            .then(data=>data.json())
+            .then(jsonData=>setMenuNameList(jsonData.menuNameList))
+            .catch(error=>console.log(error));
+    },[]);
 
     return (
         <nav>

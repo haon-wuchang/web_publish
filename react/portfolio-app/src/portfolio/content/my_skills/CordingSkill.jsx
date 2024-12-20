@@ -1,39 +1,21 @@
 import React from 'react';
 import CordingSkillBar from './CordingSkillBar.jsx';
+import { useEffect,useState } from 'react';
 
 export default function CordingSkill() {
-    const cordingBarList = [
-        {
-            "codeNm" : "HTML",
-            "per":"90%",
-        },
-        {
-            "codeNm" : "CSS",
-            "per":"90%",
-        },
-        {
-            "codeNm" : "JavaScript",
-            "per":"50%",
-        },
-        {
-            "codeNm" : "TypeScript",
-            "per":"20%",
-        },
-        {
-            "codeNm" : "React",
-            "per":"60%",
-        },
-        {
-            "codeNm" : "NodeJS",
-            "per":"60%",
-        }
-    ];
+    const [cordingBarList,setCordingBarList]=useState([]);
+    useEffect(()=>{
+        fetch('/json_data/project.json')
+            .then(data=>data.json())
+            .then(jsonData=>setCordingBarList(jsonData.cordingBarList))
+            .catch(error=>console.log(error));
+    },[]);
 
     return (
         <article className="sklls__coding">
             <h3 className="skill__title">Coding Skills</h3>
             <ul>
-                {cordingBarList.map((item)=>
+                {cordingBarList && cordingBarList.map((item)=>
                     <CordingSkillBar 
                         codeNm={item.codeNm}
                         per={item.per} 

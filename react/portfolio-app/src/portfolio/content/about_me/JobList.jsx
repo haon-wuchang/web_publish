@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Job from './Job.jsx';
 
 export default function JobList() {
-    const jobList = [
-        {
-            "img":"images/jobs/google.png",
-            "jobNm":"Google as Junior Software Engineer",
-            "period":"2019 Oct - Until now"
-,        },
-        {
-            "img":"images/jobs/samsung.png",
-            "jobNm":"Samsung as Junior Software Engineer",
-            "period":"2010 Oct - 2019 Oct"
-,        }
-    ];
+    const [jobList,setJobList]=useState([]);
+    useEffect(()=>{
+        fetch('/json_data/project.json')
+            .then(data=>data.json())
+            .then(jsonData=>setJobList(jsonData.jobList))
+            .catch(error=>console.log(error));
+    },[]);
 
     return (
         <ul className="jobs">
-            {jobList.map((item)=>
+            {jobList && jobList.map((item)=>
                 <Job 
                     img={item.img}
                     jobNm={item.jobNm}
