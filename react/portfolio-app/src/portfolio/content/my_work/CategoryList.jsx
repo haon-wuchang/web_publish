@@ -14,7 +14,6 @@ export default function CategoryList({handleGrand,categoryList,test}) {
                 <Category 
                     btnClass={item.btnClass}
                     name={item.name}
-                    spanClass={item.spanClass}
                     number={item.number}
                     type={item.type}
                     tests={test}
