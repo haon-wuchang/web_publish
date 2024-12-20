@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Project from './Project.jsx';
 
-export default function ProjectList() {
-    const [projectList,setProjectList] = useState([]);
-    useEffect(()=>{
-        fetch('/json_data/project.json')
-            .then(data=>data.json())
-            .then(jsonData=> setProjectList(jsonData))                
-            .catch(error=>console.log(error));
-    },[]);
+export default function ProjectList({projectList}) {
+
 
     return (
         <ul className="projects">
