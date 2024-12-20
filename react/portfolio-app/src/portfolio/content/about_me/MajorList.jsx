@@ -22,11 +22,11 @@ export default function MajorList() {
         }
         ];
     return (
-        <>
+        <ul className="majors">
             {iconList && iconList.map((item)=>
                 <Major icon={item.icon} iconNm={item.iconNm} descript={item.descript}/>
             )}
-        </>
+        </ul>
     );
 }
 

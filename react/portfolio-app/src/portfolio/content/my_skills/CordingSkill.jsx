@@ -36,7 +36,8 @@ export default function CordingSkill() {
                 {cordingBarList.map((item)=>
                     <CordingSkillBar 
                         codeNm={item.codeNm}
-                        per={item.per}/>
+                        per={item.per} 
+                        />
                 )}
             </ul>
         </article>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from '../Title.jsx';
 import CategoryList from './CategoryList.jsx';
+import ProjectList from './ProjectList.jsx';
 
 export default function MyWork() {
     const titleList = {
@@ -9,9 +10,10 @@ export default function MyWork() {
         "skillsDescription" : false
         }
     return (
-        <section id="work" class="section max-container">    
+        <section id="work" className="section max-container">    
             <Title list={titleList}/>
             <CategoryList />
+            <ProjectList />
         </section>
     );
 }

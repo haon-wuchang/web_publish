@@ -120,6 +120,8 @@
 .header__menu__item {
     padding: 8px 16px;
     color: var(--color-text);
+    /* border: 1px solid white; */
+
 }
 
 .header__menu__item.active {
@@ -276,8 +278,8 @@ skills
 }
 .bar__value {
     background-color: var(--color-accent);
-    height: 3px;
-}
+    height: 3px;}
+
 .skills__tools {
     padding: 1rem;
 }

@@ -29,7 +29,7 @@ export default function CategoryList() {
         }
     ];
     return (
-        <ul class="categories">  
+        <ul className="categories">  
             {categoryList.map((item)=>
                 <Category 
                     btnClass={item.btnClass}
