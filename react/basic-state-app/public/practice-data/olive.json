@@ -1,0 +1,55 @@
+{
+     "menuList" : [
+        {"name":"전체" ,"category":"total"},
+        {"name":"스킨케어","category":"skinCare"},
+        {"name":"마스크팩","category":"maskPack"},
+        {"name":"클렌징","category":"clean"},
+        {"name":"선케어","category":"sunCare"}
+     ],
+    "itemList" : [
+        {
+        "category":"skinCare",
+        "img":"https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0021/A00000021392508ko.jpg?l=ko",
+        "title":"에스트라",
+        "price":"13000원",
+        "isSale":true,
+        "isToday":true,
+        "isCoupon":true
+    },
+    {
+        "category":"maskPack",
+        "img":"https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0016/A00000016065951ko.jpg?l=ko",
+        "title":"토니모리   ",
+        "price":"235235원",
+        "isSale":false,
+        "isToday":true,
+        "isCoupon":true
+    },
+    {
+        "category":"sunCare",
+        "img":"https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0020/A00000020061444ko.jpg?l=ko",
+        "title":"듀아아",
+        "price":"2352원",
+        "isSale":true,
+        "isToday":false,
+        "isCoupon":false
+    },
+    {
+        "category":"clean",
+        "img":"https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0021/A00000021352303ko.jpg?l=ko",
+        "title":"마녀공장",
+        "price":"756원",
+        "isSale":true,
+        "isToday":false,
+        "isCoupon":true
+    }, {
+        "category":"sunCare",
+        "img":"https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0018/A00000018023765ko.jpg?l=ko",
+        "title":"선크림",
+        "price":"166816원",
+        "isSale":false,
+        "isToday":true,
+        "isCoupon":false
+    }
+    ]
+}
