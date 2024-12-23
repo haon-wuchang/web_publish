@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Title from '../Title.jsx';
 import CategoryList from './CategoryList.jsx';
 import ProjectList from './ProjectList.jsx';
 

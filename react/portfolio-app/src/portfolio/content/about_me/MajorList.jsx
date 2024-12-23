@@ -1,26 +1,16 @@
 import React from 'react';
 import Major from './Major.jsx';
-import {faMobile,faServer} from '@fortawesome/free-solid-svg-icons';
-import {faHtml5} from '@fortawesome/free-brands-svg-icons';
+import { useState,useEffect } from 'react';
 
 export default function MajorList() {
-    const iconList = [
-        {
-        "icon":faHtml5,
-        "iconNm":"Front-end",
-        "descript":"HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
-        },
-        {
-        "icon":faMobile ,
-        "iconNm":"Mobile",
-        "descript":"Android Studio, React Native, iOS, Swift, Java, Kotlin"
-        },
-        {
-        "icon":faServer ,
-        "iconNm":"Back-end",
-        "descript":"Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
-        }
-        ];
+    const [iconList,setIconList]=useState([]);
+    useEffect(()=>{
+        fetch('/json_data/project.json')
+            .then(data=>data.json())
+            .then(jsonData=>setIconList(jsonData.iconList))
+            .catch(error=>console.log(error));
+    },[]);
+
     return (
         <ul className="majors">
             {iconList && iconList.map((item)=>

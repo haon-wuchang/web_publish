@@ -166,5 +166,22 @@
         "name":"Anna Jin",
         "company":" / Google"
     }
-]
+],
+"iconList" : [
+    {
+    "icon":"html",
+    "iconNm":"Front-end",
+    "descript":"HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
+    },
+    {
+    "icon":"mobile",
+    "iconNm":"Mobile",
+    "descript":"Android Studio, React Native, iOS, Swift, Java, Kotlin"
+    },
+    {
+    "icon":"server",
+    "iconNm":"Back-end",
+    "descript":"Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
+    }
+    ]
 }
