@@ -1,15 +1,11 @@
 import React from 'react';
-import CordingSkill from './CordingSkill.jsx';
-import Tool from './Tool.jsx';
-import Etc from'./Etc.jsx';
 
-export default function MySkills() {
+
+export default function MySkills({children}) {
 
     return (
             <div className="skills">
-                <CordingSkill />
-                <Tool />
-                <Etc />
+                {children}
             </div>
     );
 }

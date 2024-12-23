@@ -9,6 +9,9 @@ import SectionWrap from './content/SectionWrap.jsx';
 import MajorList from './content/about_me/MajorList.jsx';
 import JobList from './content/about_me/JobList.jsx';
 import MySkills from './content/my_skills/MySkills.jsx';
+import CordingSkill from './content/my_skills/CordingSkill.jsx';
+import Tool from './content/my_skills/Tool.jsx';
+import Etc from'./content/my_skills/Etc.jsx';
 import MyWork from './content/my_work/MyWork.jsx';
 import Testimonial from './content/testimonial/Testimonial.jsx';
 import Arrow from './Arrow.jsx';
@@ -40,7 +43,11 @@ export default function AppPortfolio() {
                     id='skill'
                     title='My Skills'
                     description = 'Skills & Attributes'>
-                    <MySkills />
+                    <MySkills>
+                        <CordingSkill />
+                        <Tool />
+                        <Etc />
+                    </MySkills>
                 </SectionWrap>
                 <SectionWrap
                     id='work'

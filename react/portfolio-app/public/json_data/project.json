@@ -124,27 +124,27 @@
 "cordingBarList" : [
     {
         "codeNm" : "HTML",
-        "per":"90%"
+        "per":90
     },
     {
         "codeNm" : "CSS",
-        "per":"90%"
+        "per":90
     },
     {
         "codeNm" : "JavaScript",
-        "per":"50%"
+        "per":50
     },
     {
         "codeNm" : "TypeScript",
-        "per":"20%"
+        "per":20
     },
     {
         "codeNm" : "React",
-        "per":"60%"
+        "per":60
     },
     {
         "codeNm" : "NodeJS",
-        "per":"60%"
+        "per":6
     }
 ],
 "testimonialList" : [
