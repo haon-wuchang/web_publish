@@ -1,0 +1,170 @@
+
+{
+"projectList" :[
+    {
+        "type":"front",
+        "img":"images/projects/project1.webp",
+        "num":"Project #1",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"front",
+        "img":"images/projects/project2.webp",
+        "num":"Project #2",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"front",
+        "img":"images/projects/project3.webp",
+        "num":"Project #3",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"front",
+        "img":"images/projects/project4.webp",
+        "num":"Project #4",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"back",
+        "img":"images/projects/project5.webp",
+        "num":"Project #5",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"back",
+        "img":"images/projects/project6.webp",
+        "num":"Project #6",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"mobile",
+        "img":"images/projects/project7.webp",
+        "num":"Project #7",
+        "etc":"Clone Coding with HTML, CSS"
+    },
+    {
+        "type":"mobile",
+        "img":"images/projects/project8.webp",
+        "num":"Project #8",
+        "etc":"Clone Coding with HTML, CSS"
+    }
+],
+ "categoryList" : [
+    {
+        "btnClass":"category category--selected",
+        "name":"All",
+        "spanClass":"category__count",
+        "number":"8",
+        "type":"all"
+    },
+    {
+        "btnClass":"category",
+        "name":"Front-end",
+        "spanClass":"category__count",
+        "number":"4",
+        "type":"front"
+    },
+    {
+        "btnClass":"category",
+        "name":"Back-end",
+        "spanClass":"category__count",
+        "number":"2",
+        "type":"back"
+    },
+    {
+        "btnClass":"category",
+        "name":"Mobile",
+        "spanClass":"category__count",
+        "number":"2",
+        "type":"mobile"
+    }
+],
+
+"menuNameList" : [
+    {
+        "menuName":"Home", 
+        "href":"#home"
+    },
+    {
+        "menuName":"About",
+        "href":"#about"
+    },
+    {
+        "menuName":"Skills",
+        "href":"#skill"
+    },
+    {
+        "menuName":"My work",
+        "href":"#work"
+    },
+    {
+        "menuName":"Testimonial",
+        "href":"#testimonial"
+    },
+    {
+        "menuName":"Contact", 
+        "href":"#contact"
+    }
+
+],
+
+"jobList" : [
+    {
+        "img":"images/jobs/google.png",
+        "jobNm":"Google as Junior Software Engineer",
+        "period":"2019 Oct - Until now"
+        },
+    {
+        "img":"images/jobs/samsung.png",
+        "jobNm":"Samsung as Junior Software Engineer",
+        "period":"2010 Oct - 2019 Oct"
+       }
+],
+"cordingBarList" : [
+    {
+        "codeNm" : "HTML",
+        "per":"90%"
+    },
+    {
+        "codeNm" : "CSS",
+        "per":"90%"
+    },
+    {
+        "codeNm" : "JavaScript",
+        "per":"50%"
+    },
+    {
+        "codeNm" : "TypeScript",
+        "per":"20%"
+    },
+    {
+        "codeNm" : "React",
+        "per":"60%"
+    },
+    {
+        "codeNm" : "NodeJS",
+        "per":"60%"
+    }
+],
+"testimonialList" : [
+    {
+        "img":"images/testimonials/people1.webp",
+        "text":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
+        "name":"James Kim",
+        "company":" / Samsung"
+    },
+    {
+        "img":"images/testimonials/people2.webp",
+        "text":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
+        "name":"Smith Park",
+        "company":" / Samsung"
+    },
+    {
+        "img":"images/testimonials/people3.webp",
+        "text":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisi odio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
+        "name":"Anna Jin",
+        "company":" / Google"
+    }
+]
+}
