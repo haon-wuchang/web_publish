@@ -3,10 +3,12 @@ import Menu from "./Menu.jsx";
 
 export default function MenuList() {
     const [menuNameList, setMenuNameList] = useState([]);
+
     useEffect(()=>{
         fetch('/json_data/project.json')
             .then(data=>data.json())
-            .then(jsonData=>setMenuNameList(jsonData.menuNameList))
+            .then(jsonData=>
+                setMenuNameList(jsonData.menuNameList))
             .catch(error=>console.log(error));
     },[]);
     
@@ -15,7 +17,9 @@ export default function MenuList() {
             <ul className="header__menu">
                 {menuNameList && menuNameList.map((item)=>               
                         <Menu menuName={item.menuName} 
-                            href={item.href}/>
+                            href={item.href}
+                            type={item.type}
+                         />
                 )}
             </ul>
         </nav>

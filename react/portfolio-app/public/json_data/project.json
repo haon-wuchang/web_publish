@@ -76,27 +76,33 @@
 "menuNameList" : [
     {
         "menuName":"Home", 
-        "href":"#home"
+        "href":"#home",
+        "type":"home"
     },
     {
         "menuName":"About",
-        "href":"#about"
+        "href":"#about",
+        "type":"about"
     },
     {
         "menuName":"Skills",
-        "href":"#skill"
+        "href":"#skill",
+        "type":"skill"
     },
     {
         "menuName":"My work",
-        "href":"#work"
+        "href":"#work",
+        "type":"work"
     },
     {
         "menuName":"Testimonial",
-        "href":"#testimonial"
+        "href":"#testimonial",
+        "type":"testimonial"
     },
     {
         "menuName":"Contact", 
-        "href":"#contact"
+        "href":"#contact",
+        "type":"contact"
     }
 
 ],
