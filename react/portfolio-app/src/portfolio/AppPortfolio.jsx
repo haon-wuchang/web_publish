@@ -12,6 +12,7 @@ import MySkills from './content/my_skills/MySkills.jsx';
 import CordingSkill from './content/my_skills/CordingSkill.jsx';
 import ToolEtc from './content/my_skills/ToolEtc.jsx';
 import CategoryList from './content/my_work/CategoryList.jsx';
+import ProjectList from './content/my_work/ProjectList.jsx';
 import Testimonial from './content/testimonial/Testimonial.jsx';
 import Arrow from './Arrow.jsx';
 import Footer from './Footer.jsx';
@@ -53,6 +54,7 @@ export default function AppPortfolio() {
                     title='My work'
                     description = 'Projects'>
                     <CategoryList />
+                    <ProjectList />
                 </SectionWrap>
                 <SectionWrap
                     id='testimonial'

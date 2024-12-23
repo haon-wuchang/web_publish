@@ -1,15 +1,15 @@
 import React from 'react';
 
-export default function Project({img,num,etc,type,number}) {
+export default function Project({img,num,etc}) {
 
     return (
-        <li className="project">
+        <>
         <img className="project__img" src={img} />
         <div className="project__metadata">
             <h3 className="project__metadata__title">{num}</h3>
             <p>{etc}</p>
         </div>
-        </li>
+        </>
     );
 }
 
