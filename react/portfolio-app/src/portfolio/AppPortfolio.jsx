@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header.jsx';
 import HeaderIcon from './header/HeaderIcon.jsx';
+import HeaderBtn from './header/HeaderBtn.jsx';
 import MenuList from './header/MenuList.jsx';
 import Content from './Content.jsx';
 import HeaderContent from './content/HeaderContent.jsx';
@@ -18,6 +19,7 @@ export default function AppPortfolio() {
             <Header>
                 <HeaderIcon />
                 <MenuList />
+                <HeaderBtn />
             </Header>
             <Content>
                 <HeaderContent />
