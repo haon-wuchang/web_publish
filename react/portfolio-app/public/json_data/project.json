@@ -84,29 +84,29 @@
 "menuNameList" : [
     {
         "menuName":"Home", 
-        "href":"#home",
-        "classNm":"header__menu__item active"
+        "href":"#home"
     },
     {
         "menuName":"About",
-        "classNm":"header__menu__item", 
-        "href":"#about"},
+        "href":"#about"
+    },
     {
         "menuName":"Skills",
-        "classNm":"header__menu__item", 
-        "href":"#skill"},
+        "href":"#skill"
+    },
     {
         "menuName":"My work",
-        "classNm":"header__menu__item", 
-        "href":"#work"},
+        "href":"#work"
+    },
     {
         "menuName":"Testimonial",
-        "classNm":"header__menu__item" ,
-        "href":"#testimonial"},
+        "href":"#testimonial"
+    },
     {
         "menuName":"Contact", 
-        "classNm":"header__menu__item", 
-        "href":"#contact"}
+        "href":"#contact"
+    }
+
 ],
 
 "jobList" : [

@@ -17,7 +17,9 @@ export default function AppPortfolio() {
     return (
         <body>
             <Header>
-                <HeaderIcon />
+                <HeaderIcon 
+                    img="/images/favicon.ico"
+                    name='HAON'/>
                 <MenuList />
                 <HeaderBtn />
             </Header>

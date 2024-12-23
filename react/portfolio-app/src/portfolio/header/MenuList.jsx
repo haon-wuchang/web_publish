@@ -14,7 +14,7 @@ export default function MenuList() {
         <nav>
             <ul className="header__menu">
                 {menuNameList && menuNameList.map((item)=>               
-                        <Menu menuName={item.menuName} classNm={item.classNm} 
+                        <Menu menuName={item.menuName} 
                             href={item.href}/>
                 )}
             </ul>
