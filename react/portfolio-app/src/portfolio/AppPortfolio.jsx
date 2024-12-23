@@ -5,8 +5,9 @@ import HeaderBtn from './header/HeaderBtn.jsx';
 import MenuList from './header/MenuList.jsx';
 import Content from './Content.jsx';
 import HeaderContent from './content/HeaderContent.jsx';
-// import AboutMe from './content/about_me/AboutMe.jsx';
 import SectionWrap from './content/SectionWrap.jsx';
+import MajorList from './content/about_me/MajorList.jsx';
+import JobList from './content/about_me/JobList.jsx';
 import MySkills from './content/my_skills/MySkills.jsx';
 import MyWork from './content/my_work/MyWork.jsx';
 import Testimonial from './content/testimonial/Testimonial.jsx';
@@ -32,6 +33,8 @@ export default function AppPortfolio() {
                     id='about'
                     title='About me'
                     description = 'ddddddddd!!!!!!!!!!!!!'>
+                        <MajorList />
+                        <JobList />
                 </SectionWrap>
                 <SectionWrap
                     id='skill'
