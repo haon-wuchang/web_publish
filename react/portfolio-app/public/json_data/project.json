@@ -54,29 +54,21 @@
     {
         "btnClass":"category category--selected",
         "name":"All",
-        "spanClass":"category__count",
-        "number":"8",
         "type":"all"
     },
     {
         "btnClass":"category",
         "name":"Front-end",
-        "spanClass":"category__count",
-        "number":"4",
         "type":"front"
     },
     {
         "btnClass":"category",
         "name":"Back-end",
-        "spanClass":"category__count",
-        "number":"2",
         "type":"back"
     },
     {
         "btnClass":"category",
         "name":"Mobile",
-        "spanClass":"category__count",
-        "number":"2",
         "type":"mobile"
     }
 ],

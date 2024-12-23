@@ -1,15 +1,12 @@
 import React from 'react';
 
-export default function Category({btnClass,name,number,type,handleMom,tests}) {
-    const handleClick = () => {
-        handleMom(type);
-        // console.log(type);
-    }
+export default function Category({name,count}) {
+
 
     return (
-        <li onClick={handleClick}>
-            <button className={btnClass}>{name}
-                <span className="category__count">{tests}</span>
+        <li>
+            <button className='category category--selected'>{name}
+                <span className="category__count">{count}</span>
             </button>
         </li>
     );

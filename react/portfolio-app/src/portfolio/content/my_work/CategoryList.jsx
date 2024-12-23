@@ -1,23 +1,33 @@
 import React from 'react';
 import Category from './Category.jsx';
 
-export default function CategoryList({handleGrand,categoryList,test}) {
-  
-    const handleCategory = (type) => {
-        handleGrand(type);
-        // console.log(type);       
-    }
+export default function CategoryList() {
+    const categoryList =  [
+        {
+            "name":"All",
+            "count":8
+        },
+        {
+            "name":"Front-end",
+            "count":4
+        },
+        {
+            "name":"Back-end",
+            "count":2
+        },
+        {
+            "name":"Mobile",
+            "count":2
+        }
+    ]
 
     return (
         <ul className="categories">  
             {categoryList && categoryList.map((item)=>
                 <Category 
-                    btnClass={item.btnClass}
                     name={item.name}
-                    number={item.number}
-                    type={item.type}
-                    tests={test}
-                    handleMom={handleCategory}/>            
+                    count={item.count}
+               />            
             )}  
         </ul>
     );

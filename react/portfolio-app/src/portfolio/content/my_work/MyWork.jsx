@@ -37,7 +37,7 @@ export default function MyWork() {
             <CategoryList 
                 handleGrand={handlecateList}
                 categoryList={categoryList}
-                test={total}/>
+                count={total}/>
             <ProjectList projectList={projectList}/>
         </section>
     );
