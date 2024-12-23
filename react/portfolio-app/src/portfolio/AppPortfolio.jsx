@@ -16,6 +16,9 @@ import ProjectList from './content/my_work/ProjectList.jsx';
 import TestimonialList from './content/testimonial/TestimonialList.jsx'
 import Arrow from './Arrow.jsx';
 import Footer from './Footer.jsx';
+import Top from './footer/Top.jsx';
+import Contact from './footer/Contact.jsx';
+import Bottom from './footer/Bottom.jsx';
 import './css/style.css';
 
 export default function AppPortfolio() {
@@ -64,7 +67,13 @@ export default function AppPortfolio() {
                 </SectionWrap>
                 <Arrow />
             </Content>
-            <Footer />
+            <Footer>
+                <Top 
+                    title='Lets talk'
+                    email='jeon.developer.HAON@gmail.com'/>
+                <Contact/>
+                <Bottom />
+            </Footer>
         </body>
     );
 }

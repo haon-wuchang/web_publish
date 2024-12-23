@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ToolEtc({articleNm,type}) {
+export default function ToolEtc({type}) {
 
     const data = {
         "tools":[
@@ -11,8 +11,9 @@ export default function ToolEtc({articleNm,type}) {
         ]
     }
 
+
     return (
-        <article className={articleNm}>
+        <article className='skills__tools'>
             <h3 className="skill__title">{type}</h3>
             <ul>
                 {type==='Tools' ? 
@@ -20,10 +21,9 @@ export default function ToolEtc({articleNm,type}) {
                         <li>{item}</li> ): 
                     data.etc.map(item=> 
                         <li>{item}</li> )}
-                
             </ul>
         </article>
     );
 }
 
-//여기 클래스도 나눠줘야 css 적용되는데이ㅣㅣㅣ ㅜㅜㅡㅡ
+

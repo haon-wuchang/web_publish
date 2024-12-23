@@ -287,11 +287,15 @@ skills
 .skills__tools {
     padding: 1rem;
 }
-.skills__etc {
-    padding: 1rem;
+.skills__tools:nth-child(2) {
     background-color: var(--color-primary);
     filter: brightness(150%); 
 }
+/* .skills__etc {
+    padding: 1rem;
+    background-color: var(--color-primary);
+    filter: brightness(150%); 
+} */
 /* 
 works
 */
