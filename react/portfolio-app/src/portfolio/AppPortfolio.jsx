@@ -13,7 +13,7 @@ import CordingSkill from './content/my_skills/CordingSkill.jsx';
 import ToolEtc from './content/my_skills/ToolEtc.jsx';
 import CategoryList from './content/my_work/CategoryList.jsx';
 import ProjectList from './content/my_work/ProjectList.jsx';
-import Testimonial from './content/testimonial/Testimonial.jsx';
+import TestimonialList from './content/testimonial/TestimonialList.jsx'
 import Arrow from './Arrow.jsx';
 import Footer from './Footer.jsx';
 import './css/style.css';
@@ -60,7 +60,7 @@ export default function AppPortfolio() {
                     id='testimonial'
                     title='Testimonial'
                     description = 'See what they say about me'>
-                    <Testimonial />
+                    <TestimonialList />
                 </SectionWrap>
                 <Arrow />
             </Content>

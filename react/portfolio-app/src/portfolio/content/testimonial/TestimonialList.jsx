@@ -13,11 +13,13 @@ export default function TestimonialList() {
     return (
         <ul class="testimonials">
             {testimonialList && testimonialList.map((item)=>
+                <li class="testimonial">
                 <Testimonials 
                     img={item.img}
                     text={item.text}
                     name={item.name}
                     company={item.company}/>
+                </li>
             )}
         </ul>
     );
