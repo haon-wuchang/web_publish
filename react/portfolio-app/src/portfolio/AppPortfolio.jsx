@@ -10,8 +10,7 @@ import MajorList from './content/about_me/MajorList.jsx';
 import JobList from './content/about_me/JobList.jsx';
 import MySkills from './content/my_skills/MySkills.jsx';
 import CordingSkill from './content/my_skills/CordingSkill.jsx';
-import Tool from './content/my_skills/Tool.jsx';
-import Etc from'./content/my_skills/Etc.jsx';
+import ToolEtc from './content/my_skills/ToolEtc.jsx';
 import MyWork from './content/my_work/MyWork.jsx';
 import Testimonial from './content/testimonial/Testimonial.jsx';
 import Arrow from './Arrow.jsx';
@@ -45,8 +44,8 @@ export default function AppPortfolio() {
                     description = 'Skills & Attributes'>
                     <MySkills>
                         <CordingSkill />
-                        <Tool />
-                        <Etc />
+                        <ToolEtc type='Tools'/>
+                        <ToolEtc type='Etc' />
                     </MySkills>
                 </SectionWrap>
                 <SectionWrap
