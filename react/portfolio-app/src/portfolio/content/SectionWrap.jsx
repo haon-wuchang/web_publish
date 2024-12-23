@@ -1,4 +1,6 @@
 import React from 'react';
+import MajorList from './about_me/MajorList.jsx';
+import JobList from './about_me/JobList.jsx';
 
 export default function sectionWrap({id,title,description,children}) {
     return (
@@ -6,6 +8,8 @@ export default function sectionWrap({id,title,description,children}) {
             <h2 className="title">{title}</h2>
          <p className="description">{description}</p>
          {children}
+         <MajorList />
+         <JobList />
         </section>
     );
 }
