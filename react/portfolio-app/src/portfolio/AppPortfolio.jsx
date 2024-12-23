@@ -8,6 +8,7 @@ import AboutMe from './content/about_me/AboutMe.jsx';
 import MySkills from './content/my_skills/MySkills.jsx';
 import MyWork from './content/my_work/MyWork.jsx';
 import Testimonial from './content/testimonial/Testimonial.jsx';
+import Arrow from './Arrow.jsx';
 import Footer from './Footer.jsx';
 import './css/style.css';
 
@@ -24,6 +25,7 @@ export default function AppPortfolio() {
                 <MySkills />
                 <MyWork />
                 <Testimonial />
+                <Arrow />
             </Content>
             <Footer />
         </body>

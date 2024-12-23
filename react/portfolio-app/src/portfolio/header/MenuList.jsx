@@ -9,7 +9,7 @@ export default function MenuList() {
             .then(jsonData=>setMenuNameList(jsonData.menuNameList))
             .catch(error=>console.log(error));
     },[]);
-
+    
     return (
         <nav>
             <ul className="header__menu">

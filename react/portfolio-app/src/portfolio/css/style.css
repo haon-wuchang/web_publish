@@ -336,6 +336,10 @@ works
     background-color: var(--color-accent);
     color:#050a13;
 }
+.category:hover {
+    background-color: var(--color-accent);
+    color: #050a13;
+}
 
 .projects {
     display: grid;
