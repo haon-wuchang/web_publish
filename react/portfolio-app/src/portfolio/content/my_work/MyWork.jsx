@@ -32,14 +32,9 @@ export default function MyWork() {
     const tet3 = projectList.filter((t)=>t.type==='mobile').length;  
     let total = tet+tet2+tet3;
 
-    const titleList = {
-        "title" : "My work",
-        "description" : "Projects",
-        "skillsDescription" : false
-        }
+
     return (
         <section id="work" className="section max-container">    
-            <Title list={titleList}/>
             <CategoryList 
                 handleGrand={handlecateList}
                 categoryList={categoryList}
