@@ -5,7 +5,7 @@ import { useState,useEffect } from 'react';
 export default function TestimonialList() {
     const [testimonialList,setTestimonialList]=useState([]);
     useEffect(()=>{
-        fetch('/json_data/project.json')
+        fetch('json_data/project.json')
             .then(data=>data.json())
             .then(jsonData=>setTestimonialList(jsonData.testimonialList))
             .catch(error=>console.log(error));

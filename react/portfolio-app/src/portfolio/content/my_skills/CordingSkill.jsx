@@ -5,7 +5,7 @@ import { useEffect,useState } from 'react';
 export default function CordingSkill() {
     const [cordingBarList,setCordingBarList]=useState([]);
     useEffect(()=>{
-        fetch('/json_data/project.json')
+        fetch('json_data/project.json')
             .then(data=>data.json())
             .then(jsonData=>setCordingBarList(jsonData.cordingBarList))
             .catch(error=>console.log(error));

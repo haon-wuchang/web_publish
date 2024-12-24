@@ -4,7 +4,7 @@ import Job from './Job.jsx';
 export default function JobList() {
     const [jobList,setJobList]=useState([]);
     useEffect(()=>{
-        fetch('/json_data/project.json')
+        fetch('json_data/project.json')
             .then(data=>data.json())
             .then(jsonData=>setJobList(jsonData.jobList))
             .catch(error=>console.log(error));
