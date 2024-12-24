@@ -104,14 +104,14 @@ export default function AppPortfolio() {
         <body>
             <Header>
                 <HeaderIcon 
-                    img="/images/favicon.ico"
+                    img="images/favicon.ico"
                     name='HAON'/>
                 <MenuList />
                 <HeaderBtn />
             </Header>
             <Content>
                 <HeaderContent 
-                    img='/images/trustping.png'
+                    img='images/trustping.png'
                     name='HAON'/>
 
 {/* (2) SectionWrap 컴포넌트를 리스트 맵으로 순회 */}

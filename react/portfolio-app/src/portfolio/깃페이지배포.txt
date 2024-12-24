@@ -71,3 +71,9 @@ git remote remove origin 으로 삭제를 하고 내꺼 새로 추가하면 된�
  리모트 주소 확인 git remote -v
  리모트 주소 삭제 git remote remove origin
  리모트 주소 추가 git remote add origin [주소]
+
+
+
+
+
+깃허브에 /imgaes/  이케 주면 절대경로라서 images/~~ 이렇게 앞에 / 뺴야지 상대경로가 된다 이렇게 진행
