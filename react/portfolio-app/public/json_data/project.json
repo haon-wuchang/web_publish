@@ -54,55 +54,53 @@
     {
         "btnClass":"category category--selected",
         "name":"All",
-        "type":"all"
+        "type":"all",
+        "count":"8"
     },
     {
         "btnClass":"category",
         "name":"Front-end",
-        "type":"front"
+        "type":"front",
+        "count":"4"
     },
     {
         "btnClass":"category",
         "name":"Back-end",
-        "type":"back"
+        "type":"back",
+        "count":"2"
     },
     {
         "btnClass":"category",
         "name":"Mobile",
-        "type":"mobile"
+        "type":"mobile",
+        "count":"2"
     }
 ],
 
 "menuNameList" : [
     {
         "menuName":"Home", 
-        "href":"#home",
-        "type":"home"
+        "href":"#home"
     },
     {
         "menuName":"About",
-        "href":"#about",
-        "type":"about"
+        "href":"#about"
     },
     {
         "menuName":"Skills",
-        "href":"#skill",
-        "type":"skill"
+        "href":"#skill"
     },
     {
         "menuName":"My work",
-        "href":"#work",
-        "type":"work"
+        "href":"#work"
     },
     {
         "menuName":"Testimonial",
-        "href":"#testimonial",
-        "type":"testimonial"
+        "href":"#testimonial"
     },
     {
         "menuName":"Contact", 
-        "href":"#contact",
-        "type":"contact"
+        "href":"#contact"
     }
 
 ],

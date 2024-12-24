@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Category from './Category.jsx';
 
 export default function CategoryList() {
-    const categoryList =  [
-        {
-            "name":"All",
-            "count":8
-        },
-        {
-            "name":"Front-end",
-            "count":4
-        },
-        {
-            "name":"Back-end",
-            "count":2
-        },
-        {
-            "name":"Mobile",
-            "count":2
-        }
-    ]
+    const [selected,setSlected] = useState('All');
+    const [categoryList,setCategotyList] = useState([]);
+
+    useEffect(()=>{
+        fetch('json_data/project.json')
+            .then(data=>data.json())
+            .then(jsonData=>setCategotyList(jsonData.categoryList)
+            )
+            .catch(error=>console.log(error))
+    },[])
+
+
+    const handleClick = (name) => {
+        setSlected(name);
+    }
+
+    
+
 
     return (
         <ul className="categories">  
@@ -27,6 +27,10 @@ export default function CategoryList() {
                 <Category 
                     name={item.name}
                     count={item.count}
+                    click={handleClick}
+                    style={item.name===selected?
+                        'category category--selected':
+                        'category'}
                />            
             )}  
         </ul>

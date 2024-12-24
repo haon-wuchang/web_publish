@@ -22,7 +22,85 @@ import Bottom from './footer/Bottom.jsx';
 import './css/style.css';
 
 export default function AppPortfolio() {
+    //자식 맵핑할떄 cildren 써서 배열안에도 children 쓴거임  children이 배열이라 map 돌린거임
+    const sectionList = [
+        {
+          "id": "about",
+          "title": "About me",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure natus, temporibus perspiciatis repudiandae nostrum modi doloremque expedita non eius ipsum! Beatae porro adipisci omnis architecto dignissimos. Iusto ipsa inventore adipisci.",
+          "children": [
+            { "component": "MajorList" },
+            { "component": "JobList" }
+          ]
+        },
+        {
+          "id": "skill",
+          "title": "My Skills",
+          "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis beatae, aliquid ratione commodi nam ex voluptate rem eveniet cupiditate optio natus? Cum, harum eum sint id quod nulla adipisci. Sunt?",
+          "children": [
+            {
+              "component": "MySkills",
+              "children": [
+                { "component": "CordingSkill" },
+                { "component": "ToolEtc", "props": { "type": "Tools" } },
+                { "component": "ToolEtc", "props": { "type": "Etc" } }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "title": "My work",
+          "description": "Projects",
+          "children": [
+            { "component": "CategoryList" },
+            { "component": "ProjectList" }
+          ]
+        },
+        {
+          "id": "testimonial",
+          "title": "Testimonial",
+          "description": "See what they say about me",
+          "children": [
+            { "component": "TestimonialList" }
+          ]
+        }
+      ];
+    
+      const componentMap = {
+        MajorList,
+        JobList,
+        MySkills,
+        CordingSkill,
+        ToolEtc,
+        CategoryList,
+        ProjectList,
+        TestimonialList
+      };
+    //"jobList" : jobList 이런뜻임  똑같은 이름일 경우에는 jobList 이렇게만 써도딘다
+
+
+      //자식 컴포넌트 렌더링 : => 재귀함수  자신의 함수안에서 계속 자기자신을 호출하는 함수를 말한다
+      const renderComponent = (childObj) => {
+        const Component = componentMap[childObj.component];
+        if (!Component) return null;
+    
+        return (                                            //childObj.prop 값이잇으면 json 데이터를 문자열로 바꿔라 이말임
+          <Component key={childObj.component + JSON.stringify(childObj.props || {})} {...(childObj.props || {})}>
+            {childObj.children && childObj.children.map((childObj) => renderComponent(childObj))}
+          </Component>
+        );
+      };
+ //<Component 얘는 const componentMap  여기에 넣은 리스트들을 하나씩 ㅏㄱ져와서 값넣는거/....
+ //JSON.stringify(childObj.props || {} 제이슨을 문자열로 바꾸는거 //  프롭스가 여려개일수잇으니 스프레드연산자쓴거다.  || 이거 or 연산자래 
+//    {childObj.children && childObj.children.map((childObj) => renderComponent(childObj))} 자식 더이상업승ㄹ떄까지 계속renderComponent 함수돌리는거임
+//childObj = children 의 자식들 말하는거임"
+            // children": [
+            // { "component": "TestimonialList" } 여기선s 테스티모니얼이 child 임 그래서 얘 차일드를renderComponent 이 함수에서는 childObj 로 받은거양
+//renderComponent 함수 호출한곳에 return 값을 전달해준다
+
     return (
+        <>
         <body>
             <Header>
                 <HeaderIcon 
@@ -35,7 +113,21 @@ export default function AppPortfolio() {
                 <HeaderContent 
                     img='/images/trustping.png'
                     name='HAON'/>
-                <SectionWrap
+
+{/* (2) SectionWrap 컴포넌트를 리스트 맵으로 순회 */}
+                {sectionList && sectionList.map((section) => (
+                        <SectionWrap
+                            key={section.id}
+                            id={section.id}
+                            title={section.title}
+                            description={section.description}
+                        >
+                            {section.children.map((child) => renderComponent(child))}
+
+                        </SectionWrap>
+                    ))}  
+                      
+                {/* <SectionWrap
                     id='about'
                     title='About me'
                     description = 'ddddddddd!!!!!!!!!!!!!'>
@@ -64,7 +156,7 @@ export default function AppPortfolio() {
                     title='Testimonial'
                     description = 'See what they say about me'>
                     <TestimonialList />
-                </SectionWrap>
+                </SectionWrap> */}
                 <Arrow />
             </Content>
             <Footer>
@@ -75,5 +167,6 @@ export default function AppPortfolio() {
                 <Bottom />
             </Footer>
         </body>
+        </>
     );
 }

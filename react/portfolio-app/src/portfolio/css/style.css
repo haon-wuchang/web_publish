@@ -1,4 +1,4 @@
-/* 
+/*
   selector 
   - class(.)
   - id(#)
@@ -12,7 +12,6 @@
 /*
   Global
 */
-
 :root {
     /* App Color */
     --color-primary: var(--color-black);
@@ -77,75 +76,67 @@
     font-size: 1.5rem;
     margin: 0.5rem 0;
   }
-  
-  /* 
-  header 
+
+  /*
+    header
   */
-.header {
-    /* border: 1px solid white; */
+  .header {
     background-color: var(--color-primary);
     width: 100%;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; 
+    position: fixed;
     top: 0;
-    left: 0;
-    z-index: 1; 
-}
-.header__logo {
+    z-index: 1;
+  }
+  .header__logo {
+    /* border: 1px solid yellow; */
     display: flex;
-    /* border: 1px solid white; */
     align-items: center;
-    gap: 8px; 
-}
-
-.header__logo__title {
+    gap: 8px;
+  }
+  .header__logo__title {
     font-size: 1.8rem;
     color: var(--color-text);
-}
-.header__logo__img {
+  }
+  .header__logo__img {
     width: 36px;
     height: 36px;
     /* padding-right: 8px; */
-}
-
-.header__menu {
+  }
+  .header__menu {
+    /* border: 1px solid yellowgreen; */
     display: flex;
     gap: 4px;
-    /* border: 1px solid white; */
-}
-
-.header__menu li:first-child{   
+  }
+  /* .header__menu li:first-child {
     border: 1px solid var(--color-accent);
     border-radius: 4px;
-}
-
-.header__menu__item {
+  } */
+  .header__menu__item {
     padding: 8px 16px;
     color: var(--color-text);
-}
-
-.header__menu__item.active {
+  }
+  .header__menu__item.active {
     border: 1px solid var(--color-accent);
     border-radius: 4px;
-}
-
-.header__toggle { /*나중에 화면 작아질때만 나오는거라 우선 디스플레이 안나오게 해놓기*/
-    border: 1px solid white;
+  }
+  .header__toggle {
     display: none;
     color: var(--color-text);
-    font-size: 1.5rem; /*rem 이나 em 써서 크기고정행*/
+    font-size: 1.5rem;
     position: absolute;
     top: 1.3rem;
     right: 1rem;
-}
-/* 
-home
-*/
+  }
+
+  /*
+    Home
+  */
 #home {
-    background-color:var(--color-primary) ;
+    background-color: var(--color-primary);
     color: var(--color-text);
     padding: 5rem 1rem;
     padding-top: 7rem;
@@ -168,31 +159,26 @@ home
     font-size: 1.3rem;
     margin: 0;
 }
-
 .home__contact {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    border-radius: 0.3rem;
-    margin: 2rem;
+    display: inline-block;
     padding: 0.5rem 1rem;
-    display: inline-block; /*얘가 한줄 다 차지하게 해주려고 인라인블럭한거임*/
+    margin: 2rem;
+    background-color: var(--color-accent);
     font-weight: bold;
     border-radius: 4px;
-
+    color: var(--color-primary);
 }
-
 .home__contact:hover {
-    background-color: var(--color-primary);
     color: var(--color-text);
+    background-color: var(--color-primary);
     border: 2px solid var(--color-accent);
 }
 
-
-/* 
-about me
+/*
+    About me
 */
 .majors {
-    /* border: 1px solid black; */
+    /* border: 1px solid green; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -204,12 +190,12 @@ about me
     color: var(--color-text);
     padding: 2rem 1rem;
     border-radius: 1rem;
-    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
 }
 .major__icon {
-    color: var(--color-accent);
     font-size: 4rem;
-    margin: 1rem 0rem;
+    color: var(--color-accent);
+    margin: 1rem 0;
 }
 .major__title {
     font-size: 1.5rem;
@@ -223,10 +209,9 @@ about me
     display: flex;
     /* justify-content: flex-start; */
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 1rem;
 }
-
 .job__name {
     color: var(--color-primary);
 }
@@ -235,37 +220,42 @@ about me
     color: var(--color-primary);
 }
 
-/* 
-skills
+/*
+    Skills
 */
 #skill {
     background-color: var(--color-gray);
-    color: white;
+    color: var(--color-text);
 }
 .skills {
-    display: grid; 
-    grid-template-columns: 6fr 4fr; 
+    display: grid;
+    grid-template-columns: 6fr 4fr;
     margin: 2rem 0;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
 }
 .skill__title {
     color: var(--color-accent);
     font-size: 1.2rem;
     margin: 1rem 0;
 }
-
 .sklls__coding {
     grid-row: span 2;
     background-color: var(--color-primary);
     padding: 1rem;
-
 }
-
-.bar{
+.skills__tools {
+    padding: 1rem;
+}
+.skills__etc {
+    padding: 1rem;
+    background-color: var(--color-primary);
+    filter: brightness(150%);
+}
+.bar {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     padding: 1rem;
     gap: 0.5rem;
 }
@@ -273,30 +263,18 @@ skills
     display: flex;
     justify-content: space-between;
 }
-
 .bar__bg {
     width: 100%;
-    background-color: var(--color-gray);
     height: 3px;
+    background-color: var(--color-gray);
 }
 .bar__value {
-    background-color: var(--color-accent);
     height: 3px;
+    background-color: var(--color-accent);
 }
-.skills__tools {
-    padding: 1rem;
-}
-.skills__tools:nth-child(2) {
-    background-color: var(--color-primary);
-    filter: brightness(150%); 
-}
-/* .skills__etc {
-    padding: 1rem;
-    background-color: var(--color-primary);
-    filter: brightness(150%); 
-} */
-/* 
-works
+
+/*
+    work
 */
 #work {
     background-color: var(--color-primary);
@@ -308,7 +286,7 @@ works
     gap: 1rem;
     margin: 2.5rem 0;
 }
-.category { 
+.category {
     color: var(--color-text);
     padding: 0.5rem 3rem;
     border: 1px solid var(--color-accent);
@@ -317,32 +295,31 @@ works
     position: relative;
 }
 .category--selected {
-    background-color: var(--color-accent);
     color: var(--color-primary);
+    background-color: var(--color-accent);
 }
 .category__count {
     position: absolute;
+    top: -20px;
+    right: 16px;
     background-color: var(--color-orange);
-    top: -20px; 
-    right: 10px;
     color: var(--color-text);
-    border-radius: 100%;
     width: 28px;
     height: 28px;
-    line-height: 28px; /*인라인요소의 크기지정할떄 사용*/
-    opacity: 0; 
-    transition: all 250ms ease-in;
+    line-height: 28px;
+    border-radius: 100%;
+    opacity: 0;
+    transition: all 1000ms ease;
 }
-.category:hover .category__count,
-.category--selected .category__count{
+.category--selected .category__count,
+.category:hover .category__count {
     opacity: 1;
     top: 0;
 }
-
 .projects {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
 }
 .project {
@@ -350,38 +327,40 @@ works
     overflow: hidden;
 }
 .project__img {
-    width: 100%; 
+    width: 100%;
     border-radius: 8px;
 }
 .project__metadata {
-    position: absolute; 
+    /* border: 2px solid red; */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0; 
-    background-color: var(--color-primary); 
+    opacity: 0;
+    background-color: var(--color-primary);
+}
+.project__metadata__title::after {
+    width: 50px;
+    height: 2px;
+    content: '';
+    display: block;
+    background-color: var(--color-accent);
+    position: relative;
+    margin: 0.6rem 0;
+    left: 50px;
+    transform: translateX(-50%);
 }
 .project__metadata:hover {
     opacity: 0.8;
+}
 
-}
-.project__metadata__title:after { 
-    width: 50px;
-    height: 2px;
-    content: ''; 
-    display: block; 
-    background-color: var(--color-accent);
-    position: relative;
-    margin: 0.8rem 0;
-    transform: translateX(50%); 
-}
-/* 
-testimonial
+/*
+    Testimonial
 */
 .testimonials {
     margin: 3rem;
@@ -393,48 +372,45 @@ testimonial
     margin-bottom: 2rem;
 }
 .testimonial:nth-child(even) .testimonial__img {
-    order: 1; 
+    order: 1;
 }
-
 .testimonial__img {
-    border-radius: 100%;
-    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
     width: 150px;
     height: 150px;
+    border-radius: 100%;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, .38);
 }
-
 .testimonial__bubble {
-    box-shadow: 4px 8px 8px rgba(0,0,0,0.38);
-    border-radius: 8px;
     padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, .38);
 }
 .testimonial__bubble__name {
-    color: var(--color-accent);
     display: inline-block;
     margin-top: 0.3rem;
+    color: var(--color-accent);
     filter: brightness(70%);
 }
-/* 
-arrow-up
-*/
 
+/*
+    Arrow-up
+*/
 .arrow--up {
     position: fixed;
     bottom: 3rem;
     right: 3rem;
-    font-size: 3rem;
     color: var(--color-text);
-    background-color: var(--color-primary);
+    font-size: 3rem;
     width: 4.5rem;
-    height: 4.5rem;
+    height:4.5rem;
+    background-color: var(--color-primary);
+    text-align: center;
     border-radius: 100%;
-    text-align:center;
-    box-shadow: 5px 5px 0px 0px var(--color-accent);
-
+    box-shadow: 5px 5px 0px 0px var(--color-accent);   
 }
 
-/* 
-footer
+/*
+    Footer
 */
 #contact {
     background-color: var(--color-primary);
@@ -455,11 +431,11 @@ footer
     color: var(--color-accent);
 }
 
-/***************************************** 
-2024.11.05 반응형 추가 
-반응형 media screen max width - 768 ~ 1024
- ******************************************/
- /* 윈도우키보드버튼이랑 점. 같이 누르면 이모지 추가 가능 */
+
+/**********************************
+    media screen - 768 ✖ 1024
+    이모지 단축키 : window key + .(period)
+**********************************/
 @media screen and (max-width : 768px) {
     .section {
         padding: 3rem 2rem;
@@ -478,7 +454,7 @@ footer
         display: block;
     }
     .header__menu {
-        display: none; /*화면 줄어들면 얘네는 삼지창 눌러야 보여야해서 우선 안보이게 설정*/
+        display: none;
     }
     #home {
         padding: 5rem 3rem;
@@ -504,7 +480,7 @@ footer
         flex-direction: column;
     }
     .category {
-        width: 20rem;
+        width: 100%;
     }
     .projects {
         grid-template-columns: repeat(2, 1fr);
@@ -522,23 +498,24 @@ footer
         width: 3rem;
         height: 3rem;
     }
+
 }
 
 
 
-/***************************************
-2024.11.05 반응형 추가
-반응형 media screen max width - 412 
- ******************************************/
- @media screen and (max-width : 412px) {
+
+/**********************************
+    media screen - 412 
+**********************************/
+@media screen and (max-width : 412px) {
     .section {
-        padding: 3rem 2rem;
+        padding: 1.5rem 1rem;
     }
     .title {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
     .description {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .header {
         flex-direction: column;
@@ -547,83 +524,51 @@ footer
     .header__toggle {
         display: block;
     }
-    .header__logo__title {
-        font-size: 1.6rem;
-    }
     .header__menu {
-        display: none; /*화면 줄어들면 얘네는 삼지창 눌러야 보여야해서 우선 안보이게 설정*/
+        display: none;
     }
-    .header__logo__img {
-        width: 2rem;
-        height: 2rem;
+    .header__logo__title {
+        font-size: 1.3rem;
     }
     #home {
-        padding: 5rem 2rem 2rem;
+        padding: 5rem 1.5rem;
+    }
+    .home__avatar {
+        width: 200px;
+        height: 200px;
     }
     .home__title {
         font-size: 1.8rem;
         margin-bottom: 0.5rem;
     }
     .home__description {
-        font-size: 1.1rem;
-    }
-    .home__avatar {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 1rem;
-    }
-    .majors {
-        flex-direction: column;
-        align-items: center;
-    }
-    .major {
-        width: 20rem;
-    }
-    .job {
-        justify-content: center;
-        padding: 0rem 1rem;
-    }
-    .skills {
-        grid-template-columns: 1fr;
-    }
-    .skill > p:nth-child(2) {
-        font-size: 0.9rem;
-    }
-    .categories {
-        flex-direction: column;
-    }
-    .category {
-        width: 11rem;
         font-size: 1rem;
-    }
-    .projects {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .testimonial {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .testimonial:nth-child(even) .testimonial__img {
-        order: 0;
-    }
-    .testimonial__bubble {
-        width: 340px;
-    }
-    .testimonial__bubble > p:first-child {
-        font-size: 0.9rem;
-    }
-    .testimonial__img {
-        width: 150px;
-        height: 150px;
-    }
-    .arrow--up {
-        bottom: 1rem;
-        right: 1rem;
-        font-size: 1.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-    footer > p:last-child {
+      }
+      .home__contact {
         font-size: 0.8rem;
-    }
- }
+        padding: 0.3rem 0.7rem;    
+      }
+      .major {
+        width: 100%;
+      }
+      .major__title {
+        font-size: 1.2rem;
+      }
+      .projects {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .testimonial {
+        flex-direction: column;
+      }
+      .testimonial:nth-child(even) .testimonial__img {
+        order : 0;
+      }
+      .arrow--up {
+        bottom: 1.5rem;
+        right: 2rem;
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+      }
+    
+}
