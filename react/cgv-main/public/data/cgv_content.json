@@ -10,7 +10,7 @@
         {"title" : "패키지" , 
         "list" : [
             {
-                "src" : "/images/package1.jpg",
+                "src" : "images/package1.jpg",
                 "text" : "우리 패키지",
                 "price" : "15000"
             },
@@ -29,7 +29,7 @@
         {"title" : "영화관람권" , 
         "list" : [
             {
-                "src" : "/images/movieticket.jpg",
+                "src" : "images/movieticket.jpg",
                 "text" : "CGV 영화관람권",
                 "price" : "13000"
             },
@@ -49,7 +49,7 @@
         {"title" : "기프트카드" , 
         "list" : [
             {
-                "src" : "/images/giftcard.jpg",
+                "src" : "images/giftcard.jpg",
                 "text" : "PACONNIE A형",
                 "price" : "금액충전형"
             },

@@ -5,7 +5,7 @@ import { fetchJson } from "../js/commons.js";
 export default function HeaderTopMenuList() {
     const [list,setList] = useState([]);
     useEffect(() => {
-        fetchJson('/data/cgv_header.json')
+        fetchJson('data/cgv_header.json')
             .then(data => setList(data.topMenuList))
             .catch(error => console.log(error));
     },[]);

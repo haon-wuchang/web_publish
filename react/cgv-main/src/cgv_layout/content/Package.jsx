@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function Package() { 
     const [pList,setPList] = useState([]);
     useEffect(()=>{
-        fetch('/data/cgv_content.json')
+        fetch('data/cgv_content.json')
             .then((data) => data.json())
             .then((jsonData) => setPList(jsonData.packageList))
             .catch(error => console.log(error));
