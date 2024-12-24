@@ -7,8 +7,7 @@ export default function MenuList() {
     useEffect(()=>{
             fetch('/json_data/project.json')
                 .then(data=>data.json())
-                .then(jsonData=>
-                        setMenuNameList(jsonData.menuNameList))
+                .then(jsonData=>setMenuNameList(jsonData.menuNameList))
                     .catch(error=>console.log(error));
             },[]);
             

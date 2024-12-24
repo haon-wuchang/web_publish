@@ -1,0 +1,71 @@
+1. 깃허브에 새로운 레파지토리 생성 ( 타입 - public), read me 파일도 생성 
+    - 레파지토리명 : react-sample-1
+
+2. 로컬의 git remote 경로를 (1) 에서 생성한 레파지토리 경로로 변환하는 작업 실행
+( 현재는 web_publish 로 되어있을 것이다)
+ git remote -v 명령어 사용(cmder 에서 ) => 현재 주소 알려줌
+
+/ 결과 :
+λ git remote -v
+origin  https://github.com/haon-wuchang/web_publish.git (fetch)
+origin  https://github.com/haon-wuchang/web_publish.git (push)
+
+3. 현재있는 remote 주소를 삭제한다
+git remote remove origin 으로 삭제를 하고 내꺼 새로 추가하면 된다
+
+4. 새로만든 레파지토리 링크를 복사한다
+ git remote add origin http://~~~    해서 내꺼를 추가한다
+ git remote -v 로 잘 만들어졋는지 확인한다
+
+
+5. deploy 패키지 설치( 배포 패키지 설치) => gh-pages
+    1. npm install gh-pages --save-dev    한다 
+    다른 프로젝트에서도 쓰겟다 하면 이렇게 하면된다
+
+    2. npm install gh-pages 만 해도 된다 (현재 프로젝트에서만 사용)
+
+6. gh-pages는 
+포르폴리오에 잇는 빌드에 잇는 데이터가 레파지토리에 자동으로 넘어가게 해준다
+
+7. deploy 프로젝트의 package.json 파일의 배포 페이지를 추가 및 설치
+
+    해당 파일에 들어간다
+
+      1. "homepage":"https://haon-wuchang.github.io/레파지토리명",
+        해당 내용을 
+          "name": "portfolio-app",
+            "version": "0.1.0",
+            "private": true, 얘 밑에 추가로 넣어준다
+
+       2.  스크립트부분에도 내용추가한다(스크립트의 맨밑에 추가)
+        "predeploy":"npm run build",
+        "deploy":"gh-pages -d build"
+
+        3.  "devDependencies": 
+            "gh-pages": "^6.2.0"
+              이부분에 gh-pages 설치 되잇는지 확인한다
+
+
+8. 터미널에서 배포 실행
+    npm run deploy
+    해당 포트폴리오까지 경로이동후  npm run deploy 
+
+    > gh-pages -d build
+        Published  이렇게 뜨면 잘된거다
+
+9. 깃허브에서 해당레파지토리에 가서 잘 올라갓는지 확인한다
+    main 부분을 눌러서 gh-pages 로 변경한다 그럼 다 올라가잇는걸 확인하룻잇다
+
+    이제 얘를 깃 페이지로 연결한다
+
+    상단셋팅스-pages-branch(gh-pages, root )
+
+
+아까 homepage 에 작성한 페이지로 이동한다 
+
+
+
+
+ 리모트 주소 확인 git remote -v
+ 리모트 주소 삭제 git remote remove origin
+ 리모트 주소 추가 git remote add origin [주소]
