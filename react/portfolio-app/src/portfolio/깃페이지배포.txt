@@ -64,6 +64,9 @@ git remote remove origin 으로 삭제를 하고 내꺼 새로 추가하면 된�
 
 
 
+// 다시 리모트 주소 삭제하고 웹 퍼블리시로 추가한다//그래야 깃허브에 연동되니까
+
+
 
  리모트 주소 확인 git remote -v
  리모트 주소 삭제 git remote remove origin
