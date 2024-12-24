@@ -1,5 +1,5 @@
 1. 깃허브에 새로운 레파지토리 생성 ( 타입 - public), read me 파일도 생성 
-    - 레파지토리명 : react-sample-1
+    - 레파지토리명 : react-sample-2
 
 2. 로컬의 git remote 경로를 (1) 에서 생성한 레파지토리 경로로 변환하는 작업 실행
 ( 현재는 web_publish 로 되어있을 것이다)

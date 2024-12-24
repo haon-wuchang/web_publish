@@ -1,0 +1,87 @@
+{
+    "specialList" : [
+        {"title" : "SUITE CINEMA", "intro" : "#호텔 컨셉의 프리미엄관"},
+        {"title" : "CINE & LIVINGROOM", "intro" : "#신개념 소셜 상영관"},
+        {"title" : "4DX", "intro" : "#모션시트 #오감체험"},
+        {"title" : "CINE de CHEF", "intro" : "#쉐프가 있는 영화관"}
+    ],
+
+    "packageList" : [
+        {"title" : "패키지" , 
+        "list" : [
+            {
+                "src" : "/images/package1.jpg",
+                "text" : "우리 패키지",
+                "price" : "15000"
+            },
+            {
+                "src" : "https://img.cgv.co.kr/GiftStore/Product/Pc/List/17170513228970.jpg",
+                "text" : "나랑너 패키지",
+                "price" : "35000" 
+            },
+            {
+                "src" : "https://img.cgv.co.kr/GiftStore/Product/Pc/List/16778206767040.jpg",
+                "text" : "좋은 날 패키지",
+                "price" : "18000"
+            }
+        ] 
+        },
+        {"title" : "영화관람권" , 
+        "list" : [
+            {
+                "src" : "/images/movieticket.jpg",
+                "text" : "CGV 영화관람권",
+                "price" : "13000"
+            },
+            {
+                "src" : "https://img.cgv.co.kr/GiftStore/Product/Pc/List/16104445886810.jpg",
+                "text" : "IMAX 영화관람권",
+                "price" : "13000" 
+            },
+            {
+                "src" : "https://img.cgv.co.kr/GiftStore/Product/Pc/List/16105061088530.jpg",
+                "text" : "4DX 영화관람권",
+               "price" : "13000"
+            }
+
+        ] 
+        },
+        {"title" : "기프트카드" , 
+        "list" : [
+            {
+                "src" : "/images/giftcard.jpg",
+                "text" : "PACONNIE A형",
+                "price" : "금액충전형"
+            },
+            {
+                "src" : "https://img.cgv.co.kr/GiftStore/Product/Pc/List/15814158039890.jpg",
+                "text" : "PACONNIE B형",
+                "price" : "금액충전형" 
+            },
+            {
+                "src" : "https://img.cgv.co.kr/GiftStore/Product/Pc/List/15814162227570.jpg",
+                "text" : "PACONNIE C형",
+               "price" : "금액충전형"
+            }
+
+        ] 
+        }
+    ],
+    "eventList" : [
+        {
+            "src" : "images/event1.jpg", 
+            "title" : "[콜렉터블 무비머니]Vol. 1 맥스 달튼", 
+            "date" : "2024.09.25~2024.10.31"
+        },
+        {
+            "src" : "https://img.cgv.co.kr/WebApp/contents/eventV4/42386/17297657794310.jpg", 
+            "title" : "[CGV] 10월 컬처위크", 
+            "date" : "2024.09.25~2024.10.31"
+        },
+        {
+            "src" : "https://img.cgv.co.kr/WebApp/contents/eventV4/42372/17295802409470.jpg", 
+            "title" : "[베놈-라스트댄스]", 
+            "date" : "2024.09.25~2024.10.31"
+        }
+    ]
+}
