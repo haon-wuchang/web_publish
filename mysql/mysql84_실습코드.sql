@@ -137,4 +137,46 @@ select emp_id '사원 번호', emp_name, hire_date, DEPT_ID '부서 번호' from
 	-- where 절이 제일먼저 필터링되서 실행된다, 그다움 from 그다음 select 임 
 	-- 따라서 where 절부터 실행하기 때문에 '부서번호' 가 아직은 실행되지 않아서 조회가 안되는거임
 
+-- 사원테이블에서 마케팅부서의 모든사원정보를 조회하라
+show tables;
+desc employee;
+select dept_id from employee;
+select * from employee where dept_id='MKT';
+
+-- 사원테이블에서 입사일이 2014년 8월 1일인 모든 사원 조회하라 
+select * from employee where hire_date='2014-08-01';
+	-- date type 은 처리는 숫자형식으로, 표현은 문자형식으로 한다.
+-- 연봉이 5000인 사원 정보 조회
+select * from employee where salary=5000;
+
+select * from employee;
+
+-- null 타입 정리 --
+	-- 숫자컬럼에서의 null 은 가장 큰 수로 인식하고, 문자컬럼에서는 가장 작은 문자로 인식한다
+	-- null은 논리적인 의미를 가지므로 is 키워드를 통해 비교 연산을 수행한다
+
+-- 사원테이블에서 eng_name 이 null 인 모든사원정보를 조회하라
+select * from employee where eng_name is null;
+-- 연봉이 정해지지 않은 사원을 조회하라
+select * from employee where salary is null;
+
+-- null 값을 다른값으로 대체해주는 함수 : ifnull()
+-- 형식 : ifnull(null포함하고있는 컬럼명, 대체할값);
+-- 컬럼리스트에서 호출해아한다.
+-- select * 일때는 ifnull은 사용이 불가능하다
+
+select emp_name, salary, ifnull(salary,0) as salary2
+	from employee;
+-- react db연동할떄 컬럼리스트 이름이 프로퍼티 이름으로 들어가기때문에 별칭으로 간단하게 이름바꾸는게좋다
+
+-- eng_name 이 null인 사원들은 'smith' 이름으로 변경 후 조회하라
+-- 출력되는 컬럼명은 eng_name2 로 변경하라
+select emp_name, ifnull(eng_name,'smith') eng_name2
+	from employee;
+    
+-- 모든 사원의 아이디,사원명,입사일,퇴사일을 조회하라
+-- 현재 근무중인 사원의 퇴사일에 현재의 날짜를 출력하라
+    select emp_id, emp_name, ifnull(retire_date,curdate()) as 'retire',hire_date 
+		from employee;
+
 
