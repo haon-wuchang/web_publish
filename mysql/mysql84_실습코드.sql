@@ -207,14 +207,6 @@ select * from employee where email like '____@%';
 select * from employee where emp_name like '%삼%';
 
 
-/*
-오후수업 
-*/
-/*
-내장함수(built-in) : 숫자,문자,날짜 함수
-- 함수테스트를 위한 테이블 : dual
-- select 실행하고자하는함수 from dual ;
-*/
 -- 1. 숫자함수 : abs(),rand(),truc(),...
 	-- (1) abs함수 : 절댓값 표현 함수
 	select 100, -100, abs(100) as '절댓값1', abs(-100) 
