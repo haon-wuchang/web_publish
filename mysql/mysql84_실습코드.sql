@@ -119,10 +119,7 @@ select emp_name, ifnull(eng_name,'smith') eng_name2
     select emp_id, emp_name, ifnull(retire_date,curdate()) as 'retire',hire_date 
 		from employee;
 
-/* 지금 배우는거는전부 select 관련된거임 12/30 수업
-	
-    
-*/
+/************************12/30 ************************************************** */
 -- 사원테이블에서 사원번호와 부서컬럼을 출력하라(중복배제)
 desc employee;
 select distinct emp_id, dept_id from employee;
