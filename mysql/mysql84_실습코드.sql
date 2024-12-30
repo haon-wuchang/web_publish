@@ -191,14 +191,6 @@ select * from employee where emp_id in('S0001', 'S0010', 'S0020');
 -- 부서아이디가 MKT, GEN, HRD 인 부서에 속한 모든 사원을 조회
 select * from employee where dept_id in('MKT', 'GEN', 'HRD');
 
-
-/*
-	와일드 카드 문자 : 특정 문자열 검색 + like
-    종류 : %(전체를 대체할때 사용하는 문자열)  _(한 문자를 대체하는 문자열임)
-    사용법 : like 연산자와 함께 조건식을 추가하여 사용됨 !!!!
-    형식 : select [컬럼리스트 ] from [테이블명] where 컬럼명 like [와일드카드문자를 이용한 특정문자열 검색 조건]
-    like는 =임
-*/
 -- 영어 이름이 f 로 시작하는 모든 사원들을 조회
 select * from employee where eng_name like 'f%';
 
@@ -206,7 +198,7 @@ select * from employee where eng_name like 'f%';
 select * from employee where emp_name like '한%';
 
 -- 이메일 주소의 두번째 자리에 'a'가 들어가는 모든 사원을 조회
-select * from employee where email like '_a%'; -- _는 앞에 한글자는 아무거나 와도 되고 두번째에 a가 오면 된다는거 %는 a뒤에 어떤거든 와도 된다는거임
+select * from employee where email like '_a%'; 
 
 -- 이메일 주소가 4자리인 모든 사원을 조회하라
 select * from employee where email like '____@%';
@@ -272,6 +264,102 @@ select
 	-- 여기서 where salary between 0 and 4999 쓰면 고소해 안나옴 
     -- ( 왜냐면 where 먼저 실행되고 from 실행되고 하니까 where 단계에서는 0 이 아직 없음)
 
+
+-- 2. 문자함수 : concat(),substring(),...
+	-- (1) concat 함수 : 문자열을 결합할때 사용하는 함수
+			-- concat(문자열, 문자열, ...)
+    select concat('민초','우유','00') 결과 from dual;
+-- 사원테이블의 사원명과 영어이름을 결합하여 새로운 컬럼을 생성하고 컬럼명은 test_name 으로 실행하라
+-- 영어이름이 정해지지않은 사원은 빈 문자열로 치환해서 실행하라
+select 
+	emp_name, 
+	eng_name, 
+    concat(emp_name,'/',ifnull(eng_name,'')) test_name 
+	from employee;
+
+-- 사원테이블에서 사원아이디와 5자리의 임의의 정수를 결합하여 사원번호라는 새로운 컬럼을 생성하고 조회하라
+-- 사원아이디, 사원명, 입사일,급여, 퇴사일, 사원번호 를 조회하라
+-- 현재 근무중인 사원은 현재 날짜를 퇴사일에 입력해주세요
+select 
+	emp_id,
+    emp_name,
+    hire_date,
+    salary,
+	ifnull(retire_date,curdate()) retire_date,
+    ifnull(retire_date,now()) retire_date_hour,
+    concat(emp_id,'-',truncate(rand()*100000,0)) 사원번호
+	from employee;
+    
+-- (2) substring 함수 : 문자열을 추출할때 사용하는 함수
+		-- substring(문자열, 추출할위치, 추출할자릿수)
+        -- 빈 문자열도 하나의 자리로 취급함
+select substring('mint choco 22',1,4) 민트,
+	substring('mint choco 22',6,5) 초코 
+    from dual;
+
+-- 사원테이블에서 사원아이디,사원명,입사년도,입사월,입사일,급여를 조회하라
+select 
+	emp_id,
+    emp_name,
+    substring(hire_date,1,4) 입사년도,
+    substring(hire_date,6,2) 입사월,
+    substring(hire_date,9,2) 입사일,
+    salary
+	from employee;
+    
+-- 2015년도에 입사한 모든 사원을 조회하라
+select * from employee where substring(hire_date,1,4) = '2015';
+
+-- 2018년도에 정보시스템부서sys에 입사한 모든 사원들을 조회
+select * from employee where dept_id='SYS' and substring(hire_date,1,4)='2018';
+
+	-- (3) left,right 함수 : left(문자열,추출할자릿수) , right(문자열,추출할자릿수)
+	select left('대한민국 크크크 만세',4) 추출결과 from dual;
+	select right('대한민국 크크크 만세',2) 추출결과2 from dual;
+
+-- 2014년도에 입사한 모든 사원을 조회하라
+select * from employee where left(hire_date,4)='2014';
+-- 모든 사원의 폰번호 마지막 4자리를 조회하라
+select emp_name,emp_id,dept_id,hire_date,right(phone,4) phone from employee;
+
+	-- (4) upper, lower 함수 : upper(문자열을 대문자로 변경) lower(문자열을 소문자로 변경)
+    -- (mysql 은 대소문자 구별을 안하지만 오라클에서는 함)
+-- 사원들의 영어이름과 이메일 주소를 모두 대문자로 출력하라
+select upper(eng_name),upper(email) from employee;
+
+	-- (5) trim 함수 : 공백 제거 함수 | trim(문자열)
+select trim('        ghghgh           '),
+	trim('ghghgh           '),
+    trim('ghghgh ㅇ   ㅇㅇㅇㅇ       ')from dual; -- 가운데에 있는 빈공간은 삭제되지 않는다
+
+	-- (6) format 함수 : 문자열의 포맷을 수정할때 사용
+		-- format(문자열 또는 숫자, 소숫점자리)
+		-- 숫자를 3자리씩 , 로 구분하여 출력하는 포맷이다 
+select format(124353,0) from dual;
+select format(125323,2) from dual; -- 소숫점자리를 2자리까지 지정합니다 라는 뜻
+	
+-- 컨트럴 d = 해당행 복사
+
+-- 사원테이블의 사원아이디,사원명,입사일,연봉을 조회하고, 연봉 협상 전인 사원은 0 으로 변환 후 조회하고,
+-- 연봉은 3자리씩 , 로 구분하여 조회한다
+select emp_id,emp_name,hire_date,concat(format(ifnull(salary,0),0),'만원') 연봉 from employee;
+-- => format 먼저하고 ifnull 하면 안된다 에러임 ! format 을하게되면 문자열로 변경되기때문에 얘가 다시 숫자열로는 변경할수없어서 ifnull 을 할수없당
+
+-- 사원아이디, 사원명, 부서명,입사일, 연봉, 보너스(연봉0.05%) 조회하고
+-- 연봉과 보너스 컬럼은 3자리씩 ,로 구분해여 출력 후 '만원' 을 추가
+-- 보너스 컬럼은 소숫점 1자리까지 출력한다
+select emp_id,emp_name,dept_id,hire_date,
+	concat(format(salary,0),'만원') salary,
+	concat(format(salary*0.05,1),'만원') 보너스 
+    from employee;
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
