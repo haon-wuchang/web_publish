@@ -208,8 +208,37 @@ select * from employee where emp_id = 'S0001' or emp_id = 'S0010' or emp_id = 'S
 select * from employee where dept_id = 'MKT' or dept_id = 'GEN' or dept_id = 'HRD';
 
 /*
-
+	in 연산자 : 하나의 컬럼에 추가되는 or 연산식을 대체한다
+    형식 : select 컬럼리스트 from 테이블명 where 컬럼명 in(조건1,조건2,조건3...) ;
 */
+-- 사원아이디가 'S0001' 'S0010' 'S0020' 인 사원의 모든 정보를 조회하라
+select * from employee where emp_id in('S0001', 'S0010', 'S0020');
+-- 부서아이디가 MKT, GEN, HRD 인 부서에 속한 모든 사원을 조회
+select * from employee where dept_id in('MKT', 'GEN', 'HRD');
+
+-- between and , in 은 오라클계열에서만 사용이 가능하다( 오라클 ,mysql, 마리아db?)
+
+/*
+	와일드 카드 문자 : 특정 문자열 검색 + like
+    종류 : %(전체를 대체할때 사용하는 문자열)  _(한 문자를 대체하는 문자열임)
+    사용법 : like 연산자와 함께 조건식을 추가하여 사용됨 !!!!
+    형식 : select [컬럼리스트 ] from [테이블명] where 컬럼명 like [와일드카드문자를 이용한 특정문자열 검색 조건]
+    like는 =임
+*/
+-- 영어 이름이 f 로 시작하는 모든 사원들을 조회
+select * from employee where eng_name like 'f%';
+
+-- '한'씨 성을 가진 모든 사원들을 조회
+select * from employee where emp_name like '한%';
+
+-- 이메일 주소의 두번째 자리에 'a'가 들어가는 모든 사원을 조회
+select * from employee where email like '_a%'; -- _는 앞에 한글자는 아무거나 와도 되고 두번째에 a가 오면 된다는거 %는 a뒤에 어떤거든 와도 된다는거임
+
+-- 이메일 주소가 4자리인 모든 사원을 조회하라
+select * from employee where email like '____@%';
+
+-- 이름에 '삼'이 들어가는 모든 사원을 조회하라
+select * from employee where emp_name like '%삼%';
 
 
 
