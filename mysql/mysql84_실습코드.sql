@@ -120,24 +120,15 @@ select emp_name, ifnull(eng_name,'smith') eng_name2
 		from employee;
 
 /* 지금 배우는거는전부 select 관련된거임 12/30 수업
-	distinct : 데이터의 중복을 배제할때 사용=> 중복된 데이터 하나만 출력
-    형식 : select distinct 컬럼리스트(중복된 컬럼리스트) from 테이블명 ;  
+	
     
-    출력하려는 컬럼들이 중복이 됐을때만 배제를 한다(출력하려는 모든 컬럼들의 데이터가 중복될때만 배제가 된다)
 */
 -- 사원테이블에서 사원번호와 부서컬럼을 출력하라(중복배제)
 desc employee;
 select distinct emp_id, dept_id from employee;
-	-- emp_id 는 중복이 없기때문에 dept_id 의 중복들이 배제되지 않았다
 
 -- 명령어가 실행된시점에서 저장소에서 제일가까운곳부터 데이터를 넣기때문에 정렬이 되어있지 않다
-/*
-	order by : 데이터 정렬시 사용(오름차순=asc,내림차순=desc)
-	형식 : select 컬럼리스트 from 테이블명 order by 정렬할컬럼리스트 오름차순(내림차순);
-	오름차순은 생략가능한데 내림차순일때는 꼭 적어줘야 한다
-    order by 는 맨 마지막에 적어준다
-    정렬할 컬럼리스트는 출력할 컬럼리스트에 꼭 포함되어야 한다!!
-*/
+
 -- 사원테이블에서 사원명,사원아이디,입사일,연봉을 조회하라
 -- 사원아이디 기준 오름차순으로 정렬하라
 select emp_id,emp_name, hire_date, salary from employee order by emp_id ;
@@ -156,7 +147,7 @@ select *
     where eng_name is null 
     order by hire_date desc;
 
--- 퇴직한 사원들을 급여가 높은 순으로 조회 /*is not null */
+-- 퇴직한 사원들을 급여가 높은 순으로 조회 
 select *
 	from employee 
     where retire_date is not null 
@@ -168,10 +159,6 @@ select * from employee where dept_id= 'SYS' order by salary desc;
 -- 정보시스템 부서의 사원들 중 최근 입사일 기준, 급여가 낮은 순으로 조회하라
 select * from employee where dept_id='SYS' order by hire_date desc, salary;
 
-/*
-	특정 범위의 데이터를 검색 : where 조건절 + 비교연산자( > , < )
-    형식 : select 컬럼리스트 from 테이블명 where 컬럼명 비교연산자 조건절 ;
-*/
 -- 사원중에서 연봉이 5000 이상인 사원들을 조회
 select * from employee where salary >= 5000;
 
@@ -179,13 +166,10 @@ select * from employee where salary >= 5000;
 -- date 타입은 표현은 문자처럼 처리방식은 숫자처럼 처리한다!!
 select * from employee where hire_date < '2016-01-01'; 
 
--- <and, or 연산>
 -- 입사일이 2015년 1월 1일 이후이고, 급여가 6000이상인 사원들을 조회
--- and 연산( ~이고) : 두개의 조건을 모두 만족한 데이터만 조회
 select * from employee where hire_date > '2015-01-01' and salary >= 6000;
 
 -- 입사일이 2015년 1월 1일 이후이거나, 급여가 6000이상인 사원들을 조회
--- or 연산(~ 또는) : 두개의 조건중 하나만 만족해도 데이터를 조회
 select * from employee where hire_date >'2015-01-01' or salary >= 6000;
 
 -- 입사일이 2015년 1월 1일부터 2017년 12월 31일 사이에 입사한 사원들을 조회
@@ -193,11 +177,6 @@ select * from employee where hire_date >= '2015-01-01' and hire_date <= '2017-12
 -- 연봉구간이 5000 이상 부터 7000미만 사이의 사원들을 조회
 select * from employee where salary >= 5000 and salary < 7000 order by salary desc;
 
-/*
-	위에처럼 작성 안함 between and 많이 사용함
-	between ~ and : 같은 컬럼리스트 내에서 특정 구간 조회 시 사용
-    형식 : select from where 컬럼명 between 시작구간 and 종료구간 ;
-*/
 -- 2016년 입사자를 조회
 select * from employee where hire_date between '2016-01-01'and '2016-12-31';
 
@@ -207,16 +186,11 @@ select * from employee where emp_id = 'S0001' or emp_id = 'S0010' or emp_id = 'S
 -- 부서아이디가 MKT, GEN, HRD 인 부서에 속한 모든 사원을 조회
 select * from employee where dept_id = 'MKT' or dept_id = 'GEN' or dept_id = 'HRD';
 
-/*
-	in 연산자 : 하나의 컬럼에 추가되는 or 연산식을 대체한다
-    형식 : select 컬럼리스트 from 테이블명 where 컬럼명 in(조건1,조건2,조건3...) ;
-*/
 -- 사원아이디가 'S0001' 'S0010' 'S0020' 인 사원의 모든 정보를 조회하라
 select * from employee where emp_id in('S0001', 'S0010', 'S0020');
 -- 부서아이디가 MKT, GEN, HRD 인 부서에 속한 모든 사원을 조회
 select * from employee where dept_id in('MKT', 'GEN', 'HRD');
 
--- between and , in 은 오라클계열에서만 사용이 가능하다( 오라클 ,mysql, 마리아db?)
 
 /*
 	와일드 카드 문자 : 특정 문자열 검색 + like
@@ -241,10 +215,62 @@ select * from employee where email like '____@%';
 select * from employee where emp_name like '%삼%';
 
 
+/*
+오후수업 
+*/
+/*
+내장함수(built-in) : 숫자,문자,날짜 함수
+- 함수테스트를 위한 테이블 : dual
+- select 실행하고자하는함수 from dual ;
+*/
+-- 1. 숫자함수 : abs(),rand(),truc(),...
+	-- (1) abs함수 : 절댓값 표현 함수
+	select 100, -100, abs(100) as '절댓값1', abs(-100) 
+		from dual;
 
+	-- (2) floor 함수 : 소숫점을 버리는(삭제) 함수 => 소숫점 자리 지정 불가능. 무조건 버림
+    --     truncate 함수 : 소숫점을 삭제하는 함수 => 소숫점 자리 지정 가능 trunc(데이터,자릿수)
+    --  => 이전버전에서는 trunc 명령어가 사용가능하다.
+	select 123.756, floor(123.756)
+		from dual;
+	select 123.756, truncate(123.756,1) '소숫점자리1', truncate(13.456,2) '소숫점자리2'
+		from dual;
+	
+	-- (3) rand 함수 : 임의의 수를 생성하는 함수(랜덤)
+    select rand() from dual;
+	select rand()*1000 from dual;
+	-- 정수만 출력하는 쿼리를 실행하라
+	select 
+		floor(rand()) 'rand1',
+		truncate(rand()*1000,0) 'rand2',
+        truncate(rand()*100000,2) rand3
+		from dual;
+        
+	-- (4) mod 함수 : 모듈러 연산을 실행하는 함수(= 나머지 연산)
+	-- 형식 : mod(숫자데이터, 연산숫자)
+	select mod(100,2) 짝, mod(101,2) 홀 from dual;
 
+-- 1~3 자리의 정수를 생성하고 생성한 정수를 2로 나누는 모듈러 함수를실행하는 쿼리를 완성해라
+select 
+    mod(truncate(rand()*1000,0),2) 결과
+    from dual;
 
-
+-- 사원테이블에서 사원아이디,사원명,부서아이디,입사일,연봉, 인센티브(연봉의 20%) 를 조회하라
+-- 인센티브의 소수점 생략하라
+-- 연봉협상이 아직 진행되지 않은 사원은 모두 0으로 출력, 인센티브 포함
+-- 연봉이 5000 미만의 사원들 정보만 출력
+select 
+	emp_id,
+	emp_name,
+    dept_id,
+    hire_date,
+    ifnull(salary,0) as salary,
+	ifnull(truncate(salary*0.2,0),0) as '인센티브'
+	from employee
+    where salary < 5000 or salary is null;
+	-- 고소해까지 출력하기 위해서 is null 사용한거임( 연봉 5000 미만은 맞자나)
+	-- 여기서 where salary between 0 and 4999 쓰면 고소해 안나옴 
+    -- ( 왜냐면 where 먼저 실행되고 from 실행되고 하니까 where 단계에서는 0 이 아직 없음)
 
 
 
