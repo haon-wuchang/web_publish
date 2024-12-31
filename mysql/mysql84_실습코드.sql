@@ -515,7 +515,7 @@ select if(grouping(dept_id), '부서총합',ifnull(dept_id, '-')) 부서아이�
 	where salary is not null
     group by dept_id with rollup;
 	-- 부서총합 부분은 원래 null 값으로 비어있는데 여기에 내용넣으려고 if 사용한거임
-    
+
 show tables;
 -- 사원들의 휴가 사용 내역 조회
 select * from vacation;
