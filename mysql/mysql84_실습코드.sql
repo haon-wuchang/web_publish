@@ -378,6 +378,7 @@ select emp_name, replace(hire_date,'-','/') from employee;
 	그룹(집계)함수 : sum(), avg(), min() , max(), count() ...
     - group by : 그룹함수에서만 사용됨! | 그룹함수를 적용하기 위해 일반 컬럼을 그룹핑하는 단위
     - having : 그룹함수에서만 사용됨! | 그룹함수의 조건절을 적용하는 구문
+    그룹함수를 사용할때는 일반컬럼이 같이 조회가 불가능하다!!
 ***************************/
 -- 1. sum 함수 : sum(숫자 또는 숫자를 가진 컬럼) , 
 -- 사원테이블에서 모든 사원의 연봉 총합을 조회, 3자리씩 끊어서 조회
@@ -424,7 +425,7 @@ select concat(cast(count(*)as char),'명') 총사원수,
 select count(*) from employee where dept_id = 'SYS';
 
 -- 2015년도에 입사한 사원수를 조회
-select count(*) from employee where substring(hire_date,1,4)='2015';
+select count(*),sum(salary) from employee where substring(hire_date,1,4)='2015';
 
 -- 가장 최근 입사자와 가장 오래된 입사자의 입사일 조회
 select min(hire_date) 오래된입사자, max(hire_date) 최근입사자 from employee ;
@@ -435,8 +436,88 @@ select min(hire_date) 오래된입사자, max(hire_date) 최근입사자 from em
 -- 마케팅부서 기준 가장 낮은 연봉과 높은 연봉을 조회
 select min(salary) 최저연봉, max(salary) 최대연봉 from employee where dept_id='MKT';
 
+/*
+group by 적용 : ~~별 (ex. 년도별) 그룹함수를 적용해야 하는 경우 | 중복된 데이터가 있어야 그룹핑하는 의미가 있으니까 중복된데이터있을때 사용함
+형식: from 뒤에서 사용한다 | group by 그룹핑하려는컬럼명
+	그룹핑하려는컬럼명 은 여러개도 가능하다
+	group by에 사용된 일반컬럼은 그룹함수와 같이 조회가 가능하다 !!!!
+    그룹바이에 사용된 컬럼은 select 에서도 형식이 동일하게 들어가야한다
+*/
+-- 사원테이블에서 부서별 사원수를 조회
+select dept_id, count(*) 부서별사원수 
+ from employee
+ group by dept_id;
+
+-- 입사년도 별 총연봉, 평균연봉, 최저연봉,최고연봉, 입사사원수를 조회
+select left(hire_date,4) 입사년도 , -- 얘의 형식이 일치해야지만 사용이 가능하다 얘한테만 concat 이런거 사용못함 하려면 밑에잇는애한테도 해줘야함
+	format(sum(salary),0)  총연봉,
+	format(avg(salary),0) 평균연봉,
+	min(salary) 최저연봉,
+	max(salary) 최고연봉,
+    count(*) 입사사원수
+	from employee
+    group by left(hire_date,4); -- 얘의 형식과
+
+-- 부서별 총연봉, 평균연봉, 최저연봉,최고연봉, 입사사원수를 조회
+select 
+	dept_id,
+	sum(ifnull(salary,0)) 총연봉,
+	truncate(avg(ifnull(salary,0)),0) 평균연봉,
+	min(ifnull(salary,0)) 최저연봉,
+	max(ifnull(salary,0)) 최고연봉,
+    count(*) 입사사원수
+	from employee
+	group by dept_id;
+
+/*
+	having : group by 와 함께 사용이 된다 (혼자는 사용 불가능)
+    - group by 를 통해 그룹핑한 결과에 조건절을 추가하는 구문이다
+    형식 : select ~~ from ~~ group by ~~ having ;
+    - having 절에서는 별칭 이름으로 조건처리가 가능하다
+     having = where 과 비슷 where 에서는 별칭으로 조건처리 불가능함
+*/
+-- 부서별 평균연봉 조회
+	-- null 값이 포함된 경우 0 으로 변환
+	-- 소숫점자리는 절삭
+	-- 부서 평균연봉이 6000 이상인 부서만 조회
+    -- 평균연봉 기준 오름차순으로 ( 정렬은 항상 마지막에 한다)
+select dept_id 부서아이디,
+	truncate(avg(ifnull(salary,0)),0) 평균연봉  -- ifnull = 오라클 nvl(컬럼명, 변환할 값)
+	from employee
+    group by dept_id
+    having 평균연봉 >= 6000
+    order by 평균연봉;
+
+-- 입사년도 기준 총연봉, 평균연봉을 조회
+	-- 총연봉이 6500 이상인 사원들만 출력
+	-- null 값을 포함한경우 0 으로 처리
+select left(hire_date,4) 입사년도,
+	sum(ifnull(salary,0)) 총연봉,
+    format(avg(ifnull(salary,0)),0) 평균연봉,
+    count(*) 사원수
+	from employee
+	group by left(hire_date,4)
+    having 총연봉 >= 6500;
+
+-- 부서별 남 녀 사원의 사원수를 조회
+select dept_id,
+	gender,
+	count(*)
+	from employee
+    group by dept_id, gender ;
 
 
+
+
+
+
+
+
+
+
+
+
+-- SQL-d  도 나아아아중에 정말 할거 다 했을때 하렴
 
 
 
