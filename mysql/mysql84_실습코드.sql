@@ -474,7 +474,6 @@ select
     - group by 를 통해 그룹핑한 결과에 조건절을 추가하는 구문이다
     형식 : select ~~ from ~~ group by ~~ having ;
     - having 절에서는 별칭 이름으로 조건처리가 가능하다
-     having = where 과 비슷 where 에서는 별칭으로 조건처리 불가능함
 */
 -- 부서별 평균연봉 조회
 	-- null 값이 포함된 경우 0 으로 변환
@@ -505,6 +504,58 @@ select dept_id,
 	count(*)
 	from employee
     group by dept_id, gender ;
+
+
+-- 6. rollup 함수 : reporting 을 위한 함수 (보고서 작성을 위한 함수)
+	-- 형식 : select 컬럼리스트 from 테이블명 where 조건절 group by 그룹핑컬럼 with rollup;
+-- 부서별 총 연봉을 조회( 연봉이 정해지지않은 부서는 포함하지 않음)
+select if(grouping(dept_id), '부서총합',ifnull(dept_id, '-')) 부서아이디,
+	sum(salary) 총연봉
+	from employee
+	where salary is not null
+    group by dept_id with rollup;
+	-- 부서총합 부분은 원래 null 값으로 비어있는데 여기에 내용넣으려고 if 사용한거임
+    
+show tables;
+-- 사원들의 휴가 사용 내역 조회
+select * from vacation;
+
+-- 사원아이디별 휴가상신횟수, 총휴가사용일 조회 , 총휴가사용일을 기준으로 내림차순 정렬하라
+select emp_id,
+	count(*) 휴가상신횟수,
+    sum(duration) 총휴가사용일자
+	from vacation
+    group by emp_id
+    order by sum(duration) desc;
+
+-- 2016~2017 년도 사이에 사원아이디별 휴가사용 횟수 조회
+	-- 리포팅함수 사용, '사원별휴가사용총합' 컬럼명 추가
+select if(grouping(emp_id),'사원별휴가사용총합',ifnull(emp_id,'-')) 사원아이디,
+	count(*) 총상신횟수,
+    sum(duration) 총휴가사용횟수
+	from vacation
+    where left(begin_date,4) between 2016 and 2017
+    group by emp_id with rollup
+    order by sum(duration);
+
+
+
+-- 입사년도 별 평균연봉을 조회 (연봉이 정해지지않은 부서는 포함하지 않음, 평균연봉이 6000 이상인 입사년도만 출력)
+	-- 리포팅함수 사용, '연도별 총합계' 컬럼명 추가
+select if(grouping(left(hire_date,4)),'연도별총합',ifnull(left(hire_date,4),'-')) 입사년도,
+	concat(format(avg(salary),0),'만원') 평균연봉
+	from employee
+    where salary is not null 
+    group by left(hire_date,4) with rollup;
+-- mysql 에서는 grouping 안에 함수를 넣으면 실행이 안된다 !! 그냥 바로 컬럼리스트를 넣어야됨
+
+
+
+
+
+
+
+
 
 
 
