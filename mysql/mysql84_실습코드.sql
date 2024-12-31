@@ -342,13 +342,103 @@ select emp_id,emp_name,dept_id,hire_date,
 	concat(format(salary*0.05,1),'만원') 보너스 
     from employee;
     
+    --   12/31 -------------------------------------------------------------------------------
+-- 3. 날짜 함수 : curdate(),now(),sysdate()
+	-- (1) curdate 함수 : 현재 시스템 날짜를 출력 ( 시스템 - 현재사용하는 pc) , 년월일 만 출력됨
+    select curdate() from dual;
+    -- (2) now 함수 : msSQL에서 사용되는 함수이다
+    -- (2) sysdate 함수 : 오라클에서 사용되는 함수이다
+    -- 현재 시스템 날짜를 출력, 년월일 시분초 까지 출력됨
+    select now(), sysdate() from dual;
     
-    
-    
-    
-    
-    
-    
+-- 4. 형변환 함수 : cast(), convert()=> 얘는 잘 사용안함
+    -- (1) cast 함수 : cast(변경할데이터 as 변경할테이터타입)
+    -- 데이터타입 : 문자 (char) 숫자(unsigned integer) 날짜(date)
+	select 12435 숫자, cast(12435 as char) 문자 from dual;
+	select '12435' 문자 , cast('12435' as unsigned integer) 정수 from dual;
+
+-- 입력폼에서 '20150101' 입사날짜를 입력받으면 문자데이터로 들어오게 된다. 이 데이터를 날짜를 가진 사원을 조회
+select * from employee where hire_date = cast('20150101' as date);
+
+-- floor 함수를 적용한 cast 함수
+select floor('12-34-5') 문자,
+	floor(cast('12-34-5' as unsigned integer)) 정수
+	from dual;
+
+-- 5. 문자열 치환 함수 : replace(문자열, old값, new값) 
+select replace('123,456', ',', '') 문자,
+	cast(replace('123,456', ',', '') as unsigned integer) 숫자
+from dual;
+
+-- 사원테이블의 입사일 포맷을 변경 '2015-01-01' 을 '2015/01/01' 로 변경하라
+select emp_name, replace(hire_date,'-','/') from employee;
+ -- ( 실제 db에는 - 으로 되어있고 화면에 출력할때만 / 로 나온느거임)
+
+/******************************
+	그룹(집계)함수 : sum(), avg(), min() , max(), count() ...
+    - group by : 그룹함수에서만 사용됨! | 그룹함수를 적용하기 위해 일반 컬럼을 그룹핑하는 단위
+    - having : 그룹함수에서만 사용됨! | 그룹함수의 조건절을 적용하는 구문
+***************************/
+-- 1. sum 함수 : sum(숫자 또는 숫자를 가진 컬럼) , 
+-- 사원테이블에서 모든 사원의 연봉 총합을 조회, 3자리씩 끊어서 조회
+select emp_id, sum(salary) total from employee;
+	-- 이케 하면 에러뜸 ,그룹함수를 사용할때는 일반컬럼과(유니크한컬럼) 함께 사용하지 못한다
+	-- emp_id 는 20개나 값이 있는데 연봉은 다 숫자라 하나로 합쳐지자넝
+select concat(format(sum(salary),0),'만원') total from employee;
+
+-- 2. avg 함수(average) : avg(숫자 또는 숫자를 가진 컬럼) 
+-- 사원들의 총연봉과 평균연봉을 조회
+-- 소숫점 한자리까지 출력
+select concat(format(sum(salary),1),'만원') 총연봉,
+concat(format(avg(salary),1),'만원') 평균연봉
+from employee;
+
+-- 3. min 함수 : min(숫자 또는 숫자를 가진 컬럼)  최솟값 출력 시 사용
+-- 4. max 함수 : max(숫자 또는 숫자를 가진 컬럼)  최댓값 출력 시 사용
+-- 사원들의 총연봉, 평균연봉, 최소연봉, 최대연봉을 조회 
+select concat(format(sum(salary),0),'만원') 총연봉, 
+	concat(format(avg(salary),0),'만원') 평균연봉, 
+    concat(format(min(salary),0),'만원') 최소연봉, 
+    concat(format(max(salary),0),'만원') 최대연봉
+    from employee;
+
+-- 5. count 함수 : count(컬럼명)
+-- 테이블에있는 모든 low 를 카운팅하여 출력함
+-- 예외 ) null 을 포함한 데이터의 count 는 계산하지 않는다 !! 
+-- count 는 사칙연산이 가능하다 => count 로 나오는 결과값이 숫자이기때문에
+select count(*) from employee; -- 20 : 총 사원 수
+select count(salary) from employee; -- 19 : 연봉 null 인 애가 1명 있기때문에 19이다
+
+select count(*),
+	count(salary) '연봉협상완료 사원수'
+    from employee;
+select * from employee where salary is null;
+
+-- 총사원수를 구하고 퇴직사원수, 현재근무하는사원수를 조회
+select concat(cast(count(*)as char),'명') 총사원수,
+	concat(cast(count(retire_date) as char),'명') 퇴직사원수,
+    concat(cast(count(*)-count(retire_date) as char),'명') 현재근무하는사원수
+	from employee;
+
+-- 사원테이블에서 정보시스템부서의 사원수를 구하라
+select count(*) from employee where dept_id = 'SYS';
+
+-- 2015년도에 입사한 사원수를 조회
+select count(*) from employee where substring(hire_date,1,4)='2015';
+
+-- 가장 최근 입사자와 가장 오래된 입사자의 입사일 조회
+select min(hire_date) 오래된입사자, max(hire_date) 최근입사자 from employee ;
+
+-- hrd 부서의 가장 최근 입사자와 가장 오래된 입사자의 입사일 조회
+select min(hire_date) 오래된입사자, max(hire_date) 최근입사자 from employee where dept_id='HRD';
+
+-- 마케팅부서 기준 가장 낮은 연봉과 높은 연봉을 조회
+select min(salary) 최저연봉, max(salary) 최대연봉 from employee where dept_id='MKT';
+
+
+
+
+
 
 
 
