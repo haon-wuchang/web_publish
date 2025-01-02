@@ -796,7 +796,56 @@ select emp_id ,emp_name ,hire_date ,dept_id ,salary
 select * from employee_sys;
 
 -- dept 테이블 구조 확인 및 데이터 추가
+	-- sys, 정보시스템, 서울
+    -- mkt , 마케팅, 뉴욕
+    -- hrd, 인사 ,부산  
+    -- acc, 회계, 정해지지않음
 desc dept;
+insert into dept(dept_id,dept_name,loc)
+	values('sys', '정보시스템', '서울');
+select * from dept;
+insert into dept(dept_id,dept_name,loc)
+	values('mkt' , '마케팅', '뉴욕');
+insert into dept(dept_id,dept_name,loc)
+	values('hrd', '인사' ,'부산');
+insert into dept(dept_id,dept_name,loc)
+	values('acc', '회계', null);
+select * from dept;
+
+-- insert into dept(dept_id,dept_name)
+-- 	values('sal', '세일', '대구');
+-- => 에러발생 : 컬럼리스트와 values 값이 1:1로 매칭이 안되서 에러발생
+insert into dept(loc,dept_id,dept_name)
+	values('sales', '세일', '대구');
+-- => 이거는 1:1로 매칭안하고 마구잡이고 데이터 써서 이상하게 데이터가들어가게되었다
+
+/*
+	제약사항(= constraint) : 데이터 저장 시 데이터 무결성의 원칙을 적용하기 위한 규칙이다 
+		1. unique : 유니크(중복방지) 제약사항 
+        2. not null : null 값을 허용하지 않는 제약사항
+		3. primary key(=기본키) : unique + not null 제약을 지정 => 중복도 안되고 null값도 허용하지 않는다
+        4. foreign key(=참조키) : 타 테이블을 참조하기 위한 제약사항 => 데이터타입에 표시될때는 multiple 로 나온다
+		5. default : 디폴트로 저장되는 데이터를 정의하는 제약사항
+        
+	사용형식 : 1) create table + 제약사항
+			 2) alter table + 제약사항
+*/
+-- db의 스키마구조를 통해 각 테이블의 제약사항을 확인하기
+-- information_schema.table_constraints
+select * from information_schema.table_constraints
+	where table_name = 'employee';
+desc employee;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
