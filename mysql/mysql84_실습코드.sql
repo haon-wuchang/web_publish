@@ -830,33 +830,86 @@ insert into dept(loc,dept_id,dept_name)
 	사용형식 : 1) create table + 제약사항
 			 2) alter table + 제약사항
 */
--- db의 스키마구조를 통해 각 테이블의 제약사항을 확인하기
--- information_schema.table_constraints
+-- db의 스키마구조를 통해 각 테이블의 제약사항을 확인하는 명령어
+-- select * from information_schema.table_constraints;
+	-- 이떄 not null 의 제약사항은 확인되지 않는다
+
 select * from information_schema.table_constraints
 	where table_name = 'employee';
 desc employee;
+show tables;
+desc emp;
+-- emp_const 테이블 생성
+	-- emp_id -기본키제약, emp_name -유니크제약, hire_date, salary -not null 제약
+create table emp_const(
+	emp_id char(4) primary key,
+    emp_name varchar(10) unique,
+    hire_date datetime,
+    salary int not null
+);
+show tables;
+desc emp_const;
+select * from information_schema.table_constraints
+	where table_name = 'emp_const';
+-- emp_const 에 데이터 추가
+-- 	S001, 홍길동,현재날짜,1000
+insert into emp_const values('S001','홍길동',now(),1000);
+select * from emp_const;
 
+-- insert into emp_const values('S001','이삐묵',now(),1000); 
+-- > Error Code: 1062. Duplicate entry 'S001' for key 'emp_const.PRIMARY'
+-- emp_id 는 primary key 라서 무결성 원칙에 위배가 되서 에러가 발생하였다
+-- => primary key 로 설정되어있는 컬럼은 입력폼에서 아이디중복체크 기능을 통해 확인이 가능하다
+-- 해결방법 : null 또는 중복된 값을 제외하고 입력
+insert into emp_const values('S002','이삐묵',now(),1000); 
+select * from emp_const;
 
+-- insert into emp_const values(null,'이춘배',now(),1000); 
+-- >Error Code: 1048. Column 'emp_id' cannot be null
+-- emp_id 는 primary key 라서 null 값이 들어갈 수 없다
+-- 해결방법 : null 또는 중복된 값을 제외하고 입력
+insert into emp_const values('S003','이춘배',now(),1000); 
+select * from emp_const;
 
+-- insert into emp_const values('S004','이춘배',now(),1000); 
+-- Error Code: 1062. Duplicate entry '이춘배' for key 'emp_const.emp_name'	
+-- 이춘배의 이름이 중복되어서 에러가 발생하였다
+insert into emp_const values('S004','이나비',now(),1000); 
+select * from emp_const;
 
+-- emp_name 에 null 값 추가
+desc emp_const;
+insert into emp_const values('S005',null,now(),2000); 
+select * from emp_const;
+-- emp_name 에 null 값 하나 더 추가
+insert into emp_const values('S006',null,now(),2000); 
+select * from emp_const; -- 오라클에서는 null 이 두개이상이면 에러가 발생한다 (null 중복)
 
+-- insert into emp_const values('S007','무구삐',now(),null); 
+-- > Error Code: 1048. Column 'salary' cannot be null	
+-- salary 에는 not null 제약사항이 있기때문에 null 을 넣어서 에러 발생
+insert into emp_const values('S007','무구삐',now(),9000); 
+select * from emp_const;
 
+select * from information_schema.table_constraints
+	where table_name = 'emp_const';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- emp_const2 테이블 생성
+-- emp_id =primary key , emp_name =unique;
+create table emp_const2(
+	emp_id char(4), 
+    emp_name varchar(10),
+	constraint pk_emp_id primary key(emp_id),
+	constraint uk_emp_name unique(emp_name)
+);
+/*select * from information_schema.table_constraints; 를 했을때 
+constraint_name 이 primary, 이렇게 나오면 이게 어떤 컬럼리스트인지 모르니까
+	형식 : constraint 설정할constraint이름 제약사항(해당컬럼명)  이렇게 하면 해당 설정한이름으로 출력이된다
+    ( 근데 primary 는 이름바꿔도 그대로 primary 로 나옴, 다른애들은 다 잘나온다)
+*/
+desc emp_const2;
+select * from information_schema.table_constraints
+	where table_name = 'emp_const2';
 
 
 
