@@ -746,6 +746,69 @@ select emp_id 사원아이디,emp_name 사원명,hire_date 입사일,salary 연�
 show tables;
 select * from employee_hrd;
 
+/*
+	DML : insert(C), select(R), update(U), delete(D)
+    
+    1. insert : 데이터 추가
+    형식 : insert into 테이블명(컬럼리스트)
+				values(추가되는데이터리스트 ...);
+		컬럼리스트랑 추가되는데이터의 순서는 맞춰야 한다!! ( 아이디컬럼에 이름적고 그러면 안댕)
+        	-- 컬럼리스트 생략 시 해당테이블 생성 시의 컬럼의 순서대로 데이터입력이 진행된다 (desc 로 검색해서 나오는게 생성할때의 순서임)
+
+*/
+show tables;
+desc emp;
+select * from emp;
+-- emp 테이블에 데이터 추가 S001,사필안,현재날짜,1000
+insert into emp(emp_id,emp_name,hire_date,salary)
+	values('S001','사필안',curdate(),1000);
+select * from emp;
+-- emp 테이블에 데이터 추가 S002,홍길동,현재날짜,2000
+insert into emp(emp_id,emp_name,hire_date,salary)
+	values('S002','홍길동',now(),2000);
+select * from emp;
+-- emp 테이블에 데이터 추가 S003,범무구,현재날짜,3000
+	-- 컬럼리스트 생략하여 진행
+desc emp;
+insert into emp values('S003','범무구',now(),3000);
+select * from emp;
+-- emp 테이블에 데이터 추가 S004,이삐란,현재날짜(now,sysdate),연봉협상x
+desc emp; -- 로 salary 에 null 이 들어갈수잇는지 확인한다
+insert into emp(emp_id,emp_name,hire_date,salary) 
+	values('S004','이삐란',now(),null);
+select * from emp;
+
+-- employee 테이블의 정보시스템부서의 사원들이며 2016년 이전에 입사한 사원들 정보 중
+-- 사원아이디,사원명,입사일,부서아이디,연봉을 복제하여,
+-- employee_sys 테이블을 생성하라
+create table employee_sys
+as
+select emp_id 사원아이디,emp_name 사원명,hire_date 입사일,dept_id 부서아이디,salary 연봉
+	from employee where dept_id='SYS' and left(hire_date,4)<'2016';
+show tables;
+select * from employee_sys;
+-- employee_sys 테이블에 2016년도 이후에 입사한 정보시스템 부서 사원을 추가 하라(서브쿼리를 이용한 데이터추가)
+desc employee_sys;
+insert into employee_sys(사원아이디,사원명,입사일,부서아이디,연봉)
+select emp_id ,emp_name ,hire_date ,dept_id ,salary 
+	from employee 
+    where dept_id='SYS' and left(hire_date,4)>='2016';
+select * from employee_sys;
+
+-- dept 테이블 구조 확인 및 데이터 추가
+desc dept;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
