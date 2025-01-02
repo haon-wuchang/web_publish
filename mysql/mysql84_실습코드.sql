@@ -549,31 +549,165 @@ select if(grouping(left(hire_date,4)),'연도별총합',ifnull(left(hire_date,4)
     group by left(hire_date,4) with rollup;
 -- mysql 에서는 grouping 안에 함수를 넣으면 실행이 안된다 !! 그냥 바로 컬럼리스트를 넣어야됨
 
+-- 1/2 ////////////////////////////////////////////////////////////////////////////
+/*
+	DDL : 테이블 생성, 수정, 삭제 하는 작업
+    명령어 : create(생성) , alter(수정) , drop(제거) , truncate( 얘 함수아님요!! )
 
+	1. 테이블 생성 : create
+		형식 : create table 생성할테이블명 (
+			생성할컬럼명 테이터타입(크기)  제약사항(ex.해당컬럼은 null 이 들어가면안댑니다 등), ...  );
+		 테이블명,컬럼명은 중복되면 안댕
+	
+*/
+show databases;
+use hrdb2019;
+select database();
+show tables;
 
+-- test 테이블 생성 / 제거 작업
+create table test(
+	id char(4) not null
+    );
+show tables;
+desc test;
+select * from test;
+drop table test;
+show tables;
 
+/* 데이터 타입 정리 : 숫자 , 문자 , 날짜(시간)
+	 1. 숫자 데이터타입 
+			(1)정수 : smallint(2), int(), bigint(8) 
+		 		=> 괄호안에 있는 숫자는 2바이트란 뜻임(글자를 최대 2개까지 넣을수있다는거임)
+			(2)실수 : float(4), double(8)
+					=>  소숫점포함4자리 란 뜻
+	2. 문자 : char(크기) ->:고정형, varchar(크기) -> :가변형
+		=> 문자는 크기를 내가 지정할 수 있음
+		고정형 : 메모리에 무조건 내가 준 크기를 고정한다 ( 크기 20 하고 글씨를 2개만 써도 20만큼의 크기를 차지함)
+		가변형 : 최대 20글자까지 저장가능하고 실제 데이터에 따라서 메모리크기가 변경된다
+		가변형은 데이터가 들어갈때 메모리에 크기가 픽스가 되고 고정형은 처음에 크기 지정한 순간부터 메모리에 크기가 고정된다
+		고정형은 크기를 딱 고정해서 쓸때 사용한다(그래서 해당 자릿수 맞춰서 사용해야한다)
+		ex desc employee; 해서 보면 emp_id 는 char(5) 라서 아이디들이 다 5글자씩 맞춰서 사용한거고
+		emp_name 은 varchar라서 사람이름은 5글자도 될수있으니까 고정하면 안대서 varchar 쓴거임
+	3. 텍스트 : text - 긴 문장을 저장하는 데이터타입
+	4. blob 타입 : blob - 큰 바이너리 타입의 데이터를 저장할때 사용 (최대 2기가까지)
+	5. 날짜 : date -년월일 만 저장, datetime- 년월일 시분초 까지 저장
+		-> 데이터 타입에 맞는 날짜 함수를 사용하여야한다 (datetime 쓰고 curdate쓰면 시분초밖에 안나옴용)
+ */               
+desc employee;
+-- db 에서는 스네이크타입만 사용가능(카멜케이스 노노)
+select * from employee;
 
+-- emp 테이블 생성
+-- 컬럼리스트 : emp_id 고정형(4), emp_name 가변형(10), hire_date 날짜/시간, salary 정수(5)
+create table emp (
+	emp_id char(4), 
+    emp_name varchar(10),
+    hire_date datetime,
+    salary int(5)
+);
+show tables;
+desc emp;
 
+desc department;
+-- dept 테이블 생성 : dept_id 고정형3, dept_name 가변형10, loc 가변형20
+create table dept(
+	dept_id char(3), dept_name varchar(10), loc varchar(20)
+);
+show tables;
+desc dept;
+-- emp, dept 테이블의 모든 데이터 조회
+select * from emp;
+select * from dept;
 
+/*
+	2. 테이블 생성(복제) : create table as select => cas 라고 줄여서 부른다
+    -- 물리적으로 메모리에 생성이된다.
+    -- 복제할때 기본key,참조key 등의 제약사항은 복제가 안된다, 따라서 복제 후 alter table 명령어로 제약사항을 추가해야한다
+    형식 : create table 생성(복제)할테이블명 
+			as 
+			select 컬럼리스트 from 테이블명 (where) ;
+	명령어 쓸때 select 로 값 잘 가져온느지 확인하고 create 하면댐
+*/
+-- 정보시스템 부서의 사원들만 별도로 테이블 복제하기
+	-- 테이블명 : employee_sys
+create table employee_sys 
+	as
+    select * from employee where dept_id='SYS';
 
+show tables;
+desc employee_sys;
+select * from employee_sys;
+desc employee;
 
+-- 퇴직한 사원들을 복제하여 employee_retire 테이블로 관리
+create table employee_retire
+as
+select * from employee where retire_date is not null;
+show tables;
+select * from employee_retire;
 
+-- 2015년,2017년 입사자들을 복제하여 관리
+	-- 테이블명 : employee_2015_2017
+create table employee_2015_2017
+as
+select * from employee 
+	where left(hire_date,4)= '2015'or left(hire_date,4)= '2017';
+select * from employee_2015_2017;
 
+/*
+	3. 테이블 제거 : drop
+		형식 : drop table 제거할테이블명;
+        명령즉시 메모리에서 바로 테이블을 삭제하므로 주의! -> 복원불가
+*/
+show tables;
+-- employee_2015_2017 테이블 제거
+drop table employee_2015_2017;
+-- drop 하면 메모리에서 실제로 삭제가 된다 !!! 그래서 mysql-command 들어가서 봐도 삭제된걸 확인할수잇다
+-- DDL 명령어는 바로바로 적용이된다.
 
+-- employee_retire 테이블 제거
+drop table employee_retire;
+show tables;
 
+-- 재직중인 사원테이블 복제 employee_working
+create table employee_working
+	as
+	select * from employee where retire_date is null;
+show tables;
+select * from employee_working;
 
+/*  제거 = 복구불가능, 삭제 = 가능한듯
+	 4. 테이블의 데이터만 제거 : truncate
+		형식 : truncate table 데이터를가진테이블명;
+      명령즉시 메모리에서 바로 테이블의 데이터 모두 제거하므로 주의!
+*/
+show tables;
+select * from employee_working;
+-- employee_working 테이블의 모든 데이터(row)를 제거하기
+truncate table employee_working;
+show tables;
+select * from employee_working;
 
-
-
-
-
-
--- SQL-d  도 나아아아중에 정말 할거 다 했을때 하렴
-
-
-
-
-
-
-
+/* 
+	 5. 테이블 구조 변경 : alter
+		형식 : alter table 변경할테이블명 
+			1) 컬럼 추가 : add column 추가할컬럼명 데이터타입(크기) 제약사항;
+			2) 컬럼명 변경 : modify column 변경할컬럼명 데이터타입(크기) 제약사항;
+			3) 컬럼 삭제 : drop column 삭제할컬럼명;
+*/
+show tables;
+select * from employee_working;
+-- 테이블안에 데이터가 없는경우에는 컬럼추가,컬럼명변경,컬럼삭제 할때 주의사항이 없다
+-- 근데 데이터가 잇다면 emp_id 가 char(5) 인데 내가 맘대로 char(2) 이렇게 바꿀수 없다!
+-- 모든 데이터베이스에서는 데이터의 크기를 늘리는것은 허용되지만 줄이는것은 안된다 !!!!!
+desc employee_working;
+-- employee_working 테이블에 bonus 컬럼 추가 , 데이터타입 : 정수형 4자리 , null 값 허용 
+alter table employee_working 
+	add column bonus int(4);
+desc employee_working;
+-- employee_working 테이블에 dname 컬럼 추가 , 데이터타입 : 가변형 10 null 값 허용
+alter table employee_working
+	add column dname varchar(10);
+desc employee_working;
 
