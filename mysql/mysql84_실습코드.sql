@@ -694,11 +694,11 @@ select * from employee_working;
 		형식 : alter table 변경할테이블명 
 			1) 컬럼 추가 : add column 추가할컬럼명 데이터타입(크기) 제약사항;
 			2) 컬럼명 변경 : modify column 변경할컬럼명 데이터타입(크기) 제약사항;
-			3) 컬럼 삭제 : drop column 삭제할컬럼명;
+			3) 컬럼 삭제 : drop column 삭제할컬럼명; => 삭제할때는 한번에 하나의 컬럼만 삭제된다 , , 쓴다고 여려개삭제안댐
 */
 show tables;
 select * from employee_working;
--- 테이블안에 데이터가 없는경우에는 컬럼추가,컬럼명변경,컬럼삭제 할때 주의사항이 없다
+-- 테이블안에 데이터가 없는경우에는 컬럼추가,컬럼명변경,컬럼삭제 가 자유롭다
 -- 근데 데이터가 잇다면 emp_id 가 char(5) 인데 내가 맘대로 char(2) 이렇게 바꿀수 없다!
 -- 모든 데이터베이스에서는 데이터의 크기를 늘리는것은 허용되지만 줄이는것은 안된다 !!!!!
 desc employee_working;
@@ -710,4 +710,43 @@ desc employee_working;
 alter table employee_working
 	add column dname varchar(10);
 desc employee_working;
+-- employee_working 테이블의 email컬럼의 크기를 30으로 수정
+alter table employee_working 
+	modify column email varchar(30);
+desc employee_working;
+-- employee_working 테이블의 salary 컬럼을 실수타입(더블)로 수정
+alter table employee_working
+	modify column salary double;
+desc employee_working;
+
+-- employee_sys 테이블의 email 컬럼의 크기를 가변형10 으로 수정
+alter table employee_sys
+	modify column email varchar(10);
+	-- > 크기를 줄였을때 1개의 데이터가 유실될가능성이 있으므로 에러가 발생하였다
+desc employee_sys;
+select count(*) from employee_sys;
+
+-- employee_working 테이블의 bonus,dname 컬럼 삭제
+alter table employee_working
+	drop column bonus;
+desc employee_working;
+alter table employee_working
+	drop column dname;
+-- employee_working 테이블 제거
+drop table employee_working;
+show tables;
+
+-- employee 테이블에서 hrd 부서의 속한 사원들의 사원아이디,사원명,입사일,연봉,보너스(연봉*0.1) 정보를 
+-- 별칭을 사용하여 조회한 후 , employee_hrd 이름으로 복제하라
+create table employee_hrd
+as
+select emp_id 사원아이디,emp_name 사원명,hire_date 입사일,salary 연봉,salary*0.1 보너스 
+	from employee
+    where dept_id='HRD';
+show tables;
+select * from employee_hrd;
+
+
+
+
 
