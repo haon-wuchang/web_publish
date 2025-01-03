@@ -173,8 +173,6 @@
 -- 입사년도 별 평균연봉을 조회 (연봉이 정해지지않은 부서는 포함하지 않음, 평균연봉이 6000 이상인 입사년도만 출력)
 	-- 리포팅함수 사용, '연도별 총합계' 컬럼명 추가
 
--- test 테이블 생성 / 제거 작업
-
 -- emp 테이블 생성
 -- 컬럼리스트 : emp_id 고정형(4), emp_name 가변형(10), hire_date 날짜/시간, salary 정수(5)
 
@@ -201,8 +199,6 @@
 -- employee_working 테이블의 email컬럼의 크기를 30으로 수정
 
 -- employee_working 테이블의 salary 컬럼을 실수타입(더블)로 수정
-
--- employee_sys 테이블의 email 컬럼의 크기를 가변형10 으로 수정
 
 -- employee_working 테이블의 bonus,dname 컬럼 삭제
 
@@ -231,15 +227,10 @@
     -- acc, 회계, 정해지지않음
 
 -- emp_const 테이블 생성
-	-- emp_id -기본키제약, emp_name -유니크제약, hire_date, salary -not null 제약
+	-- emp_id char4-기본키제약, emp_name varchar10-유니크제약, hire_date date, salary int-not null 제약
     
 -- emp_const 에 데이터 추가
 	-- 	S001, 홍길동,현재날짜,1000
-
--- emp_const emp_name 에 null 값 추가
-
--- emp_const2 테이블 생성
-	-- emp_id =primary key , emp_name =unique;
 
 -- 제약사항 테스트를 위한 테이블 생성 : const_test
 	-- 컬럼명: UID char4 기본키제약 , name varchar10 not null, 
@@ -292,8 +283,6 @@
 
 
 
-
-select * from information_schema.table_constraints;
 
 
 
