@@ -825,7 +825,8 @@ insert into dept(loc,dept_id,dept_name)
         2. not null : null 값을 허용하지 않는 제약사항
 		3. primary key(=기본키) : unique + not null 제약을 지정 => 중복도 안되고 null값도 허용하지 않는다
         4. foreign key(=참조키) : 타 테이블을 참조하기 위한 제약사항 => 데이터타입에 표시될때는 multiple 로 나온다
-		5. default : 디폴트로 저장되는 데이터를 정의하는 제약사항
+		5. default('지정할디폴트값') : 디폴트로 저장되는 데이터를 정의하는 제약사항
+        6. check(체크할컬럼명>=조건) : check 제약
         
 	사용형식 : 1) create table + 제약사항
 			 2) alter table + 제약사항
@@ -910,6 +911,209 @@ constraint_name 이 primary, 이렇게 나오면 이게 어떤 컬럼리스트�
 desc emp_const2;
 select * from information_schema.table_constraints
 	where table_name = 'emp_const2';
+
+-- 제약사항 테스트를 위한 테이블 생성 : const_test
+-- 컬럼명: UID char4 기본키제약 , name varchar10 not null, 
+--  	age int null허용, addr varchar30 null 허용
+show databases;
+use hrdb2019;
+select database();
+show tables;
+
+create table const_test(
+	UID char(4) primary key,
+    NAME varchar(10) not null,
+    AGE int ,
+    ADDR varchar(30)
+);
+desc const_test;
+select *
+	from information_schema.table_constraints
+    where table_name = 'const_test';
+
+-- const_test테이블에 dept_id 컬럼을 추가 => char(3) 디폴트제약, 기본값은 'HRD' 
+alter table const_test
+	add column DEPT_ID char(3) default('HRD'); -- insert 할때 DEPT_ID 컬럼에 값을 안넣으면 기본값으로 hrd 가 들어간다는거임
+desc const_test;
+
+-- S001, 홍길동, 20 , 서울시 , SYS부서 insert 작업을 해라
+insert into const_test 
+	values('S001', '홍길동', 20 , '서울시' , 'SYS');
+select * from const_test;
+-- S002, 범무구, 20 , 중국 , HRD부서 insert 작업을 해라(HRD 는 디폴트로 줘서 입력안해도 알아서 들어감 근데 제약사항에 not null이면 에러뜬다
+insert into const_test(UID,NAME,AGE,ADDR)
+	values('S003', '범무구', 20 , '중국');
+-- const_test에 salary컬럼을 추가 : int : 연봉이 3000이상인 숫자만 등록되게 체크=>check제약
+alter table const_test
+	add column salary int check(salary>=3000);
+    -- 기존에 입력된 애들이 3명잇자나 그래서 salary에 not null 안쓴거임
+    -- not null 쓰게되면 기존에 작성된애들이 에러가 뜬다.
+    -- 따라서 기존에 데이터가 있고 새로운 컬럼을 추가할때는 우선 null 허용상태로 만들고 나중에 수정을 해야된다고한다
+desc const_test;
+select * from const_test;
+-- S004, 이삐묵, 5 , 서울시 , HRD부서,3000  insert 작업을 해라
+insert into const_test(UID,NAME,AGE,ADDR,SALARY)
+	values('S004', '이삐묵', 5 , '서울시' , 3000);
+select * from const_test;
+
+-- 상품테이블 생성 product_test
+-- 컬럼 : PID INT PRIMARY KEY, PNAME VARCHAR(30) NOT NULL, PRICE INT NULL허용, COMPANY VARCHAR(20) NULL 허용
+-- !!!!!!!!auto_increment 사용 => 기본키에 적용하라 ( 오라클에서는 sequence 이다) !!!!!!!!!!!!!!
+create table product_test(
+PID int primary key auto_increment,  -- auto_increment : 자동으로 번호 생성(정수로 번호가 생성된다) ,따라서 데이터타입도 정수로 설정해야한다
+PNAME varchar(30) not null,
+PRICE int,
+COMPANY varchar(20)
+);
+show tables;
+desc product_test;
+-- PID는 오토로 넣어서 insert할때 생략이 가능하다
+-- 키보드, 100, 삼성 데이터를 insert 하라
+insert into product_test(PNAME,PRICE,COMPANY)
+	values('모니터',1000,'LG');
+select * from product_test;
+
+/*
+	2. update(U) : 데이터 수정
+    형식 : update 테이블명 set 컬럼명 ='수정할데이터',... 
+			where 조건절;
+		where 에는 수정하려는데이터 조건을 지정해야한다(조건지정안하면 해당컬럼명에있는모든데이터에 데이터수정내용이 반영된다)
+*/
+select * from const_test;
+-- const_test 테이블의 홍길동 사원의 연봉을 업데이트 하라 3500
+update const_test 
+	set salary = 3500
+    where uid='S001'; -- 홍길동을 선택할때 유니크한 값으로 조건절을 지정해야한다 이름으로 하면 안댕(동명이인)
+select * from const_test;
+
+-- 사필안의 연봉을 5000 으로 업데이트 진행
+update const_test
+	set salary = 5000
+    where uid='S002';
+select * from const_test;
+
+show tables;
+-- employee 테이블을 복제하여 cp_employee 테이블을 생성하라
+-- cp_employee 에 제약사항추가
+create table cp_employee
+	as
+	select * from employee;
+show tables;
+select * from cp_employee;
+desc cp_employee;
+desc employee;
+-- 복제한 테이블의 emp_id 컬럼에 기본키제약 추가 ( 추가하기전에 해당컬럼에 빈값이나, 중복값이 있는지 확인을 해야한다)
+alter table cp_employee 
+   
+	add constraint pk_emp_id primary key(emp_id);
+desc cp_employee;
+select * from information_schema.table_constraints
+	where table_name ='cp_employee';
+
+-- cp_employee phone,email 에 유니크제약추가
+alter table cp_employee
+	add constraint uk_phone unique(phone);
+alter table cp_employee
+	add constraint uk_email unique(email);
+desc cp_employee;
+
+-- 제약 삭제
+-- cp_employee 테이블의 폰에 추가된 제약사항 삭제 (제약명으로 삭제하면된다)
+desc cp_employee;
+select * from information_schema.table_constraints
+	where table_name ='cp_employee';
+alter table cp_employee
+	drop constraint uk_phone;
+desc cp_employee;
+
+--   cp_employeesys인 부서아이디를 '정보' 로 수정
+update cp_employee
+	set dept_id='정보'
+	where dept_id = 'SYS';
+	
+--  cp_employee2016년도에 입사한 사원들의 입사일 -> 현재날짜로 수정
+-- desc 로 데이터타입 확인하고 date 면 curdate 로 하고 datetime 이면 now 나 sysdate를 사용한다
+update cp_employee
+	set hire_date = curdate()
+    where left(hire_date,4) = '2016';
+
+-- safe update mode 설정변경  해제=0 설정=1
+set sql_safe_updates = 0 ;
+
+select * from cp_employee;
+
+--  cp_employee강우동 사원의 영어이름을 kang 로 수정, 입사일을 현재 날짜로 수정, 부서는 sys 로 수정
+update cp_employee
+	set eng_name = 'kang', hire_date = curdate(), dept_id = 'SYS'
+    where emp_name = '강우동';
+select * from cp_employee;
+
+/*
+	3. delete : 데이터 한줄 싹 삭제
+	형식 : delete from 테이블명 where 조건절 ;
+	- 트랜잭션 관리법에 따라 삭제된 데이터를 복원할 수 있다 (auto commit 상태에서는 불가능하다)
+*/
+commit;   -- 현재까지 진행한 모든 작업을 db 에 반영함
+-- 이 밑에부터는 새로 시작함
+select * from cp_employee;
+--  cp_employee강우동 사원 삭제
+delete from cp_employee 
+	where emp_id = 'S0003';
+
+use hrdb2019;
+select database();
+select * from cp_employee;
+
+--  cp_employee김삼순 삭제
+commit;
+delete from cp_employee
+	where emp_id='S0004';
+rollback;  -- 롤백은 commit 한 부분 밑에서부터 롤백치기 전까지의 내용을 롤백한다
+
+-- 프로그램 개발을 통해 실시간 접속시에는 auto commit 으로 실행됨 --
+-- 
+
+show databases;
+use hrdb2019;
+select database();
+select * from cp_employee;
+--  cp_employee연봉이 7000 이상인 사원 삭제
+delete from cp_employee where salary>=7000;
+set sql_safe_updates = 0;
+select * from cp_employee;
+
+-- cp_employee  정보시스템부서 직원들 모두 삭제
+delete from cp_employee
+	where dept_id = '정보';
+select count(*) from cp_employee where dept_id = '정보';
+--  cp_employee 2017년 이후 입사자들 모두 삭제 (터미널이용)
+ select count(*) from cp_employee where left(hire_date,4)>'2017';
+
+show tables;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

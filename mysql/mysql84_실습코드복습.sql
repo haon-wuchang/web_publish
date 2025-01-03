@@ -28,6 +28,8 @@
 -- 014)사원테이블에서 입사일이 2014년 8월 1일인 모든 사원 조회하라 
 
 -- 015)연봉이 5000인 사원 정보 조회
+-- 복습할때는 cmder 이나 다른 터미널에서 하기 !!
+
 
 -- 016)사원테이블에서 eng_name 이 null 인 모든사원정보를 조회하라
 
@@ -161,15 +163,137 @@
 
 -- 부서별 총 연봉을 조회( 연봉이 정해지지않은 부서는 포함하지 않음)
 
-show tables;
 -- 사원들의 휴가 사용 내역 조회
-select * from vacation;
 
 -- 사원아이디별 휴가상신횟수, 총휴가사용일 조회 , 총휴가사용일을 기준으로 내림차순 정렬하라
 
 -- 2016~2017 년도 사이에 사원아이디별 휴가사용 횟수 조회
 	-- 리포팅함수 사용, '사원별휴가사용총합' 컬럼명 추가
 
+-- 입사년도 별 평균연봉을 조회 (연봉이 정해지지않은 부서는 포함하지 않음, 평균연봉이 6000 이상인 입사년도만 출력)
+	-- 리포팅함수 사용, '연도별 총합계' 컬럼명 추가
+
+-- test 테이블 생성 / 제거 작업
+
+-- emp 테이블 생성
+-- 컬럼리스트 : emp_id 고정형(4), emp_name 가변형(10), hire_date 날짜/시간, salary 정수(5)
+
+-- dept 테이블 생성 : dept_id 고정형3, dept_name 가변형10, loc 가변형20
+
+-- 정보시스템 부서의 사원들만 별도로 테이블 복제하기
+	-- 테이블명 : employee_sys
+
+-- 퇴직한 사원들을 복제하여 employee_retire 테이블로 관리
+
+-- 2015년,2017년 입사자들을 복제하여 관리
+	-- 테이블명 : employee_2015_2017
+
+-- employee_2015_2017 테이블 제거
+
+-- 재직중인 사원테이블 복제 employee_working
+
+-- employee_working 테이블의 모든 데이터(row)를 제거하기
+
+-- employee_working 테이블에 bonus 컬럼 추가 , 데이터타입 : 정수형 4자리 , null 값 허용 
+
+-- employee_working 테이블에 dname 컬럼 추가 , 데이터타입 : 가변형 10 null 값 허용
+
+-- employee_working 테이블의 email컬럼의 크기를 30으로 수정
+
+-- employee_working 테이블의 salary 컬럼을 실수타입(더블)로 수정
+
+-- employee_sys 테이블의 email 컬럼의 크기를 가변형10 으로 수정
+
+-- employee_working 테이블의 bonus,dname 컬럼 삭제
+
+-- employee 테이블에서 hrd 부서의 속한 사원들의 사원아이디,사원명,입사일,연봉,보너스(연봉*0.1) 정보를 
+	-- 별칭을 사용하여 조회한 후 , employee_hrd 이름으로 복제하라
+
+-- emp 테이블에 데이터 추가 S001,사필안,현재날짜,1000
+
+-- emp 테이블에 데이터 추가 S002,홍길동,현재날짜,2000
+
+-- emp 테이블에 데이터 추가 S003,범무구,현재날짜,3000
+	-- 컬럼리스트 생략하여 진행
+
+-- emp 테이블에 데이터 추가 S004,이삐란,현재날짜(now,sysdate),연봉협상x
+
+-- employee 테이블의 정보시스템부서의 사원들이며 2016년 이전에 입사한 사원들 정보 중
+	-- 사원아이디,사원명,입사일,부서아이디,연봉을 복제하여,
+	-- employee_sys 테이블을 생성하라
+
+-- employee_sys 테이블에 2016년도 이후에 입사한 정보시스템 부서 사원을 추가 하라(서브쿼리를 이용한 데이터추가)
+
+-- dept 테이블 구조 확인 및 데이터 추가
+	-- sys, 정보시스템, 서울
+    -- mkt , 마케팅, 뉴욕
+    -- hrd, 인사 ,부산  
+    -- acc, 회계, 정해지지않음
+
+-- emp_const 테이블 생성
+	-- emp_id -기본키제약, emp_name -유니크제약, hire_date, salary -not null 제약
+    
+-- emp_const 에 데이터 추가
+	-- 	S001, 홍길동,현재날짜,1000
+
+-- emp_const emp_name 에 null 값 추가
+
+-- emp_const2 테이블 생성
+	-- emp_id =primary key , emp_name =unique;
+
+-- 제약사항 테스트를 위한 테이블 생성 : const_test
+	-- 컬럼명: UID char4 기본키제약 , name varchar10 not null, 
+	--  	age int null허용, addr varchar30 null 허용
+
+-- const_test테이블에 dept_id 컬럼을 추가 => char(3) 디폴트제약, 기본값은 'HRD' 
+
+--  const_test에 S001, 홍길동, 20 , 서울시 , SYS부서 insert 작업을 해라
+
+-- const_test에 S002, 범무구, 20 , 중국 , HRD부서 insert 작업을 해라(HRD 는 디폴트로 줘서 입력안해도 알아서 들어감 근데 제약사항에 not null이면 에러뜬다
+
+-- const_test에 salary컬럼을 추가 : int : 연봉이 3000이상인 숫자만 등록되게 체크=>check제약
+
+--  const_test S004, 이삐묵, 5 , 서울시 , HRD부서,3000  insert 작업을 해라
+
+-- 상품테이블 생성 product_test
+	-- 컬럼 : PID INT PRIMARY KEY, PNAME VARCHAR(30) NOT NULL, PRICE INT NULL허용, COMPANY VARCHAR(20) NULL 허용
+	-- !!!!!!!!auto_increment 사용 => 기본키에 적용하라
+
+--  product_test 키보드, 100, 삼성 데이터를 insert 하라
+
+-- const_test 테이블의 홍길동 사원의 연봉을 업데이트 하라 3500
+
+--  const_test 사필안의 연봉을 5000 으로 업데이트 진행
+
+-- employee 테이블을 복제하여 cp_employee 테이블을 생성하라
+
+-- cp_employee 테이블의 emp_id 컬럼에 기본키제약 추가 
+
+-- cp_employee phone,email 에 유니크제약추가
+
+-- cp_employee 테이블의 폰에 추가된 제약사항 삭제 (제약명으로 삭제하면된다)
+
+--   cp_employee sys인 부서아이디를 '정보' 로 수정
+	
+--  cp_employee 2016년도에 입사한 사원들의 입사일 -> 현재날짜로 수정
+
+--  cp_employee 강우동 사원의 영어이름을 kang 로 수정, 입사일을 현재 날짜로 수정, 부서는 sys 로 수정
+
+--  cp_employee 강우동 사원 삭제
+
+--  cp_employee 김삼순 삭제
+
+--  cp_employee연봉이 7000 이상인 사원 삭제
+
+-- cp_employee  정보시스템부서 직원들 모두 삭제
+
+--  cp_employee 2017년 이후 입사자들 모두 삭제 (터미널이용)
+
+
+
+
+
+select * from information_schema.table_constraints;
 
 
 
