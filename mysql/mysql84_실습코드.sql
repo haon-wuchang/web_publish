@@ -1091,17 +1091,172 @@ select count(*) from cp_employee where dept_id = '정보';
 
 show tables;
 
+/*
+	1/6
+	하나 이상의 테이블 생성 및 연결, 조회
+    생성 : create table
+    연결 : foreign key(참조키) 제약 추가
+    조회(select) : join, subquery
+    
+    - 데이터베이스의 테이블 설계과정 : 데이터베이스 모델링
+		-> 데이터 정규화 ->  이 과정을 통해 나오는 결과물 = ERD(entity relationship diagram)
+    
+    테이블을 따로따로 만들고 연결이 필요할때 참조키를 사용한다
+*/
+show databases;
+use hrdb2019;
+select database();
+show tables;
 
+-- ERD 확인 하는 방법 : 메뉴 - 데이터베이스 - reverse engineering
+-- 정규화 : 데이터베이스 저장 효율성을 높이기 위한 방식 ( 예) 데이터 중복배제, 테이블 분리작업...
+-- 반정규화 : 예) 분리된 테이블을 하나로 합치는 방식
+-- erd 만들면 노란키가 기본키 이다
 
+-- 예 ) KK전자의 인사관리시스템 : 사원테이블 생성  => 정규화 진행
+-- 사원테이블의 데이터 : 사원아이디(kid, primary key), 사원명 , 주소 , 입사일 , 연봉, 부서번호 ,부서명, 부서위치 
+	-- 부서번호, 부서명, 부서위치는 중복된 데이터가 많기 때문에 정규화 작업을한다( 사원테이블따로, 부서테이블따로 생성)
+	-- KK_department 부서테이블에는 중복된거 빼고 하나씩만 넣기 (부서번호-기본키, 부서명, 부서위치)
+	-- KK_employee 사원테이블 ( 사원아이디, 사원명,주소,입사일,연봉, 부서번호-참조키)
+	-- 부서에 사원이 포함되어있으니까 부서테이블의 부서아이디를 기본키로 추고 이 부서아이디를 사원테이블에서 참조한다(참조키)
+		-- > 부서테이블부터 만들고나서 사원테이블을 만들어야한다 ( 부서테이블의 부서아이디를 사원테이블이 참조하니까)
+create table KK_department(
+dept_id char(3) primary key, dept_name varchar(10) not null, loc varchar(30)
+);
+show tables;
+desc KK_department;
 
+insert into KK_department values('ACC','회계관리','서울시 강남구');
+select * from KK_department;
 
+create table KK_employee(
+kid int primary key auto_increment , kname varchar(10) not null,
+address varchar(30) , hire_date date, salary int , dept_id char(3) ,
+constraint FK_KK_employee foreign key(dept_id) references KK_department(dept_id)
+) ;
+	-- constraint 한거는 얘 cosntraint_name 바꾸려고 쓴거임
+	-- foreign key는 기본키와 컬럼명은 달라도되는데 데이터타입은 똑같아야한다 references에 참조할 기본키의테이블명(참조할컬럼명) 을 넣어야한다
+	-- foreign key(해당테이블에서 참조키를 사용할 컬럼명)
+desc KK_employee;
+select * from information_schema.table_constraints
+	where table_name like 'KK%';
+select * from KK_employee;
 
+insert into KK_employee(kname,address,hire_date,salary,dept_id) 
+-- 참조하는 dept_id 는 부서테이블에있는 데이터값만 넣을수있다('ABC' 이런거 내맘대로 넣으면안댕 먼저 부서테이블에 추가하고 나서 사원테이블에 넣어야한다)
+	values('스미스','뉴욕','2019-01-01',9000,'HRD');
 
+/*
+	학사관리 시스템 설계
+    1. 과목테이블 subject
+    - sid(과목번호)- 기본키 자동생성, sname(과목명)- 널허용안함, sdate(과목등록일)- 년월일시분초
+    
+    2. 학생테이블 student
+    - 반드시 하나이상의 과목을 수강해야한다
+    - stid(학생번호)- 기본키 자동생성, sname(학생명)- 널허용안함, gender(성별)- 문자1자 널허용안함,
+    - sid(과목번호),stdate(등록일)- 년월일시분초
+    
+    3. 교수테이블 professor
+    - 교수테이블은 반드시 하나이상의 과목을 강의해야한다
+    - pid(교수아이디)- 기본키 자동생성, pname(교수명)- 널허용안함, sid(과목아이디), pdate(등록일자)- 년월일시분초
+*/
+create table subject(
+sid int primary key auto_increment, sname varchar(20), sdate datetime
+);
+desc subject;
 
+create table student(
+stid int primary key auto_increment ,sname varchar(10) not null,
+gender char(1) not null ,sid int , stdate datetime,
+foreign key(sid) references subject(sid)
+);
+desc student;
 
+create table professor(
+pid int primary key auto_increment, pname varchar(10) not null, sid int, pdate datetime,
+foreign key(sid) references subject(sid)
+);
+desc professor;
 
+-- 과목테이블에 데이터 추가
+insert into subject(sname,sdate) values('HTML',now());
+insert into subject(sname,sdate) values('CSS',now());
+insert into subject(sname,sdate) values('JavaScript',now());
+select * from subject;
 
+-- 학생 데이터 추가
+insert into student(sname,gender,sid,stdate) values('이삐란','M',1,now());
+insert into student(sname,gender,sid,stdate) values('범무구','M',2,now());
+insert into student(sname,gender,sid,stdate) values('믿어핑','M',3,now());
+select * from student;
 
+-- 교수데이터 추가
+insert into professor(pname,sid,pdate) values('악교수',2,sysdate());
+insert into professor(pname,sid,pdate) values('멋교수',1,sysdate());
+insert into professor(pname,sid,pdate) values('핑교수',3,sysdate());
+select * from professor;
+
+-- html 과목 조회
+select * from subject where sname = 'HTML';
+
+/*
+	join : 두 개 이상의 테이블을 연동(테이블의 갯수 상관없음 100개도됨)
+		- 두 개 이상의 테이블을 조합하여 집합
+        1. cross(catesian) join(=합집합) : 두 개의 테이블이 독립적으로 생성된 경우, join연결고리가 없는경우에 사용
+			- ex> professor & student =>결과값: professor(3행) * student(4행) =12행 으로 결과가 나오게 된다
+            - => 얘는 되도록 안쓰는게 좋다
+            - 형식 : select 컬럼리스트 from 테이블명1 (as 별칭), 테이블명2 ,... (별칭은 생략가능) where 조건절
+			- 하나의 db 안에 있으면 다 join 이 가능하다
+            -  오라클에서 catesian 조인이라고하고 ansi 에서 cross 조인이라고한다
+		2. inner(equi) join(=교집합) : 두 개의 테이블이 join 연결고리를 통해 연동되어 있을때 사용  !!!!!!!!!!!!!!!!!!!!!!!!!
+			- 형식 : select 컬럼리스트 from 테이블명1 (as 별칭), 테이블명2 ,... (별칭은 생략가능) 
+						where 테이블명1.조인컬럼 = 테이블2.조인컬럼
+							and 기타 추가적인 조건절
+                            (조인컬럼은 기본키,참조키 컬럼 말하는거임) , and 는 있어도되고 없어도됨
+                            조인컬럼 기준으로 오름차순정렬이 자동으로 된다
+                            조인컬럼의 데이터가 동일한애들만 선택해서 조인한다
+                            오라클에서는 equi 조인 이라고 한다
+                            ansi 에서는 innner 조인이다
+    subquery : 
+*/
+ -- 교수테이블과 학생테이블의 cross join
+ select * from professor, student order by pname;
+
+select pid,pname,sid,sname,gender,stdate from professor,student;
+-- 이케하면 에러뜸 왜냐면 sid 는 교수,학생한테 둘다있기때문에 누구의 sid 를 가져올지모르기때문에 에러발생
+select pid,pname,p.sid,sname,gender,stdate from professor p,student s; -- 별칭사용
+-- 따라서 해당테이블.컬럼명 으로 선택하면 된다 => professor.sid
+
+-- professor,student,department 테이블의 모든데이터를 조회하라
+-- 맨처음할일 : ERD 확인하기, 공통된 부분이 없으니 그냥 크로스 조인을 한다
+select count(*) from professor; -- 3
+select count(*) from student; -- 3
+select count(*) from department;  -- 7
+select count(*) from professor,student,department;  -- 63   오라클방식  ( 오라클방식으로 join 많이한다)
+select count(*) from professor 
+			cross join student
+			cross join department;  -- ANSI SQL 방식(SEQUL::MS-SQL) 이게 엔씨 임.. nc인줄
+            
+-- inner join 을 이용해 subject & professor 테이블을 조인하라
+select * from subject s, professor p where s.sid = p.sid ;          
+            
+-- html 과목을 강의하는 모든 교수 조회
+select * from subject, professor where subject.sid = professor.sid and sname='HTML';
+-- ansi sql 방식으로 작성
+select * from subject s inner join professor p
+			on s.sid = p.sid 
+            where sname='HTML';
+            
+ -- 멋교수가 강의하는 과목아이디, 과목명, 교수아이디, 교수명, 교수등록일을 조회하라 (오라클, 앤씨 방식 2가지 다 진행)
+ select s.sid,s.sname,p.pid,p.pname,p.pdate 
+	from subject s,professor p 
+    where s.sid = p.sid and p.pname='멋교수'; -- 그냥 pname 이라고 쓰면 명확하지않을수있으니 p.pname 이렇게 적어도됑 걍 pname 이케 적어도되긴해
+select s.sid,sname,pid,pname,pdate 
+	from subject s inner join professor p on s.sid=p.sid 
+    where p.pname='멋교수';
+            
+-- html 과목을 수강하는 모든 학생 조회 
+-- html 과목을 수강하는 모든학생과 강의하는 모든 교수 조회
 
 
 
