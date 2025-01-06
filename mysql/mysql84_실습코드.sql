@@ -1115,11 +1115,6 @@ show tables;
 
 -- 예 ) KK전자의 인사관리시스템 : 사원테이블 생성  => 정규화 진행
 -- 사원테이블의 데이터 : 사원아이디(kid, primary key), 사원명 , 주소 , 입사일 , 연봉, 부서번호 ,부서명, 부서위치 
-	-- 부서번호, 부서명, 부서위치는 중복된 데이터가 많기 때문에 정규화 작업을한다( 사원테이블따로, 부서테이블따로 생성)
-	-- KK_department 부서테이블에는 중복된거 빼고 하나씩만 넣기 (부서번호-기본키, 부서명, 부서위치)
-	-- KK_employee 사원테이블 ( 사원아이디, 사원명,주소,입사일,연봉, 부서번호-참조키)
-	-- 부서에 사원이 포함되어있으니까 부서테이블의 부서아이디를 기본키로 추고 이 부서아이디를 사원테이블에서 참조한다(참조키)
-		-- > 부서테이블부터 만들고나서 사원테이블을 만들어야한다 ( 부서테이블의 부서아이디를 사원테이블이 참조하니까)
 create table KK_department(
 dept_id char(3) primary key, dept_name varchar(10) not null, loc varchar(30)
 );
@@ -1255,8 +1250,52 @@ select s.sid,sname,pid,pname,pdate
 	from subject s inner join professor p on s.sid=p.sid 
     where p.pname='멋교수';
             
--- html 과목을 수강하는 모든 학생 조회 
--- html 과목을 수강하는 모든학생과 강의하는 모든 교수 조회
+-- html 과목을 수강하는 모든 학생 조회 ( 오라클, 앤씨 방법 둘 다 사용해서 조회)
+select * 
+	from subject su, student st 
+	where su.sid = st.sid and su.sname='HTML';
+select * 
+	from subject inner join student on subject.sid = student.sid 
+	where subject.sname='HTML';
+
+-- html 과목을 수강하는 모든학생과 강의하는 모든 교수 조회 !!!!
+	-- join은 두개 테이블 관계에서만 사용임 
+	-- 그래서 테이블 3개 할때는
+	-- 교수 & 과목 1개조인하고 학생 & 과목 1개조인한다 / 교수 & 학생 하면 cross join 이라 안댐!!!
+select * 
+	from subject su , professor p , student st
+    where su.sid = p.sid and su.sid = st.sid and su.sname='HTML';
+-- 내가 쓴 순서대로 조인 결과 나오는거양 subject랑 professor 먼저 만들고 그뒤에 student 꺼 조인하는거임
+
+select *
+	from subject su inner join professor p inner join student st
+		on su.sid=p.sid and su.sid=st.sid where su.sname='HTML';
+
+-- employee , department, vacation, unit 의 테이블 erd 를 참조하여
+-- 모든 사원들의 사원번호,사원명,성별,부서명(dept_name),입사일 을 조회하라
+	-- 사원번호 기준으로 오름차순을 하라
+select emp_id, emp_name, gender, dept_name, hire_date
+from department, employee 
+	where department.dept_id = employee.dept_id
+    order by emp_id;
+
+select emp_id, emp_name, gender, dept_name, hire_date
+	from employee inner join department 
+	on employee.dept_id = department.dept_id
+    order by emp_id;
+
+-- 영업 부서에 속한 사원들의 사원번호,사원명,입사일,연봉,부서명을 조회
+select emp_id,emp_name,hire_date,salary,dept_name
+	from employee e , department d where e.dept_id = d.dept_id
+    and dept_name='영업';
+    
+-- 인사과에 속한 사원들중 휴가를 사용한 사원들의 리스트를 모두 조회
+select * from employee,vacation,department
+	where employee.emp_id = vacation.emp_id 
+    and employee.dept_id = department.dept_id 
+    and dept_name='인사';
+
+
 
 
 
