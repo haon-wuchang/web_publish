@@ -1598,19 +1598,349 @@ select row_number() over(order by vcount desc) no,
 		, employee e
         where e.emp_id = Vcount.emp_id;
         
-		
+	-- 1/8 -----------------------------------------------
+-- [휴가를 사용한 사원정보만 출력] 사원별 휴가사용 일수를 그룹핑하여 
+    -- 사원아이디, 사원명,입사일, 연봉, 휴가사용일수를 조회하라
+    -- 1. 사원별 휴가사용 일수 그룹핑 작업을 수행하는 인라인뷰	
+    select emp_id,sum(duration) Vcount
+		from vacation
+        group by emp_id ;
+
+    -- 2. 인라인뷰와 사원정보테이블을 조인
+      select row_number() over(order by Vcount) no, e.emp_id,emp_name,hire_date,salary,Vcount
+		from employee e, 
+				(select emp_id,sum(duration) Vcount
+					from vacation
+					group by emp_id) v
+		where e.emp_id = v.emp_id;
     
+-- [전체사원의 휴가일수 조회 :  휴가를 사용하지 않은 사원 + 휴가를 사용한 사원 ]
+	-- 사원별 휴가결제횟수,휴가전체사용일수를 그룹핑하여
+	-- 사원아이디,사원명,입사일,연봉,휴가결제횟수,휴가전체사용일수를 조회하라 (outer join 사용 )
+	-- 단. 휴가를 사용하지 않은 사원의 휴가결제횟수,휴가전체사용일수는 0으로 할당하라
+select emp_id, sum(duration) 휴가전체사용일수, count(emp_id) 휴가결제횟수
+    from vacation
+    group by emp_id;
+
+select row_number() over(order by emp_id) no,
+		e.emp_id,
+		emp_name,
+		hire_date,
+		salary,
+		ifnull(휴가전체사용일수,0) 휴가전체사용일수,
+		ifnull(휴가결제횟수,0) 휴가결제횟수
+	from employee e left outer join  -- 전체사원의 휴가일수니까 employee 가 전체 출력 되야함
+						(select emp_id, sum(duration) 휴가전체사용일수, count(emp_id) 휴가결제횟수
+							from vacation
+							group by emp_id) v 
+		on e.emp_id = v.emp_id;
+
+-- 스칼라 서브쿼리 예제
+-- hrd 부서의 사원의 사원아이디,사원명, 부서아이디, 부서명, 본부이름 조회
+select 
+		emp_id, 
+		emp_name, 
+		dept_id ,
+		 (select dept_name 
+			from department
+			where dept_id ='HRD') dept_name,
+		(select unit_name
+			from unit
+			where unit_id = (
+					select unit_id
+						from department
+						where dept_id='HRD'
+						) 
+		)unit_id
+	from employee 
+    where dept_id = 'HRD';
+
+-- 급여 순으로 사원들을 정렬 | 출력번호, 사원아이디, 사원명, 입사일, 부서아이디, 연봉을 조회
+	-- ( 단 상위 5명만 출력하라 ) 
+
+select no,emp_id, emp_name,hire_date,dept_id,salary				
+	from (select row_number() over(order by salary desc) no,  
+		emp_id, 
+		emp_name,
+		hire_date,
+		dept_id,
+		salary
+		from employee) T1
+	where no < 6 ;
+
+-- 입사일이 가장 빠른 사원 10명의 사원아이디,사원명,부서아이디,입사일 조회
+select row_number() over(order by hire_date desc) no, emp_id, emp_name, dept_id,hire_date
+	from employee;
+
+select * -- select 에 * 쓰면 서브쿼리에 있는 거 다 출력한다는거임
+	from (select row_number() over(order by hire_date desc) no, emp_id, 
+					emp_name, dept_id,hire_date
+				from employee) t
+	where no < 11 ;
+
+-- 사원들의 급여합계가 가장 작은 부서의 사원들을 조회
+select * 
+	from employee
+	where dept_id = (select dept_id
+						from (select row_number() over(order by sum(salary)) no, 
+								dept_id , sum(salary) sum
+								from employee
+								where salary is not null
+								group by(dept_id))	 t
+						where no <= 1);
+
+select row_number() over(order by sum(salary)) no, dept_id , sum(salary) sum
+	from employee
+    where salary is not null
+    group by(dept_id);
+
+
+select dept_id
+	from (select row_number() over(order by sum(salary)) no, dept_id , sum(salary) sum
+			from employee
+			where salary is not null
+			group by(dept_id))	 t
+    where no <= 1;
     
+-- -------------------------------------------------------------
+-- self join 을 서브쿼리로 변경해서 사용
+-- 홍길동 사원이 관리하는 모든 사원들의 사원번호,사원명, 입사일, 급여 ,부서아이디, 부서명 조회
+select row_number() over(order by emp_id) no,emp_id, emp_name, hire_date,salary, d.dept_id, dept_name, mgr
+	from department d,(select emp_id, emp_name, hire_date, 
+							salary, dept_id, mgr
+							from emp 
+							where mgr = (select emp_id 	
+											from emp
+											where emp_name = '홍길동')) e
+	where d.dept_id = e.dept_id;
+
+-- hrd 부서를 관리하는 매니저의 사원번호,사원명, 입사일, 급여 ,부서아이디, 부서명 조회
+select  emp_id, emp_name, hire_date, salary, d.dept_id, dept_name, mgr
+	from department d, (select emp_id, emp_name, hire_date, salary, dept_id, mgr
+							from emp
+							where emp_id = (select distinct mgr
+												from emp
+												where dept_id='HRD')) e
+	where d.dept_id = e.dept_id;
+;
+
+-- 매니저가 없는 사원의 사원번호,사원명,입사일,연봉,부서아이디,부서명, 본부 조회 
+-- 1. 방법  얘가 속도가 더 빠름( 집합ㅇ을 작게 만드는게 속도가 빨룸)
+select emp_id,emp_name,hire_date,salary, d.dept_id, dept_name, u.unit_name,mgr  
+	from department d , unit u , 
+		(select emp_id,emp_name,hire_date,salary, dept_id,mgr 
+									from emp 
+									where mgr is null) e
+	where d.unit_id = u.unit_id and  d.dept_id = e.dept_id ;
     
+-- 2. 방법
+select emp_id,emp_name,hire_date,salary, d.dept_id, dept_name, u.unit_name,mgr  
+	from department d , unit u , emp e
+	where d.unit_id = u.unit_id and  d.dept_id = e.dept_id
+		and e.mgr is null;
+        
+	-- 근데 이거 고소해 는 안나오는뎅
+	-- e outer join d inner join u 이케 해야 댈듯
+
+/*
+	쿼리 결과 합치기 : union, union all
+    형식 : 쿼리1 union / union all 쿼리2
+    주의사항 : 쿼리1과 쿼리2의 실행 결과 컬럼리스트가 동일해야 한다
     
-    
-    
-    
-    
-    
+    union all 은 실시간으로 데이터 꺼내올때는 적합하지는 않다 ( 그래도 쓸수는잇엉)
+    union : 각각의 쿼리를 통해 나온 모든 결과를 중복제외하고 합친 후 출력 ( 중복허용x, 전체 데이터를 출력 )
+    union all : 각각의 쿼리를 통해 나온 모든 결과를 중복상관 없이 합친 후 출력 
+     예 ) 쿼리1 실행결과에 홍길동잇음 쿼리2 실행결과에도 홍길동잇음
+		union all 을 하면 홍길동이 2번 나옴
+        union 을 하면 중복제외하고 홍길동 1번 나옴
+*/
+-- HRD 부서의 사원아이디,사원명,부서아이디,연봉
+-- SYS 부서의 사원아이디,사원명,부서아이디,연봉 실행결과를 합치기
+select emp_id,emp_name,dept_id,salary
+	from employee
+    where dept_id = 'HRD'
+union all
+select emp_id,emp_name,dept_id,salary
+	from employee
+    where dept_id = 'SYS';
+
+-- 영업과 정보시스템 부서로 조회
+select emp_id,emp_name,dept_id,salary
+	from employee
+    where dept_id = (select dept_id
+						from department
+						where dept_name ='영업')
+union all
+select emp_id,emp_name,dept_id,salary
+	from employee
+    where dept_id = (select dept_id
+						from department
+						where dept_name= '정보시스템');
+
+-- 2013~2016 년 사이에 입사한 사원과 ,sys 부서의 사원들의 사원아이디,사원명,부서아이디,폰번호, 연봉 조회(union 사용,중복제외)
+select emp_id,emp_name,dept_id,phone,salary,hire_date
+	from employee
+    where left(hire_date,4) between '2013'and '2016'
+union 
+select emp_id,emp_name,dept_id,phone,salary,hire_date
+	from employee
+    where dept_id = 'SYS'
+    order by hire_date;
+
+-- 2013~2015연도별 부서들의 연봉합계가 가장 높은 부서만 조회  
+select row_number() over(order by year) as no ,year, dept_id, salary
+from (
+	select  year, dept_id, salary
+		from (select row_number() over(order by sum(salary) desc) no, 
+						left(hire_date,4) as year,
+						dept_id,
+						sum(salary) salary
+					from employee
+					where left(hire_date,4) = '2013'
+					group by year, dept_id) t
+		where no = 1
+	union
+	select  year, dept_id, salary
+		from (select row_number() over(order by sum(salary) desc) no, 
+						left(hire_date,4) as year,
+						dept_id,
+						sum(salary) salary
+					from employee
+					where left(hire_date,4) = '2014'
+					group by year, dept_id) t
+		where no = 1
+	union
+	select  year, dept_id, salary
+		from (select row_number() over(order by sum(salary) desc) no, 
+						left(hire_date,4) as year,
+						dept_id,
+						sum(salary) salary
+					from employee
+					where left(hire_date,4) = '2015'
+					group by year, dept_id) t
+		where no = 1) t2;
+
+/*
+	view(뷰) : 논리적인 가상의 테이블
+    - sql을 실행하여 생성되는 테이블
+    - 형식 : create view 생성하는view의 이름 
+				as 서브쿼리 / 쿼리
 	
+    - show 명령어는 물리적인 것을 보여준다 | 따라서 show view 는 불가능하다
+	- 전체 view 를 확인 하는 법 
+		select * from information_schema.views;
+	- view 는 sql을 통해 생성되므로 information_schema라는 사전에 등록된다
+    - 내가 만든 뷰는 select * from information_schema.views; 실행 후
+		맨처음 sql 시작할때 선택한 데이터베이스의 이름으로 table_schema 컬럼에서 찾으면 된다
+    - 얘 쓴다고 속도 빨라지는건 아님
+    - 뷰 삭제 : drop view 삭제할view명 ;
+    
+*/ 
+select * from information_schema.views;
 
+-- employee, department, unit 테이블을 조인한 뷰를 생성
+-- 뷰 이름 : view_emp_dept_unit	
+create view view_emp_dept_unit
+	as 
+		select emp_id, emp_name, hire_date, d.dept_id, u.unit_id 	
+			from employee e, department d , unit u
+			where e.dept_id = d.dept_id and d.unit_id = u.unit_id
+			order by e.emp_id;
 
+select * from information_schema.views
+	where table_schema = 'hrdb2019';
+
+-- 이렇게 만든 뷰는 select 로 검색이 가능하다
+select * from view_emp_dept_unit
+	where dept_id = 'SYS';
+
+drop view view_emp_dept_unit;
+
+-- 2013~2015연도별 부서들의 연봉합계가 가장 높은 부서만 조회  (뷰 사용) 뷰이름:view_sum_salary
+create view view_sum_salary
+as
+select row_number() over(order by year) as no ,year, dept_id, salary
+from (
+	select  year, dept_id, salary
+		from (select row_number() over(order by sum(salary) desc) no, 
+						left(hire_date,4) as year,
+						dept_id,
+						sum(salary) salary
+					from employee
+					where left(hire_date,4) = '2013'
+					group by year, dept_id) t
+		where no = 1
+	union
+	select  year, dept_id, salary
+		from (select row_number() over(order by sum(salary) desc) no, 
+						left(hire_date,4) as year,
+						dept_id,
+						sum(salary) salary
+					from employee
+					where left(hire_date,4) = '2014'
+					group by year, dept_id) t
+		where no = 1
+	union
+	select  year, dept_id, salary
+		from (select row_number() over(order by sum(salary) desc) no, 
+						left(hire_date,4) as year,
+						dept_id,
+						sum(salary) salary
+					from employee
+					where left(hire_date,4) = '2015'
+					group by year, dept_id) t
+		where no = 1) t2;
+
+select * from information_schema.views
+	where table_schema ='hrdb2019';
+
+select no, concat(year,'년도') year, dept_id, concat(format(salary,0),'만원') salary
+	from view_sum_salary;
+
+-- 매니저에 따라 각각 관리하는 모든 사원들의 
+-- 사원번호,사원명, 입사일, 급여 ,부서아이디, 부서명 조회하는 쿼리 생성후 뷰로 저장
+-- view 이름 : view_emp_mgr
+create view view_emp_mgr
+	as
+    select 
+		e.emp_id mgr_id, e.emp_name mgr_name, 
+			m.emp_id, m.emp_name, m.dept_id, dept_name
+		from emp e, emp m, department d  -- e 매니저 정보 m 매니저가 관리하는 사원정보
+		where e.emp_id = m.mgr and m.dept_id = d.dept_id
+		order by e.emp_id;       
+        
+-- 홍길동 매니저가 관리하는 사원 조회
+select row_number() over(order by mgr_id) no, 
+	emp_id,emp_name,dept_id,dept_name
+	from view_emp_mgr
+	where mgr_name ='홍길동';
+-- 정주고 매니저가 관리하는 사원 조회
+select row_number() over(order by mgr_id) no,
+	emp_id,emp_name,dept_id,dept_name
+	from view_emp_mgr
+	where mgr_name ='정주고';
+-- 오감자 매니저가 관리하는 사원 조회
+select row_number() over(order by mgr_id) no,
+	emp_id,emp_name,dept_id,dept_name
+	from view_emp_mgr
+	where mgr_name ='오감자';
+
+-- [전체사원의 휴가일수 조회 :  휴가를 사용하지 않은 사원 + 휴가를 사용한 사원 ]
+	-- 사원별 휴가결제횟수,휴가전체사용일수를 그룹핑하여
+	-- 사원아이디,사원명,입사일,연봉,휴가결제횟수,휴가전체사용일수, 부서아이디,부서명,소속본부 를 조회하라 
+	-- 단. 휴가를 사용하지 않은 사원의 휴가결제횟수,휴가전체사용일수는 0으로 할당하라
+    -- 뷰이름 : view_emp_vacation	
+create view view_emp_vacation
+as
+select e.emp_id, emp_name, hire_date,salary, d.dept_id, dept_name, unit_name,
+	ifnull(duration_count,0) duration_count,ifnull(total_duration,0) total_duration
+	from employee e left outer join (select emp_id, count(emp_id) duration_count ,
+										sum(duration) total_duration
+										from vacation group by emp_id) v on e.emp_id = v.emp_id
+		 inner join department d on e.dept_id = d.dept_id 
+         left outer join unit u on d.unit_id = u.unit_id
+         order by emp_id;
+select * from  view_emp_vacation;
 
 
 
