@@ -1422,7 +1422,7 @@ select manager.emp_id, manager.emp_name,  manager.hire_date, manager.salary, dep
 	manager.dept_id,manager.mgr
 	from emp employee , emp manager, department
 	where employee.emp_id = manager.mgr and employee.dept_id = department.dept_id 
-    and manager.mgr='S0001';
+		and manager.mgr='S0001';
     
 -- hrd 부서를 관리하는 매니저의 사원번호,사원명,입사일,연봉,부서아이디,매니저번호, 부서명을 조회
 select distinct -- distinct 중복된데이터를 하나만 출력함
