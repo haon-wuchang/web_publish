@@ -386,8 +386,8 @@ select *
 select  * from emp;
 
 select *
-	from emp e, emp manager
-	where e.emp_id = manager.mgr ; 
+	from emp e , emp manager 
+	where e.emp_id = manager.mgr and manager.mgr='S0001'; 
       
                 
 

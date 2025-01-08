@@ -1211,7 +1211,7 @@ select * from subject where sname = 'HTML';
                             조인컬럼 기준으로 오름차순정렬이 자동으로 된다
                             조인컬럼의 데이터가 동일한애들만 선택해서 조인한다
                             오라클에서는 equi 조인 이라고 한다
-                            ansi 에서는 innner 조인이다
+                            ansi 에서는 inner 조인이다
     subquery : 
 */
  -- 교수테이블과 학생테이블의 cross join
