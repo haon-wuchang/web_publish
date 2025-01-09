@@ -274,7 +274,7 @@ select concat(customer_name,'(', customer_id,')'), gender, city, phone, point
 			from order_header
             where order_date between '2019-01-01'and '2019-06-30'
             group by left(order_date,4), substring(order_date,6,2);
--- Q19) 2019.01 ~ 2019.06 기간 주문에 대하여 주문연도별, 주문월별 전체금액 합과 평균을 조회하세요.
+-- Q19) 2018.01 ~ 2018.06 기간 주문에 대하여 주문연도별, 주문월별 전체금액 합과 평균을 조회하세요.
 	select 
     left(order_date,4) 주문연도별, 
     substring(order_date,6,2) 주문월별,
@@ -284,7 +284,7 @@ select concat(customer_name,'(', customer_id,')'), gender, city, phone, point
         where order_date between '2019-01-01'and '2019-06-30'
         group by left(order_date,4), substring(order_date,6,2);
 -- Q20) 주문연도별, 주문월별 전체금액 합과 평균을 조회하고, rollup 함수를 이용하여 소계와 총계를 출력해주세요.
-	-- > 이거 grouping 안에 함수들어가서 안되지 않나?
+	-- > 주문연도별, 주문월별 전체금액 합 를 가져오는 인라인뷰를 하나 만들고 서브쿼리를 사용한다
 	select
 		left(order_date,4) 주문연도별, 
         substring(order_date,6,2) 주문월별,
@@ -293,32 +293,57 @@ select concat(customer_name,'(', customer_id,')'), gender, city, phone, point
 		from order_header
         group by left(order_date,4), substring(order_date,6,2) with rollup;
 
+desc order_header;
+
+select left(order_date,4) year, 
+		substring(order_date,6,2) month, sum(total_due) 
+	from order_header
+    group by year,month with rollup;
+        
+select if(grouping(year),'년도별총합',ifnull(year,'-')) as year, 
+		if(grouping(month),'월별',ifnull(month,'-')),avg(total_due)
+  from (select left(order_date,4) year, 
+		substring(order_date,6,2) month, sum(total_due) from order_header) t1
+	group by year,month with rollup;
+-- 이거 고쳐바
+
+
 /**
 	테이블 조인
 */
-show databases;
-use myshop2019;
-select database();
-show tables;
--- Q01) 전체금액이 8,500,000 이상인 주문의 주문번호, 고객아이디, 사원번호, 주문일시, 전체금액을 조회하세요.
-	-- customer & order_header(customer_id), employee & order_header(employee_id), 
-	select order_id, c.customer_id, e.employee_id, order_date, total_due
-		from customer c , order_header o , employee e 
-		where c.customer_id = o.customer_id and e.employee_id = o.employee_id and total_due >= 8500000;
-
+-- Q01) 전체금액이 8,500,000 이상인 주문의 주문번호, 고객아이디, 사원번호, 주문수량, 주문일시, 전체금액을 조회하세요.
+	-- customer & order_header(customer_id), employee & order_header(employee_id), order_detail & order_header(order_id)
+	select distinct h.order_id, h.customer_id, h.employee_id, order_date, order_qty, total_due
+		from order_header h , order_detail d
+		where h.order_id = d.order_id
+			and total_due >= 8500000;
+	-- 위 조건을 서브쿼리로 만들기
+    select distinct h.order_id, h.customer_id, h.employee_id, order_date, order_qty, total_due
+		from order_detail d, (
+			select order_id,customer_id,employee_id,order_date,total_due
+				from order_header 
+                where total_due >= 8500000
+        ) h
+        where h.order_id = d.order_id;
+        
 -- Q02) 위에서 작성한 쿼리문을 복사해 붙여 넣은 후 고객이름도 같이 조회되게 수정하세요.
 	select order_id, c.customer_id,customer_name, e.employee_id, order_date, total_due
 		from customer c , order_header o , employee e 
-		where c.customer_id = o.customer_id and e.employee_id = o.employee_id and total_due >= 8500000;
+		where c.customer_id = o.customer_id and e.employee_id = o.employee_id 
+			and total_due >= 8500000;
 
 -- Q03) Q01 쿼리를 복사해 붙여 넣은 후 직원이름도 같이 조회되게 수정하세요.
 	select order_id, c.customer_id, e.employee_id, employee_name,order_date, total_due
 		from customer c , order_header o , employee e 
-		where c.customer_id = o.customer_id and e.employee_id = o.employee_id and total_due >= 8500000;
+		where c.customer_id = o.customer_id and e.employee_id = o.employee_id 
+			and total_due >= 8500000;
+            
 -- Q04) 위에서 작성한 쿼리문을 복사해 붙여 넣은 후 고객이름, 직원이름도 같이 조회되게 수정하세요.
 	select order_id, c.customer_id,customer_name, e.employee_id, employee_name,order_date, total_due
 		from customer c , order_header o , employee e 
-		where c.customer_id = o.customer_id and e.employee_id = o.employee_id and total_due >= 8500000;
+		where c.customer_id = o.customer_id and e.employee_id = o.employee_id 
+			and total_due >= 8500000;
+            
 -- Q05) 위에서 작성한 쿼리문을 복사해 붙여 넣은 후 전체금액이 8,500,000 이상인 '서울' 지역 고객만 조회되게 수정하세요.
 	select order_id, c.customer_id,customer_name, e.employee_id, employee_name,order_date, total_due
 		from customer c , order_header o , employee e 
@@ -330,29 +355,34 @@ show tables;
 		from customer c , order_header o , employee e 
 		where c.customer_id = o.customer_id and e.employee_id = o.employee_id 
 			and total_due >= 8500000 and city='서울' and c.gender = 'M';
+            
 -- Q07) 주문수량이 30개 이상인 주문의 주문번호, 상품코드, 주문수량, 단가, 지불금액을 조회하세요.
 	-- order_detail, order_header(order_id)
     select h.order_id, p.product_id, order_qty, unit_price, total_due 
 		from order_detail d, order_header h , product p 
         where d.order_id = h.order_id and d.product_id = p.product_id and order_qty >= 30;
+        
 -- Q08) 위에서 작성한 쿼리문을 복사해서 붙여 넣은 후 상품이름도 같이 조회되도록 수정하세요.
     select h.order_id, p.product_id, order_qty, unit_price, total_due,product_name
 		from order_detail d, order_header h , product p 
         where d.order_id = h.order_id and d.product_id = p.product_id and order_qty >= 30;
+        
 -- Q09) 상품코드, 상품이름, 소분류아이디를 조회하세요.
-select product_id, product_name, s.sub_category_id
-	from product p , sub_category s , category c
-    where p.sub_category_id  = s.sub_category_id and s.category_id = c.category_id;
+select product_id, product_name, sub_category_id
+	from product p ;
+
 -- Q10) 위에서 작성한 쿼리문을 복사해서 붙여 넣은 후 소분류이름, 대분류아이디가 조회되게 수정하세요.
 select product_id, product_name, s.sub_category_id, sub_category_name, c.category_id
 	from product p , sub_category s , category c
     where p.sub_category_id  = s.sub_category_id and s.category_id = c.category_id;
+    
 -- Q11) 다정한 사원이 2019년에 주문한 상품명을 모두 출력해주세요.
 	-- 사원명, 년도, 상품명 , 주문내역
     select * 
 		from employee e, order_header h, order_detail d, product p 
         where e.employee_id = h.employee_id and d.order_id = h.order_id and p.product_id = d.product_id
 			and employee_name = '다정한' and left(order_date,4)='2019';
+            
 -- Q12) 청소기를 구입한 고객아이디, 사원번호, 주문번호, 주문일시를 조회하세요.
     select *
     from customer c, employee e , order_header h ,order_detail d ,product p
