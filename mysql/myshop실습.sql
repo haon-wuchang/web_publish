@@ -626,6 +626,34 @@ select  left(order_date,4) 주문년도, substring(order_date,6,2) 주문월별,
     group by  left(order_date,4), order_id, substring(order_date,6,2) 
     order by 주문년도;
    
+-- 카테고리 활용 : 서브쿼리 사용
+select * from category;  
+-- 대분류로 가전제품을 선택 후 소분류명 가져오기
+select * from sub_category 
+	where category_id = (
+		select category_id 
+			from category 
+            where category_name = '가전제품'
+    );
+    
+-- 소분류에서 대형 을 선택 후 상품명 가져오기
+select *
+	from product
+    where sub_category_id in (
+			select sub_category_id 
+				from sub_category 
+                where sub_category_name ='대형'
+    );
+
+
+
+
+
+
+
+
+
+
 
 
 
