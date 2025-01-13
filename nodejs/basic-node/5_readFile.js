@@ -24,3 +24,4 @@ fs2.readFile('./readme.txt')
     .catch((error)=>{
         console.log('프로미스 결과=>>','에러발생');
     });
+
