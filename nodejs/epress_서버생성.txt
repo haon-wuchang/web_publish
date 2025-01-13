@@ -1,0 +1,14 @@
+1. 서버역할 폴더 생성 : 예) mkdir express-server
+2. 서버 폴더로 이동 : cd express-server
+3. express 라이브러리 설치 : npm install express
+4. nodemon 라이브러리 설치 : npm install(i) nodemon --save-dev
+
+
+
+express 는 웹 서버 역할 이다
+express웹 서버 : 웹 클라이언트(브라우저)의 요청을 받아서 처리한 후 결과를 전송함
+
+
+
+서버는 해당포트를 띄워두고 클라이언트가 들어올때까지 기다린다
+
