@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import {Route,Routes,BrowerRouter} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Layout from './pages/Layout.jsx';
+import Home from './pages/Home.jsx';
+import Products from './pages/Products.jsx';
+import Carts from './pages/Carts.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 
 export default function App() {
   return (
     <div >
-      <BrowerRouter>
+      <BrowserRouter>
         <Routes>
           <Route path='/'element={<Layout />} >          
             <Route index element={<Home />} /> 
@@ -15,7 +20,7 @@ export default function App() {
             <Route path='/signup' element={<Signup />} /> 
           </Route >
         </Routes>
-      </BrowerRouter>
+      </BrowserRouter>
     </div>
 
   );

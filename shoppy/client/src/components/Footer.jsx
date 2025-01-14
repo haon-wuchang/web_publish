@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Home() {
+export default function Footer() {
     return (
         <div>
-            home 화면 index page
+            footer
         </div>
     );
 }
