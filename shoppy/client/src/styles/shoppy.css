@@ -83,7 +83,7 @@
   */
   .banner {
     /* border: 1px solid blue; */
-    background-image: url("http://localhost:3001/images/banner.jpg");
+    background-image: url("http://localhost:3000/images/banner.jpg");
     width: 1400px;
     height: 400px;
     text-align: center;
@@ -102,14 +102,14 @@
     padding-left: 8rem;
   }
   
-  .product-avata {
+  .product-avatar {
     /* border: 1px solid green; */
     width: 400px;
     height: 480px;
     padding-left: 30px;
   }
   
-  .product-avata img {
+  .product-avatar img {
     width: 300px;
     height: 380px;
   }
