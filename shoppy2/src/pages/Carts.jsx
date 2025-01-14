@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Home() {
+export default function Carts() {
     return (
         <div>
-            <h1>home 화면 index page</h1>
+            <h1>cart</h1>
         </div>
     );
 }
