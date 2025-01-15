@@ -178,3 +178,32 @@
   .footer p {
     margin: 7px 5px;
   }
+
+
+
+.cart{
+  width: 1200px;
+  margin: auto;
+}
+
+.cart-item{
+  display: flex;
+  align-items: center;
+  height: 200px;
+  padding: 10px;
+}
+.cart-item img {
+  height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@ import React from 'react';
 import { RiMastercardLine } from "react-icons/ri";
 import {Link} from 'react-router-dom';
 
-export default function Header() {
+export default function Header({count}) {
     return (
         <div className='header-outer'>
             <div  className='header'>
@@ -12,7 +12,7 @@ export default function Header() {
                 </Link>
                 <nav className='header-right'>
                     <Link to ='/product'>Products</Link>
-                    <Link to ='/cart'>Carts</Link>
+                    <Link to ='/cart'>Carts({count})</Link>
                     <Link to ='/login'>Login</Link>
                     <Link to ='/signup'>Signup</Link>
                 </nav>

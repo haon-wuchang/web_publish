@@ -1,49 +1,49 @@
 [
     {
         "img":"/images/1.webp",
-        "name":"옷",
+        "name":"후드티",
         "id":"1",
         "price":"15000",
-        "info": "옷"
+        "info": "핑크후드티"
     },
     {
         "img":"/images/2.webp",
-        "name":"옷",
+        "name":"후드티",
         "id":"2",
         "price":"15000",
-        "info": "옷"
+        "info": "검정후드티"
     },
     {
         "img":"/images/3.webp",
-        "name":"옷",
+        "name":"투피스",
         "id":"3",
         "price":"15000",
-        "info": "옷"
+        "info": "아이보리상의"
     },
     {
         "img":"/images/4.webp",
-        "name":"옷",
+        "name":"투피스",
         "id":"4",
         "price":"15000",
-        "info": "옷"
+        "info": "아이보리하의"
     },
     {
         "img":"/images/5.webp",
-        "name":"옷",
+        "name":"니트",
         "id":"5",
         "price":"15000",
-        "info": "옷"
+        "info": "스프라이트"
     },
     {
         "img":"/images/6.webp",
-        "name":"옷",
+        "name":"원피스",
         "id":"6",
         "price":"15000",
         "info": "옷"
     },
     {
         "img":"/images/7.webp",
-        "name":"옷",
+        "name":"자켓",
         "id":"7",
         "price":"15000",
         "info": "옷"
