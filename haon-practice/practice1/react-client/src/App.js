@@ -3,6 +3,10 @@ import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Layout from './pages/Layout.jsx';
 import Home from './pages/Home.jsx';
+import Sigol from './pages/Sigol.jsx';
+import CultureIcon from './pages/CultureIcon.jsx';
+import NiceView from './pages/NiceView.jsx';
+import Hanok from './pages/Hanok.jsx';
 
 export default function App() {
   return (
