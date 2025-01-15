@@ -24,7 +24,5 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </div>
-
   );
 }
-// path 를 통해 넘어온느값은 다 리액트가 관리한댕 => 리액트 훅 useParams

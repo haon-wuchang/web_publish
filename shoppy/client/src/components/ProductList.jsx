@@ -22,10 +22,10 @@ export default function ProductList() {
 
     return (
         <div>
-            {rows.map((rowsArray)=>     
-                <div className='product-list'>
+            {rows.map((rowsArray,index)=>     
+                <div key={index} className='product-list'>
                     {rowsArray.map((data) => 
-                        <Link to ={`/products/${data.pid}`}> 
+                        <Link key ={data.pid} to ={`/products/${data.pid}`}> 
                             <ProductAvatar img={data.img}/>
                         </Link>
                     )}
