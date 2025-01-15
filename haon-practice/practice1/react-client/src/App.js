@@ -10,7 +10,10 @@ export default function App() {
         <Routes>
           <Route path='/' element = {<Layout />}/>
           <Route index element = {<Home />}/>
-          <Route path='/city' element = {<City />}/>
+          <Route path='/sigol' element = {<Sigol />}/>
+          <Route path='/curtureIcon' element = {<CultureIcon />}/>
+          <Route path='/niceView' element = {<NiceView />}/>
+          <Route path='/hanok' element = {<Hanok />}/>
         </Routes>
       </BrowserRouter>
   );
