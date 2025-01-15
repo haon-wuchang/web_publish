@@ -30,7 +30,7 @@ export default function App() {
           <Route path='/'element={<Layout cartCount ={cartCount} />} >          
             <Route index element={<Home />} /> 
             <Route path='/all' element={<Products />} /> 
-            <Route path='/cart' element={<Carts />} /> 
+            <Route path='/cart' element={<Carts cartList={cartList}/>} /> 
             <Route path='/login' element={<Login />} /> 
             <Route path='/signup' element={<Signup />} /> 
             <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 
