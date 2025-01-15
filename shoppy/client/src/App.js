@@ -6,6 +6,7 @@ import Products from './pages/Products.jsx';
 import Carts from './pages/Carts.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
+import DetailProduct from './pages/DetailProduct.jsx';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path='/cart' element={<Carts />} /> 
             <Route path='/login' element={<Login />} /> 
             <Route path='/signup' element={<Signup />} /> 
+            <Route path='/products/:pid' element={<DetailProduct/>} /> 
           </Route >
         </Routes>
       </BrowserRouter>
@@ -25,4 +27,4 @@ export default function App() {
 
   );
 }
-
+// path 를 통해 넘어온느값은 다 리액트가 관리한댕 => 리액트 훅 useParams

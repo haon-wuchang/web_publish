@@ -1,8 +1,8 @@
 [
     {
         "pid":"1",
-        "img":"/images/1.webp",
         "name":"후드티",
+        "img":"/images/1.webp",
         "price":"15000",
         "info":"분홍"
 
@@ -19,7 +19,7 @@
         "name":"원피스",
         "img":"/images/3.webp",
         "price":"150000",
-        "info":"원피스"
+        "info":"베이지원피스"
     },
     {
         "pid":"4",
