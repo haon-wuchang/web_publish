@@ -17,7 +17,6 @@ export default function ProductDetail() {
             .catch(error=>console.log(error));
     },[]);
 
-
     return (
         <div className='content'>
             <div className='product-detail'>

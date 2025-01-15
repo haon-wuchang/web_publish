@@ -18,13 +18,16 @@ export default function DetailProduct() {
             .catch(error => console.log(error));
     },[]);
     
+
     return (
         <div className='content'>
             <div className='product-detail'>
                 <img src={product.img} />
                 <ul>
                     <li className="product-detail-title">{product.name}</li>
-                    <li className="product-detail-title">{product.price}</li>
+                    <li className="product-detail-title">
+                        {`${parseInt(product.price).toLocaleString()}원`}
+                    </li>
                     <li className="product-detail-subtitle">{product.info}</li>
                     <li>
                         <span className='product-detail-select1'>옵션 : </span>
