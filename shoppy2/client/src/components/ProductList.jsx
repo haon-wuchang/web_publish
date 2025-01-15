@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import Avata from './Avata.jsx';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default function ProductList() {
     const [list,setList] = useState([]);
@@ -23,7 +24,9 @@ export default function ProductList() {
                 {outArray.map((array)=>
                     <div className='product-list'>
                     {array.map((item)=>
-                        <Avata img = {item.img}/>
+                        <Link to = {`/detail/${item.id}`}>
+                            <Avata img = {item.img}/>                        
+                        </Link>
                     )}
                     </div>
                 )}

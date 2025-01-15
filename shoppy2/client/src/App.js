@@ -7,6 +7,7 @@ import Products from './pages/Products.jsx';
 import Cart from './pages/Cart.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path='cart' element = {<Cart />}/>
             <Route path='login' element = {<Login />}/>
             <Route path='signup' element = {<Signup />}/>
+            <Route path='/detail/:id' element = {<ProductDetail />}/>
           </Route>        
         </Routes>
       </BrowserRouter>
