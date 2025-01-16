@@ -29,14 +29,17 @@ export const validateSignup = (refs,msgRefs) => {
         const name = item[0]; 
         const ref = item [1];   // 데이터 입력폼 객체 주소
         
+
         // 배열 객체2개가있는데 둘이 서로 갯수가 안맞을떄는 이렇게 해야댕 나는 ref 는 7개고 msgRef 는6개라서 이렇게 줘야함  |
         //  이렇게 안하고 걍 signup 가서 갯수 동일하게 맞춰주면 됨
-        let msgItem, msgName, msgRef = null;
+        let msgItem, msgName, msgRef = null;  //const 로 하면 재선언 불가니까 let 으로한거임
+
         if(i < refEntries.length -1 ){     
          msgItem = msgRefEntries[i];
          msgName = msgItem[0];
          msgRef = msgItem[1];  // 데이터 입력폼의 메세지 객체 주소
         }
+
 
         if(name !== 'emaildomainRef'){ //셀렉트박스빼고 나머지애들은 다 입력폼이니까 빈값이면 빨간글씨 뜨게 할거임
             if(ref.current.value === ''){
@@ -48,7 +51,7 @@ export const validateSignup = (refs,msgRefs) => {
             console.log('1111');
             
             if(ref.current.value === 'default'){
-                // alert('이메일주소 선택');
+                alert('이메일주소 선택');
                 ref.current.focus();
                 return false;
             }        
@@ -56,6 +59,8 @@ export const validateSignup = (refs,msgRefs) => {
     }
     return true;    
 }
+
+    // for 문 안에서는 바로바로 return 해줘야함
 
     // const refEntries = [
     // [idRef:{...}],   => 이 안쪽에 잇는 배열이 item 이고 name 은 item의0 번지니까 idRef임
