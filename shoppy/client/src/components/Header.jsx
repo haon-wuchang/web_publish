@@ -25,7 +25,3 @@ export default function Header({cartCount}) {
     );
 }
 
-// <a> 대신 <Link> 태그 사용하기 
-// <Link to = '라우터에서 적은 경로'>shoppy logo</Link> 누르면 index 페이지 나오게 해댜댕
-// Link 태그 안에잇는 버튼은 따로 클릭이벤트 안줘도댕
-

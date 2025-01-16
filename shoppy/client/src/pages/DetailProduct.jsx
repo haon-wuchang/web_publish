@@ -4,10 +4,8 @@ import axios from 'axios';
 
 export default function DetailProduct({addCart}) {
     const {pid} = useParams(); 
-
     
-    // 각ㄱ각의 상품들 정보를 가져오기 
-    const [product,SetProduct] = useState({}); // product 가 json 데이터의 {} 이거 하나임 그래서 useState 초기값을 {} 로 한거임
+    const [product,SetProduct] = useState({}); 
     useEffect(()=>{
         axios.get('/data/products.json')
         .then((res)=> {                   
@@ -19,21 +17,17 @@ export default function DetailProduct({addCart}) {
         .catch(error => console.log(error));
     },[]);    
 
-    //장바구니 추가 버튼 이벤트
     const addCartItem = ()=> {
-        // console.log(pid, product.price,size,1);
-        // 장바구니 추가 항목 :{ pid, price, size, qty} 
         const cartItem = {
             "pid" : product.pid,
             "size" : size,
             "price": product.price,
             "qty" : 1
         }
-        addCart(cartItem); // 부모인 App.js 의 addMomCart함수 호출됨 = addCart 에 장바구니추가항목만들어서 넘기면 됨
+        addCart(cartItem); 
     } 
     
-    const [size,setSize] = useState('XS');  // 장바구니 옵션 값 관리
-    
+    const [size,setSize] = useState('XS'); 
     return (
         <div className='content'>
             <div className='product-detail'>
