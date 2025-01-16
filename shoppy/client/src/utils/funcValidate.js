@@ -47,9 +47,7 @@ export const validateSignup = (refs,msgRefs) => {
                 ref.current.focus();
                 return false;
             }
-        }else{  // emaildomain 은 default 로 체크하니까 얘는 제외하고
-            console.log('1111');
-            
+        }else{  // emaildomain 은 default 로 체크하니까 얘는 제외하고            
             if(ref.current.value === 'default'){
                 alert('이메일주소 선택');
                 ref.current.focus();

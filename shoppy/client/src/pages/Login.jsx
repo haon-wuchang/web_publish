@@ -22,7 +22,7 @@ export default function Login() {
 
     const handleLoginSubmit = (event) => {
         event.preventDefault();          
-        if(validateLogin(refs)){   //ref 들을 인자로 넘겨줘야함
+        if(validateLogin(refs)){  
             console.log('send',formData);
         }      
     }
