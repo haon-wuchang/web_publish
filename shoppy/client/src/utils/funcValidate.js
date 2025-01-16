@@ -17,21 +17,25 @@ export const validateLogin = ({idRef,pwdRef}) => {
 export const validateSignup = (refs,msgRefs) => {
     const refEntries = Object.entries(refs);
     const msgRefEntries = Object.entries(msgRefs);
-    // console.log(refEntries);  
-    // console.log(msgRefEntries);
+    console.log(refEntries);  
+    console.log(msgRefEntries);
 
     //refEntries배열객체와 msgRefEntries배열객체의 index 를 동일하게 체크한다 !! => for 문 사용
         // 배열객체 하나일때는 for of 써도됨
     for(let i = 0; i<refEntries.length ; i++){
         //i번지에 해당하는 배열가져오려고 const item 변수 선언
         const item = refEntries[i];  
-            // item 이 배열 이니까 item 1 의 index 0번지는 idRef 이고 1번지는 { ..} 임
+        // item 이 배열 이니까 item 1 의 index 0번지는 idRef 이고 1번지는 { ..} 임
         const name = item[0]; 
         const ref = item [1];   // 데이터 입력폼 객체 주소
+        
+        let msgItem,msgName,msgRef = null;
 
-        const msgItem = msgRefEntries[i];
-        const msgName = msgItem[0];
-        const msgRef = msgItem[1];  // 데이터 입력폼의 메세지 객체 주소
+        if(i < refEntries.length -1 ){     // 배열 객체2개가있는데 둘이 서로 갯수가 안맞을떄는 이렇게 해야댕 나는 ref 는 7개고 msgRef 는6개라서 이렇게 줘야함 
+         msgItem = msgRefEntries[i];
+         msgName = msgItem[0];
+         msgRef = msgItem[1];  // 데이터 입력폼의 메세지 객체 주소
+        }
 
         if(name !== 'emaildomainRef'){ //셀렉트박스빼고 나머지애들은 다 입력폼이니까 빈값이면 빨간글씨 뜨게 할거임
             if(ref.current.value === ''){
@@ -40,8 +44,10 @@ export const validateSignup = (refs,msgRefs) => {
                 return false;
             }
         }else{  // emaildomain 은 default 로 체크하니까 얘는 제외하고
+            console.log('1111');
+            
             if(ref.current.value === 'default'){
-                alert('이메일주소 선택');
+                // alert('이메일주소 선택');
                 ref.current.focus();
                 return false;
             }        

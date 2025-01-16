@@ -29,6 +29,7 @@ export default function Signup() {
          'msgNameRef' : useRef(null),
          'msgPhoneRef' : useRef(null),
          'msgEmailnameRef' : useRef(null),
+        //  'msgEmailDomainRef' : useRef(null),
     }
 
     const handleCheck = (event) => {
