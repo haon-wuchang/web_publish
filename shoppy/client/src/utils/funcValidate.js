@@ -29,9 +29,10 @@ export const validateSignup = (refs,msgRefs) => {
         const name = item[0]; 
         const ref = item [1];   // 데이터 입력폼 객체 주소
         
-        let msgItem,msgName,msgRef = null;
-
-        if(i < refEntries.length -1 ){     // 배열 객체2개가있는데 둘이 서로 갯수가 안맞을떄는 이렇게 해야댕 나는 ref 는 7개고 msgRef 는6개라서 이렇게 줘야함 
+        // 배열 객체2개가있는데 둘이 서로 갯수가 안맞을떄는 이렇게 해야댕 나는 ref 는 7개고 msgRef 는6개라서 이렇게 줘야함  |
+        //  이렇게 안하고 걍 signup 가서 갯수 동일하게 맞춰주면 됨
+        let msgItem, msgName, msgRef = null;
+        if(i < refEntries.length -1 ){     
          msgItem = msgRefEntries[i];
          msgName = msgItem[0];
          msgRef = msgItem[1];  // 데이터 입력폼의 메세지 객체 주소
