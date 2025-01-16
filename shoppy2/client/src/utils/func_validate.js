@@ -41,7 +41,7 @@ export const validate = (refs) => {
         alert('이메일 입력');
         refs.emailnameRef.current.focus();
         result = false;
-    }else if(refs.emaildomainRef.current.value === ''){
+    }else if(refs.emaildomainRef.current.value === 'default'){
         alert('이메일도매인 선택');
         refs.emaildomainRef.current.focus();
         result = false;

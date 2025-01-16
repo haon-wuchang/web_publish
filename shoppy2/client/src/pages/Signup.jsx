@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/signup.css';
-import validate from '../utils/func_validate.js';
+import {validate} from '../utils/func_validate.js';
+import {useState, useRef} from 'react';
 
 export default function Signup() {
     const [formdata, setFormData ] = useState({'id':'','pwd':''});
