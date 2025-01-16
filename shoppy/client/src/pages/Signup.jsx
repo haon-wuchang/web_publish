@@ -22,10 +22,18 @@ export default function Signup() {
          'emailnameRef' : useRef(null),
          'emaildomainRef':useRef(null)
     }
+    const msgRefs = {  // 얘네는 아디입력해주세요<span> 이객체들의 값을 빨간색으로 해줄거임(validate의 alert 대신 이거 빨간색으로 나오게 하는거)
+         'msgIdRef' : useRef(null),
+         'msgPwdRef' : useRef(null),
+         'msgCpwdRef' : useRef(null),
+         'msgNameRef' : useRef(null),
+         'msgPhoneRef' : useRef(null),
+         'msgEmailnameRef' : useRef(null),
+    }
 
     const handleCheck = (event) => {
         event.preventDefault();
-        if(validateSignup(refs)){
+        if(validateSignup(refs,msgRefs)){
             console.log(formData);            
         }
     }    
@@ -37,7 +45,7 @@ export default function Signup() {
                 <ul>
                     <li>
                         <label for="" ><b>아이디</b></label>
-                        <span id="error-msg-id">아이디를 입력해주세요</span>
+                        <span ref={msgRefs.msgIdRef}>아이디를 입력해주세요</span>
                         <div>
                             <input type="text" 
                                     name="id"
@@ -51,7 +59,7 @@ export default function Signup() {
                     </li>
                     <li>
                         <label for=""><b>비밀번호</b></label>
-                        <span id="error-msg-pwd">12자 이내의 비밀번호를 입력해주세요</span>
+                        <span ref={msgRefs.msgPwdRef}>12자 이내의 비밀번호를 입력해주세요</span>
                         <div>
                             <input type="password" 
                                     name="pwd"
@@ -63,7 +71,7 @@ export default function Signup() {
                     </li>
                     <li>
                         <label for=""><b>비밀번호 확인</b></label>
-                        <span id="error-msg-cpwd">비밀번호 확인을 입력해주세요</span>
+                        <span ref={msgRefs.msgCpwdRef}>비밀번호 확인을 입력해주세요</span>
                         <div>
                             <input type="password" 
                                     name="cpwd"
@@ -75,7 +83,7 @@ export default function Signup() {
                     </li>
                     <li>
                         <label for=""><b>이름</b></label>
-                        <span id="error-msg-name">이름을 입력해주세요</span>
+                        <span ref={msgRefs.msgNameRef}>이름을 입력해주세요</span>
                         <div>
                             <input type="text" 
                                     name="name"
@@ -87,7 +95,7 @@ export default function Signup() {
                     </li>
                     <li>
                         <label for=""><b>휴대폰번호</b></label>
-                        <span id="error-msg-phone">휴대폰번호를 입력해주세요('-' 포함)</span>
+                        <span ref={msgRefs.msgPhoneRef}>휴대폰번호를 입력해주세요('-' 포함)</span>
                         <div>
                             <input type="text" 
                                     name="phone"
@@ -99,7 +107,7 @@ export default function Signup() {
                     </li>
                     <li>
                         <label for=""><b>이메일 주소</b></label>
-                        <span id="error-msg-emailname">이메일 주소를 입력해주세요</span>
+                        <span ref={msgRefs.msgEmailnameRef}>이메일 주소를 입력해주세요</span>
                         <div>
                             <input type="text" 
                                     name="emailname"

@@ -13,37 +13,58 @@ export const validateLogin = ({idRef,pwdRef}) => {
     return result; 
 }
 
-// 회원가입폼 validate
-export const validateSignup = ({idRef,pwdRef,cpwdRef,nameRef,phoneRef,emailnameRef,emaildomainRef}) => {
-    let result= true;
-    if(idRef.current.value===''){
-        alert('아디입력해');
-        idRef.current.focus();
-        result = false;
-    }else if(pwdRef.current.value===''){
-        alert('비번입력해');
-        pwdRef.current.focus();
-        result = false;
-    }else if(cpwdRef.current.value===''){
-        alert('비번확인입력해');
-        cpwdRef.current.focus();
-        result = false;
-    }else if(nameRef.current.value===''){
-        alert('이름입력해');
-        nameRef.current.focus();
-        result = false;
-    }else if(phoneRef.current.value===''){
-        alert('폰번호입력해');
-        phoneRef.current.focus();
-        result = false;
-    }else if(emailnameRef.current.value===''){
-        alert('이메일입력해');
-        emailnameRef.current.focus();
-        result = false;
-    }else if(emaildomainRef.current.value==='default'){
-        alert('이메일주소선택');
-        emaildomainRef.current.focus();
-        result = false;
+// 회원가입폼 validate | entries() 사용함 => entries 함수는 2차원배열로 값 출력함 
+export const validateSignup = (refs,msgRefs) => {
+    const refEntries = Object.entries(refs);
+    const msgRefEntries = Object.entries(msgRefs);
+    // console.log(refEntries);  
+    // console.log(msgRefEntries);
+
+    //refEntries배열객체와 msgRefEntries배열객체의 index 를 동일하게 체크한다 !! => for 문 사용
+        // 배열객체 하나일때는 for of 써도됨
+    for(let i = 0; i<refEntries.length ; i++){
+        //i번지에 해당하는 배열가져오려고 const item 변수 선언
+        const item = refEntries[i];  
+            // item 이 배열 이니까 item 1 의 index 0번지는 idRef 이고 1번지는 { ..} 임
+        const name = item[0]; 
+        const ref = item [1];   // 데이터 입력폼 객체 주소
+
+        const msgItem = msgRefEntries[i];
+        const msgName = msgItem[0];
+        const msgRef = msgItem[1];  // 데이터 입력폼의 메세지 객체 주소
+
+        if(name !== 'emaildomainRef'){ //셀렉트박스빼고 나머지애들은 다 입력폼이니까 빈값이면 빨간글씨 뜨게 할거임
+            if(ref.current.value === ''){
+                msgRef.current.style.setProperty('color','red');
+                ref.current.focus();
+                return false;
+            }
+        }else{  // emaildomain 은 default 로 체크하니까 얘는 제외하고
+            if(ref.current.value === 'default'){
+                alert('이메일주소 선택');
+                ref.current.focus();
+                return false;
+            }        
+        } 
     }
-    return result;
+    return true;    
 }
+
+    // const refEntries = [
+    // [idRef:{...}],   => 이 안쪽에 잇는 배열이 item 이고 name 은 item의0 번지니까 idRef임
+    // [pwdRef:{...}],      => item 1번지는 {...}임
+    //  ]
+
+
+
+
+
+
+
+
+
+
+
+    
+    // alert('ㅁㅁ를 입력해주세요');  이 ㅁㅁ 부분만 다 변경하면 되니까 아이디,비번,이름,주소 등
+    // 그래서 이 ㅁㅁ 값을 저장하는 {} 
