@@ -6,7 +6,8 @@ import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 
 export default function Signup() {
     const {names,placehol,labels, initData} = initSignup();
-    const {refs,msgRefs} = useInitSignupRefs(names);
+    const {refs,msgRefs} = useInitSignupRefs(names);  // 얘랑 위에꺼랑 순서바뀌면안댕
+    //   왜나면 initSignup 에 names 가 있으니까 useInitSignupRefs 얘를 먼저쓰면 names값을 못받아옴 
 
     const [formData, setFormData] = useState(initData);       
 
@@ -53,7 +54,8 @@ export default function Signup() {
                                             ): 
                                             (
                                                 <>
-                                                <input type="text"  
+                                                <input type= {  // pwd,cpwd 는 type=password 로 나머지는 text 로
+                                                        (name==='pwd' || name==='cpwd') ? 'password': 'text'  }                                                                                                                                                                                                                        
                                                     name={name}
                                                     // id="id"
                                                     onChange={handleForm}
