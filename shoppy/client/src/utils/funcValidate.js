@@ -1,14 +1,16 @@
 // 로그인폼 validate
-export const validateLogin = ({idRef,pwdRef}) => {
+export const validateLogin = ({idRef,pwdRef},{msgRef}) => {
     let result = true ;
     if(idRef.current.value === ''){
-        alert('아디입력해');
+        msgRef.current.style.setProperty('color','red');
         idRef.current.focus();
         result = false ;
     }else if(pwdRef.current.value === ''){
-        alert('비번입력해');
+        msgRef.current.style.setProperty('color','red');
         pwdRef.current.focus();
         result = false ;   
+    }else {
+        msgRef.current.style.setProperty('color','white');
     }
     return result; 
 }
@@ -39,7 +41,6 @@ export const validateSignup = (refs,msgRefs) => {
          msgName = msgItem[0];
          msgRef = msgItem[1];  // 데이터 입력폼의 메세지 객체 주소
         }
-
 
         if(name !== 'emaildomainRef'){ //셀렉트박스빼고 나머지애들은 다 입력폼이니까 빈값이면 빨간글씨 뜨게 할거임
             if(ref.current.value === ''){

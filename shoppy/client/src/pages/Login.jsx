@@ -22,9 +22,13 @@ export default function Login() {
 
     const handleLoginSubmit = (event) => {
         event.preventDefault();          
-        if(validateLogin(refs)){  
+        if(validateLogin(refs,msgRefs)){  
             console.log('send',formData);
         }      
+    }
+
+    const msgRefs = {
+        'msgRef' : useRef(null)
     }
 
     return (
@@ -58,6 +62,11 @@ export default function Login() {
                                     placeholder="패스워드를 입력해주세요" />
                         </div>
                         <p id="error-msg-pwd"></p>
+                    </li>
+                    <li>
+                        <span style = {{'fontSize':'0.7rem','color':'white'}} ref={msgRefs.msgRef}>
+                            아디 비번을 입력해주세요
+                        </span>
                     </li>
                     <li>
                         <button type="submit" className="login-button">로그인</button>
