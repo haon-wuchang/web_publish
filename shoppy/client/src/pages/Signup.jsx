@@ -46,7 +46,27 @@ export default function Signup() {
             console.log(formData);            
         }
     }    
+    
+    const namesKr = ['아이디','비밀번호','비밀번호확인','이름','휴대폰번호','이메일주소'];
+    
+    const labels = names.reduce((acc,name,index)=>{
+        acc[name] = namesKr[index];    
+        return acc;
+    },{});
+    // console.log(labels);   
+    
+    // placeholder 도 배열만들어거 reduce 돌리기
+    const placeHolders = ['아이디 입력 6~20자 이내','비밀번호 입력 10~20자 이내 특수문자포함','비밀번호 재입력',
+        '이름을 작성해주세요','휴대폰번호 입력 ( - ) 포함','이메일주소 입력'];
+        const placehol = names.reduce((acc,name,index)=>{
+            acc[name] = placeHolders[index]; 
+            return acc;
+        },{});
 
+        
+    refs.current['emaildomainRef'] = React.createRef(); // 만들어진 refs 에 emaildomainRef 를 추가한다 
+
+        
     return (
         <div className="content">
             <h1 className="center-title">SIGINUP</h1>
@@ -56,23 +76,23 @@ export default function Signup() {
                         names && names.map((name)=> (
                             // (name === 'emailname') ? 이메일주소의 구조: 나머지의 구조;
                                 <li>
-                                    <label for="" ><b>아이디</b></label>
-                                    <span ref={msgRefs.idMsgRef}>아이디를 입력해주세요</span>
+                                    <label for="" ><b>{labels[name]}</b></label>
+                                    <span ref={msgRefs.idMsgRef}>{labels[name]} 을/를 입력해주세요</span>
                                     <div>
                                         {(name === 'emailname') ? 
                                             (
                                                 <>
                                                 <input type="text" 
-                                                    name="emailname"
-                                                    id = "emailname"
+                                                    name={name}
+                                                    // id = "emailname"
                                                     onChange={handleForm}
-                                                    ref = {refs.emailnameRef}
-                                                    placeholder="이메일 주소" />
+                                                    ref = {refs.current[name.concat('Ref')]}  
+                                                    placeholder={placehol[name]} />
                                                 <span>@</span>       
                                                 <select name="emaildomain" 
-                                                        id="emaildomain"
+                                                        // id="emaildomain"
                                                         onChange={handleForm} 
-                                                        ref = {refs.emaildomainRef} >
+                                                        ref = {refs.current['emaildomainRef']} > 
                                                     <option value="default">선택</option>
                                                     <option value="naver.com">naver.com</option>
                                                     <option value="gmail.com">gmail.com</option>
@@ -83,15 +103,20 @@ export default function Signup() {
                                             (
                                                 <>
                                                 <input type="text"  
-                                                    name="id"
-                                                    id="id"
+                                                    name={name}
+                                                    // id="id"
                                                     onChange={handleForm}
-                                                    ref = {refs.idRef}
-                                                    placeholder = "아이디 입력(6~20자)" />
-                                                    <button type="button" >중복확인</button>
-                                                <input type="hidden" id="idCheckResult" value="default" />
+                                                    ref = {refs.current[name.concat('Ref')]}
+                                                    placeholder = {placehol[name]} /> 
+                                                    { name==='id' && 
+                                                    <>
+                                                        <button type="button" >중복확인</button>
+                                                        <input type="hidden" id="idCheckResult" value="default" />
+                                                    </>
+                                                    }
                                                 </>
-                                            )}
+                                            )
+                                        }
                                     </div>
                                 </li>
                         ) )  // map end                                            
