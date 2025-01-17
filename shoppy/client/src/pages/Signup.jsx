@@ -2,58 +2,24 @@ import React from 'react';
 import '../styles/signup.css';
 import { useState , useRef } from 'react';
 import {validateSignup} from '../utils/funcValidate.js';  
+import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 
-// 1/17 수업 ========================================================
 export default function Signup() {
-    const names = [ 'id','pwd','cpwd','name','phone','emailname'];      
-    const namesKr = ['아이디','비밀번호','비밀번호확인','이름','휴대폰번호','이메일주소'];
-    const placeHolders = ['아이디 입력 6~20자 이내','비밀번호 입력 10~20자 이내 특수문자포함','비밀번호 재입력',
-        '이름을 작성해주세요','휴대폰번호 입력 ( - ) 포함','이메일주소 입력'];
+    const {names,placehol,labels, initData} = initSignup();
+    const {refs,msgRefs} = useInitSignupRefs(names);
 
-    const initData = names.reduce((acc,name) =>{
-        acc[name] =''; // 근데 = 했는데 결과값에는 : 왜 이케나옴????????
-        return acc;   
-    },{});    
+    const [formData, setFormData] = useState(initData);       
 
-    const [formData, setFormData] = useState(initData);
-    
     const handleForm = (event) => {
         const {name, value } = event.target;        
         setFormData({...formData, [name]:value});        
-    }   
-    
-    const refs = useRef (
-        names.reduce((acc,name)=>{
-            acc[name.concat('Ref')] = React.createRef(); 
-            return acc;
-        },{})
-    )
-    refs.current['emaildomainRef'] = React.createRef(); 
-    
-    const msgRefs = useRef(
-        names.reduce((acc, name)=>{ 
-        acc[name.concat('MsgRef')] = React.createRef();
-        return acc;
-        },{})
-    );
-    const labels = names.reduce((acc,name,index)=>{
-        acc[name] = namesKr[index];    
-        return acc;
-    },{});
-
-    const placehol = names.reduce((acc,name,index)=>{
-        acc[name] = placeHolders[index]; 
-        return acc;
-    },{});
-
+    }  
     const handleCheck = (event) => {
         event.preventDefault();
         if(validateSignup(refs,msgRefs)){
             console.log(formData);            
         }
     }    
-
-
         
     return (
         <div className="content">
@@ -62,7 +28,6 @@ export default function Signup() {
                 <ul>
                     {
                         names && names.map((name)=> (
-                            // (name === 'emailname') ? 이메일주소의 구조: 나머지의 구조;
                                 <li>
                                     <label for="" ><b>{labels[name]}</b></label>
                                     <span ref={msgRefs.current[name.concat('MsgRef')]}>{labels[name]} 을/를 입력해주세요</span>
