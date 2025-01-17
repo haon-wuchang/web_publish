@@ -51,7 +51,7 @@ export default function Signup() {
                                                     <option value="daum.net">daum.net</option>
                                                 </select>
                                                 </>
-                                            ): 
+                                            ): d
                                             (
                                                 <>
                                                 <input type= {  // pwd,cpwd 는 type=password 로 나머지는 text 로
