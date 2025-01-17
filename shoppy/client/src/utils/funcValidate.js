@@ -17,10 +17,14 @@ export const validateLogin = ({idRef,pwdRef},{msgRef}) => {
 
 // 회원가입폼 validate | entries() 사용함 => entries 함수는 2차원배열로 값 출력함 
 export const validateSignup = (refs,msgRefs) => {
-    const refEntries = Object.entries(refs);
-    const msgRefEntries = Object.entries(msgRefs);
-    console.log(refEntries);  
-    console.log(msgRefEntries);
+
+    // console.log('refs',refs);
+    // console.log('msgRefs',msgRefs);
+    
+    const refEntries = Object.entries(refs.current);
+    const msgRefEntries = Object.entries(msgRefs.current);
+    // console.log(refEntries);  
+    // console.log(msgRefEntries);
 
     //refEntries배열객체와 msgRefEntries배열객체의 index 를 동일하게 체크한다 !! => for 문 사용
         // 배열객체 하나일때는 for of 써도됨

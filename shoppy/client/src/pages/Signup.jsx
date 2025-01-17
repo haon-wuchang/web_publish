@@ -23,22 +23,40 @@ export default function Signup() {
     
     const handleForm = (event) => {
         const {name, value } = event.target;
+        // console.log(name,value);
         
         setFormData({...formData, [name]:value});        
     }   
 
-    const refs = names.reduce((acc,name)=>{
-        acc[name.concat('Ref')] = React.createRef(); 
-        return acc;
-    },{});
-    console.log('Refs',refs);
+    // emaildomainRef 추가하려면 이렇게 해야함
+    const refs = useRef (
+        names.reduce((acc,name)=>{
+            acc[name.concat('Ref')] = React.createRef(); 
+            return acc;
+        },{})
+    )
+    refs.current['emaildomainRef'] = React.createRef(); // 만들어진 refs 에 emaildomainRef 를 추가한다     
+    //input 의 ref, onChange 리액트에서 생성하고 처리하는 애들이라 브라우저 엘리먼트부분에 안나오는거임
+
+
+    // const refs = names.reduce((acc,name)=>{
+    //     acc[name.concat('Ref')] = React.createRef(); 
+    //     return acc;
+    // },{});
+    // console.log('Refs',refs);
+
+
 
 // 함수안에서 이름 바꿀때는 앞에 msg 붙이기가 힘들어서 뒤에 붙이도록 해야한다 !!
-    const msgRefs = names.reduce((acc, name)=>{ //idMsgRef  이렇게 만들거임
+    const msgRefs = useRef(
+        names.reduce((acc, name)=>{ //idMsgRef  이렇게 만들거임
         acc[name.concat('MsgRef')] = React.createRef();
         return acc;
-    },{});
-    console.log('msg',msgRefs);
+        },{})
+    );
+    // console.log('msg',msgRefs);
+
+
 
     const handleCheck = (event) => {
         event.preventDefault();
@@ -63,8 +81,6 @@ export default function Signup() {
             return acc;
         },{});
 
-        
-    refs.current['emaildomainRef'] = React.createRef(); // 만들어진 refs 에 emaildomainRef 를 추가한다 
 
         
     return (
@@ -77,7 +93,7 @@ export default function Signup() {
                             // (name === 'emailname') ? 이메일주소의 구조: 나머지의 구조;
                                 <li>
                                     <label for="" ><b>{labels[name]}</b></label>
-                                    <span ref={msgRefs.idMsgRef}>{labels[name]} 을/를 입력해주세요</span>
+                                    <span ref={msgRefs.current[name.concat('MsgRef')]}>{labels[name]} 을/를 입력해주세요</span>
                                     <div>
                                         {(name === 'emailname') ? 
                                             (
