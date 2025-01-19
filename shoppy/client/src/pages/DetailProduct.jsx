@@ -25,7 +25,7 @@ export default function DetailProduct({addCart}) {
             "qty" : 1
         }
         addCart(cartItem); 
-    } 
+    }
     
     const [size,setSize] = useState('XS'); 
     return (
