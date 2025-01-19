@@ -1,42 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
-import Layout from './pages/Layout.jsx';
-import Home from './pages/Home.jsx';
-import Product from './pages/Product.jsx';
-import Cart from './pages/Cart.jsx';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup.jsx';
-import './styles/shoppy.css';
-import ProductDetail from './pages/ProductDetail.jsx';
-import {useState}  from 'react';
 
-export default function App() {
-  const [cart,setCart] = useState([]);
-  const [count, setCount] = useState(0);
-
-  const handleCart = (cartItem) => {    
-    setCart([...cart, cartItem]);
-    setCount(count+1);
-  }
-  console.log(cart);
-  
-
+function App() {
   return (
-    <div>
-     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout cartList={count}/>}>
-          <Route index element= {<Home />}  />
-          <Route path='/product' element= {<Product />}  />
-          <Route path='/cart' element= {<Cart cartList={cart}/>}  />
-          <Route path='/login' element= {<Login />}  />
-          <Route path='/signup' element= {<Signup />}  />
-          <Route path='/productdetail/:pid' element= {<ProductDetail momCart={handleCart}/>}  />
-        </Route>
-      </Routes>
-     </BrowserRouter>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
 
+export default App;
