@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/signup.css';
 import { useState , useRef } from 'react';
-import {validateSignup} from '../utils/funcValidate.js';  
+import {validateSignup,handleDuplicateIdCheck,handlePassword} from '../utils/funcValidate.js';  
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 
 export default function Signup() {
@@ -22,30 +22,31 @@ export default function Signup() {
         }
     }    
 
-    // 자바스크립트에서는 return false 안해도된댕 react 는 해야댕
-        
-        const handleDuplicateIdCheck = () => {
-            //id 유효성체크 후 서버연동
-            //did =test 는 중복아이디로 하기
-            // console.log(refs.current['idRef'].current.value);  // id값 잘가져오는지 확인
-            if(refs.current['idRef'].current.value===''){
-                msgRefs.current['idMsgRef'].current.style.setProperty('color','red');
-                refs.current['idRef'].current.focus();
+    // 비번 체크 onBlur 
+     const handlePassword = () => {
+        if(refs.current['pwdRef'].current.value===''){
+            msgRefs.current['pwdRef'].current.style.setProperty('color','red');
+            refs.current['pwdRef'].current.focus();
+            return false;
+        } else if(refs.current['cpwdRef'].current.value==='') {
+            msgRefs.current['cpwdRef'].current.style.setProperty('color','red');
+            refs.current['cpwdRef'].current.focus();
+            return false;
+        }else {
+            if(refs.current['pwdRef'].current.value!==refs.current['cpwdRef'].current.value){
+                alert('비번일치 x');
+                refs.current['pwdRef'].current.value = '';
+                refs.current['cpwdRef'].current.value = '';
+                refs.current['pwdRef'].current.focus();      
+                return false;         
+            } else if (refs.current['pwdRef'].current.value===refs.current['cpwdRef'].current.value) {
+                alert('ok');
+                refs.current['nameRef'].current.focus();
                 return false;
-            }else {
-                let did = 'test';  // => db의 pk 얌 중복데이터 들어가면 안대니꺠 얘를 나중에 db 에서 가져와야대
-                if(refs.current['idRef'].current.value=== did){
-                    alert('이 아디는 사용불가 다른거 써');
-                    // test 하면 입력칸 내용 다 지워지게 어케하더라
-                    refs.current['idRef'].current.focus();
-                    return false;
-                } else {
-                    alert('good');
-                    refs.current['pwdRef'].current.focus();
-                    return false;
-                }
             }
         }
+     }
+
 
     return (
         <div className="content">
@@ -84,12 +85,27 @@ export default function Signup() {
                                                     name={name}
                                                     // id="id"
                                                     onChange={handleForm}
+                                                    onBlur={(name==='cpwd')? ()=>{handlePassword(
+                                                        refs.current['pwdRef'],
+                                                        msgRefs.current['pwdRef'],
+                                                        refs.current['cpwdRef'],
+                                                        msgRefs.current['cpwdRef'],
+                                                        refs.current['nameRef']
+                                                    )} : null
+                                                        // !!!함수도 객체니까 cpwd 아닐때는 얘 주소주면 안대니까 null 한거임
+                                                    }
                                                     ref = {refs.current[name.concat('Ref')]}
                                                     placeholder = {placehol[name]} /> 
                                                     { name==='id' && 
                                                     <>
                                                         <button type="button" 
-                                                            onClick={handleDuplicateIdCheck}>중복확인</button>
+                                                            onClick={()=>{handleDuplicateIdCheck(
+                                                                    refs.current['idRef'],
+                                                                    msgRefs.current['idMsgRef'],
+                                                                    refs.current['pwdRef']
+                                                                )   
+                                                            }}>
+                                                                중복확인</button>
                                                         <input type="hidden" id="idCheckResult" value="default" />
                                                     </>
                                                     }
