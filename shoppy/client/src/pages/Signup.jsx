@@ -80,7 +80,7 @@ export default function Signup() {
                                                                     refs.current['pwdRef']
                                                                 )   
                                                             }}>
-                                                                중복확인</button>
+                                                        중복확인</button>
                                                         <input type="hidden" id="idCheckResult" value="default" />
                                                     </>
                                                     }
