@@ -44,9 +44,7 @@ export const validateSignup = (refs,msgRefs) => {
                 msgRef.current.style.setProperty('color','red');
                 ref.current.focus();
                 return false;
-            } else {
-                msgRef.current.style.setProperty('color','blue');
-            }
+            } 
         }else{             
             if(ref.current.value === 'default'){
                 alert('이메일주소 선택');
@@ -60,7 +58,7 @@ export const validateSignup = (refs,msgRefs) => {
 
 
 // 아디 중복체크 함수 /////////////////////////////////////////
-    export const handleDuplicateIdCheck = (idRef,idMsgRef,pwdRef) => { //!!!넘어오는객체를 변수로 받을때는 순서 중용 | 구조분해할당 아닐때는 넘어오는애들 순서맞춰야댕
+    export const handleDuplicateIdCheck = (idRef,idMsgRef,pwdRef,setIdCheckResult) => { //!!!넘어오는객체를 변수로 받을때는 순서 중용 | 구조분해할당 아닐때는 넘어오는애들 순서맞춰야댕
         // refs.current['idRef'] = idRef 임
         if(idRef.current.value===''){
             idMsgRef.current.style.setProperty('color','red');
@@ -75,6 +73,7 @@ export const validateSignup = (refs,msgRefs) => {
                 return false;
             } else {
                 alert('good');
+                setIdCheckResult('ok');
                 pwdRef.current.focus();
                 return false;
             }

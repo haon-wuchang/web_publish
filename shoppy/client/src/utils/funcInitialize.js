@@ -35,7 +35,7 @@ export const useInitSignupRefs = (names) => {
             return acc;
         },{})
     )
-    refs.current['emaildomainRef'] = React.createRef(); 
+    refs.current.emaildomainRef = React.createRef(); 
     
     const msgRefs = useRef(
         names.reduce((acc, name)=>{ 
