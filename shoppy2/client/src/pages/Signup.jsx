@@ -7,7 +7,9 @@ export default function Signup() {
     const names = ['id','pwd','cpwd','name','phone','emailname'];
     const namesKr = ['아이디','비밀번호','비밀번호확인','이름','휴대폰번호','이메일주소'];    
     const placeholderKr = ['아이디를 입력해주세요 6~20자','비밀번호를 특수문자 포함 10~20자','비밀번호를 재입력해주세요','이름입력','휴대폰번호를 - 포함하여 입력해주세요','이메일주소'];    
-    
+    const [idCheckBtn,setIdCheckBtn] = useState('default');
+
+
     const initData = names.reduce((acc,name)=>{
         acc[name] = '';
         return acc;
@@ -48,7 +50,12 @@ export default function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(validate(refs,msgRefs)){
-            console.log(formdata);      
+            if(idCheckBtn==='default'){
+                alert('아디중복체크해');
+                return false;
+            }else{
+                console.log(formdata);      
+            }
         }
     }                
 
@@ -103,10 +110,11 @@ export default function Signup() {
                                                     onClick={()=>{handleIdCheck(
                                                         refs.current['idRef'],
                                                         refs.current['pwdRef'],
-                                                        msgRefs.current['idMsgRef']
+                                                        msgRefs.current['idMsgRef'],
+                                                        setIdCheckBtn
                                                     )}}
                                                     >중복확인</button>
-                                                <input type="hidden" id="idCheckResult" value="default" />
+                                                <input type="text" value={idCheckBtn} />
                                             </>
                                         }
                                     </>

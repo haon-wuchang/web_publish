@@ -49,7 +49,7 @@ export const validate = (refs,msgRefs) => {
 }
 
 /////////아디 중복확인 함수 ///////////////////////////////////////////////////////
-export const handleIdCheck = (idRef,pwdRef,idMsgRef) => {
+export const handleIdCheck = (idRef,pwdRef,idMsgRef,setIdCheckBtn) => {
     if(idRef.current.value===''){
         idMsgRef.current.style.setProperty('color','red');
         idRef.current.focus();
@@ -63,6 +63,7 @@ export const handleIdCheck = (idRef,pwdRef,idMsgRef) => {
             return false;
         }else{
             alert('good');
+            setIdCheckBtn('중복화긴체크 굿');
             pwdRef.current.focus();
             return false;
         }
