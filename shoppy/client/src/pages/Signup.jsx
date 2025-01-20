@@ -61,7 +61,13 @@ export default function Signup() {
                                                     // id="id"
                                                     onChange={handleForm}
                                                     onBlur={(name==='cpwd')? ()=>{handlePassword(
-                                                        refs,msgRefs)} : null                                                    
+                                                        // refs,msgRefs 이케해도 되던뎅 ??....💦
+                                                        refs.current['pwdRef'],
+                                                        refs.current['cpwdRef'],
+                                                        refs.current['nameRef'],
+                                                        msgRefs.current['pwdRef'],
+                                                        msgRefs.current['cpwdRef']
+                                                    )} : null                                                    
                                                     }
                                                     ref = {refs.current[name.concat('Ref')]}
                                                     placeholder = {placehol[name]} /> 

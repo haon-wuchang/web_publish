@@ -82,12 +82,13 @@ export const validateSignup = (refs,msgRefs) => {
     }
 
 // 비번 일치여부 확인 /////////////////////////////////
-     export const handlePassword = (refs,msgRefs) => {
-        const pwdRef = refs.current['pwdRef'];
-        const cpwdRef = refs.current['cpwdRef'];
-        const nameRef = refs.current['nameRef'];
-        const pwdMsgRef = msgRefs.current['pwdRef'];
-        const cpwdMsgRef = msgRefs.current['cpwdRef']; 
+    //  export const handlePassword = (refs,msgRefs) => { // 이케해도되던뎅 멎지 💦
+     export const handlePassword = (pwdRef,cpwdRef,nameRef,pwdMsgRef,cpwdMsgRef) => {
+        // const pwdRef = refs.current['pwdRef'];
+        // const cpwdRef = refs.current['cpwdRef'];
+        // const nameRef = refs.current['nameRef'];
+        // const pwdMsgRef = msgRefs.current['pwdRef'];
+        // const cpwdMsgRef = msgRefs.current['cpwdRef']; 
 
     if(pwdRef.current.value===''){
         pwdMsgRef.current.style.setProperty('color','red');
