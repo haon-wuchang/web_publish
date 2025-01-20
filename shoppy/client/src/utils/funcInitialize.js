@@ -35,7 +35,8 @@ export const useInitSignupRefs = (names) => {
             return acc;
         },{})
     )
-    refs.current.emaildomainRef = React.createRef(); 
+    refs.current.emaildomainRef = useRef(React.createRef()); // 반드시 useRef 로 감싸줘야댄당
+    // 
     
     const msgRefs = useRef(
         names.reduce((acc, name)=>{ 

@@ -24,7 +24,8 @@ export default function Signup() {
                 alert('중복체크진행해');
                 return false;
             } else {
-                console.log(formData);            
+                console.log(formData);   
+                // 회원가입 성공 후에 setIdCheckResult('default); 로 바꿔주면댕     
             }
         } 
     }    
