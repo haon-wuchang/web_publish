@@ -91,10 +91,12 @@ export const validateSignup = (refs,msgRefs) => {
 
     if(pwdRef.current.value===''){
         pwdMsgRef.current.style.setProperty('color','red');
+        // alert('입력해');
         pwdRef.current.focus();
         return false;
     } else if(cpwdRef.current.value==='') {
         cpwdMsgRef.current.style.setProperty('color','red');
+        // alert('입력해');
         cpwdRef.current.focus();
         return false;
     }else {

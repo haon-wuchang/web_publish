@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/signup.css';
-import {validate} from '../utils/func_validate.js';
+import {validate,handleIdCheck,handlePassword} from '../utils/func_validate.js';
 import {useState, useRef} from 'react';
 
 export default function Signup() {
@@ -43,19 +43,15 @@ export default function Signup() {
     const handleForm = (e) => {
         const {name, value} = e.target;
         setFormData({...formdata, [name] : value});
-    }
-    
-
-                
-                
+    }              
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(validate(refs,msgRefs)){
             console.log(formdata);      
         }
-    }
-                
+    }                
+
                 
     return (
         <div className="content">
@@ -93,10 +89,22 @@ export default function Signup() {
                                             name={name}
                                             onChange={handleForm}
                                             ref={refs.current[name.concat('Ref')]}
+                                            onBlur={(name==='cpwd')? ()=>{handlePassword(
+                                                refs.current['pwdRef'],
+                                                refs.current['cpwdRef'],
+                                                refs.current['nameRef'],
+                                                msgRefs.current['pwdRef'],
+                                                msgRefs.current['cpwdRef']
+                                            )} : null}
                                             placeholder = {placeholders[name]}/>
                                         {name === 'id' &&
                                             <>
                                                 <button type="button" 
+                                                    onClick={()=>{handleIdCheck(
+                                                        refs.current['idRef'],
+                                                        refs.current['pwdRef'],
+                                                        msgRefs.current['idMsgRef']
+                                                    )}}
                                                     >중복확인</button>
                                                 <input type="hidden" id="idCheckResult" value="default" />
                                             </>

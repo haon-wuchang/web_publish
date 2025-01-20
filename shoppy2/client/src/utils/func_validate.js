@@ -39,7 +39,7 @@ export const validate = (refs,msgRefs) => {
                 return false;
         } else{
             if(ref.current.value===''){
-                msgItem.current.style.setProperty('color','red');
+                msgRef.current.style.setProperty('color','red');
                 ref.current.focus();
                 return false;
             }
@@ -48,3 +48,45 @@ export const validate = (refs,msgRefs) => {
     return true;
 }
 
+/////////아디 중복확인 함수 ///////////////////////////////////////////////////////
+export const handleIdCheck = (idRef,pwdRef,idMsgRef) => {
+    if(idRef.current.value===''){
+        idMsgRef.current.style.setProperty('color','red');
+        idRef.current.focus();
+        return false;
+    }else{
+        let did ='test';
+        if(idRef.current.value===did){
+            alert('중복된 아디입니다');
+            idRef.current.value='';
+            idRef.current.focus();
+            return false;
+        }else{
+            alert('good');
+            pwdRef.current.focus();
+            return false;
+        }
+    }
+}
+/////////비번일치여부 함수 ///////////////////////////////////////////////////////
+export const handlePassword = (pwdRef,cpwdRef,nameRef,pwdMsgRef,cpwdMsgRef) => {
+    if(pwdRef.current.value===''){
+        pwdMsgRef.current.style.setProperty('color','red');
+        pwdRef.current.focus();
+        return false;
+    }else if(cpwdRef.current.value===''){
+        cpwdMsgRef.current.style.setProperty('color','red');
+        cpwdRef.current.focus();
+        return false;
+    }else {
+        if(pwdRef.current.value === cpwdRef.current.value){
+            alert('good');
+            nameRef.current.focus();
+        }else{
+            alert('비번일치안함');
+            pwdRef.current.value='';
+            cpwdRef.current.value='';
+            pwdRef.current.focus();
+        }
+    }
+}
