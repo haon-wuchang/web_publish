@@ -44,6 +44,10 @@ export default function Signup() {
         const {name, value} = e.target;
         setFormData({...formdata, [name] : value});
     }
+    
+
+                
+                
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -51,9 +55,8 @@ export default function Signup() {
             console.log(formdata);      
         }
     }
-
-
-
+                
+                
     return (
         <div className="content">
             <h1 className="center-title">SIGINUP</h1>
@@ -93,7 +96,8 @@ export default function Signup() {
                                             placeholder = {placeholders[name]}/>
                                         {name === 'id' &&
                                             <>
-                                                <button type="button" >중복확인</button>
+                                                <button type="button" 
+                                                    >중복확인</button>
                                                 <input type="hidden" id="idCheckResult" value="default" />
                                             </>
                                         }
