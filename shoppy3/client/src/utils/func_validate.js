@@ -1,23 +1,23 @@
 export const validateSignup = (refs) => {
     // entries
-    const refEntries = Object.entries(refs);
+    const refEntries = Object.entries(refs.current);
     // console.log('refEntries------------', refEntries);
     
     for(let i = 0; i <refEntries.length; i++){
         const array = refEntries[i];
         const name = array[0];
-        const value = array[1];
+        const ref = array[1];
 
         if(name==='emaildomainRef'){
-            if(value.current.value==='default'){
+            if(ref.current.value==='default'){
                 alert('선택행');
-                value.current.focus();
+                ref.current.focus();
                 return false;
             }
         }else{
-            if(value.current.value===''){
+            if(ref.current.value===''){
                 alert('입력행');
-                value.current.focus();
+                ref.current.focus();
                 return false;
             }
         }
