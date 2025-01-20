@@ -22,31 +22,6 @@ export default function Signup() {
         }
     }    
 
-    // 비번 체크 onBlur 
-     const handlePassword = () => {
-        if(refs.current['pwdRef'].current.value===''){
-            msgRefs.current['pwdRef'].current.style.setProperty('color','red');
-            refs.current['pwdRef'].current.focus();
-            return false;
-        } else if(refs.current['cpwdRef'].current.value==='') {
-            msgRefs.current['cpwdRef'].current.style.setProperty('color','red');
-            refs.current['cpwdRef'].current.focus();
-            return false;
-        }else {
-            if(refs.current['pwdRef'].current.value!==refs.current['cpwdRef'].current.value){
-                alert('비번일치 x');
-                refs.current['pwdRef'].current.value = '';
-                refs.current['cpwdRef'].current.value = '';
-                refs.current['pwdRef'].current.focus();      
-                return false;         
-            } else if (refs.current['pwdRef'].current.value===refs.current['cpwdRef'].current.value) {
-                alert('ok');
-                refs.current['nameRef'].current.focus();
-                return false;
-            }
-        }
-     }
-
 
     return (
         <div className="content">
@@ -86,13 +61,7 @@ export default function Signup() {
                                                     // id="id"
                                                     onChange={handleForm}
                                                     onBlur={(name==='cpwd')? ()=>{handlePassword(
-                                                        refs.current['pwdRef'],
-                                                        msgRefs.current['pwdRef'],
-                                                        refs.current['cpwdRef'],
-                                                        msgRefs.current['cpwdRef'],
-                                                        refs.current['nameRef']
-                                                    )} : null
-                                                        // !!!함수도 객체니까 cpwd 아닐때는 얘 주소주면 안대니까 null 한거임
+                                                        refs,msgRefs)} : null                                                    
                                                     }
                                                     ref = {refs.current[name.concat('Ref')]}
                                                     placeholder = {placehol[name]} /> 

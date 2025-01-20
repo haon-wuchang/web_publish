@@ -82,26 +82,32 @@ export const validateSignup = (refs,msgRefs) => {
     }
 
 // 비번 일치여부 확인 /////////////////////////////////
-    export const handlePassword = (pwdRef,pwdMsgRefs,cpwdRef,cpwdMsgRefs,nameRef) => {
-        if(pwdRef.current.value===''){
-            pwdMsgRefs.current.style.setProperty('color','red');
-            pwdRef.current.focus();
+     export const handlePassword = (refs,msgRefs) => {
+        const pwdRef = refs.current['pwdRef'];
+        const cpwdRef = refs.current['cpwdRef'];
+        const nameRef = refs.current['nameRef'];
+        const pwdMsgRef = msgRefs.current['pwdRef'];
+        const cpwdMsgRef = msgRefs.current['cpwdRef']; 
+
+    if(pwdRef.current.value===''){
+        pwdMsgRef.current.style.setProperty('color','red');
+        pwdRef.current.focus();
+        return false;
+    } else if(cpwdRef.current.value==='') {
+        cpwdMsgRef.current.style.setProperty('color','red');
+        cpwdRef.current.focus();
+        return false;
+    }else {
+        if(pwdRef.current.value!==cpwdRef.current.value){   
+            alert('비번일치 x');
+            pwdRef.current.value = '';
+            cpwdRef.current.value = '';
+            pwdRef.current.focus();      
+            return false;         
+        } else if (pwdRef.current.value===cpwdRef.current.value) {
+            alert('ok');
+            nameRef.current.focus();
             return false;
-        } else if(cpwdRef.current.value==='') {
-            cpwdMsgRefs.current.style.setProperty('color','red');
-            cpwdRef.current.focus();
-            return false;
-        }else {
-            if(pwdRef.current.value!==cpwdRef.current.value){
-                alert('비번일치 x');
-                pwdRef.current.value = '';
-                cpwdRef.current.value = '';
-                pwdRef.current.focus();
-                return false;               
-            } else if (pwdRef.current.value===cpwdRef.current.value) {
-                alert('ok');
-                nameRef.current.focus();
-                return false;
-            }
         }
-     }
+    }
+ }
