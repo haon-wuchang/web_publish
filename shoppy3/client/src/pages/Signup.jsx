@@ -6,7 +6,7 @@ export default function Signup() {
     return (
         <div className="content">
             <h1 className="center-title">SIGINUP</h1>
-            <form action="#" method="post" className="signup-form">
+            <form className="signup-form">
                 <ul>
                     <li>
                         <label for="" ><b>아이디</b></label>
