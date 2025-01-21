@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { PiGiftThin } from "react-icons/pi";
 import axios from "axios";
+import ReturnDelivery from "../components/ReturnDelivery.jsx";
+import Detail from "../components/Detail.jsx";
 import Review from "../components/Review.jsx";
-
+import QnA from "../components/QnA.jsx";
 export default function DetailProduct({ addCart }) {
+    
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [size, setSize] = useState("XS");
@@ -34,20 +37,39 @@ export default function DetailProduct({ addCart }) {
     addCart(cartItem); // App.js의 addCart 함수 호출
   };
 
+
+  const [showReturnDelivery, setShowReturnDelivery] = useState(false);
+  const [category, setCategory] = useState('');
+    const handleClickReturnDelivery = () => {
+        setShowReturnDelivery(true);
+        setCategory("returnDelivery");
+    };
+
+  const handleClickDetail = () => {
+    setCategory("detail");
+  };    
+  const handleClickReview= () => {
+    setCategory("review");
+
+  }
+  const handleClickQnA = () => {
+    setCategory("qna");
+
+  };
   return (
     <div className="content">
       <div className="product-detail-top">
         <div className="product-detail-image-top">
-          <img src={product.img} />
+          <img src={product.image} />
           <ul className="product-detail-image-top-list">
             <li>
-              <img src={product.img} alt="" />
+              <img src={product.image} alt="" />
             </li>
             <li>
-              <img src={product.img} alt="" />
+              <img src={product.image} alt="" />
             </li>
             <li>
-              <img src={product.img} alt="" />
+              <img src={product.image} alt="" />
             </li>
           </ul>
         </div>
@@ -100,15 +122,20 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <ul className="product-detail-menu">
-            <li>DETAIL</li>
-            <li>REVIEW</li>
-            <li>Q & A</li>
-            <li>RETURN & DELIVERY</li>
-        </ul>
-        <div>
-          <Review />
-        </div>
+        {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY */}
+          <ul>
+            <li onClick={handleClickDetail}><label>DETAIL</label></li>
+            <li onClick={handleClickReview}><label>REVIEW</label></li>
+            <li onClick={handleClickQnA}><label>Q&A</label></li>
+            <li onClick={handleClickReturnDelivery}><label>RETURN & DELIVERY</label></li>
+          </ul>
+          <div>
+            {/* {showReturnDelivery && <ReturnDelivery/>} */}
+            {category === "returnDelivery" ? <ReturnDelivery/>: null}
+            {category === "detail" ? <Detail/> : null}
+            {category === "review" ? <Review/> : null}
+            {category === "qna" ? <QnA/> : null}  
+          </div>
       </div>
     </div>
   );

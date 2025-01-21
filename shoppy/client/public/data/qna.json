@@ -1,0 +1,47 @@
+[
+    {
+        "state": "답변완료",
+        "title": "제목",
+        "email": "test1@naver.com"
+    },
+    {
+        "state": "답변완료",
+        "title": "제목",
+        "email": "test2@google.com"
+    },
+    {
+        "state": "미답변",
+        "title": "제목",
+        "email": "test3@daum.net"
+    },
+    {
+        "state": "답변완료",
+        "title": "제목",
+        "email": "test1@naver.com"
+    },
+    {
+        "state": "답변완료",
+        "title": "제목",
+        "email": "test2@google.com"
+    },
+    {
+        "state": "미답변",
+        "title": "제목",
+        "email": "test3@daum.net"
+    },
+    {
+        "state": "답변완료",
+        "title": "제목",
+        "email": "test1@naver.com"
+    },
+    {
+        "state": "답변완료",
+        "title": "제목",
+        "email": "test2@google.com"
+    },
+    {
+        "state": "미답변",
+        "title": "제목",
+        "email": "test3@daum.net"
+    }
+]

@@ -1,78 +1,90 @@
 {
-   "reviewData" : [
-    { 
-     "customerid":"a*******",
-     "reviewUploadDate":"2012.01.02",
-     "reviewCategory":"new",
-     "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
-     "option":"MIDIUM",
-     "size":"164cm,61kg",
-     "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
-                                    
-     },
+    "reviewData" : [
      { 
-     "customerid":"b***********",
-     "reviewUploadDate":"2013.01.01",
-     "reviewCategory":"highRate",
-      "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
-      "option":"SMALL",
-      "size":"164cm,61kg",
-      "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
-     },
-     { 
-     "customerid":"c**********",
-     "reviewUploadDate":"2014.01.01",
-     "reviewCategory":"rowRate",
+      "customerid":"a*******",
+      "reviewUploadDate":"2012.01.02",
+      "reviewCategory":"new",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
       "size":"164cm,61kg",
       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+                                     
+      },
+      { 
+      "customerid":"b***********",
+      "reviewUploadDate":"2013.01.01",
+      "reviewCategory":"highRate",
+       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+       "option":"SMALL",
+       "size":"164cm,61kg",
+       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      },
+      { 
+      "customerid":"c**********",
+      "reviewUploadDate":"2014.01.01",
+      "reviewCategory":"rowRate",
+       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+       "option":"MIDIUM",
+       "size":"164cm,61kg",
+       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      },
+      { 
+      "customerid":"d**********",
+      "reviewUploadDate":"2015.01.01",
+      "reviewCategory":"thumbs",
+       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+       "option":"LARGE",
+       "size":"164cm,61kg",
+       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      }    
+  ],
+ 
+ "reviewTap" : [
+     {
+         "tapNm" : "최신순",
+         "category":"new"
      },
-     { 
-     "customerid":"d**********",
-     "reviewUploadDate":"2015.01.01",
-     "reviewCategory":"thumbs",
-      "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
-      "option":"LARGE",
-      "size":"164cm,61kg",
-      "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
-     }    
+     {
+         "tapNm" : "평점 높은순",
+         "category":"highRate"
+ },
+     {
+         "tapNm" : "평점 낮은순",
+         "category":"rowRate"
+ },
+     {
+         "tapNm" : "추천순",
+         "category":"thumbs"
+ }
  ],
-
-"reviewTap" : [
-    {"tapNm" : "최신순"},
-    {"tapNm" : "평점 높은순"},
-    {"tapNm" : "평점 낮은순"},
-    {"tapNm" : "추천순"}
-],
-
-"test": [
-    {
-        "title":"사이즈",
-        "subTitle1":"적당함",
-        "subTitle2":"작음",
-        "subTitle3":"큼",
-        "per1":"50%",
-        "per2":"50%",
-        "per3":"50%"
-    },
-    {
-        "title":"색상",
-        "subTitle1":"같음",
-        "subTitle2":"비슷함",
-        "subTitle3":"다름",
-        "per1":"50%",
-        "per2":"50%",
-        "per3":"50%"
-    },
-    {
-        "title":"소재",
-        "subTitle1":"적당함",
-        "subTitle2":"작음",
-        "subTitle3":"큼",
-        "per1":"50%",
-        "per2":"50%",
-        "per3":"50%"
-    }
-]
-}
+ 
+ "test": [
+     {
+         "title":"사이즈",
+         "subTitle1":"적당함",
+         "subTitle2":"작음",
+         "subTitle3":"큼",
+         "per1":"50%",
+         "per2":"50%",
+         "per3":"50%"
+     },
+     {
+         "title":"색상",
+         "subTitle1":"같음",
+         "subTitle2":"비슷함",
+         "subTitle3":"다름",
+         "per1":"50%",
+         "per2":"50%",
+         "per3":"50%"
+     },
+     {
+         "title":"소재",
+         "subTitle1":"적당함",
+         "subTitle2":"작음",
+         "subTitle3":"큼",
+         "per1":"50%",
+         "per2":"50%",
+         "per3":"50%"
+     }
+ ]
+ }
