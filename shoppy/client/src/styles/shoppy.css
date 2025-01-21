@@ -308,7 +308,7 @@ p {
 
 }
 .detail-img>img{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 80%;
 }
 .detail-img:first-child>img{
@@ -530,7 +530,7 @@ p {
 }
 .review-product-like-left{
   padding: 30px 0;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 
 }
 .review-product-like-left h5 {
