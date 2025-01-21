@@ -419,19 +419,67 @@ p {
   padding: 0 10px;
 }
 
-.review-product-like-box{
-  border: 1px solid blue;
-}
 .review-product-like-top {
   display: flex;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   justify-content: space-between;
 }
 .review-product-like-left{
   background-color: antiquewhite;
+  padding: 10px 0;
+}
+.review-product-like-left h5 {
+  font-size: 16px;
+  margin: 0;
+}
+.review-product-like-left p {
+  font-size: 13px;
+  color: gray;
+  padding: 10px 0;
+}
+.review-product-like-rate {
+  padding: 15px 0;
 }
 .review-product-like-right{
-  background-color: chocolate;
-  width: 900px;
   display: flex;
+}
+.review-product-rate-box{
+  list-style-type: none;
+  padding: 30px 20px;
+  font-size: 14px;
+  border: 1px solid blue;
+  width: 250px;
+}
+.review-product-rate-title span{
+  color: gray;
+  padding: 5px 0;
+}
+.review-product-rate-box span{
+  font-size: 13px;
+}
+.review-product-rate-flex {
+  display: flex;
+  border: 1px solid red;
+
+}
+
+.review-product-rate-bg-bar {
+  width: 100%;
+  height: 3px;
+  background-color: gray;
+}
+.review-product-rate-bar {
+  width: 50%;
+  height: 3px;
+  background-color: black;
+}
+.review-product-like-bottom{
+  padding: 30px 0;
+}
+.review-product-like-bottom img{
+  width: 110px;
+  padding: 0 5px;
+}
+.review-product-like-rate {
+  font-size: 30px;
 }

@@ -13,77 +13,81 @@ export default function Review() {
                     <div className='review-product-like-left'>
                         <h5>상품 만족도 (2)</h5>
                         <p>구매하신 분들의 상품에 대한 평점입니다.</p>
-                        <div>
+                        <div className='review-product-like-rate'>
                         💜💜💜💜💜 5 / 5.0
                         </div>
                     </div>
                     <div className='review-product-like-right'>
-                        <ul className='review-product-rate'>
-                            <li>
+                        <ul className='review-product-rate-box'>
+                            <li className='review-product-rate-title'>
                                 <span>사이즈</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>적당함</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'>
+                                    <div className='review-product-rate-bar'></div>
+                                    </div>
                                 <span>50%</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>작음</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'>
+                                    <div className='review-product-rate-bar'></div>
+                                </div>
                                 <span>50%</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>큼</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
                         </ul>
-                        <ul className='review-product-rate'>
-                            <li>
+                        <ul className='review-product-rate-box'>
+                            <li className='review-product-rate-title'>
                                 <span>색상</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>적당함</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>작음</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>큼</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
                         </ul>
-                        <ul className='review-product-rate'>
-                            <li>
+                        <ul className='review-product-rate-box'>
+                            <li className='review-product-rate-title'>
                                 <span>소재</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>적당함</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>작음</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
-                            <li>
+                            <li className='review-product-rate-flex'>
                                 <span>큼</span>
-                                <div className='배경바'><div className='ㄹㅇ바'></div></div>
+                                <div className='review-product-rate-bg-bar'><div className='review-product-rate-bar'></div></div>
                                 <span>50%</span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div className='review-product-like-bottom'>   
-                    <img src="/images/review-image1.jpeg" alt="" />
-                    <img src="/images/review-image2.jpeg" alt="" />
-                    <img src="/images/review-image2.jpeg" alt="" />
+                    <img src="https://media.wconcept.co.kr/review/306182087/306182087_1731597728097.jpeg?RS=300" alt="" />
+                    <img src="https://media.wconcept.co.kr/review/306182087/306182087_1731597728097.jpeg?RS=300" alt="" />
+                    <img src="https://media.wconcept.co.kr/review/306182087/306182087_1731597728097.jpeg?RS=300" alt="" />
                 </div>
             </div> {/* 상품만족도 끝 */}            
             <div>
@@ -128,7 +132,7 @@ export default function Review() {
                                     <span>같음</span>
                                 </li>
                             </ul>
-                            <img src="/images/review-image1.jpeg" 
+                            <img src="https://media.wconcept.co.kr/review/306182087/306182087_1733542286789.jpeg?RS=300" 
                                 alt="" 
                                 className='review-img'/>
                             <p className='review-text'>상당히 오버핏입니다. 특히 소매부분이 그렇습니다.
