@@ -264,7 +264,7 @@ p {
 }
 
 .product-detail-tab {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 1200px;
   /* height: 200px; */
   /* display: flex; */
@@ -294,7 +294,7 @@ p {
 /****************Review***************************/
 .review-all{
   width: 1200px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .review-tap{
   list-style-type: none;
@@ -318,7 +318,8 @@ p {
 
 
 .review-box{
-  border: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
   display: flex;
   padding: 20px 0;
   justify-content: space-between;
@@ -419,14 +420,20 @@ p {
   padding: 0 10px;
 }
 
+/* .review-product-like-box {
+  border: 1px solid red;
+} */
+
+
 .review-product-like-top {
   display: flex;
   /* border: 1px solid green; */
   justify-content: space-between;
 }
 .review-product-like-left{
-  background-color: antiquewhite;
-  padding: 10px 0;
+  padding: 30px 0;
+  /* border: 1px solid green; */
+
 }
 .review-product-like-left h5 {
   font-size: 16px;
@@ -445,31 +452,43 @@ p {
 }
 .review-product-rate-box{
   list-style-type: none;
-  padding: 30px 20px;
-  font-size: 14px;
-  border: 1px solid blue;
-  width: 250px;
+  padding: 50px 10px 30px ;
+  font-size: 13px;
+  /* border: 1px solid blue; */
+  width: 260px;
+}
+.review-product-rate-box li {
+  padding: 5px 0;
 }
 .review-product-rate-title span{
   color: gray;
-  padding: 5px 0;
 }
 .review-product-rate-box span{
   font-size: 13px;
 }
 .review-product-rate-flex {
   display: flex;
-  border: 1px solid red;
-
+  /* border: 1px solid red; */
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.review-product-rate-flex span:first-child{
+  /* border: 1px solid red; */
+  width: 50px;
+  text-align: left;
 }
 
+.review-product-rate-bar-box {
+  /* border: 1px solid blue; */
+  width: 130px;
+}
 .review-product-rate-bg-bar {
   width: 100%;
   height: 3px;
   background-color: gray;
 }
 .review-product-rate-bar {
-  width: 50%;
   height: 3px;
   background-color: black;
 }
