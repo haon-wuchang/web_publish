@@ -3,36 +3,36 @@ import { TfiAngleDoubleLeft } from "react-icons/tfi";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
 import { TfiAngleLeft } from "react-icons/tfi";
 import { TfiAngleRight } from "react-icons/tfi";
-export default function ReviewPage({pageNum, setPageNum}) {
-    // const handlepagePrePre = () => {  // <<페이지클릭함수
-    //     setPageNum(startPage);
-    // }
-    const handlepagePre = () => { // <페이지클릭함수
+export default function ReviewPage({pageNum, setPageNum,endPageLength}) {
+    const handlepagePrePre = () => {  // << 클릭함수
+        setPageNum(1);
+    }
+    const handlepagePre = () => { // < 클릭함수
         if(pageNum === 1){
             setPageNum(1)
         } else {
             setPageNum(pageNum-1) 
         }
     }
-    const handlePage = (num) => {
+    const handlePage = (num) => {  // 현재 페이지
         setPageNum(num);
     }
-    const handlePageNext = () => { // >페이지클릭함수
+    const handlePageNext = () => { // > 클릭함수
         setPageNum(pageNum+ 1) ;
     }
-    // const handlePageNextNext = () => { // >>페이지클릭함수
-    //     setPageNum(endPage);
-    // }
+    const handlePageNextNext = () => { // >> 클릭함수
+        setPageNum(endPageLength);
+    }
 
 
     return (
         <>
-        {/* <span onClick={handlepagePrePre}><TfiAngleDoubleLeft /></span> */}
+        <span onClick={handlepagePrePre}><TfiAngleDoubleLeft /></span>
         <span onClick={handlepagePre}><TfiAngleLeft /></span>
         <span className='review-next-page-num' onClick={()=>handlePage(1)}>1</span>
         <span className='review-next-page-num' onClick={()=>handlePage(2)}>2</span>
         <span onClick={handlePageNext}><TfiAngleRight /></span>
-        {/* <span onClick={handlePageNextNext}><TfiAngleDoubleRight /></span> */}
+        <span onClick={handlePageNextNext}><TfiAngleDoubleRight /></span>
         </>
     );
 }

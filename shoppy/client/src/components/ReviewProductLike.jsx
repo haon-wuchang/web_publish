@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ReviewProductLike({reviewData,test}) {
+export default function ReviewProductLike({reviewData,ProductLike}) {
     return (
         <div className='review-product-like-box'>
         <div className='review-product-like-top'>
@@ -18,7 +18,7 @@ export default function ReviewProductLike({reviewData,test}) {
 
             </div>
             <div className='review-product-like-right'>                        
-            {test && test.map((item)=>
+            {ProductLike && ProductLike.map((item)=>
                     <>
                     <ul className='review-product-rate-box'>
                         <li className='review-product-rate-title'>

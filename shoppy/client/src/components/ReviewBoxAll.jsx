@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewBoxDetail from './ReviewBoxDetail';
 
-export default function ReviewBoxAll({reviewTap,reviewData,slicePages}) {
+export default function ReviewBoxAll({reviewTap,slicePages}) {
 
 
     return (
