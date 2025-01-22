@@ -1,14 +1,11 @@
 import React from 'react';
-import { GoThumbsup } from "react-icons/go";
-import {useState} from 'react';
+import ReviewThumbs from './ReviewThumbs.jsx';
 
 
 export default function ReviewBoxDetail({item}) {
-    const [thumbsNum,setThumsNum] = useState(0);
-        
-    const reviewBoxThumbsUp = () => {
-        setThumsNum(thumbsNum+1);
-    }
+
+    // item.reviewCategory
+
     return (
                 <tr>
                     <td className='td-star'>
@@ -49,9 +46,11 @@ export default function ReviewBoxDetail({item}) {
                                 <span>같음</span>
                             </li>
                         </ul>
+                        {item.img && 
                         <img src={item.img}
                             alt="리뷰이미지" 
-                            className='review-img'/>
+                            className='review-img'/> 
+                        }
                         <p className='review-text'>
                             {item.reviewText}
                         </p>
@@ -63,10 +62,7 @@ export default function ReviewBoxDetail({item}) {
                                 </ul>
                             </div>
                             <div className='review-bottom-right'>
-                                <div onClick={reviewBoxThumbsUp}> 
-                                    <span><GoThumbsup /></span>
-                                    <span>{thumbsNum}</span>
-                                </div>
+                                <ReviewThumbs />
                             </div>
                         </div>
                         </div>

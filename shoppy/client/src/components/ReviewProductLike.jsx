@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal.jsx';
 
 export default function ReviewProductLike({reviewData,ProductLike}) {
+    // const [modalOpen, setModalOpen] = useState(false);  // 리뷰이미지 모달창 테스트 중
+
+    // const openModal = () => setModalOpen(true);
+    // const closeModal = () => setModalOpen(false);
+
+
     return (
         <div className='review-product-like-box'>
         <div className='review-product-like-top'>
@@ -60,9 +67,16 @@ export default function ReviewProductLike({reviewData,ProductLike}) {
             </div>
         </div>
         <div className='review-product-like-bottom'>  
-        {reviewData && reviewData.map((item)=>
-            <img src={item.img} alt="리뷰전체이미지" />
-        )}; 
+            {/* 모달테스트 */}
+            {/* <div>
+                <button onClick={openModal}>더보기</button>
+                <Modal isOpen={modalOpen} closeModal={closeModal} reviewData={reviewData}/>
+
+            </div> */}
+                {reviewData && reviewData.map((item)=>   
+                    {return item.img && <img src={item.img} alt="리뷰전체이미지" />} 
+                )}                                
+
         </div>
     </div>     
     );

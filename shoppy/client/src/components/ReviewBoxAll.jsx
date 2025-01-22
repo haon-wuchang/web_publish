@@ -1,15 +1,21 @@
 import React from 'react';
 import ReviewBoxDetail from './ReviewBoxDetail';
+import ReviewTab from './ReviewTab.jsx';
 
-export default function ReviewBoxAll({reviewTap,slicePages}) {
-
+export default function ReviewBoxAll({reviewTab,slicePages,mama}) {
+    const momCategory = (category) => {
+        // console.log(category);
+        mama(category);
+        
+    }
 
     return (
             <div>
                 <ul className='review-tap'>
-                    {reviewTap && reviewTap.map((item)=>
-                        <li>{item.tapNm}</li>                    
+                    {reviewTab && reviewTab.map((item)=>
+                        <ReviewTab momcate={momCategory} tabNm={item.tabNm} category ={item.category}/>  
                     )}
+                 
                 </ul>
                 <div className='review-box'>                                                     
                     <table>

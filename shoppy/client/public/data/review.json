@@ -3,35 +3,32 @@
      { 
       "customerid":"a*******",
       "reviewUploadDate":"2012.01.02",
-      "reviewCategory":"new",
+      "category":"new",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
-      "size":"164cm,61kg",
-      "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      "size":"164cm,61kg"
                                      
       },
       { 
       "customerid":"b***********",
       "reviewUploadDate":"2013.01.01",
-      "reviewCategory":"highRate",
+      "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
-       "size":"164cm,61kg",
-       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+       "size":"164cm,61kg"
       },
       { 
       "customerid":"c**********",
       "reviewUploadDate":"2014.01.01",
-      "reviewCategory":"rowRate",
+      "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
-       "size":"164cm,61kg",
-       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+       "size":"164cm,61kg"
       },
       { 
       "customerid":"d**********",
       "reviewUploadDate":"2015.01.01",
-      "reviewCategory":"thumbs",
+      "category":"thumbs",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"LARGE",
        "size":"164cm,61kg",
@@ -40,7 +37,7 @@
       { 
       "customerid":"a*******",
       "reviewUploadDate":"2012.01.02",
-      "reviewCategory":"new",
+      "category":"new",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
       "size":"164cm,61kg",
@@ -50,7 +47,7 @@
       { 
       "customerid":"b***********",
       "reviewUploadDate":"2013.01.01",
-      "reviewCategory":"highRate",
+      "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
        "size":"164cm,61kg",
@@ -59,7 +56,7 @@
       { 
       "customerid":"2c**********",
       "reviewUploadDate":"2014.01.01",
-      "reviewCategory":"rowRate",
+      "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
        "size":"164cm,61kg",
@@ -68,7 +65,7 @@
       { 
       "customerid":"2d**********",
       "reviewUploadDate":"2015.01.01",
-      "reviewCategory":"thumbs",
+      "category":"thumbs",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"LARGE",
        "size":"164cm,61kg",
@@ -77,7 +74,7 @@
       { 
       "customerid":"2a*******",
       "reviewUploadDate":"2012.01.02",
-      "reviewCategory":"new",
+      "category":"highRate",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
       "size":"164cm,61kg",
@@ -87,7 +84,7 @@
       { 
       "customerid":"2b***********",
       "reviewUploadDate":"2013.01.01",
-      "reviewCategory":"highRate",
+      "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
        "size":"164cm,61kg",
@@ -96,7 +93,7 @@
       { 
       "customerid":"2c**********",
       "reviewUploadDate":"2014.01.01",
-      "reviewCategory":"rowRate",
+      "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
        "size":"164cm,61kg",
@@ -105,7 +102,7 @@
       { 
       "customerid":"2d**********",
       "reviewUploadDate":"2015.01.01",
-      "reviewCategory":"thumbs",
+      "category":"thumbs",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"LARGE",
        "size":"164cm,61kg",
@@ -114,7 +111,7 @@
       { 
       "customerid":"3a*******",
       "reviewUploadDate":"2012.01.02",
-      "reviewCategory":"new",
+      "category":"highRate",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
       "size":"164cm,61kg",
@@ -124,7 +121,7 @@
       { 
       "customerid":"3b***********",
       "reviewUploadDate":"2013.01.01",
-      "reviewCategory":"highRate",
+      "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
        "size":"164cm,61kg",
@@ -133,7 +130,7 @@
       { 
       "customerid":"3c**********",
       "reviewUploadDate":"2014.01.01",
-      "reviewCategory":"rowRate",
+      "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
        "size":"164cm,61kg",
@@ -142,7 +139,7 @@
       { 
       "customerid":"3d**********",
       "reviewUploadDate":"2015.01.01",
-      "reviewCategory":"thumbs",
+      "category":"thumbs",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"LARGE",
        "size":"164cm,61kg",
@@ -151,7 +148,7 @@
       { 
       "customerid":"3a*******",
       "reviewUploadDate":"2012.01.02",
-      "reviewCategory":"new",
+      "category":"highRate",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
       "size":"164cm,61kg",
@@ -161,7 +158,7 @@
       { 
       "customerid":"3b***********",
       "reviewUploadDate":"2013.01.01",
-      "reviewCategory":"highRate",
+      "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
        "size":"164cm,61kg",
@@ -170,7 +167,7 @@
       { 
       "customerid":"4c**********",
       "reviewUploadDate":"2014.01.01",
-      "reviewCategory":"rowRate",
+      "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
        "size":"164cm,61kg",
@@ -179,7 +176,7 @@
       { 
       "customerid":"4d**********",
       "reviewUploadDate":"2015.01.01",
-      "reviewCategory":"thumbs",
+      "category":"thumbs",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"LARGE",
        "size":"164cm,61kg",
@@ -188,7 +185,7 @@
       { 
       "customerid":"4a*******",
       "reviewUploadDate":"2012.01.02",
-      "reviewCategory":"new",
+      "category":"highRate",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
       "size":"164cm,61kg",
@@ -198,7 +195,7 @@
       { 
       "customerid":"4b***********",
       "reviewUploadDate":"2013.01.01",
-      "reviewCategory":"highRate",
+      "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
        "size":"164cm,61kg",
@@ -207,7 +204,7 @@
       { 
       "customerid":"4c**********",
       "reviewUploadDate":"2014.01.01",
-      "reviewCategory":"rowRate",
+      "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
        "size":"164cm,61kg",
@@ -216,7 +213,7 @@
       { 
       "customerid":"4d**********",
       "reviewUploadDate":"2015.01.01",
-      "reviewCategory":"thumbs",
+      "category":"thumbs",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"LARGE",
        "size":"164cm,61kg",
@@ -224,21 +221,21 @@
       } 
   ],
  
- "reviewTap" : [
+ "reviewTab" : [
      {
-         "tapNm" : "최신순",
+         "tabNm" : "최신순",
          "category":"new"
      },
      {
-         "tapNm" : "평점 높은순",
+         "tabNm" : "평점 높은순",
          "category":"highRate"
  },
      {
-         "tapNm" : "평점 낮은순",
+         "tabNm" : "평점 낮은순",
          "category":"rowRate"
  },
      {
-         "tapNm" : "추천순",
+         "tabNm" : "추천순",
          "category":"thumbs"
  }
  ],

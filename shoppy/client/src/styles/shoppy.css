@@ -790,3 +790,10 @@ p {
 .una-paginate-ul li {
   cursor: pointer;
 }
+
+/*modal test */
+
+
+.modal{
+  border: 5px solid red;
+}
