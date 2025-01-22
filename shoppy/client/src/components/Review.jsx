@@ -44,14 +44,12 @@ export default function Review() {
 
 
     // 리뷰이미ㅣ지 테스트 
-    const [imgNum, setImgNum] = useState(1); // 페이지 초기값
-    const [sliceImg, setsliceImg] = useState([]); //페이지 값 관리
+    const [imgNum, setImgNum] = useState(1); 
+    const [sliceImg, setsliceImg] = useState([]); 
     const imgPage = 8;                          
-    const imgEndNum = (pageNum * imgPage) ;  
-    const imgStartNum = (imgEndNum - imgPage) ;
 
     useEffect(()=>{
-        setsliceImg(reviewData.slice(imgStartNum,imgEndNum));
+        setsliceImg(reviewData.slice(1,imgPage));
     },[reviewData,imgNum]);  
     // 리뷰이미ㅣ지 테스트 
 

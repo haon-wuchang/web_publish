@@ -85,10 +85,12 @@ export default function ReviewProductLike({reviewData,ProductLike,sliceImg,imgNu
                 <button onClick={openModal}>더보기</button>
                 <Modal isOpen={modalOpen} closeModal={closeModal} reviewData={reviewData}/> */}
             {/* </div> 모달테스트 끗 */}
+
             {sliceImg && sliceImg.map((item)=>
                 {return item.img && <img src={item.img} alt="리뷰전체이미지" />} 
             // 얘가 이미지 없는 애들까지 갯수로쳐서 8개 안나오고 5개만 나옴;;
             )}   
+            
                     
         </div>
     </div>     
