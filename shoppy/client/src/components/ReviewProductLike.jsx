@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Modal from './Modal.jsx';
 
 export default function ReviewProductLike({reviewData,ProductLike}) {
-    // const [modalOpen, setModalOpen] = useState(false);  // 리뷰이미지 모달창 테스트 중
+    const [modalOpen, setModalOpen] = useState(false);  // 리뷰이미지 모달창 테스트 중
 
-    // const openModal = () => setModalOpen(true);
-    // const closeModal = () => setModalOpen(false);
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
 
+    // 리뷰이미지 갯수 관리 8개만 나오게
+    // const [reviewImg, setReviewImg] = useState();
 
     return (
         <div className='review-product-like-box'>
@@ -67,15 +69,15 @@ export default function ReviewProductLike({reviewData,ProductLike}) {
             </div>
         </div>
         <div className='review-product-like-bottom'>  
-            {/* 모달테스트 */}
-            {/* <div>
+            
+            {/* <div> 
                 <button onClick={openModal}>더보기</button>
-                <Modal isOpen={modalOpen} closeModal={closeModal} reviewData={reviewData}/>
-
-            </div> */}
+                <Modal isOpen={modalOpen} closeModal={closeModal} reviewData={reviewData}/> */}
                 {reviewData && reviewData.map((item)=>   
                     {return item.img && <img src={item.img} alt="리뷰전체이미지" />} 
-                )}                                
+                )}                               
+
+            {/* </div> 모달테스트 끗 */}
 
         </div>
     </div>     

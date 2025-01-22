@@ -18,7 +18,11 @@ export default function ReviewPage({pageNum, setPageNum,endPageLength}) {
         setPageNum(num);
     }
     const handlePageNext = () => { // > 클릭함수
-        setPageNum(pageNum+ 1) ;
+        if(pageNum<endPageLength){
+            setPageNum(pageNum+ 1) ;
+        } else{
+            alert('마지막페이지 입니다');
+        }
     }
     const handlePageNextNext = () => { // >> 클릭함수
         setPageNum(endPageLength);
@@ -31,6 +35,8 @@ export default function ReviewPage({pageNum, setPageNum,endPageLength}) {
         <span onClick={handlepagePre}><TfiAngleLeft /></span>
         <span className='review-next-page-num' onClick={()=>handlePage(1)}>1</span>
         <span className='review-next-page-num' onClick={()=>handlePage(2)}>2</span>
+        <span className='review-next-page-num' onClick={()=>handlePage(3)}>3</span>
+        <span className='review-next-page-num' onClick={()=>handlePage(4)}>4</span>
         <span onClick={handlePageNext}><TfiAngleRight /></span>
         <span onClick={handlePageNextNext}><TfiAngleDoubleRight /></span>
         </>
