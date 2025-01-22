@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import Modal from './Modal.jsx';
 
+// 얘가 원본 파일 임 
 
 export default function ReviewProductLike({reviewData,ProductLike}) {
     const [modalOpen, setModalOpen] = useState(false);  // 리뷰이미지 모달창 테스트 중
 
     const openModal = () => setModalOpen(true);
     const closeModal = () => setModalOpen(false);
-
-    // 리뷰이미지 갯수 관리 8개만 나오게
-    const [reviewImg, setReviewImg] = useState();
-
-    // reviewData를 맵돌려서 length 가 8보다 작은애들만 이미지 나오게 
-    const leng = reviewData.length;
-    // if( leng < 9){           
-    //     맵돌려서 이미지 잇을때만 출력 
-    // }   
 
 
 
@@ -85,12 +77,14 @@ export default function ReviewProductLike({reviewData,ProductLike}) {
                 <button onClick={openModal}>더보기</button>
                 <Modal isOpen={modalOpen} closeModal={closeModal} reviewData={reviewData}/> */}
             {/* </div> 모달테스트 끗 */}
+            
             {reviewData && reviewData.map((item)=>
                 {return item.img && <img src={item.img} alt="리뷰전체이미지" />} 
-            )}   
+            )}                  
                     
         </div>
     </div>     
     );
 }
+
 

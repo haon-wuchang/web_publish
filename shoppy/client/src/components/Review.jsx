@@ -42,16 +42,19 @@ export default function Review() {
         setSlicePages(reviewData.slice(startPage,endPage));
     },[reviewData,pageNum]);  
 
-
-
     return (
         <div className='review-all'>
-            <ReviewProductLike reviewData={reviewData} ProductLike={ProductLike}/>
-                <ReviewBoxAll      
-                    reviewTab={reviewTab}
-                    reviewData={reviewData} 
-                    slicePages={slicePages}
-                    mama = {grandcategory}/>
+            <ReviewProductLike 
+                reviewData={reviewData} 
+                ProductLike={ProductLike}
+                
+                
+                />
+            <ReviewBoxAll      
+                reviewTab={reviewTab}
+                reviewData={reviewData} 
+                slicePages={slicePages}
+                mama = {grandcategory}/>
             
             <div className='review-next-page'>
                 <ReviewPage  pageNum={pageNum}  

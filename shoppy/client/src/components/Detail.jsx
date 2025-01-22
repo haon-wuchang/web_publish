@@ -4,83 +4,52 @@ export default function Detail() {
             "img" : "https://image.wconcept.co.kr/images/Upload/VendorClosedBanner/20250117103402_3005374.jpg"
         },
         {
-            "img" : "https://product-image.wconcept.co.kr/images/upload/board/306182087/2024120316432761.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/2.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/3.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/4.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/6.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/7.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/8.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/9.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/10.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/11.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/12.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/13.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/14.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/24fall/Cashmere%20Balmacaan%20Coat_black/15.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/21fall/balmacaan/black/16.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/22fall/balmacaan%20coat_mocha/1.jpg"
         },
         {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg",
-            "describe": "OTHER COLOR"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
-        },
-        {
-            "img" : "http://qhdrus123.cafe24.com/web/24winter/Minimal%20Hood%20Padded%20Jacket_charcoal/1.jpg"
+            "img" : "http://qhdrus123.cafe24.com/web/22fall/balmacaan%20coat_mocha/dark%20brown.jpg"
         },
         
     ]
@@ -103,9 +72,8 @@ return (
         <span className="detail-info-tit">
         MINIMAL HOOD PADDED JACKET
         <br/>
-        미니멀 후드 패디드 재킷
+        미니멀 후드 패디드 재킷 FABRIC
         </span>
-        <span>FABRIC</span>
         <p>
         - Color : Charcoal<br/>
         - Shell : Cotton 45% Nylon 55%<br/>
@@ -155,6 +123,9 @@ return (
         </p>
 
     </div>
+
+
+
     </>
 
     );

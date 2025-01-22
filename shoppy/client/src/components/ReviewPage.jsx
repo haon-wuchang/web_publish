@@ -28,7 +28,6 @@ export default function ReviewPage({pageNum, setPageNum,endPageLength}) {
         setPageNum(endPageLength);
     }
 
-
     return (
         <>
         <span onClick={handlepagePrePre}><TfiAngleDoubleLeft /></span>
