@@ -780,3 +780,13 @@ p {
     list-style: '▪';
 }
 
+/* ********************************** QnA2 ************************************ */
+.una-paginate-ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.una-paginate-ul li {
+  cursor: pointer;
+}

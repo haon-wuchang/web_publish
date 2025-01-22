@@ -36,7 +36,44 @@
        "option":"LARGE",
        "size":"164cm,61kg",
        "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
-      }    
+      } ,
+      { 
+      "customerid":"a*******",
+      "reviewUploadDate":"2012.01.02",
+      "reviewCategory":"new",
+      "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+      "option":"MIDIUM",
+      "size":"164cm,61kg",
+      "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+                                     
+      },
+      { 
+      "customerid":"b***********",
+      "reviewUploadDate":"2013.01.01",
+      "reviewCategory":"highRate",
+       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+       "option":"SMALL",
+       "size":"164cm,61kg",
+       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      },
+      { 
+      "customerid":"c**********",
+      "reviewUploadDate":"2014.01.01",
+      "reviewCategory":"rowRate",
+       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+       "option":"MIDIUM",
+       "size":"164cm,61kg",
+       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      },
+      { 
+      "customerid":"d**********",
+      "reviewUploadDate":"2015.01.01",
+      "reviewCategory":"thumbs",
+       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
+       "option":"LARGE",
+       "size":"164cm,61kg",
+       "img":"https://media.wconcept.co.kr/review/306182086/306182086_1735956711103.jpeg?RS=300"
+      }  
   ],
  
  "reviewTap" : [
