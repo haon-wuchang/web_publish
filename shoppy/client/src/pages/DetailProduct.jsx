@@ -6,7 +6,6 @@ import ReturnDelivery from "../components/ReturnDelivery.jsx";
 import Detail from "../components/Detail.jsx";
 import Review from "../components/Review.jsx";
 import QnA from "../components/QnA.jsx";
-import QnA2 from "../components/QnA2.jsx";
 export default function DetailProduct({ addCart }) {
     
   const { pid } = useParams();
@@ -135,7 +134,7 @@ export default function DetailProduct({ addCart }) {
             {category === "returnDelivery" ? <ReturnDelivery/>: null}
             {category === "detail" ? <Detail/> : null}
             {category === "review" ? <Review/> : null}
-            {category === "qna" ? <QnA2/> : null}  
+            {category === "qna" ? <QnA/> : null}  
           </div>
       </div>
     </div>

@@ -42,6 +42,22 @@ export default function Review() {
         setSlicePages(reviewData.slice(startPage,endPage));
     },[reviewData,pageNum]);  
 
+
+    // 리뷰이미ㅣ지 테스트 
+    // const [imgNum, setImgNum] = useState(1); // 페이지 초기값
+    // const [sliceImg, setsliceImg] = useState([]); //페이지 값 관리
+    // const imgPage = 8;                          
+    // const imgEndPage = (pageNum * page) ;  
+    // const imgStartPage = (endPage - page) ;
+
+    // useEffect(()=>{
+    //     setSlicePages(reviewData.slice(startPage,endPage));
+    // },[reviewData,pageNum]);  
+
+
+
+
+
     return (
         <div className='review-all'>
             <ReviewProductLike 

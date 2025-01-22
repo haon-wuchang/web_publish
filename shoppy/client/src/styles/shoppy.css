@@ -790,8 +790,14 @@ p {
 .una-paginate-ul li {
   cursor: pointer;
 }
+/******************************* Pagination ******************************** */
+.qna-paginate-li-border {
+  font-weight: bold;
+}
 
-/*modal test */
+
+
+/*하온노논온농modal test */
 
 
 .modal{
