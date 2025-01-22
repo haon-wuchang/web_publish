@@ -795,6 +795,46 @@ p {
   font-weight: bold;
 }
 
+/* *************************** DetailProduct2 ***************************** */
+.product2-detail-tab-ul {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.product2-detail-tab-li {
+  display: block;
+  border: 1px solid silver;
+  border-bottom: 1px solid black;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  text-decoration: none;
+  color: black;
+}
+
+.product2-detail-tab-li > a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.onClick {
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+.una-qna-list {
+  width: 1200px;
+  margin: 0 auto;
+}
+
 
 
 /*하온노논온농modal test */

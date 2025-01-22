@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from './Modal.jsx';
 
 
-export default function ReviewProductLike({reviewData,ProductLike}) {
+export default function ReviewProductLike({reviewData,ProductLike,sliceImg,imgNum,setImgNum}) {
     const [modalOpen, setModalOpen] = useState(false);  // 리뷰이미지 모달창 테스트 중
 
     const openModal = () => setModalOpen(true);
@@ -85,8 +85,9 @@ export default function ReviewProductLike({reviewData,ProductLike}) {
                 <button onClick={openModal}>더보기</button>
                 <Modal isOpen={modalOpen} closeModal={closeModal} reviewData={reviewData}/> */}
             {/* </div> 모달테스트 끗 */}
-            {reviewData && reviewData.map((item)=>
+            {sliceImg && sliceImg.map((item)=>
                 {return item.img && <img src={item.img} alt="리뷰전체이미지" />} 
+            // 얘가 이미지 없는 애들까지 갯수로쳐서 8개 안나오고 5개만 나옴;;
             )}   
                     
         </div>

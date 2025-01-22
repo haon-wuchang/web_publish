@@ -44,16 +44,16 @@ export default function Review() {
 
 
     // 리뷰이미ㅣ지 테스트 
-    // const [imgNum, setImgNum] = useState(1); // 페이지 초기값
-    // const [sliceImg, setsliceImg] = useState([]); //페이지 값 관리
-    // const imgPage = 8;                          
-    // const imgEndPage = (pageNum * page) ;  
-    // const imgStartPage = (endPage - page) ;
+    const [imgNum, setImgNum] = useState(1); // 페이지 초기값
+    const [sliceImg, setsliceImg] = useState([]); //페이지 값 관리
+    const imgPage = 8;                          
+    const imgEndNum = (pageNum * imgPage) ;  
+    const imgStartNum = (imgEndNum - imgPage) ;
 
-    // useEffect(()=>{
-    //     setSlicePages(reviewData.slice(startPage,endPage));
-    // },[reviewData,pageNum]);  
-
+    useEffect(()=>{
+        setsliceImg(reviewData.slice(imgStartNum,imgEndNum));
+    },[reviewData,imgNum]);  
+    // 리뷰이미ㅣ지 테스트 
 
 
 
@@ -63,7 +63,10 @@ export default function Review() {
             <ReviewProductLike 
                 reviewData={reviewData} 
                 ProductLike={ProductLike}
-                
+
+                sliceImg = {sliceImg}  //테스트중 
+                imgNum ={imgNum} //테스트중 
+                setImgNum = {setImgNum} //테스트중 
                 
                 />
             <ReviewBoxAll      
