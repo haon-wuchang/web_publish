@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaRegThumbsUp } from "react-icons/fa";
-import { CiStar } from "react-icons/ci";
 import ReviewTab from './ReviewTab';
+import ReviewThumbs from './ReviewThumbs';
+import Star from './Star.jsx';
 
 export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCategory,reviewBottomLength}) {
     const momCategory = (category) => {
@@ -17,11 +17,7 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
                     <p>구매하신 분들의 상품에 대한 평점입니다.</p>
                     <div className='star-box'>
                         <span className='star'>                            
-                            <CiStar />
-                            <CiStar />
-                            <CiStar />
-                            <CiStar />
-                            <CiStar />
+                            <Star />
                         </span>
                         <span>5.0</span>
                         <span>/</span>
@@ -59,7 +55,7 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
             </div>
                 <ul className='review-customer-img'>
                 {reviewBottomList && reviewBottomList.map((item,i)=>                    
-                   ( i<8) && <li><img src={item.img} /></li>
+                   ( i<8) && <li className='test'><img src={item.img} /></li>
                 )}
                 </ul>
                 <ul className='review-tab'>
@@ -72,11 +68,7 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
                 {reviewBottomList && reviewBottomList.map((item)=>
                     <tr className='review-table-row'>
                         <td className='review-table-star'>
-                            <CiStar />
-                            <CiStar />
-                            <CiStar />
-                            <CiStar />
-                            <CiStar />
+                            <Star />
                         </td>
                         <td className='review-table-box'>
                             <div className='review-first-line'>
@@ -96,24 +88,21 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
                             </div>
                             <ul className='review-second-line'>
                                 <div><span>사이즈</span><span>적당함</span></div>
-                                <div><span>사이즈</span><span>적당함</span></div>
-                                <div><span>사이즈</span><span>적당함</span></div>
+                                <div><span>색상</span><span>적당함</span></div>
+                                <div><span>소재</span><span>적당함</span></div>
                             </ul>
                             <ul className='review-third-line'>
                                 <li><img src={item.img} alt="" /></li>
                             </ul>
                             <p className='review-four-line'>
-                                옷 개좋음 용
+                                {item.text}
                             </p>
                             <div className='review-five-line'>
                                 <div>
                                     <button>신고</button>
                                     <button>숨김</button>
                                 </div>
-                                <button className='review-five-line-rightbtn'>
-                                    <FaRegThumbsUp />
-                                    <span>1</span>
-                                </button>
+                                <ReviewThumbs/>
                             </div>
                         </td>
                     </tr>

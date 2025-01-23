@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Detail from '../components/Detail.jsx';
 import Review from '../components/Review.jsx';
+import Star from '../components/Star.jsx';
+
 
 export default function ProductDetail({selectCart}) {
     const {id} = useParams();
@@ -79,9 +81,11 @@ export default function ProductDetail({selectCart}) {
                     <li className="product-detail-title">{list.name}</li>
                     <li className="product-detail-title">{list.price}</li>
                     <li className="product-detail-subtitle">{list.info}</li>
-                    <span>별</span>
-                    <span>별점수</span>
-                    <span>리뷰수</span>
+                    <li className='product-detail-star'>
+                        <span ><Star /></span>
+                        <span>5.0</span>
+                        <span>{reviewBottomLength}개 리뷰</span>
+                    </li>
                     <li>
                         <span className='product-detail-select1'>옵션 : </span>
                         <select className='product-detail-select2'

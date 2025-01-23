@@ -305,6 +305,12 @@
 .review-customer-img > li >img{
   width: 150px;
 }
+
+.test:last-child img {
+  /* opacity: 0.5; */
+  filter: brightness(30%)
+}
+
 .review-tab {
   list-style-type: none;
   display: flex;
@@ -407,4 +413,34 @@
 }
 .review-table-row:last-child{
   border-bottom: 2px solid black;
+}
+
+.product-detail-star {
+  display: flex;
+  align-items: center;
+}
+.product-detail-star span{
+  font-size: 15px;
+  padding-right: 10px;
+}
+.product-detail-star span:last-child{
+  text-decoration: underline;
+}
+
+
+
+/******************* 별 테스트*/
+.color-star{
+  color: red;
+  z-index: 10;
+}
+.black-star{
+  color: black;
+  position: absolute;
+  right: 623.5px;
+  top: 115px;
+}
+.star-test-box{
+  z-index: 1000;
+  overflow: hidden;
 }
