@@ -17,7 +17,7 @@ export default function DetailProduct({ addCart }) {
 
   useEffect(() => {
     axios
-      .get("/data/products.json") // http://localhost:3000/data/products.json
+      .get("/data/TeacherProducts.json") // http://localhost:3000/data/products.json
       .then((res) => {
         res.data.filter((product) => {
           if (product.pid === pid) {
@@ -45,10 +45,15 @@ export default function DetailProduct({ addCart }) {
 
   //Tabs event
   const [tabName, setTabName] = useState('detail');
-  const handleChangeTabs = (text) => {
-    console.log('tab name===>>', text);
-    setTabName(text);
-  }
+  // const handleChangeTabs = (text) => {
+  //   console.log('tab name===>>', text);
+  //   setTabName(text);
+  // }
+  // 얘는 생략해도 되는 이유가 그냥 text 값만 setTabName 에 넣어주기만 하는 함수니까 생량가능
+  // <button type="button" onClick={(e)=> setTabName("detail")}>DETAIL</button>
+  // 그래서 이케 사용가능함
+  // 근데 만약에 text 를 if, for 이런거 돌리게 되면 함수생략 불가!!
+
 
   return (
     <div className="content">
@@ -110,27 +115,30 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY */}
         <ul className="tabs">
           <li className={tabName==="detail" ? "active": ''}>
-            <button type="button" onClick={(e)=> handleChangeTabs("detail")}>DETAIL</button>
+            <button type="button" onClick={(e)=> setTabName("detail")}>DETAIL</button>
           </li>
           <li className={tabName==="review" ? "active": ''}>
-            <button type="button" onClick={(e)=> handleChangeTabs("review")}>REVIEW</button>
+            <button type="button" onClick={(e)=> setTabName("review")}>REVIEW</button>
           </li>
           <li className={tabName==="qna" ? "active": ''}>
-            <button type="button" onClick={(e)=> handleChangeTabs("qna")}>Q&A</button>
+            <button type="button" onClick={(e)=> setTabName("qna")}>Q&A</button>
           </li>
           <li className={tabName==="return" ? "active": ''}>
-            <button type="button" onClick={(e)=> handleChangeTabs("return")}>RETURN & DELIVERY</button>
+            <button type="button" onClick={(e)=> setTabName("return")}>RETURN & DELIVERY</button>
           </li>
         </ul>
         <div className="tabs_contents">
           { tabName === "detail" && <Detail imgList={imgList} /> }
           { tabName === "review" && <Review /> }
+          { tabName === "review" && <QnA /> }
+          { tabName === "review" && <ReturnDelivery /> }
         </div>
       </div>
+        {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY */}
     </div>
   );
 }
+
 
