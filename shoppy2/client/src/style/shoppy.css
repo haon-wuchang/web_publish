@@ -113,13 +113,17 @@
     width: 300px;
     height: 380px;
   }
-  
   .product-detail {
     display: flex;
-    gap: 2rem;
+    gap: 10rem;
     margin-top: 40px;
-    padding-left: 300px;
+    padding: 0 100px;
     height: 800px;
+    border: 1px solid red;
+    /* justify-content: space-between; */
+    justify-content: left;
+    position: relative;
+
   }
   .product-detail img {
     width: 500px;
@@ -198,9 +202,209 @@
 
 
 
+/***************************하온 프로덕트디테일********************************/
+.product-detail-tab{
+  /* border: 1px solid red; */
+}
+
+.product-detail-tab > ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-detail-tab > ul>li{
+  border: 1px solid black;
+  width: 350px;
+  text-align: center;
+  padding: 15px 0;
+}
+.product-detail-picture3{
+  position: absolute;
+  bottom: 50px;
+  left: 350px;
+  
+}
+.product-detail-picture3 img {
+  width: 100px;
+  margin-right: 10px;
+}
+/***************************하온 Detail********************************/
+.detail-box{
+  text-align: center;
+  padding: 50px 0;
+}
+
+/***************************하온 review********************************/
+.review-box {
+  /* border: 1px solid red; */
+  padding-top: 40px;
+}
+
+.review-top{
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid blue; */
+
+}
+.star-box{
+  padding: 20px 0;
+  font-size: 30px;
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+
+}
+.star-box span{
+  padding-right: 10px;
+}
+.star {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+}
+.review-top-right{
+  display: flex;
+}
+.review-top-right-box{
+  /* border: 1px solid green; */
+  width: 300px;  
+
+}
+.review-top-bar-box {
+  /* border: 1px solid red; */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.bar-bg{
+  height: 5px;
+  width: 140px;
+  background-color: rgb(172, 171, 171);
+}
+.bar-real{
+  background-color: #000; 
+  height: 5px;
+}
+.review-top-right-box>h5, .review-top-left>p{
+  margin: 0;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+.review-top-bar-box > span{
+  width: 50px;
+}
+.review-customer-img {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.review-customer-img > li >img{
+  width: 150px;
+}
+.review-tab {
+  list-style-type: none;
+  display: flex;
+  padding-bottom: 20px;
+}
+.review-tab li {
+  padding: 0px 10px  ;
+}
+.review-tab li:not(.review-tab li:last-child){
+  border-right: 1px solid gray;
+
+}
+.review-table{
+  /* border: 1px solid red; */
+  width: 1400px;
+  border-collapse: collapse;
+  /* display: flex; */
+}
+
+.review-table-box{
+  padding: 20px 0;
+}
 
 
+.review-table-star{
+  /* border: 1px solid blue; */
+  width: 10%;
+  padding: 0 20px;
+}
+.review-first-line{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
 
 
+}
+.review-first-line div {
+  /* border: 1px solid red; */
+  text-align: left;
+}
+.review-second-line{
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  font-size: 14px;
+  padding: 10px 0;
+  gap: 15px;
+}
+.review-second-line div {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 5px;
+}
+.review-second-line span:last-child{
+  padding-left: 5px;
+  color: gray;
+}
+.review-third-line{
+  list-style-type: none;
+  text-align: left;
 
+}
+.review-third-line img {
+  width: 100px;
+}
+.review-four-line{
+  text-align: left;
+  font-size: 14px;
+  padding: 10px 0;
+}
+.review-five-line {
+  display: flex;
+  justify-content: space-between;
+}
+.review-five-line div button{
+  border: none;
+  background-color: white;
+}
+.review-five-line div button:first-child{
+  border-right: 1px solid black;
+}
+.review-five-line-rightbtn {
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+.review-five-line-rightbtn  span{
+  padding: 15px 25px;
+}
 
+.review-table-row {
+  border-bottom: 1px solid black; 
+  font-weight: 100;
+
+}
+.review-table-row:first-child{
+  border-top: 2px solid black;
+
+}
+.review-table-row:last-child{
+  border-bottom: 2px solid black;
+}

@@ -1,0 +1,128 @@
+{
+    "reviewTop" :[
+        {
+            "topNm":"사이즈",
+            "subNm1":"적당함",
+            "subNm2":"작음",
+            "subNm3":"큼",
+            "subPer1":"50",
+            "subPer2":"50",
+            "subPer3":"50"
+        },
+        {
+            "topNm":"색상",
+            "subNm1":"같음",
+            "subNm2":"비슷함",
+            "subNm3":"다름",
+            "subPer1":"50",
+            "subPer2":"50",
+            "subPer3":"50"
+        },
+        {
+            "topNm":"소재",
+            "subNm1":"같음",
+            "subNm2":"비슷함",
+            "subNm3":"다름",
+            "subPer1":"50",
+            "subPer2":"50",
+            "subPer3":"50"
+        }
+    ],
+    "reviewBottom" : [
+        {
+            "star":"4",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "new",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737454850397.jpg?RS=400"
+        },
+        {
+            "star":"3",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "highRate",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737166272807.jpeg?RS=400"
+        },
+        {
+            "star":"5",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "rowRate",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737166272930.jpeg?RS=400"
+
+        },
+        {
+            "star":"1",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "thumbs",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
+        },
+        {
+            "star":"5",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "thumbs",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
+
+        },
+        {
+            "star":"5",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "thumbs",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
+
+        },
+        {
+            "star":"5",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "rowRate",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737166272930.jpeg?RS=400"
+        },
+        {
+            "star":"5",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "thumbs",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
+
+        },
+        {
+            "star":"3",
+            "customerId":"",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "thumbs",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
+
+        }
+    ],
+    "reviewTab": [
+        {
+            "tabNm":"최신순",
+            "tabCategory":"new"
+        },
+        {
+            "tabNm":"평점높은순",
+            "tabCategory":"highRate"
+        },
+        {
+            "tabNm":"평점낮은순",
+            "tabCategory":"rowRate"
+        },
+        {
+            "tabNm":"추천순",
+            "tabCategory":"thumbs"
+        }
+    ]
+}

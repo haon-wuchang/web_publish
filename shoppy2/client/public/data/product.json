@@ -4,49 +4,98 @@
         "name":"후드티",
         "id":"1",
         "price":"15000",
-        "info": "핑크후드티"
+        "info": "핑크후드티",
+        "imgList":[
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg"
+        ]
     },
     {
         "img":"/images/2.webp",
         "name":"후드티",
         "id":"2",
         "price":"15000",
-        "info": "검정후드티"
+        "info": "검정후드티",
+        "imgList":[
+        "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+        "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+        "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+        "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+        "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg"
+    ]
     },
     {
         "img":"/images/3.webp",
         "name":"투피스",
         "id":"3",
         "price":"15000",
-        "info": "아이보리상의"
+        "info": "아이보리상의",
+        "imgList":[
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg"
+        ]
     },
     {
         "img":"/images/4.webp",
         "name":"투피스",
         "id":"4",
         "price":"15000",
-        "info": "아이보리하의"
+        "info": "아이보리하의",
+        "imgList":[
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg"
+        ]
     },
     {
         "img":"/images/5.webp",
         "name":"니트",
         "id":"5",
         "price":"15000",
-        "info": "스프라이트"
+        "info": "스프라이트",
+        "imgList":[
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg"
+        ]
     },
     {
         "img":"/images/6.webp",
         "name":"원피스",
         "id":"6",
         "price":"15000",
-        "info": "옷"
+        "info": "옷",
+        "imgList":[
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/2.jpg"
+        ]
     },
     {
         "img":"/images/7.webp",
         "name":"자켓",
         "id":"7",
         "price":"15000",
-        "info": "옷"
+        "info": "옷",
+        "imgList":[
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg",
+            "http://qhdrus123.cafe24.com/web/22fall/wool%20rollneck%20top/1.jpg"
+        ]
     }
     
 ]
