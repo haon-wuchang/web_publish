@@ -6,8 +6,8 @@ export default function StarRating({ totalRate, className }) {
   return (
     <div className="star-rating">
         {/**...Array(totalRate) => 는 스프레드 썻으니꺠 별5가 5번 돈다는거임 별3이면 3번만돌고 */}
-      {[...Array(totalRate)].map((_, i) => (
-        <span key={i} className={className}>
+      {[...Array(totalRate)].map((_) => (
+        <span className={className}>
           <TbStarFilled />
         </span>
       ))}

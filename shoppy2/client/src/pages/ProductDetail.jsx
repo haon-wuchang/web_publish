@@ -39,9 +39,9 @@ export default function ProductDetail({selectCart}) {
     const [namess, setNamess] = useState('Detail')
 
     const names = ['Detail',
-        "Review",
-        "Q&A",
-        "RETURN & DELIVERY"];
+                "Review",
+                "Q&A",
+                "RETURN & DELIVERY"];
 
     const [reviewTopList, setReviewTopList] = useState([]);
     const [reviewBottomList, setReviewBottomList] = useState([]);
@@ -68,15 +68,24 @@ export default function ProductDetail({selectCart}) {
             .catch(error => console.log(error));
     },[category]);
     
+    const reviewBottomLength = reviewBottomList.length;
+
     const grandCategory = (category) => {
         setCategory(category)
     }
-    const reviewBottomLength = reviewBottomList.length;
 
     return (
         <div className='content'>
             <div className='product-detail'>
-                <img src={list.img} />
+                <div>
+                    <img src={list.img} />
+                    <div className='product-detail-picture3'>
+                    {imgList.map((img,i) => 
+                        i<3 &&
+                        <img src={img}/>                        
+                    )}
+                    </div>
+                </div>
                 <ul>
                     <li className="product-detail-title">{list.name}</li>
                     <li className="product-detail-title">{list.price}</li>
@@ -103,15 +112,12 @@ export default function ProductDetail({selectCart}) {
                     </li>
                 </ul>
             </div>
-            <div className='product-detail-picture3'>
-                {imgList.map((img,i) => 
-                    i<3 &&
-                    <img src={img}/>                        
-                )}
-            </div>
+            
             <div className='product-detail-tab'>
                 <ul>
                     {names.map((name)=>
+                        (name === 'Review') ? 
+                        <li onClick={()=>setNamess(name)}><a>{name}({reviewBottomLength})</a></li>:
                         <li onClick={()=>setNamess(name)}><a>{name}</a></li>
                     )}
                 </ul>

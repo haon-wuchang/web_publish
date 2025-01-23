@@ -220,14 +220,16 @@
   padding: 15px 0;
 }
 .product-detail-picture3{
-  position: absolute;
-  bottom: 50px;
-  left: 350px;
+  padding: 10px 0;
   
 }
 .product-detail-picture3 img {
   width: 100px;
+  height: 150px;
   margin-right: 10px;
+}
+.product-detail-picture3 img:not(.product-detail-picture3 img:first-child){
+  opacity: 0.3;
 }
 /***************************하온 Detail********************************/
 .detail-box{
@@ -427,20 +429,29 @@
   text-decoration: underline;
 }
 
-
-
-/******************* 별 테스트*/
-.color-star{
-  color: red;
-  z-index: 10;
+.id {
+  padding-right: 15px;
 }
-.black-star{
-  color: black;
-  position: absolute;
-  right: 623.5px;
-  top: 115px;
+
+/*******************  테스트*/
+.detail-bottom{
+  text-align: center;
+  width: 1400px;
+  /* border: 1px solid red; */
+  border-collapse: collapse;
 }
-.star-test-box{
-  z-index: 1000;
-  overflow: hidden;
+
+.detail-bottom tr:first-child{
+  border-top: 2px solid black;
+}
+.detail-bottom tr:last-child{
+  border-bottom: 2px solid black;
+}
+
+.detail-bottom th,  .detail-bottom td{
+  border-bottom: 1px solid gray;
+  padding: 10px 30px;
+}
+.detail-bottom th{
+  text-align: left;
 }

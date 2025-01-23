@@ -31,7 +31,7 @@
     "reviewBottom" : [
         {
             "star":"4",
-            "customerId":"",
+            "customerId":"aaaaaaaaaaaaaaa",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "new",
@@ -39,7 +39,7 @@
         },
         {
             "star":"3",
-            "customerId":"",
+            "customerId":"bbbbbbbbbbbbbbbb",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "highRate",
@@ -47,7 +47,7 @@
         },
         {
             "star":"5",
-            "customerId":"",
+            "customerId":"cccccccccccccccccc",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "rowRate",
@@ -56,7 +56,7 @@
         },
         {
             "star":"1",
-            "customerId":"",
+            "customerId":"dddddddddddd",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "thumbs",
@@ -64,16 +64,7 @@
         },
         {
             "star":"5",
-            "customerId":"",
-            "reviewDate":"2020.01.01",
-            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
-            "category": "thumbs",
-            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
-
-        },
-        {
-            "star":"5",
-            "customerId":"",
+            "customerId":"eeeeeeeeeeeeee",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "thumbs",
@@ -82,7 +73,16 @@
         },
         {
             "star":"5",
-            "customerId":"",
+            "customerId":"fffffffffffffff",
+            "reviewDate":"2020.01.01",
+            "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
+            "category": "thumbs",
+            "img":"https://media.wconcept.co.kr/review/301462552/301462552_1737441104035.jpeg?RS=400"
+
+        },
+        {
+            "star":"5",
+            "customerId":"gggggggggggggg",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ루좋아요",
             "category": "rowRate",
@@ -90,7 +90,7 @@
         },
         {
             "star":"5",
-            "customerId":"",
+            "customerId":"hhhhhhhhhhhhhhhhhhh",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "thumbs",
@@ -99,7 +99,7 @@
         },
         {
             "star":"3",
-            "customerId":"",
+            "customerId":"iiiiiiiiiiiiiiiiiii",
             "reviewDate":"2020.01.01",
             "text": "옷 너무너문멈눙룬ㅁㅇ루 ㄴ루 ㄴ루좋아요",
             "category": "thumbs",

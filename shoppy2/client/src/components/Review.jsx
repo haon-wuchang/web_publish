@@ -82,7 +82,7 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
                                     </p>
                                 </div>
                                 <p>
-                                    <span>{item.customerId}</span>
+                                    <span className='id'>{item.customerId}</span>
                                     <span>{item.reviewDate}</span> 
                                 </p>
                             </div>
