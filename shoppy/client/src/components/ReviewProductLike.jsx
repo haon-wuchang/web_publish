@@ -28,9 +28,9 @@ export default function ReviewProductLike({reviewData,ProductLike,sliceImg,imgNu
                 <h5>상품 만족도 ({reviewData.length})</h5>
                 <p>구매하신 분들의 상품에 대한 평점입니다.</p>
                 <div className='star-flex'>
-                    <div className='rating-star'>
+                    <div className='rating-star'> {/*별 */}
                         <strong className='star' style={{width:"100%"}}></strong>
-                    </div>
+                    </div> {/*별 끗*/}
                     <span>5</span>
                     <span>/</span>
                     <span>5.0</span>

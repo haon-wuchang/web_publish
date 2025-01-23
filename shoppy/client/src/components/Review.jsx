@@ -46,7 +46,7 @@ export default function Review() {
     // 리뷰이미ㅣ지 테스트 
     const [imgNum, setImgNum] = useState(1); 
     const [sliceImg, setsliceImg] = useState([]); 
-    const imgPage = 8;                          
+    const imgPage = 11;                          
 
     useEffect(()=>{
         setsliceImg(reviewData.slice(1,imgPage));

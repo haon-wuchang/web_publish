@@ -261,9 +261,9 @@
      },
      {
          "title":"소재",
-         "subTitle1":"적당함",
-         "subTitle2":"작음",
-         "subTitle3":"큼",
+         "subTitle1":"같음",
+         "subTitle2":"비슷함",
+         "subTitle3":"다름",
          "per1":"50%",
          "per2":"50%",
          "per3":"50%"
