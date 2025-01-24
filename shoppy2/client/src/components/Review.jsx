@@ -2,16 +2,26 @@ import React from 'react';
 import ReviewTab from './ReviewTab';
 import ReviewThumbs from './ReviewThumbs';
 import Star from './Star.jsx';
-import Test from './Test.jsx';
 
 export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCategory,reviewBottomLength}) {
     const momCategory = (category) => {
         grandCategory(category);
     }
 
-    let count = reviewBottomList.filter((a)=>a.img === null ).length ;             
-    // console.log(count);
+    // const a = [];
     
+    // for(let i = 0; i < reviewBottomList.length; i++) {
+    //     reviewBottomList.map((item)=>{
+    //         if(item.img === null )  {
+    //             reviewBottomList.splice(i, 1);
+    //           i--;
+    //         }         
+    //     })
+    // }    
+
+    let count = reviewBottomList.filter((a)=>a.img === null ).length ;             
+    // console.log(count); 이미지 없는 리뷰 갯수
+
     return (
         <div className='review-box'>
             <h3>상품만족도({reviewBottomLength})</h3>
@@ -58,7 +68,15 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
             </div>
                 <ul className='review-customer-img'>
                     {reviewBottomList && reviewBottomList.map((item,index)=>
-                    <Test reviewBottomList={reviewBottomList} item={item} index={index} count={count}/>
+                    
+                        <li className='review-customer-imgs'>
+                            {index < 8+count && item.img && <img src={item.img} />}
+                            <span>더보기</span>
+                        </li>
+                        //  {index < 8+count &&  item.img && <li className='review-customer-imgs'>
+                        //      <img src={item.img}/>
+                        //     <span>더보기</span>
+                        // </li>}
                     )}
                 </ul>
                 <ul className='review-tab'>
