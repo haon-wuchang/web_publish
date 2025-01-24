@@ -74,10 +74,6 @@ export default function ProductDetail({selectCart}) {
         setCategory(category)
     }
 
-
-
-
-
     return (
         <div className='content'>
             <div className='product-detail'>

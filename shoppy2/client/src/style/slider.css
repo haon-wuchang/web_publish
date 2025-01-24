@@ -1,0 +1,37 @@
+
+.show {
+    display: flex;
+    width: 1400px; /*보여줄 영역을 표시하기 위해 수정*/
+    height: 400px; /*보여줄 영역을 표시하기 위해 수정*/
+    overflow: hidden;
+    align-items: center;
+    border: 2px green dotted;
+    text-align: center;
+  }
+  
+  .compartment {
+    width: 1300px;
+    height: 300px;
+    flex-shrink: 0; /*이 구역안에 생기는 영역들이 공간을 분배하여 가지지 않도록 적용*/
+    font-size: 40px;
+    text-align: center;
+    margin: 0 50px; /*보여줄 영역을 표시하기 위해 적용*/
+  }
+
+  
+/* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
+.compartment:nth-child(1) {
+    background-color: red;
+  }
+  .compartment:nth-child(2) {
+    background-color: yellowgreen;
+  }
+  .compartment:nth-child(3) {
+    background-color: blueviolet;
+  }
+  .compartment:nth-child(4) {
+    background-color: orange;
+  }
+  .compartment:nth-child(5) {
+    background-color: skyblue;
+  }
