@@ -22,14 +22,7 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
             <div className='review-top'>
                 <div className='review-top-left'>
                     <p>구매하신 분들의 상품에 대한 평점입니다.</p>
-                    <div className='star-box'>
-                        <span className='star'>                            
-                            <Star />
-                        </span>
-                        <span>5.0</span>
-                        <span>/</span>
-                        <span>5.0</span>
-                    </div>
+                    <Star totalRate={4.2} className="star-black-big" />
                 </div>
                 <div className='review-top-right'>
                     {reviewTopList&& reviewTopList.map((item)=>
@@ -72,8 +65,8 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
                 <table className='review-table'>
                 {reviewBottomList && reviewBottomList.map((item)=>
                     <tr className='review-table-row'>
-                        <td className='review-table-star'>
-                            <Star />
+                        <td className="review-list-star">
+                            <Star totalRate={3.4} className="star-black-review"/>
                         </td>
                         <td className='review-table-box'>
                             <div className='review-first-line'>

@@ -95,8 +95,7 @@ export default function ProductDetail({selectCart}) {
                     <li className="product-detail-title">{list.price}</li>
                     <li className="product-detail-subtitle">{list.info}</li>
                     <li className='product-detail-star'>
-                        <span ><Star /></span>
-                        <span>5.0</span>
+                    <Star totalRate={4.2} className="star-coral"/>
                         <span>{reviewBottomLength}개 리뷰</span>
                     </li>
                     <li>
