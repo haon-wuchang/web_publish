@@ -3,8 +3,8 @@ import ReviewTab from './ReviewTab';
 import ReviewThumbs from './ReviewThumbs';
 import Star from './Star.jsx';
 import Test from './Test.jsx';
-import Modal from './Modal.jsx';
-import { useState } from 'react';
+// import Modal from './Modal.jsx';
+// import { useState } from 'react';
 
 
 export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCategory,reviewBottomLength}) {
@@ -12,9 +12,6 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
         grandCategory(category);
     }
 
-    const [modalOpen, setModalOpen] = useState(false); 
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => setModalOpen(false);
 
     let count = reviewBottomList.filter((a)=>a.img === null ).length ;             
     // console.log(count); 이미지 없는 리뷰 갯수
@@ -65,12 +62,6 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
             </div>
                 <ul className='review-customer-img'>
                     <Test reviewBottomList={reviewBottomList} count={count}/>
-                    {/* {reviewBottomList && reviewBottomList.map((item,index)=>                    
-                        <li className='review-customer-imgs'>
-                            {index < 8+count && item.img && <img src={item.img} />}
-                            <span>더보기</span>
-                        </li>
-                    )} */}
                 </ul>
                 <ul className='review-tab'>
                     {reviewTab && reviewTab.map((item)=>

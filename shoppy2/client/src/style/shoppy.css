@@ -500,7 +500,9 @@
 .detail-bottom th{
   text-align: left;
 }
-/* .modal{
-  border: 1px solid red;
-  width: 500px;
+/* .tt {
+  border: 3px solid red;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
 } */
