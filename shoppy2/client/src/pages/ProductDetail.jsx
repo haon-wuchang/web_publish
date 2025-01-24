@@ -36,7 +36,7 @@ export default function ProductDetail({selectCart}) {
         }
         selectCart(cartItem);
     }
-    const [namess, setNamess] = useState('Detail')
+    const [tabnames, setTabNames] = useState('Detail')
 
     const names = ['Detail',
                 "Review",
@@ -73,6 +73,10 @@ export default function ProductDetail({selectCart}) {
     const grandCategory = (category) => {
         setCategory(category)
     }
+
+
+
+
 
     return (
         <div className='content'>
@@ -114,17 +118,23 @@ export default function ProductDetail({selectCart}) {
             </div>
             
             <div className='product-detail-tab'>
-                <ul>
+                <ul> 
                     {names.map((name)=>
                         (name === 'Review') ? 
-                        <li onClick={()=>setNamess(name)}><a>{name}({reviewBottomLength})</a></li>:
-                        <li onClick={()=>setNamess(name)}><a>{name}</a></li>
+                        <li className={tabnames===name ? "active": 'nope'}
+                            onClick={(e)=> setTabNames(name)}>                        
+                            <a >{name}({reviewBottomLength})</a>
+                        </li> :
+                        <li className={tabnames===name ? "active": 'nope'}
+                            onClick={(e)=> setTabNames(name)}>                        
+                            <a >{name}</a>
+                        </li>
                     )}
-                </ul>
+                    </ul>
             </div>
             <div className='tab-contents'>
-               { namess === 'Detail' &&  <Detail imgList={imgList}/>}
-                {namess === 'Review' &&  <Review reviewTopList={reviewTopList}
+               { tabnames === 'Detail' &&  <Detail imgList={imgList}/>}
+                {tabnames === 'Review' &&  <Review reviewTopList={reviewTopList}
                                                 reviewBottomList={reviewBottomList}
                                                 reviewTab={reviewTab} 
                                                 grandCategory={grandCategory}

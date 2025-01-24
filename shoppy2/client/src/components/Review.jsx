@@ -2,13 +2,16 @@ import React from 'react';
 import ReviewTab from './ReviewTab';
 import ReviewThumbs from './ReviewThumbs';
 import Star from './Star.jsx';
+import Test from './Test.jsx';
 
 export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCategory,reviewBottomLength}) {
     const momCategory = (category) => {
         grandCategory(category);
     }
 
-
+    let count = reviewBottomList.filter((a)=>a.img === null ).length ;             
+    // console.log(count);
+    
     return (
         <div className='review-box'>
             <h3>상품만족도({reviewBottomLength})</h3>
@@ -54,9 +57,9 @@ export default function Review({reviewTopList,reviewBottomList,reviewTab,grandCa
                 </div>
             </div>
                 <ul className='review-customer-img'>
-                {reviewBottomList && reviewBottomList.map((item,i)=>                    
-                   ( i<8) && <li className='test'><img src={item.img} /></li>
-                )}
+                    {reviewBottomList && reviewBottomList.map((item,index)=>
+                    <Test reviewBottomList={reviewBottomList} item={item} index={index} count={count}/>
+                    )}
                 </ul>
                 <ul className='review-tab'>
                     {reviewTab && reviewTab.map((item)=>

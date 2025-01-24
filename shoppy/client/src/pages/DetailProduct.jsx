@@ -135,7 +135,8 @@ export default function DetailProduct({ addCart }) {
             <div className="product2-detail-tab">
                 <ul className="product2-detail-tab-ul">
                     { tabList && tabList.map((item) => (
-                        <li className={ select === item.name ? "product2-detail-tab-li onClick" : "product2-detail-tab-li" }>
+                        <li className={ select === item.name ? "product2-detail-tab-li onClick" : 
+                        "product2-detail-tab-li" }>
                             <a onClick={() => handleChangeSelect(item.name)}>{item.name}</a>
                         </li>
                     )) }

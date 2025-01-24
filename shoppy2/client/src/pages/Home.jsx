@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 import ProductList from '../components/ProductList.jsx';
 
 export default function Home() {
