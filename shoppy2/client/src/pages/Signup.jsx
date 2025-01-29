@@ -1,13 +1,15 @@
 import React from 'react';
 import '../style/signup.css';
-import {validate} from '../utils/func_validate.js';
+import {validate,handleIdCheck,handlePassword} from '../utils/func_validate.js';
 import {useState, useRef} from 'react';
 
 export default function Signup() {
     const names = ['id','pwd','cpwd','name','phone','emailname'];
     const namesKr = ['아이디','비밀번호','비밀번호확인','이름','휴대폰번호','이메일주소'];    
     const placeholderKr = ['아이디를 입력해주세요 6~20자','비밀번호를 특수문자 포함 10~20자','비밀번호를 재입력해주세요','이름입력','휴대폰번호를 - 포함하여 입력해주세요','이메일주소'];    
-    
+    const [idCheckBtn,setIdCheckBtn] = useState('default');
+
+
     const initData = names.reduce((acc,name)=>{
         acc[name] = '';
         return acc;
@@ -43,17 +45,21 @@ export default function Signup() {
     const handleForm = (e) => {
         const {name, value} = e.target;
         setFormData({...formdata, [name] : value});
-    }
+    }              
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(validate(refs,msgRefs)){
-            console.log(formdata);      
+            if(idCheckBtn==='default'){
+                alert('아디중복체크해');
+                return false;
+            }else{
+                console.log(formdata);      
+            }
         }
-    }
+    }                
 
-
-
+                
     return (
         <div className="content">
             <h1 className="center-title">SIGINUP</h1>
@@ -90,11 +96,25 @@ export default function Signup() {
                                             name={name}
                                             onChange={handleForm}
                                             ref={refs.current[name.concat('Ref')]}
+                                            onBlur={(name==='cpwd')? ()=>{handlePassword(
+                                                refs.current['pwdRef'],
+                                                refs.current['cpwdRef'],
+                                                refs.current['nameRef'],
+                                                msgRefs.current['pwdRef'],
+                                                msgRefs.current['cpwdRef']
+                                            )} : null}
                                             placeholder = {placeholders[name]}/>
                                         {name === 'id' &&
                                             <>
-                                                <button type="button" >중복확인</button>
-                                                <input type="hidden" id="idCheckResult" value="default" />
+                                                <button type="button" 
+                                                    onClick={()=>{handleIdCheck(
+                                                        refs.current['idRef'],
+                                                        refs.current['pwdRef'],
+                                                        msgRefs.current['idMsgRef'],
+                                                        setIdCheckBtn
+                                                    )}}
+                                                    >중복확인</button>
+                                                <input type="text" value={idCheckBtn} />
                                             </>
                                         }
                                     </>

@@ -113,13 +113,17 @@
     width: 300px;
     height: 380px;
   }
-  
   .product-detail {
     display: flex;
-    gap: 2rem;
+    gap: 10rem;
     margin-top: 40px;
-    padding-left: 300px;
+    padding: 0 100px;
     height: 800px;
+    /* border: 1px solid red; */
+    /* justify-content: space-between; */
+    justify-content: left;
+    position: relative;
+
   }
   .product-detail img {
     width: 500px;
@@ -198,12 +202,359 @@
 
 
 
+/***************************하온 프로덕트디테일********************************/
+.product-detail-tab{
+  /* border: 1px solid red; */
+}
+
+.product-detail-tab > ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-detail-tab > ul>li{
+  width: 350px;
+  text-align: center;
+  padding: 15px 0;
+}
+
+
+.active{
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.nope{
+  /* border: 1px solid rgb(0, 0, 0); */
+  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+
+.product-detail-picture3{
+  padding: 10px 0;
+  
+}
+.product-detail-picture3 img {
+  width: 100px;
+  height: 150px;
+  margin-right: 10px;
+}
+.product-detail-picture3 img:not(.product-detail-picture3 img:first-child){
+  opacity: 0.3;
+}
+/***************************하온 Detail********************************/
+.detail-box{
+  text-align: center;
+  padding: 50px 0;
+}
+
+/***************************하온 review********************************/
+.review-box {
+  /* border: 1px solid red; */
+  padding-top: 40px;
+}
+
+.review-top{
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid blue; */
+
+}
+.star-box{
+  padding: 20px 0;
+  font-size: 30px;
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+
+}
+.star-box span{
+  padding-right: 10px;
+}
+.star {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+}
+.review-top-right{
+  display: flex;
+}
+.review-top-right-box{
+  /* border: 1px solid green; */
+  width: 300px;  
+
+}
+.review-top-bar-box {
+  /* border: 1px solid red; */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.bar-bg{
+  height: 5px;
+  width: 140px;
+  background-color: rgb(172, 171, 171);
+}
+.bar-real{
+  background-color: #000; 
+  height: 5px;
+}
+.review-top-right-box>h5, .review-top-left>p{
+  margin: 0;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+
+.review-top-bar-box > span{
+  width: 50px;
+}
+
+
+.review-customer-img {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  /* border: 1px solid red; */
+}
+.review-customer-imgs >img{
+  width: 150px;
+
+}
+.review-customer-imgs{
+  height: 200px;
+  overflow: hidden;
+  /* border: 1px solid red; */
+
+}
+.review-customer-imgs:nth-child(8) img {
+  filter: brightness(30%);
+  /* border: 3px solid red; */
+}
+
+
+.review-customer-imgs span{
+  display: none;
+}
+
+.review-customer-imgs:nth-child(8) span{
+  display: inline-block;
+  position: absolute;
+  right: 350px;
+  color: white;
+  top: 1295px;
+  /* border: 3px solid red; */
+
+}
 
 
 
 
+.review-tab {
+  list-style-type: none;
+  display: flex;
+  padding-bottom: 20px;
+}
+.review-tab li {
+  padding: 0px 10px  ;
+}
+.review-tab li:not(.review-tab li:last-child){
+  border-right: 1px solid gray;
+
+}
+.review-table{
+  /* border: 1px solid red; */
+  width: 1400px;
+  border-collapse: collapse;
+  /* display: flex; */
+}
+
+.review-table-box{
+  padding: 20px 0;
+}
 
 
+.review-table-star{
+  /* border: 1px solid blue; */
+  width: 10%;
+  padding: 0 20px;
+}
+.review-first-line{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
 
 
+}
+.review-first-line div {
+  /* border: 1px solid red; */
+  text-align: left;
+}
+.review-second-line{
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  font-size: 14px;
+  padding: 10px 0;
+  gap: 15px;
+}
+.review-second-line div {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 5px;
+}
+.review-second-line span:last-child{
+  padding-left: 5px;
+  color: gray;
+}
+.review-third-line{
+  list-style-type: none;
+  text-align: left;
 
+}
+.review-third-line img {
+  width: 100px;
+}
+.review-four-line{
+  text-align: left;
+  font-size: 14px;
+  padding: 10px 0;
+}
+.review-five-line {
+  display: flex;
+  justify-content: space-between;
+}
+.review-five-line div button{
+  border: none;
+  background-color: white;
+}
+.review-five-line div button:first-child{
+  border-right: 1px solid black;
+}
+.review-five-line-rightbtn {
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+.review-five-line-rightbtn  span{
+  padding: 15px 25px;
+}
+
+.review-table-row {
+  border-bottom: 1px solid black; 
+  font-weight: 100;
+
+}
+.review-table-row:first-child{
+  border-top: 2px solid black;
+
+}
+.review-table-row:last-child{
+  border-bottom: 2px solid black;
+}
+
+.product-detail-star {
+  display: flex;
+  align-items: center;
+}
+.product-detail-star span{
+  font-size: 15px;
+  padding-right: 10px;
+}
+.product-detail-star span:last-child{
+  text-decoration: underline;
+}
+
+.id {
+  padding-right: 15px;
+}
+
+/*******************  테스트*/
+.detail-bottom{
+  text-align: center;
+  width: 1400px;
+  /* border: 1px solid red; */
+  border-collapse: collapse;
+}
+
+.detail-bottom tr:first-child{
+  border-top: 2px solid black;
+}
+.detail-bottom tr:last-child{
+  border-bottom: 2px solid black;
+}
+
+.detail-bottom th,  .detail-bottom td{
+  border-bottom: 1px solid gray;
+  padding: 10px 30px;
+}
+.detail-bottom th{
+  text-align: left;
+}
+/* .tt {
+  border: 3px solid red;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+} */
+
+/*** stat rating start ****/
+.star-rating {
+  /* border: 2px solid red; */
+  /* display: flex;
+  align-items: center; */
+  line-height: 20px;
+}
+.black {
+  color: black; 
+}
+.coral {
+  color: coral; 
+}
+.empty-star {
+  color: lightgray; 
+}
+.star-black-big {
+  color: var(--color-black);
+  font-size: 2rem;
+  padding: 0px 5px;
+}
+.star-black-big.number {
+  font-size: 2.1rem;
+  margin-left: 20px;
+}
+.star-black-big.tot-number {
+  color: #999;
+  font-size: 2.1rem;
+  margin-left: 5px;
+}
+.star-black-review {
+  line-height: 0px;
+  font-size: 1rem;
+  color: var(--color-black);
+  padding: 0 2px;
+  margin: 0;
+}
+.star-coral {
+  line-height: 0px;
+  font-size: 1rem;
+  color: coral;
+  padding: 0 2px;
+  margin: 0;
+}
+.star-coral.number {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-left: 10px;
+}
+/*** stat rating end ****/

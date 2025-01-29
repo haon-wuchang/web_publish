@@ -28,13 +28,6 @@ export const initSignup = () => {
 }
 
 
-
-// useRef 는 리액트가 관리하는 훅(메모리영역에 저장됨 )임
-// 그래서 일반함수랑 훅들이랑 같이 넘길수없음 훅따로 일반함수따로 넘겨야댕
-// 그래서 refs 랑 msgRefs 는 따로 함수 만들어서 넘겨야한다
-// 이때 만드는 함수에는 use 를 붙여줘야한다 => 그래야 react 가 관리하는 메모리영역에 넘어간당 !!
-// 그래서 이케 함수앞에 use 붙이는거를 customer hook 이라고 한다   즁요!
-
 export const useInitSignupRefs = (names) => {
     const refs = useRef (
         names.reduce((acc,name)=>{
@@ -42,7 +35,8 @@ export const useInitSignupRefs = (names) => {
             return acc;
         },{})
     )
-    refs.current['emaildomainRef'] = React.createRef(); 
+    refs.current.emaildomainRef = useRef(React.createRef()); // 반드시 useRef 로 감싸줘야댄당
+    // 
     
     const msgRefs = useRef(
         names.reduce((acc, name)=>{ 

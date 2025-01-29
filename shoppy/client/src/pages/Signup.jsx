@@ -1,15 +1,17 @@
 import React from 'react';
 import '../styles/signup.css';
 import { useState , useRef } from 'react';
-import {validateSignup} from '../utils/funcValidate.js';  
+import {validateSignup,handleDuplicateIdCheck,handlePassword} from '../utils/funcValidate.js';  
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 
 export default function Signup() {
     const {names,placehol,labels, initData} = initSignup();
     const {refs,msgRefs} = useInitSignupRefs(names);  // 얘랑 위에꺼랑 순서바뀌면안댕
     //   왜나면 initSignup 에 names 가 있으니까 useInitSignupRefs 얘를 먼저쓰면 names값을 못받아옴 
+// console.log('refs---------------',refs);
 
-    const [formData, setFormData] = useState(initData);       
+    const [formData, setFormData] = useState(initData);     
+    const[idCheckResult,setIdCheckResult] = useState('default');  // 아디체크밸류값관리
 
     const handleForm = (event) => {
         const {name, value } = event.target;        
@@ -17,11 +19,18 @@ export default function Signup() {
     }  
     const handleCheck = (event) => {
         event.preventDefault();
-        if(validateSignup(refs,msgRefs)){
-            console.log(formData);            
-        }
+        if(validateSignup(refs,msgRefs)){  //유효성ㅊㅋ하고난뒤에 아디중복체크 하면댕
+            if(idCheckResult==='default'){
+                alert('중복체크진행해');
+                return false;
+            } else {
+                console.log(formData);   
+                // 회원가입 성공 후에 setIdCheckResult('default); 로 바꿔주면댕     
+            }
+        } 
     }    
-        
+
+
     return (
         <div className="content">
             <h1 className="center-title">SIGINUP</h1>
@@ -57,14 +66,31 @@ export default function Signup() {
                                                 <input type= {  // pwd,cpwd 는 type=password 로 나머지는 text 로
                                                         (name==='pwd' || name==='cpwd') ? 'password': 'text'  }                                                                                                                                                                                                                        
                                                     name={name}
-                                                    // id="id"
                                                     onChange={handleForm}
+                                                    onBlur={(name==='cpwd')? ()=>{handlePassword(
+                                                        // refs,msgRefs 이케해도 되던뎅 ?? ㅇㅇ 얘네 많아지면 걍 refs 이케 넘겨도댕ㄷ댕
+                                                        refs.current['pwdRef'],
+                                                        refs.current['cpwdRef'],
+                                                        refs.current['nameRef'],
+                                                        msgRefs.current['pwdRef'],
+                                                        msgRefs.current['cpwdRef']
+                                                    )} : null                                                    
+                                                    }
                                                     ref = {refs.current[name.concat('Ref')]}
                                                     placeholder = {placehol[name]} /> 
                                                     { name==='id' && 
                                                     <>
-                                                        <button type="button" >중복확인</button>
-                                                        <input type="hidden" id="idCheckResult" value="default" />
+                                                        <button type="button" 
+                                                            onClick={()=>{handleDuplicateIdCheck(
+                                                                    refs.current['idRef'],
+                                                                    msgRefs.current['idMsgRef'],
+                                                                    refs.current['pwdRef'],
+                                                                    setIdCheckResult
+                                                                )   
+                                                            }}>
+                                                        중복확인</button>
+                                                        <input type="hidden" 
+                                                            value={idCheckResult} />
                                                     </>
                                                     }
                                                 </>

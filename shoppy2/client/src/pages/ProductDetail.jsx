@@ -1,22 +1,27 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Detail from '../components/Detail.jsx';
+import Review from '../components/Review.jsx';
+import Star from '../components/Star.jsx';
+
 
 export default function ProductDetail({selectCart}) {
     const {id} = useParams();
 
     const [list,SetList] = useState({});
+    const [imgList,SetImgList] = useState([]);
     useEffect(()=>{
         axios.get('/data/product.json')
             .then((res)=>{
                 res.data.filter((item)=>{
                     if(item.id === id)
-                        SetList(item);                                        
-                })
+                        SetList(item);   
+                        SetImgList(item.imgList);                                     
+                })                
             })
             .catch(error=>console.log(error));
     },[]);
-
 
     const [size, setSize] = useState('XS');
 
@@ -31,15 +36,64 @@ export default function ProductDetail({selectCart}) {
         }
         selectCart(cartItem);
     }
+    const [tabnames, setTabNames] = useState('Detail')
+
+    const names = ['Detail',
+                "Review",
+                "Q&A",
+                "RETURN & DELIVERY"];
+
+    const [reviewTopList, setReviewTopList] = useState([]);
+    const [reviewBottomList, setReviewBottomList] = useState([]);
+    const [reviewTab, setReviewTab] = useState([]);
+    const [category, setCategory] = useState('new');
+
+
+        
+
+    useEffect(()=>{
+        axios.get('/data/review.json')
+            .then(
+                (res) => {
+                    setReviewTopList(res.data.reviewTop)
+                    setReviewTab(res.data.reviewTab)
+                    if(category === 'new'){
+                        setReviewBottomList(res.data.reviewBottom)
+                    }else{
+                        const a = res.data.reviewBottom.filter((item)=>item.category === category)                                             
+                        setReviewBottomList(a);
+                    }
+                }
+        )
+            .catch(error => console.log(error));
+    },[category]);
+    
+    const reviewBottomLength = reviewBottomList.length;
+
+    const grandCategory = (category) => {
+        setCategory(category)
+    }
 
     return (
         <div className='content'>
             <div className='product-detail'>
-                <img src={list.img} />
+                <div>
+                    <img src={list.img} />
+                    <div className='product-detail-picture3'>
+                    {imgList.map((img,i) => 
+                        i<3 &&
+                        <img src={img}/>                        
+                    )}
+                    </div>
+                </div>
                 <ul>
                     <li className="product-detail-title">{list.name}</li>
                     <li className="product-detail-title">{list.price}</li>
                     <li className="product-detail-subtitle">{list.info}</li>
+                    <li className='product-detail-star'>
+                    <Star totalRate={4.2} className="star-coral"/>
+                        <span>{reviewBottomLength}개 리뷰</span>
+                    </li>
                     <li>
                         <span className='product-detail-select1'>옵션 : </span>
                         <select className='product-detail-select2'
@@ -56,6 +110,32 @@ export default function ProductDetail({selectCart}) {
                             onClick = {addCart}>장바구니 추가</button>
                     </li>
                 </ul>
+            </div>
+            
+            <div className='product-detail-tab'>
+                <ul> 
+                    {names.map((name)=>
+                        (name === 'Review') ? 
+                        <li className={tabnames===name ? "active": 'nope'}
+                            onClick={(e)=> setTabNames(name)}>                        
+                            <a >{name}({reviewBottomLength})</a>
+                        </li> :
+                        <li className={tabnames===name ? "active": 'nope'}
+                            onClick={(e)=> setTabNames(name)}>                        
+                            <a >{name}</a>
+                        </li>
+                    )}
+                    </ul>
+            </div>
+            <div className='tab-contents'>
+               { tabnames === 'Detail' &&  <Detail imgList={imgList}/>}
+                {tabnames === 'Review' &&  <Review reviewTopList={reviewTopList}
+                                                reviewBottomList={reviewBottomList}
+                                                reviewTab={reviewTab} 
+                                                grandCategory={grandCategory}
+                                                reviewBottomLength={reviewBottomLength}/>}
+                                               
+                
             </div>
         </div>
     );

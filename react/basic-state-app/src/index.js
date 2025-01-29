@@ -4,12 +4,12 @@ import './index.css';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import AppRouter2 from './components/router2/AppRouter2.jsx';
-import AppOlive from './practice/olive/AppOlive.jsx';
+import AppBestSeller from './components/yes24/AppBestSeller.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppOlive />
+    <AppBestSeller />
   </React.StrictMode>
 );
 
