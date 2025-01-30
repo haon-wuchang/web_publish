@@ -14,10 +14,11 @@ export default function App() {
         <Routes>
           <Route path='/' element ={<Layout />}>
             <Route index element ={<Home />}/>
+            <Route path='/login' element = {<Login />}/> 
             <Route path='/signup' element = {<Signup />}/> 
             <Route path='/cart' element = {<Cart />}/> 
-            <Route path='/lank' element = {<Lank />}/>  {/* 랭킹바로가기페이지  */}
             <Route path='/detailProduct' element = {<DetailProduct />}/>  {/* 상품상세페이지  */}            
+            {/* <Route path='/lank' element = {<Lank />}/>  랭킹바로가기페이지  */}
           </Route>        
         </Routes>
       </BrowserRouter>
