@@ -17,8 +17,7 @@ export default function App() {
             <Route path='/signup' element = {<Signup />}/> 
             <Route path='/cart' element = {<Cart />}/> 
             <Route path='/lank' element = {<Lank />}/>  {/* 랭킹바로가기페이지  */}
-            <Route path='/detailProduct' element = {<DetailProduct />}/>  {/* 상품상세페이지  */}
-            
+            <Route path='/detailProduct' element = {<DetailProduct />}/>  {/* 상품상세페이지  */}            
           </Route>        
         </Routes>
       </BrowserRouter>
