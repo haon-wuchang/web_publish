@@ -1,6 +1,4 @@
-// express 이용해서 서버만들기
 
-//1.  익스프레스 라이브러리 호출
 import express from 'express';  // 얘가 디폴트얌 ( require 는 예전방식임)
 // const express = require('express'); // = import express from 경로 ;  얘와 동일한거임(node에서는 require 로 받는거양)
 
@@ -9,30 +7,18 @@ import productRouter from './router/productRouter.js';
 
 const server = express(); // => express 서버 생성됨
 
-// 2-1.포트 별도로 설정하기 (2번부분 내용이 길어지면 맨밑까지 내려서 포트번호 바꿔야대는데 귀찮자나)
 const port = 9000;
 
-/* 6. 익스프레스 서버의 요청과 응답을 처리하는 미들웨어 
-        요청/응답 메소드 : GET, POST, PUT ,DELETE 
-            - 로그인, 회원가입 부분에서 사용
-        문법 : server.get('브라우저가요청하는경로',(req,res)=>{});   req res 순서 바꾸면 에러남 req 먼저 써야댐
-                res 는 브라우저에 응답을 해주는 객체임
-        MVC패턴을 적용하여 작업을 분리시킴 
-        - M : repository , V : router , C : controller 로 바꿔서 사용할거임
+/* 6. 익스프레스 서버의 요청과 응답을 처리하는 미들웨어 */
 
-*/
-// server.get('/hello',(req,res)=>{
-//     console.log('hello node');   
-//     res.send('<h1>하아아아ㅏ</h1>'); 
-//     // 브라우저는 html 코드를 읽을수잇어서 여기에 태그사용가능
-// });
+//     // res.send() 브라우저는 html 코드를 읽을수잇어서 여기에 태그사용가능
+
 
 //9-1.
-// server.get('/hello',정의한라우터이름);
 server.get('/hello',helloRouter);
 server.get('/hello/:id', helloRouter);
 
-//7. 콜백함수 부분이 쥰내길면 보기힘드니까 따로 뺴서 작업함 => MVC패턴을 적용하여 작업을 분리시킴
+// server.use('/hello',helloRouter); // 111. hello 로 시작하는 주소는 모두 helloRouter 로 맵핑시킴
 
 
 
@@ -40,8 +26,10 @@ server.get('/hello/:id', helloRouter);
 
 
 
-server.get('/product/all',productRouter);
-server.get('/product/:pname',productRouter);
+// use 쓰면 router 파일에서 대표경로는 생략하고 / 만 써야댐 !!!! /product 쓰면 얘는 /product/product 로 인식함
+server.use('/product',productRouter);
+// server.get('/product/all',productRouter);
+// server.get('/product/:pname',productRouter);
 
 
 
@@ -77,7 +65,6 @@ server.get('/product/:pname',productRouter);
 
 
 
-/* 2. 서버는 항상 켜져잇어야됨 (대기상태로 ) listen 은 보통 파일 맨밑부분에 작성함용*/
 server.listen(port,()=>{
     console.log(`서버 대기중 ${port}`);
     
@@ -85,9 +72,7 @@ server.listen(port,()=>{
     // server.listen([port[, host[, backlog]]][, callback])
 
 
-// .4. cmder 가서 서버까지 경로 이동 후 nodemon server.js
 
-// 5. 서버 켜져잇는지 확인하려고 listen 에 콜백함수 사용하기 console.log('서버 대기중');
 
 
 

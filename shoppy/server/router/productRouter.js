@@ -3,7 +3,8 @@ import * as productController from '../controller/productController.js';
 
 const productRouter = express.Router();
 
-productRouter.get('/product/all',productController.getAll);
+productRouter.get('/all',productController.getAll);
+productRouter.get('/:pname',productController.getPname);
 
 
 

@@ -3,3 +3,8 @@ export const getAll = (req,res) => {
     res.send('getAll');
     res.end();
 }
+
+export const getPname = (req,res) => {
+    res.send(req.params.pname);
+    res.end();
+}
