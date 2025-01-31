@@ -6,7 +6,8 @@
       "category":"new",
       "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
       "option":"MIDIUM",
-      "size":"164cm,61kg"
+      "size":"164cm,61kg",
+      "img":null
                                      
       },
       { 
@@ -15,7 +16,8 @@
       "category":"highRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"SMALL",
-       "size":"164cm,61kg"
+       "size":"164cm,61kg",
+       "img":null
       },
       { 
       "customerid":"c**********",
@@ -23,7 +25,8 @@
       "category":"rowRate",
        "reviewText":"상당히 오버핏입니다. 특히 소매부분이 그렇습니다.",
        "option":"MIDIUM",
-       "size":"164cm,61kg"
+       "size":"164cm,61kg",
+       "img":null
       },
       { 
       "customerid":"d**********",

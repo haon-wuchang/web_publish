@@ -42,11 +42,13 @@ export default function Review() {
         setSlicePages(reviewData.slice(startPage,endPage));
     },[reviewData,pageNum]);  
 
+    let count = reviewData.filter((a)=>a.img === null ).length ; 
+
 
     // 리뷰이미ㅣ지 테스트 
     const [imgNum, setImgNum] = useState(1); 
     const [sliceImg, setsliceImg] = useState([]); 
-    const imgPage = 11;                          
+    const imgPage = 8+count;                          
 
     useEffect(()=>{
         setsliceImg(reviewData.slice(1,imgPage));
