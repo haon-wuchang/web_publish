@@ -3,7 +3,7 @@ import * as controller from '../controller/employeeController.js';
 
 const router = express.Router();
 
-router.get('/',controller.getEmployee);
+router.get('/all',controller.getEmployeeAll);
 
 
 
