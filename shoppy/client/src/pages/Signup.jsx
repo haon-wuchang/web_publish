@@ -3,15 +3,15 @@ import '../styles/signup.css';
 import { useState , useRef } from 'react';
 import {validateSignup,handleDuplicateIdCheck,handlePassword} from '../utils/funcValidate.js';  
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
+import axios from 'axios';
 
 export default function Signup() {
     const {names,placehol,labels, initData} = initSignup();
-    const {refs,msgRefs} = useInitSignupRefs(names);  // 얘랑 위에꺼랑 순서바뀌면안댕
-    //   왜나면 initSignup 에 names 가 있으니까 useInitSignupRefs 얘를 먼저쓰면 names값을 못받아옴 
-// console.log('refs---------------',refs);
+    const {refs,msgRefs} = useInitSignupRefs(names);  
+
 
     const [formData, setFormData] = useState(initData);     
-    const[idCheckResult,setIdCheckResult] = useState('default');  // 아디체크밸류값관리
+    const[idCheckResult,setIdCheckResult] = useState('default');  
 
     const handleForm = (event) => {
         const {name, value } = event.target;        
@@ -19,17 +19,40 @@ export default function Signup() {
     }  
     const handleCheck = (event) => {
         event.preventDefault();
-        if(validateSignup(refs,msgRefs)){  //유효성ㅊㅋ하고난뒤에 아디중복체크 하면댕
+        if(validateSignup(refs,msgRefs)){  
             if(idCheckResult==='default'){
                 alert('중복체크진행해');
                 return false;
             } else {
                 console.log(formData);   
-                // 회원가입 성공 후에 setIdCheckResult('default); 로 바꿔주면댕     
+                // 2. 들어온 formData를 서버에 보내고
+                //  db 테이블에 insert
+                // axios.post('경로',{전송할객체})
+                //     .then(insert성공시 결과받아옴)
+                //     .catch();
+                // 전송할객체 = 컨트롤러에서 받으면 된다
+                axios.post('/http://localhost:9000/member/signup',{formData})
+                    .then(res => console.log(res.data))
+                    .catch(error => console.log(error));
+
+
             }
         } 
     }    
 
+
+
+
+/*
+    💥💥 다외워랑
+    get 방식 : url 을 통해서 호출 및 데이터 전달 => 네트워크를 통해서 넘어갈때 패킷의 헤더에 붙어서 넘어감
+        => 서버에서 받을때 req.params 로 받는다
+        => /product/:id => :id 이거는 get에서만 사용가능
+        => 데이터가 작을때 , 보안이 필요하지않을때 사용 (회원가입,로그인에는 사용금지!)
+    post 방식 : url 주소로 경로가 호출되고, 데이터전달은 패킷의 바디에 붙어서 넘어감
+        => req.body 로 받음
+        => 데이터가 클때, 보안이 필요할 때 사용(로그인,회원가입페이지)
+        */
 
     return (
         <div className="content">

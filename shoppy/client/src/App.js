@@ -6,7 +6,7 @@ import Products from './pages/Products.jsx';
 import Carts from './pages/Carts.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
-import Employees from './pages/Employees.jsx';
+// import Employees from './pages/Employees.jsx';
 import DetailProduct from './pages/DetailProduct.jsx';
 import { useState } from 'react';
 
@@ -32,7 +32,7 @@ export default function App() {
             <Route path='/login' element={<Login />} /> 
             <Route path='/signup' element={<Signup />} /> 
             <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 
-            <Route path='/employees' element={<Employees />} /> 
+            {/* <Route path='/employees' element={<Employees />} />  */}
           </Route >
         </Routes>
       </BrowserRouter>
