@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+
 // 로그인폼 validate
 export const validateLogin = ({idRef,pwdRef},{msgRef}) => {
     let result = true ;
@@ -58,6 +61,7 @@ export const validateSignup = (refs,msgRefs) => {
 
 
 // 아디 중복체크 함수 /////////////////////////////////////////
+// ㄱ. db 에 들어온 id 들과 중복체크 진행
     export const handleDuplicateIdCheck = (idRef,idMsgRef,pwdRef,setIdCheckResult) => { //!!!넘어오는객체를 변수로 받을때는 순서 중용 | 구조분해할당 아닐때는 넘어오는애들 순서맞춰야댕
         // refs.current['idRef'] = idRef 임
         if(idRef.current.value===''){
@@ -65,30 +69,30 @@ export const validateSignup = (refs,msgRefs) => {
             idRef.current.focus();
             return false;
         }else {
-            let did = 'test';  
-            if(idRef.current.value=== did){
-                alert('이 아디는 사용불가 다른거 써');
-                idRef.current.value='';
-                idRef.current.focus();
-                return false;
-            } else {
-                alert('good');
-                setIdCheckResult('ok');
-                pwdRef.current.focus();
-                return false;
-            }
+            // ㄴ. 아디 중복체크 - 서버 연동
+            axios.post('http://localhost:9000/member/idcheck',{"id":idRef.current.value})
+                .then(res => {
+                     if(res.data.result=== 1){ // ㅂ.if문으로 중복체크확인작업하기
+                        alert('이 아디는 사용불가 다른거 써');
+                        idRef.current.value='';
+                        idRef.current.focus();
+                        return false;
+                    } else {
+                        alert('good');
+                        setIdCheckResult('ok');
+                        pwdRef.current.focus();
+                        return false;
+                    }
+                    console.log('idchekckck',res.data)
+                })
+                .catch(error => console.log(error));
+
+            
         }
     }
 
 // 비번 일치여부 확인 /////////////////////////////////
-    //  export const handlePassword = (refs,msgRefs) => { // 이케해도되던뎅 멎지 💦
-     export const handlePassword = (pwdRef,cpwdRef,nameRef,pwdMsgRef,cpwdMsgRef) => {
-        // const pwdRef = refs.current['pwdRef'];
-        // const cpwdRef = refs.current['cpwdRef'];
-        // const nameRef = refs.current['nameRef'];
-        // const pwdMsgRef = msgRefs.current['pwdRef'];
-        // const cpwdMsgRef = msgRefs.current['cpwdRef']; 
-
+export const handlePassword = (pwdRef,cpwdRef,nameRef,pwdMsgRef,cpwdMsgRef) => {
     if(pwdRef.current.value===''){
         pwdMsgRef.current.style.setProperty('color','red');
         // alert('입력해');

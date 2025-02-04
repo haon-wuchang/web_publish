@@ -1,6 +1,6 @@
 import {db} from './db.js';
 
-// 회원가입
+// 회원가입 - insert
 //6. 디비연동해서 결과를 컨트롤러에 알려줌
 export const registMember = async(formData) =>{  // 컨트롤러에서 넘어온 req.body 를 formData 이름으로 받음
     // 6-1-1. db 에 shoppy_member 테이블 생성하기 생성후 6-1 진행   
@@ -49,3 +49,26 @@ export const registMember = async(formData) =>{  // 컨트롤러에서 넘어온
 
 }
 
+
+// 아이디 중복체크 => select
+// ㅁ.
+export const getIdCheck = async(idData) => {
+// export const getIdCheck = async({id}) => { //이렇게바로 id 값 받아와도됨
+    // idData = {id:'test1'}
+    const sql = `
+                select count(id) as result 
+                    from shoppy_member 
+                    where id = ?
+                `;
+
+    const [result,fields] = await db.execute(sql,[idData.id]);
+    // const [result,fields] = await db.execute(sql,[id]);  //아디 바로 받아오면 이케 쓰기
+    console.log('resususu========',result[0]);
+    // 결과값 : resususu======== [ { result: 0 } ]
+    // 결과값 이 배열이라서 return 할때 {} 이케 보내야하니까 return result[0] 로 값을 보내야함!!
+    
+    return result[0];
+}
+
+
+// 문법 : execute(sql,[]);
