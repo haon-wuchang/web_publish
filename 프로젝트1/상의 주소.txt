@@ -1,0 +1,26 @@
+이 전에꺼는 안함 
+16번
+https://www.ssfshop.com/ami/GM0024121608861/good?utag=ref_sch:%EC%98%A5%EC%8A%A4%ED%8F%AC%EB%93%9C%EC%85%94%EC%B8%A0$set:1$$dpos:2
+21번
+https://www.ssfshop.com/POLO-RALPH-LAUREN-/GQC9B24121861618/good?utag=ref_sch:%ED%8F%B4%EB%A1%9C%EC%85%94%EC%B8%A0$set:1$$dpos:2
+26번
+https://www.ssfshop.com/ADIDAS-KOREA/GQDO25010398231/good?utag=ref_sch:%ED%83%B1%ED%81%AC%ED%83%91$set:1$$dpos:3
+32번
+https://www.ssfshop.com/KUHO/GM0024121135052/good?utag=ref_sch:%EB%B2%84%ED%8A%BC%EC%97%85%EB%B8%94%EB%9D%BC%EC%9A%B0%EC%8A%A4$set:1$$dpos:1
+35번
+https://www.ssfshop.com/LACOSTE/GQ2N24081388460/good?utag=ref_sch:%ED%81%AC%EB%A3%A8%EB%84%A5%EC%8A%A4%EC%9B%BB%EC%85%94%EC%B8%A0$set:1$$dpos:22
+38번
+https://www.ssfshop.com/8-seconds/GM0025011713465/good?utag=ref_sch:%EB%8B%88%ED%8A%B8%EA%B0%80%EB%94%94%EA%B1%B4$set:1$$dpos:3
+53번
+https://www.ssfshop.com/BEYOND-CLOSET/GP3V23011962268/good?utag=ref_sch:%EC%88%98%ED%8A%B8%EB%B8%94%EB%A0%88%EC%9D%B4%EC%A0%80$set:1$$dpos:3
+60번
+https://www.ssfshop.com/KUHO/GM0024121264334/good?utag=ref_sch:%EC%BD%94%ED%8A%BC%EC%85%94%EC%B8%A0$set:1$$dpos:2
+63번
+https://www.ssfshop.com/Max-Mara/GPD124121031546/good?utag=ref_sch:%EC%8A%AC%EB%A6%BC%ED%95%8F%EB%B8%94%EB%A0%88%EC%9D%B4%EC%A0%80$set:1$$dpos:3
+68번
+https://www.ssfshop.com/LEBEIGE/GM0024121989976/good?utag=ref_sch:%EC%8B%A4%ED%81%AC%EC%85%94%EC%B8%A0$set:1$$dpos:8
+71번
+https://www.ssfshop.com/ami/GM0024111828063/good?utag=ref_sch:%EB%8B%88%ED%8A%B8%EC%8A%A4%EC%9B%A8%ED%84%B0$set:1$$dpos:9
+
+
+71번 부터 수정해야함 ;
