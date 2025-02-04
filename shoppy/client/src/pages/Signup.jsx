@@ -9,7 +9,6 @@ export default function Signup() {
     const {names,placehol,labels, initData} = initSignup();
     const {refs,msgRefs} = useInitSignupRefs(names);  
 
-
     const [formData, setFormData] = useState(initData);     
     const[idCheckResult,setIdCheckResult] = useState('default');  
 
@@ -17,6 +16,7 @@ export default function Signup() {
         const {name, value } = event.target;        
         setFormData({...formData, [name]:value});        
     }  
+
     const handleCheck = (event) => {
         event.preventDefault();
         if(validateSignup(refs,msgRefs)){  
@@ -25,17 +25,15 @@ export default function Signup() {
                 return false;
             } else {
                 console.log(formData);   
-                // 2. 들어온 formData를 서버에 보내고
-                //  db 테이블에 insert
-                // axios.post('경로',{전송할객체})
-                //     .then(insert성공시 결과받아옴)
-                //     .catch();
-                // 전송할객체 = 컨트롤러에서 받으면 된다
-                axios.post('/http://localhost:9000/member/signup',{formData})
+                // 1.  formData를 서버에 보낸다
+                    // axios.post('경로',{전송할객체})
+                    //     .then(insert성공시 결과받아옴)
+                    //     .catch();
+                    // 전송할객체 => 컨트롤러에서 받으면 된다
+                axios.post('http://localhost:9000/member/signup',formData)
+                // formData 자체가 {} 이니까 {formdata} 이케하면 안댐!!!!
                     .then(res => console.log(res.data))
                     .catch(error => console.log(error));
-
-
             }
         } 
     }    
