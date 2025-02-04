@@ -4,8 +4,11 @@ import { useState , useRef } from 'react';
 import {validateSignup,handleDuplicateIdCheck,handlePassword} from '../utils/funcValidate.js';  
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize.js';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 export default function Signup() {
+    const navigate = useNavigate(); // 11-1.
+
     const {names,placehol,labels, initData} = initSignup();
     const {refs,msgRefs} = useInitSignupRefs(names);  
 
@@ -30,10 +33,27 @@ export default function Signup() {
                     //     .then(insert성공시 결과받아옴)
                     //     .catch();
                     // 전송할객체 => 컨트롤러에서 받으면 된다
+                    // formData 자체가 {} 이니까 {formdata} 이케하면 안댐!!!!
                 axios.post('http://localhost:9000/member/signup',formData)
-                // formData 자체가 {} 이니까 {formdata} 이케하면 안댐!!!!
-                    .then(res => console.log(res.data))
-                    .catch(error => console.log(error));
+                // 9. 결과값이 then 으로 넘어온다
+                    .then(res => {
+                        if(res.data.result_rows === 1){ // affectedRows 가 1이면 값 잘 넘어온거니까
+                            alert('회원가입성공');
+                            // 11. 회원가입 성공 시 로그인페이지로 이동되게 작업
+                                // react 에서 페이지 이동 => useNavigate() 사용 (react-router-dom)
+                                navigate('/login');
+                            
+
+
+                        } else{
+                            alert('회원가입 실패');
+                        }
+                        // console.log('resdata============',res.data)
+                    })                     
+                    .catch(error => {  // 10. 네트워크 에러시에도 회원가입 실패니까 내용추가
+                        alert('회원가입 실패');
+                        console.log(error);                        
+                    });
             }
         } 
     }    

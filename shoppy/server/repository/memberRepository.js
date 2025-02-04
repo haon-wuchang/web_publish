@@ -27,12 +27,12 @@ export const registMember = async(formData) =>{  // 컨트롤러에서 넘어온
 
     // 6-2 : db 객체를 이용하여 sql 실행 후 결과 가져오기 execute() 함수사용
     const [result,fields] = await db.execute(sql,values);
-    console.log(result);
-    console.log(fields);
+    // console.log(result);
+    // console.log(fields);
     // 콘솔결과값
     // ResultSetHeader {  => result값
     //     fieldCount: 0,
-    //     affectedRows: 1,
+    //     affectedRows: 1, 💨 하나의행이 shoppy_member 에 insert 됐다고 알려주는거임 (insert,update,delete 할떄 여기 확인 !!1)
     //     insertId: 0,
     //     info: '',
     //     serverStatus: 2,
@@ -41,7 +41,11 @@ export const registMember = async(formData) =>{  // 컨트롤러에서 넘어온
     //   }
     //   undefined  => fields값
 
-    // 6-3 : 컨트롤러에 결과값 리턴
-    return '';
+    
+    
+    // 6-3 : 컨트롤러에 결과값 리턴 ( 자바스크립트느 결과값을 {} 로 받음!)
+        // 결과값인 affectedRows 을 가져와야한다 
+    return {"result_rows":result.affectedRows};
+
 }
 
