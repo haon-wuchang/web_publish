@@ -61,18 +61,15 @@ export const validateSignup = (refs,msgRefs) => {
 
 
 // 아디 중복체크 함수 /////////////////////////////////////////
-// ㄱ. db 에 들어온 id 들과 중복체크 진행
-    export const handleDuplicateIdCheck = (idRef,idMsgRef,pwdRef,setIdCheckResult) => { //!!!넘어오는객체를 변수로 받을때는 순서 중용 | 구조분해할당 아닐때는 넘어오는애들 순서맞춰야댕
-        // refs.current['idRef'] = idRef 임
+    export const handleDuplicateIdCheck = (idRef,idMsgRef,pwdRef,setIdCheckResult) => {
         if(idRef.current.value===''){
             idMsgRef.current.style.setProperty('color','red');
             idRef.current.focus();
             return false;
         }else {
-            // ㄴ. 아디 중복체크 - 서버 연동
             axios.post('http://localhost:9000/member/idcheck',{"id":idRef.current.value})
                 .then(res => {
-                     if(res.data.result=== 1){ // ㅂ.if문으로 중복체크확인작업하기
+                     if(res.data.result=== 1){ 
                         alert('이 아디는 사용불가 다른거 써');
                         idRef.current.value='';
                         idRef.current.focus();

@@ -7,7 +7,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
 export default function Signup() {
-    const navigate = useNavigate(); // 11.
+    const navigate = useNavigate(); 
 
     const {names,placehol,labels, initData} = initSignup();
     const {refs,msgRefs} = useInitSignupRefs(names);  
@@ -28,24 +28,19 @@ export default function Signup() {
                 return false;
             } else {
                 console.log(formData);   
-                // 1.  formData를 서버에 보낸다
                 axios.post('http://localhost:9000/member/signup',formData)
-                // 9. 결과값이 then 으로 넘어온다
                     .then(res => {
-                        if(res.data.result_rows === 1){ // affectedRows 가 1이면 값 잘 넘어온거니까
+                        if(res.data.result_rows === 1){ 
                             alert('회원가입성공');
-                            // 11-1. 회원가입 성공 시 로그인페이지로 이동되게 작업
-                                // react 에서 페이지 이동 => useNavigate() 사용 (react-router-dom)
-                                // setTimeout(콜백함수,시간ms);
+
                                 setTimeout(()=>{
                                     navigate('/login');        
-                                },1000);   // 회원가입 후 바로 로그인으로 넘어가지않고 3초세고 넘어가게 함 (이건 안해도댄)                
+                                },1000);   
                         } else{
                             alert('회원가입 실패');
                         }
-                        // console.log('resdata============',res.data)
                     })                     
-                    .catch(error => {  // 10. 네트워크 에러시에도 회원가입 실패니까 내용추가
+                    .catch(error => {  
                         alert('회원가입 실패');
                         console.log(error);                        
                     });
@@ -56,16 +51,7 @@ export default function Signup() {
 
 
 
-/*
-    💥💥 다외워랑
-    get 방식 : url 을 통해서 호출 및 데이터 전달 => 네트워크를 통해서 넘어갈때 패킷의 헤더에 붙어서 넘어감
-        => 서버에서 받을때 req.params 로 받는다
-        => /product/:id => :id 이거는 get에서만 사용가능
-        => 데이터가 작을때 , 보안이 필요하지않을때 사용 (회원가입,로그인에는 사용금지!)
-    post 방식 : url 주소로 경로가 호출되고, 데이터전달은 패킷의 바디에 붙어서 넘어감
-        => req.body 로 받음
-        => 데이터가 클때, 보안이 필요할 때 사용(로그인,회원가입페이지)
-        */
+
 
     return (
         <div className="content">

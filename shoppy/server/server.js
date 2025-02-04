@@ -11,9 +11,7 @@ server.use(express.urlencoded());
 server.use(cors());
 
 // 서버의 요청처리를 위한 미들웨어 정의 //
-//2.  formData 받아올 경로 만들기
 server.use('/member',memberRouter);
-//3. mvc 파일 만들어서 (react의 회원가입formData 받아오기)
 
 
 server.listen(port,()=>{
