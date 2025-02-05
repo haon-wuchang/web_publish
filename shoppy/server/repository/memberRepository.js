@@ -59,6 +59,7 @@ export const checkLogin = async({id,pwd}) => {
 
     const [result,field] = await db.execute(sql,[id,pwd]); // 9-1.얘의 실행결과는 2차원 배열이니까 구조분해할당으로 받기
             // field 는 구지 안써도댕 어차피 안쓰자나 
-    return result;
+    return result[0];
+    // [{result_rows:1}]
 }
 
