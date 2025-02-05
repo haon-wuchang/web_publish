@@ -4,13 +4,13 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { useState,useRef } from 'react';
 import {validateLogin} from '../utils/funcValidate.js';
+import axios  from 'axios';
 
 export default function Login() {
     const [formData, setFormData] = useState({'id':'', 'pwd':''});
 
     // 로그인 폼 데이터 입력 함수
     const handleChangeForm = (event) => {
-        // setFormData 에 아디,패스워드 저장 작업
         const {name, value} = event.target;  
         setFormData( {...formData, [name]:value});
     } 
@@ -19,17 +19,29 @@ export default function Login() {
         'idRef' : useRef(null),
         'pwdRef' : useRef(null)
     }
+    const msgRefs = {
+        'msgRef' : useRef(null)
+    }
 
     const handleLoginSubmit = (event) => {
         event.preventDefault();          
         if(validateLogin(refs,msgRefs)){  
             console.log('send',formData);
+        
+        // 2. formData 노드서버로 전송
+        axios.post('http://localhost:9000/member/login',formData)
+                // 11. 컨트롤러에서 result_rows 잘 받아오는지 확인
+                .then(res => console.log('res=========',res.data))
+                .catch(error => console.log(error));
+
+
+
+
+                
+
         }      
     }
 
-    const msgRefs = {
-        'msgRef' : useRef(null)
-    }
 
     return (
         <div className="content">

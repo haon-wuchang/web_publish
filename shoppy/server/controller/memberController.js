@@ -14,7 +14,16 @@ export const getIdCheck = async(req,res) => {
     res.end();
 }
 
+//4. 로그인 컨트롤러 만들기
+export const checkLogin = async(req,res) => {
+    // console.log(req.body);  //5. post는 req.body 로 데이터가 넘어옴 , 콘솔로 잘 넘어오는지확인
+    //6. 레파지토리 값 가져올 변수 선언 레파지토리는 db 갓다오니까 시간 많이걸려서 await async
+    const result = await repository.checkLogin(req.body);
 
+    // 10. 레파지토리의 result 를 받아옴 ( 클라이언트-로그인페이지로 넘겨줌)
+    res.json(result); // 제이슨으로 넘어오니까 제이슨으로 받기
+    res.end();
+}
 
 
 

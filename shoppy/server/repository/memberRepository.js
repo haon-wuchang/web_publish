@@ -44,3 +44,21 @@ export const getIdCheck = async(idData) => {
 
 
 // 문법 : execute(sql,[]);
+
+
+// 7.  로그인 - select 쿼리 사용
+// 8. 컨트롤러에서 넘어온 req.body 를 loginData 로 받음 
+    // 넘어온 테이터 {id:'test',pwd:'1234'} 이케 넘어옴 아까 콘솔로 찍어봣자넝
+export const checkLogin = async({id,pwd}) => {
+    // 9. 레파지토리의 3단계 작업 진행 
+    const sql = `
+                select count(*) as result_rows
+                    from shoppy_member 
+                    where id = ? and pwd = ?
+                `;
+
+    const [result,field] = await db.execute(sql,[id,pwd]); // 9-1.얘의 실행결과는 2차원 배열이니까 구조분해할당으로 받기
+            // field 는 구지 안써도댕 어차피 안쓰자나 
+    return result;
+}
+
