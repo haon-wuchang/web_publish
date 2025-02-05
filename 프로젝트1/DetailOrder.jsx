@@ -18,9 +18,9 @@ export default function DetailOrder(){
                                     </span>
                                         <span class="sale">
                                         {/* <span class="wa_hidden">할인율</span> */}
-                                        <em class="discount">37%</em>
+                                        <span class="discount">37%</span>
                                         {/* <span class="wa_hidden">판매가</span> */}
-                                        <em class="price">149,940</em>
+                                        <span class="price">149,940</span>
                                         <CiCircleQuestion />
                                         {/* <span class="tooltip-info">
 
@@ -42,35 +42,42 @@ export default function DetailOrder(){
                                                     </div>
                                                 </span>
                                         </span> */}
-                                </span>
+                                        </span>
                             </span>
                             <button class="btn bk sm" type="button" onclick="openGodDwldPsbCpnListLayer(); return false;"
-                            style={{"backgroundColor":"yellowgreen"}}><span>쿠폰다운</span></button>
+                                style={{"backgroundColor":"black"}}>
+                                <span>쿠폰다운</span>
+                            </button>
                         </div>
                         <div id="goodsInfoReviewDiv" class="review-info">
-                            <span class="point"><i aria-label="rate"></i><em id="goodsInfoReviewScore">5</em></span>
-                            <a href="javascript:void(0);">리뷰<em>1</em>건</a>
+                            <span class="point"><i aria-label="rate"></i><span id="goodsInfoReviewScore">5</span></span>
+                            <a href="javascript:void(0);">리뷰<span>1</span>건</a>
                             <a href="#" class="styled-cnt" id="goodsInfoDiverCnt" data-is-load="false" style={{"display": "none"}}></a>
-                            <span></span>
-                            <span class=""><em id="goodsInfoStyleScore"></em></span>
-                            <a href="javascript:void(0);">스타일<em>5</em>건</a>
-                            <a href="#" class="styled-cnt" id="goodsInfoDiverCnt" data-is-load="false" style={{"display": "none"}}></a>
+                            <span>|</span>
+                            <span class="">d</span>
+                            <a href="#">스타일<span>5</span>건</a>
                         </div>
                         <div className="goods-info-middle">
                             <dl>
                                 <dt>카드혜택</dt>
-                                <dd>카드사별 혜택 안내</dd>
-                                <a href="">자세히보기</a>  
+                                <dd>카드사별 혜택 안내
+                                    <a href="">자세히보기</a>  
+                                </dd>
                                 <dt>기프트포인트</dt>
-                                <dd>멤버십 고객 한정 최대 47,900원 할인(10%)</dd>
-                                <a href="">자세히보기</a>
+                                <dd>멤버십 고객 한정 최대 47,900원 할인(10%)
+                                    <a href="">자세히보기</a>
+                                </dd>
                                 <dt>포인트 적립</dt>
-                                <span>멤버십포인트 2,400P</span>
+                                <dd>
+                                    <span>멤버십포인트 2,400P</span>
+                                </dd>
                                 <dt>배송방법</dt>
                                 <dd>
                                     <div>
-                                        <em>택배배송</em>
-                                        <span>무료배송</span>
+                                        <span>택배배송
+                                            <span>?아이콘</span>
+                                            <span>무료배송</span>
+                                        </span>
                                         <a href="">배송방법 더보기</a>   
                                     </div>
                                     <div>
@@ -82,29 +89,42 @@ export default function DetailOrder(){
                         <div className="goods-info-bottom">
                             <div className="goods-info-bottom-color">
                                 <span>색상</span>
-                                <label htmlFor="">검정색</label>
-                                <label htmlFor="">회색</label>
+                                <ul>
+                                    <li htmlFor="">BLACK</li>
+                                    <li htmlFor="">ORANGE</li>
+                                    <li htmlFor="">BLUE</li>
+                                </ul>
                             </div>
                             <div className="goods-info-bottom-size">
                                 <span>사이즈</span>
-                                <label htmlFor="">001[S]</label>
-                                <label htmlFor="">002[M]</label>
+                                <ul>
+                                    <li htmlFor="">XS</li>
+                                    <li htmlFor="">S</li>
+                                    <li htmlFor="">M</li>
+                                    <li htmlFor="">L</li>
+                                    <li htmlFor="">XL</li>
+                                    <li htmlFor="">XXL</li>
+                                </ul>
                             </div>
                         </div>
-                        <div className="수량 가격">
-                            <div>
-                                <div>
-                                    <a href="">-</a>
-                                    <input type="text" />1
-                                    <a href="">+</a>
-                                </div>
-                                <span>479,000원</span>
+                        <div className="goods-info-count-price">
+                            <div className="goods-info-count">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+                            <div className="goods-info-price">
+                                <span>479,000</span>
                                 <span>원</span>
                             </div>
                         </div>
-                        <div className="장바구니 바로구매">
-                            <a href=""><span>장바구니</span></a>
-                            <a href=""><span>바로구매</span></a>
+                        <div className="goods-info-btns">
+                            <button>
+                                <a href=""><span>장바구니</span></a>
+                            </button>
+                            <button>
+                                <a href=""><span>바로구매</span></a>
+                            </button>
                         </div>
                     </div>
     );
