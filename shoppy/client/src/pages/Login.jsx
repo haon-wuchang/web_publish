@@ -6,11 +6,11 @@ import { useState,useRef } from 'react';
 import {validateLogin} from '../utils/funcValidate.js';
 import axios  from 'axios';
 import {useNavigate} from 'react-router-dom'; // ㄷ.
-import { AuthContext } from '../auth/AuthContext.js';  //cc.
-import { useContext } from 'react';  //cc.
+import { AuthContext } from '../auth/AuthContext.js'; 
+import { useContext } from 'react';  
 
 export default function Login() {
-    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);  //cc-1.
+    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext); 
     const navigate = useNavigate(); //ㄷ.
 
     const [formData, setFormData] = useState({'id':'', 'pwd':''});
@@ -42,7 +42,6 @@ export default function Login() {
                     if(res.data.result_rows === 1){
                         alert('로그인성공');
                         localStorage.setItem('token',res.data.token);
-                        // cc-2.
                         setIsLoggedIn(true);
                         navigate('/');
                     } else {
