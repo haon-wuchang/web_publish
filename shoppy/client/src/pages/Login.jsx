@@ -5,8 +5,14 @@ import { FaLock } from "react-icons/fa";
 import { useState,useRef } from 'react';
 import {validateLogin} from '../utils/funcValidate.js';
 import axios  from 'axios';
+import {useNavigate} from 'react-router-dom'; // ㄷ.
+import { AuthContext } from '../auth/AuthContext.js';  //cc.
+import { useContext } from 'react';  //cc.
 
 export default function Login() {
+    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);  //cc-1.
+    const navigate = useNavigate(); //ㄷ.
+
     const [formData, setFormData] = useState({'id':'', 'pwd':''});
 
     // 로그인 폼 데이터 입력 함수
@@ -31,17 +37,24 @@ export default function Login() {
         // 2. formData 노드서버로 전송
         axios.post('http://localhost:9000/member/login',formData)
                 // 11. 컨트롤러에서 result_rows 잘 받아오는지 확인
-                .then(res => console.log('res=========',res.data))
-                .catch(error => console.log(error));
-
-
-
-
-                
-
+                .then(res =>{
+                    //  11. console.log('res=========',res.data)
+                    if(res.data.result_rows === 1){
+                        alert('로그인성공');
+                        localStorage.setItem('token',res.data.token);
+                        // cc-2.
+                        setIsLoggedIn(true);
+                        navigate('/');
+                    } else {
+                        alert('로그인실패'); 
+                    }
+                })
+                .catch(error => {
+                    alert('로그인실패'); //네트워크문제로 실패 시
+                    console.log(error)
+                });
         }      
     }
-
 
     return (
         <div className="content">
