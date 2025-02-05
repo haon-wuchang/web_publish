@@ -5,13 +5,13 @@ import { FaLock } from "react-icons/fa";
 import { useState,useRef } from 'react';
 import {validateLogin} from '../utils/funcValidate.js';
 import axios  from 'axios';
-import {useNavigate} from 'react-router-dom'; // ㄷ.
+import {useNavigate} from 'react-router-dom'; 
 import { AuthContext } from '../auth/AuthContext.js'; 
 import { useContext } from 'react';  
 
 export default function Login() {
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext); 
-    const navigate = useNavigate(); //ㄷ.
+    const navigate = useNavigate(); 
 
     const [formData, setFormData] = useState({'id':'', 'pwd':''});
 
@@ -20,7 +20,6 @@ export default function Login() {
         const {name, value} = event.target;  
         setFormData( {...formData, [name]:value});
     } 
-
     const refs = {
         'idRef' : useRef(null),
         'pwdRef' : useRef(null)
@@ -34,7 +33,6 @@ export default function Login() {
         if(validateLogin(refs,msgRefs)){  
             console.log('send',formData);
         
-        // 2. formData 노드서버로 전송
         axios.post('http://localhost:9000/member/login',formData)
                 // 11. 컨트롤러에서 result_rows 잘 받아오는지 확인
                 .then(res =>{
