@@ -9,6 +9,7 @@ import Signup from './pages/Signup.jsx';
 import DetailProduct from './pages/DetailProduct.jsx';
 import { useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js'; 
+import NewProduct from './pages/NewProduct.jsx';
 
 export default function App() {
   const addMomCart = (cartItem) => {
@@ -16,8 +17,7 @@ export default function App() {
     setCartCount(cartCount + 1);
   }  
   
-  const [cartList,setCartList] = useState([]);
-  
+  const [cartList,setCartList] = useState([]);  
   const [cartCount,setCartCount] = useState(0);
 
   return (
@@ -32,6 +32,7 @@ export default function App() {
               <Route path='/login' element={<Login />} /> 
               <Route path='/signup' element={<Signup />} /> 
               <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 
+              <Route path='/products/new' element={<NewProduct />} /> 
             </Route >
           </Routes>
         </BrowserRouter>
