@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'; // 1.
 import axios from 'axios'; //5.
 
 export default function ImageUpload() {
-    const formData = new FormData(); // 4-0.class로 제공되는FormData가 잇다
+    // const formData = new FormData(); // 4-0.class로 제공되는FormData가 잇다
 
     // 3. 파일업로드 이벤트 함수 선언
     const handleFileUpload = (e) => {
@@ -25,7 +25,9 @@ export default function ImageUpload() {
     return (
         <div>
             {/*3. onChange 이벤트처리 , 3-1.브라우저에잇는 이벤트객체를받아서 이벤트함수로 이벤트객체보낼때는 콜백함수형태로 보내야한다 */}
-            <Form.Control type='file' onChange={(e)=>{handleFileUpload(e)}}/>
+            <Form.Control 
+                type='file' onChange={(e)=>{handleFileUpload(e)}}>
+            </Form.Control>
                        
         </div>
     );
