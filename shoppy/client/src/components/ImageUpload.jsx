@@ -12,7 +12,7 @@ export default function ImageUpload() {
         // 4-1.
         formData.append('file',e.target.files[0]); 
         for(const [key,value] of formData.entries()){
-            console.log(`form ${JSON.stringify(key)}`);   
+            console.log(`key -- ${JSON.stringify(key)}`);   
             console.log('value',value);
                      
         }
@@ -22,7 +22,6 @@ export default function ImageUpload() {
             .then(res => console.log(res.data))
             .catch(error => console.log(error));
     }
-
 
     return (
         <div>
@@ -40,3 +39,5 @@ export default function ImageUpload() {
 
 
 // <Form.Control accept='image/*'  //타입이 이미지인 애들만 가져오게 제한하는거임
+
+// Form 을 사용하는ㅇ이유는 데이터를 통채로 넘기기위해서 사용한댕

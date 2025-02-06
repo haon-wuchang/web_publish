@@ -9,6 +9,7 @@ import {useNavigate} from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext.js'; 
 import { useContext } from 'react';  
 import ImageUpload from '../components/ImageUpload.jsx';
+import ImageUploadCopy from '../components/ImageUploadCopy.jsx';
 
 export default function Login() {
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext); 
@@ -56,6 +57,7 @@ export default function Login() {
         <div className="content">
             <h1 className="center-title">LOGIN</h1>
             <ImageUpload /> {/*2 */}
+            <ImageUploadCopy /> 2
             <form className="login-form" onSubmit={handleLoginSubmit} >
                 <ul>
                     <li>
