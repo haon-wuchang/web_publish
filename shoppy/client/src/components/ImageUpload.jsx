@@ -3,20 +3,22 @@ import Form from 'react-bootstrap/Form'; // 1.
 import axios from 'axios'; //5.
 
 export default function ImageUpload() {
-    // const formData = new FormData(); // 4-0.class로 제공되는FormData가 잇다
+    const formData = new FormData(); // 4-0.class로 제공되는FormData가 잇다 => FormData는 [{}] 이 형태이다
 
     // 3. 파일업로드 이벤트 함수 선언
     const handleFileUpload = (e) => {
         console.log(e.target.files[0]); // 3-2 콘솔로 잘 가져오는지 확인
         
-        // 4-0.
-        // formData.append('file',e.target.files[0]); // 
-        // for(const key of formData){
-        //     console.log(`form ${JSON.stringify(key)}`);            
-        // }
+        // 4-1.
+        formData.append('file',e.target.files[0]); 
+        for(const [key,value] of formData.entries()){
+            console.log(`form ${JSON.stringify(key)}`);   
+            console.log('value',value);
+                     
+        }
         
         // 5-1. 서버로전송  5-2는 노션에 잇음
-        axios.post('http://localhost:9000/uploads',{'file':e.target.files[0]})
+        axios.post('http://localhost:9000/uploads',formData)
             .then(res => console.log(res.data))
             .catch(error => console.log(error));
     }
