@@ -26,9 +26,34 @@ create table shoppy_member(
 desc shoppy_member;
 select * from shoppy_member;
 
--- ㄴ. 체크 작업 : 결과를 count 함수로 반환해야한다 !! 외워
+-- 체크 작업 : 결과를 count 함수로 반환해야한다 !! 외워
 select count(id) as result from shoppy_member where id = 'test1';
 -- 여기서 나온 결과로 중복체크 작업 하는거임 0,1
+
+-- 2/5 수업//////////////////////////////////////////////
+select count(*) 
+	from shoppy_member 
+	where id = 'test1' and pwd = '1234';
+
+-- 2/6 --------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

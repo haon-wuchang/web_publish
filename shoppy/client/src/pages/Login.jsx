@@ -8,6 +8,7 @@ import axios  from 'axios';
 import {useNavigate} from 'react-router-dom'; 
 import { AuthContext } from '../auth/AuthContext.js'; 
 import { useContext } from 'react';  
+import ImageUpload from '../components/ImageUpload.jsx';
 
 export default function Login() {
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext); 
@@ -34,9 +35,7 @@ export default function Login() {
             console.log('send',formData);
         
         axios.post('http://localhost:9000/member/login',formData)
-                // 11. 컨트롤러에서 result_rows 잘 받아오는지 확인
                 .then(res =>{
-                    //  11. console.log('res=========',res.data)
                     if(res.data.result_rows === 1){
                         alert('로그인성공');
                         localStorage.setItem('token',res.data.token);
@@ -47,7 +46,7 @@ export default function Login() {
                     }
                 })
                 .catch(error => {
-                    alert('로그인실패'); //네트워크문제로 실패 시
+                    alert('로그인실패'); 
                     console.log(error)
                 });
         }      
@@ -56,6 +55,7 @@ export default function Login() {
     return (
         <div className="content">
             <h1 className="center-title">LOGIN</h1>
+            <ImageUpload />
             <form className="login-form" onSubmit={handleLoginSubmit} >
                 <ul>
                     <li>
