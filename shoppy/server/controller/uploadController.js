@@ -1,6 +1,8 @@
 import multer from 'multer';
 
-// 9. multer 라이브러리를 이용한 파일 업로드 => npm 사이트에서 카피 해오기 ( 함수 밑에적으면 에러남)
+// 9. multer 라이브러리를 이용한 파일 업로드
+// multer 라이브러리로 이미지파일을 이미지저장폴더에 저장
+//  => npm 사이트에서 카피 해오기 ( 함수 밑에적으면 에러남)
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'upload_files/')  // 9-1. 이미지 저장할 경로 설정
@@ -11,6 +13,7 @@ const storage = multer.diskStorage({
       cb(null, uniqueSuffix + '-' + file.originalname); // => a0001_img.jpg 이케 되는거임
     }
   })
+// const fupload = multer({ storage: storage }).single(맵핑하는파일이름=>append 에 쓴 이름임);
 const fupload = multer({storage:storage}).single('file');  // 9-3. 파일하나만 업로드할거라 .single 한거임
 
 // 8. 파일 업로드 => upload_files 폴더에 저장하는 작업

@@ -9,7 +9,7 @@ export default function ImageUpload() {
     const handleFileUpload = (e) => {
         console.log(e.target.files[0]); // 3-2 콘솔로 잘 가져오는지 확인
         
-        // 4-1.
+        // 4-1. // formData.append('file',넘어오는객체);
         formData.append('file',e.target.files[0]); 
         for(const [key,value] of formData.entries()){
             console.log(`key -- ${JSON.stringify(key)}`);   

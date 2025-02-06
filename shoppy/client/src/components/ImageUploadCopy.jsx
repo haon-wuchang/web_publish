@@ -6,7 +6,6 @@ export default function ImageUploadCopy() {
     const formData = new FormData();
 
     const handleFile = (e) => {
-        // formData.append('file',넘어오는객체);
         formData.append('file',e.target.files[0]);
         // 서버전송작업
         axios.post('http://localhost:9000/uploads2',formData)
@@ -17,7 +16,7 @@ export default function ImageUploadCopy() {
     return (
         <div>
             <Form.Control
-                type='file' 
+                type='file'
                 onChange={(e)=>{handleFile(e)}} />
         </div>
     );
