@@ -1192,9 +1192,10 @@ footer .etc .etc-right{
 /* ============================================================================================= */
 /* ============================================================================================= */
 .detail-top-wrap{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .detail-top-wrap>div{
     margin: 0;
@@ -1203,7 +1204,7 @@ footer .etc .etc-right{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 20px;
+    padding: 20px 0 40px;
 }
 .breadcrumb>ol>li {
     margin-right: 8px;
@@ -1222,6 +1223,7 @@ footer .etc .etc-right{
     max-width: 1440px;
     box-sizing: border-box;
     border: 1px solid blue;
+    align-items: center;
 }
 .set-right>span{
     margin: 0;
@@ -1233,14 +1235,23 @@ footer .etc .etc-right{
     margin-right: 24px;
     padding-left: 24px;
 }
+
 .set-right .heart label>i {
     display: block;
     overflow: hidden;
     width: 24px;
     height: 24px;
     background: url(https://www.ssfshop.com/v3/images/svgs/like-24-gray450.svg) left center / 24px auto no-repeat;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
+.heart{
+    border: 2px solid green;
+    display: flex;
+    align-items: center;
+}
+
+
+
 .share {
     display: inline-block;
     position: relative;
@@ -1251,7 +1262,7 @@ footer .etc .etc-right{
     display: inline-block;
     width: 24px;
     height: 24px;
-    background: url(https://www.ssfshop.com/v3/images/svgs/share.svg) no-repeat center top / 24px auto;
+    /* background: url(https://www.ssfshop.com/v3/images/svgs/share.svg) no-repeat center top / 24px auto; */
     font-size: 0;
     color: transparent;
 }
@@ -1264,13 +1275,17 @@ footer .etc .etc-right{
     vertical-align: middle;
     border: 1px solid purple;
 }
+/*하온수정*/
 .share .sns.on{
-    display: flex;
-    width: 300px;
+    /* display: flex; */ /*호버시에만 나오니까 우선 숨김*/
+    display: none;
+    /* width: 300px; */
     height: 100%;
     background-color: yellow;
+    align-items: center;
 }
-.share .sns .facebook {
+/*하온수정*/
+/* .share .sns .facebook {
     background: url(https://www.ssfshop.com/v3/images/svgs/facebook.svg) left center / 24px auto no-repeat;
 }
 .share .sns .twitter {
@@ -1281,6 +1296,28 @@ footer .etc .etc-right{
 }
 .share .sns .url {
     background: url(https://www.ssfshop.com/v3/images/svgs/copy-url.svg) left center / 24px auto no-repeat;
+} */
+/*하온추가*/
+.haon-facebook , .haon-twitter , .haon-pinterest{
+    padding: 0px 10px;
+}
+/*하온추가*/
+.haon-facebook , .haon-twitter , .haon-pinterest, .haon-url{
+    font-size: 20px;
+    color: black;
+}
+.detail-top-right{
+    display: flex;
+    align-items: center;
+}
+.detail-top-right>span{
+    font-size: 25px;
+    color: black;
+   
+}
+.detail-top-right>span:first-child{
+    padding-right: 20px;
+    color: var(--gray500);
 }
 
 
@@ -1459,13 +1496,12 @@ footer .etc .etc-right{
     border-radius: var(--radius);
 }
 .gods-summary .godsInfo-area .review-info {
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid var(--gray400); /*하온수정*/
     display: flex;
     gap: 5px;
     justify-content: flex-start;
     align-items: center;
     margin-top: 24px;
-    margin-bottom: 11px;
     padding: 12px 0;
     font-size: var(--F14);
     line-height: var(--F14L);
@@ -1561,24 +1597,59 @@ footer .etc .etc-right{
 
 /*****************하온추가*********************************/
 .goods-info-middle{
-    border-bottom: 1px solid blue;
-    padding: 12px 0;
-    margin-bottom: 11px;
+    border-bottom: 1px solid var(--gray400);
+    padding: 20px 0;
+    /* margin-bottom: 20px; */
+    text-align: left;
 }
-.goods-info-middle > dl {
-    display: grid;
-    grid-template-rows : repeat(2,1fr);
-    grid-template-columns: repeat(4, 1fr);
+
+.goods-info-middle > ul > li {
+    padding: 5px 0;
     font-size: 14px;
 }
 
-/* 얘가 2행 4열이니까 */
-
+.goods-info-middle > ul > li > span:first-child{
+    /* background-color: rgb(158, 216, 182); */
+    width: 100px;
+    display: inline-block;
+    color: #767676;
+}
+.goods-info-middle > ul > li > span:nth-child(3){
+    padding-right: 10px;
+    /* background-color: #00A197; */
+}
+.goods-info-middle > ul > li:last-child >a{
+    /* background-color: red; */
+    text-align: right;
+}
+.goods-info-middle > ul > li > a{
+    /* background-color: red; */
+    color: #767676;
+    text-decoration: underline;
+}
+.goods-info-middle > ul > li:last-child > span:nth-child(2){
+    font-weight: 600;
+}
+.goods-info-middle > ul > li:last-child > a >span {
+    padding-right: 5px;
+}
+.goods-info-middle > ul > li:last-child > a {
+    text-decoration: none;
+}
+.goods-info-middle > ul > li:last-child > span:nth-child(4){
+    display: inline-block;
+    width: 260px;
+}
+.goods-info-middle > ul > li:first-child > span:nth-child(2),
+.goods-info-middle > ul > li:nth-child(2) > span:nth-child(2){
+    /* background-color: red; */
+    padding-right: 7px;
+}
 
 
 .goods-info-bottom{
-    border-bottom: 2px solid blue;
-    padding-bottom: 30px;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    padding: 20px 0;
     font-size: 15px;
 }
 .goods-info-bottom-color, .goods-info-bottom-size{
@@ -1592,9 +1663,15 @@ footer .etc .etc-right{
 .goods-info-bottom-size > span ,.goods-info-bottom-size>ul {
     margin: 0;
 }
-.goods-info-bottom-color > span, .goods-info-bottom-size > span{
+.goods-info-bottom-color > span{
     display: block;
     width: 100px;
+    /* border: 1px solid black; */
+    font-weight: 600;
+}
+.goods-info-bottom-size > span{
+    display: block;
+    width: 105px;
     /* border: 1px solid black; */
     font-weight: 600;
 }
@@ -1603,20 +1680,32 @@ footer .etc .etc-right{
     flex-wrap: wrap;
     gap: 10px;
 }
-.goods-info-bottom-color>ul>li ,.goods-info-bottom-size>ul>li{
+.goods-info-bottom-size>ul>li{
     border: 1px solid rgb(176, 176, 176);
     border-radius: 3px;
     padding: 5px 10px;
-    /* width: 50px; */  /*얘 넓이를 맞춰줘야하는데 그러면 
-                            span 부분칸이 줄어듬;;;*/
     text-align: center;
+    width: 50px; 
+}
+.goods-info-bottom-color>ul>li {
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 3px;
+    padding: 5px 10px;
+    text-align: center;
+    width: 50px; 
+    margin: 0;
+    border-radius: 7px;
+    width: 50px;
+    height: 70px;
 }
 
 
 
+
+
 .goods-info-count-price{
-    border: 1px solid red;
-    padding: 30px 0;
+    /* border: 1px solid red; */
+    padding: 35px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1625,15 +1714,23 @@ footer .etc .etc-right{
     margin: 0;
     display: flex;
     align-items: center;
+   
 }
-.goods-info-count>button,.goods-info-count>span{
+.goods-info-count>button{
     display: inline-block;
     width: 40px;
-    height: 40px;
-    border: 1px solid rgb(142, 142, 142);
+    height: 40px;    
     background-color: white;
     text-align: center;
+    border: 1px solid gray;
 }
+.goods-info-count>button:nth-child(1){
+    border-radius: 5px 0 0 5px;
+}
+.goods-info-count>button:nth-child(3){
+    border-radius: 0 5px 5px 0;
+}
+
 .goods-info-price{
     margin: 0;
 }
@@ -1648,7 +1745,7 @@ footer .etc .etc-right{
 
 
 
-/*장바구니 바로구매 사이드만 둥글게 어케함? 찾아*/
+
 .goods-info-btns>button{
     width: 50%;
     height: 60px;
@@ -1656,10 +1753,27 @@ footer .etc .etc-right{
 }
 .goods-info-btns>button:first-child{
     background-color: #000;
+    border-radius: 5px 0 0 5px;
 }
 .goods-info-btns>button:last-child{
     background-color: #7E00FF;
+    border-radius: 0 5px 5px 0;
 }
 .goods-info-btns>button>a{
     color: white;
+}
+
+
+
+
+.review-info > span , .review-info> a {
+    margin: 0;
+}
+.review-info > span:nth-child(4){
+    /* border: 1px solid red; */
+    padding: 0 10px;
+}
+.review-info > span:nth-child(5){
+    font-weight: 700;
+    color: var(--black);
 }
