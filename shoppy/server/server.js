@@ -21,7 +21,7 @@ server.use('/upload_files',express.static(path.join('upload_files'))); // => 이
 // 서버의 요청처리를 위한 미들웨어 정의 //
 server.use('/member',memberRouter);
 
-server.use('/uploads2',uploadRouter); //6.
+server.use('/uploads',uploadRouter); //6.
 
 server.listen(port,()=>{
     console.log('서버실행ㅈ유ㅠ');

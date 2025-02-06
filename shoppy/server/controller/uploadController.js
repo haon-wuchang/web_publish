@@ -10,7 +10,8 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         // 9-2.파일명 중복방지를 위한 새로운 파일명 생성
         const uniqueSuffix = Date.now() + "-" + Math.round(Math.random()*1e9);
-      cb(null, uniqueSuffix + '-' + file.originalname); // => a0001_img.jpg 이케 되는거임
+      // cd(null, 커스텀한내용을가진 변수 + file.originalname);
+      cb(null, uniqueSuffix + '-' + file.originalname); 
     }
   })
 // const fupload = multer({ storage: storage }).single(맵핑하는파일이름=>append 에 쓴 이름임);
@@ -31,4 +32,3 @@ export const fileUpload = (req,res) => {
     });
 }
 
-// 서버 에러나는딩 /////💥💥💢💢

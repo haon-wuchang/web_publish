@@ -1,9 +1,9 @@
 // 7.
 import express from "express";
-import * as controller from '../controller/uploadController copy.js'
+import * as controller from '../controller/uploadController.js'
 
 const router = express.Router();
-router.post('/',controller.fileUpload2);
+router.post('/',controller.fileUpload);
 
 
 export default router;

@@ -8,7 +8,7 @@ export default function ImageUploadCopy() {
     const handleFile = (e) => {
         formData.append('file',e.target.files[0]);
         // 서버전송작업
-        axios.post('http://localhost:9000/uploads2',formData)
+        axios.post('http://localhost:9000/uploads',formData)
             .then(res => console.log('res===',res.data))
             .catch(error => console.log(error));
     };
