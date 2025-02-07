@@ -7,18 +7,16 @@ import {useNavigate} from 'react-router-dom';
 export default function NewProduct() {
     const navigate = useNavigate();
     const [fnames,setFnames] = useState({}); 
+    let [formData, setFormData] = useState({});
 
     const [preview, setPreview] = useState('');
 
-    const getFileName = (filesNames) => { 
-        // console.log('fileName==>',filesNames);   
-        setFnames(filesNames);  
-        //ㄹ. 새로운 파일이 들어오면 해당 주소로 이동되게
-        setPreview(`http://localhost:9000/${filesNames.uploadFileName}`);
-    }
+        const getFileName = (filesNames) => { 
+            // console.log('fileName==>',filesNames);   
+            setFnames(filesNames);  
+            setPreview(`http://localhost:9000/${filesNames.uploadFileName}`);
+        }
 
-    // a-1. 폼데이터값 관리 변수 선언 ( 얘는 밑에서 재선언돼서 let 으로 해야함)
-    let [formData, setFormData] = useState({});
 
     // b.폼 입력시 값을 formData에 추가하는 이벤트 처리 진행
     const handleChange = (e) => {
@@ -29,7 +27,6 @@ export default function NewProduct() {
     //c-1.
     const productNameRef = useRef(null);
 
-    //a. 폼이벤트처리 함수 선언
     const handleSubmit = (e) => {
         e.preventDefault();
         //c. 벨리데이션체크
@@ -37,8 +34,7 @@ export default function NewProduct() {
             alert('상품명 입력해');
             productNameRef.current.focus();
             return false;
-        } else {
-            
+        } else {            
             // d.업로드파일 정보를 formData에 추가하기 => 이제 이 정보를 서버로 전송함, 콘솔로 정보 전부 가져오는지 확인
             formData = ({...formData, 'upload_file':fnames.uploadFileName,
                 'source_file':fnames.sourceFileName});                
@@ -92,7 +88,6 @@ export default function NewProduct() {
                     <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName}/> 
-                        {/*  ㅁ. 프리뷰가 잇을때만 해당 칸 나오게  */}
                         {preview && <img src={preview} alt="파일미리보기" style={{'width':'200px'}} />}
                     </li>
                     <li>
