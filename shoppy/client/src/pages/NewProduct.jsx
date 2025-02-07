@@ -8,7 +8,6 @@ export default function NewProduct() {
     const navigate = useNavigate();
     const [fnames,setFnames] = useState({}); 
 
-// ㄷ.파일이 새로 바뀌면 값을 관리해야하니까 변수 선언
     const [preview, setPreview] = useState('');
 
     const getFileName = (filesNames) => { 
@@ -17,7 +16,6 @@ export default function NewProduct() {
         //ㄹ. 새로운 파일이 들어오면 해당 주소로 이동되게
         setPreview(`http://localhost:9000/${filesNames.uploadFileName}`);
     }
-    // ㄱ. 파일 등록전 미리보기 작업 진행 => 업로드파일 경로 가져오기
 
     // a-1. 폼데이터값 관리 변수 선언 ( 얘는 밑에서 재선언돼서 let 으로 해야함)
     let [formData, setFormData] = useState({});
@@ -94,7 +92,6 @@ export default function NewProduct() {
                     <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName}/> 
-                        {/*ㄴ.파일미리보기 태그 생성*/ }
                         {/*  ㅁ. 프리뷰가 잇을때만 해당 칸 나오게  */}
                         {preview && <img src={preview} alt="파일미리보기" style={{'width':'200px'}} />}
                     </li>

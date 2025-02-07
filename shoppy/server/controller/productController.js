@@ -13,7 +13,7 @@ export const registerProduct = async(req,res) => {
 
 
 // 13. db 에 있는 전체상품 리스트 조회
-export const getList = async() => {
+export const getList = async(req,res) => {
     const result = await repository.getList();
     res.json(result);
     res.end();

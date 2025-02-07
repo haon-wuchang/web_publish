@@ -9,8 +9,8 @@ export default function ProductList() {
         // 11. db 연동 결과 가져오기
         axios.get('http://localhost:9000/product/all')
             .then(res => {
-                console.log(res.data);                
-                // setList(res.data)               
+                // console.log(res.data);                
+                setList(res.data)               
             })
             .catch(err => console.log(err));
     }, []);
@@ -39,3 +39,4 @@ return (
     </div>
     );
 };
+

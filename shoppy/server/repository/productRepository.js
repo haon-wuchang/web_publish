@@ -26,8 +26,18 @@ export const registerProduct = async(formData) => {  // req.body 데이터가 �
 
 //14. db 전체 상품 리스트 조회 
 export const getList = async() => {
+    // 16.json 에 잇는 데이터와 이름 맞추기 위해 sql 에서 as 로 명칭 변경하기 (왜냐면 이전에 json 데이터 임의로 만들어서 작업해놔서 db 이름과 안맞음)
+    {/* 17. 이미지 경로 수정해주기 */}
     const sql = `
-                select * from shoppy_product
+                select 
+                    pid,
+                    pname as name,
+                    price,
+                    description as info,
+                    concat('http://localhost:9000/', upload_file) image,
+                    source_file,
+                    pdate
+                from shoppy_product
                 `;
     const [result] = await db.execute(sql);
 
