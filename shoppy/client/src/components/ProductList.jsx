@@ -6,7 +6,6 @@ export default function ProductList() {
     const [list, setList] = useState([]); // list 변경 시 실시간 업데이트
 
     useEffect(() => {
-        // 11. db 연동 결과 가져오기
         axios.get('http://localhost:9000/product/all')
             .then(res => {
                 // console.log(res.data);                
