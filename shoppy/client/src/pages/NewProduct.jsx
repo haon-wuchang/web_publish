@@ -1,6 +1,7 @@
 
 import React, { useState ,useRef} from 'react';
 import ImageUpload from '../components/ImageUpload.jsx';
+import axios from 'axios';
 
 export default function NewProduct() {
     const [fnames,setFnames] = useState({}); 
@@ -37,15 +38,19 @@ export default function NewProduct() {
             productNameRef.current.focus();
             return false;
         } else {
-            // 서버 전송 작업
-
+            
             // d.업로드파일 정보를 formData에 추가하기 => 이제 이 정보를 서버로 전송함, 콘솔로 정보 전부 가져오는지 확인
             formData = ({...formData, 'upload_file':fnames.uploadFileName,
-                                    'source_file':fnames.sourceFileName});
-
-            console.log(formData); // price 는 폼에서 숫자로 입력햇지만 데이터가 넘어갈때는 문자열로넘어감    
+                'source_file':fnames.sourceFileName});                
+                // console.log(formData); // price 는 폼에서 숫자로 입력햇지만 데이터가 넘어갈때는 문자열로넘어감    
+            
+                //e. 서버 전송 작업 => 서버가 받아서 mvc 진행
+            axios.post('http://localhost:9000/products/new', formData)
+                .then(res =>{ 
+                    console.log('res===',res.data);
+                })
+                .catch(error => console.log(error));
         }
-        //e. 서버전송- mvc 진행 
     }
 
 
