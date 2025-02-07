@@ -41,7 +41,7 @@ select * from information_schema.tables
 	where table_name like 'shoppy%';
 
 create table shoppy_product(
-	pid int primary key auto_increment, -- 리뷰아이디, 주문아이디 는 auto_increment 사용! 
+	pid int primary key auto_increment, -- 리뷰아이디, 주문아이디 는 auto_increment 사용!  ( 얘는 insert 시 맵핑안함)
 	pname varchar(50) not null,   -- not null 은 벨리데이션 체크 꼭
     price int,
     description varchar(200) ,
@@ -55,6 +55,7 @@ desc shoppy_product;
 select * from shoppy_product;
 -- 여기에 데이터 등록은 브라우저에서 내용 다채우고 등록버튼 눌럿을때 서버 거쳐서 들어오는거얌
 
+-- f.
 
 
 

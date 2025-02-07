@@ -2,8 +2,10 @@
 import React, { useState ,useRef} from 'react';
 import ImageUpload from '../components/ImageUpload.jsx';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 export default function NewProduct() {
+    const navigate = useNavigate();
     const [fnames,setFnames] = useState({}); 
 
 // ㄷ.파일이 새로 바뀌면 값을 관리해야하니까 변수 선언
@@ -45,11 +47,21 @@ export default function NewProduct() {
                 // console.log(formData); // price 는 폼에서 숫자로 입력햇지만 데이터가 넘어갈때는 문자열로넘어감    
             
                 //e. 서버 전송 작업 => 서버가 받아서 mvc 진행
-            axios.post('http://localhost:9000/products/new', formData)
+            axios.post('http://localhost:9000/product/new', formData)
                 .then(res =>{ 
+                    // g.
+                    if(res.data.result_rows === 1){
+                        alert('상품등록 완료');
+                        navigate('/all');
+                    }else{
+                        alert('상품등록 실패');
+                    }
                     console.log('res===',res.data);
                 })
-                .catch(error => console.log(error));
+                .catch(error => {
+                    alert('상품등록 실패');
+                    console.log(error);
+                });
         }
     }
 

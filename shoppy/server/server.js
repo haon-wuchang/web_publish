@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import memberRouter from './router/memberRouter.js';
 import uploadRouter from './router/uploadRouter.js';
+import productRouter from './router/productRouter.js';
 import path from 'path'; 
 
 const server = express();
@@ -20,6 +21,7 @@ server.use('/upload_files',express.static(path.join('upload_files'))); // => 이
 // 서버의 요청처리를 위한 미들웨어 정의 //
 server.use('/member',memberRouter);
 server.use('/uploads',uploadRouter);
+server.use('/product',productRouter);  // e-1.
 
 server.listen(port,()=>{
     console.log('서버실행ㅈ유ㅠ');
