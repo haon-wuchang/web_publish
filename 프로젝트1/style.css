@@ -1298,13 +1298,16 @@ footer .etc .etc-right{
     background: url(https://www.ssfshop.com/v3/images/svgs/copy-url.svg) left center / 24px auto no-repeat;
 } */
 /*하온추가*/
-.haon-facebook , .haon-twitter , .haon-pinterest{
+.haon-facebook , .haon-twitter , .haon-pinterest, .notover>span:first-child{
     padding: 0px 10px;
 }
 /*하온추가*/
-.haon-facebook , .haon-twitter , .haon-pinterest, .haon-url{
-    font-size: 20px;
+.haon-facebook , .haon-twitter , .haon-pinterest, .haon-url ,.notover>span{
+    font-size: 25px;
     color: black;
+}
+.haon-url, .notover>span>:last-child {
+    padding-left: 10px;
 }
 .detail-top-right{
     display: flex;
@@ -1315,10 +1318,7 @@ footer .etc .etc-right{
     color: black;
    
 }
-.detail-top-right>span:first-child{
-    padding-right: 20px;
-    color: var(--gray500);
-}
+
 
 
 .gods-summary {
@@ -1777,3 +1777,7 @@ footer .etc .etc-right{
     font-weight: 700;
     color: var(--black);
 }
+
+
+
+
