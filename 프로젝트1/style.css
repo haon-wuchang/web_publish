@@ -1780,4 +1780,96 @@ footer .etc .etc-right{
 
 
 
+/* 슬라이드 */
+.haon-slide-box{
+    border: 1px solid red;
+    margin: auto;
+    width: 100%;
+    height: 540px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 100px;
+    position: relative;
+}
 
+
+.haon-slide-box>div{
+    margin: 0;
+}
+.haon-slide-box>div>img{
+    width: 507px;
+    margin: 0;
+}
+.slide-leftBtn{
+    position: absolute;
+    top: 300px;
+    font-size: 50px;
+    color: #ef5aff;
+    left: 40px;
+}
+.slide-rightBtn{
+    position: absolute;
+    font-size: 50px;
+    right: 100px;
+    top: 300px;
+    color: #ef5aff;
+
+}
+.slide-stopBtn{
+    position: absolute;
+    font-size: 50px;
+    right: 40px;
+    top: 300px;
+    color: #ef5aff;
+
+}
+.slide-playBtn {
+    position: absolute;
+    font-size: 50px;
+    right: 40px;
+    top: 300px;
+    color: #ef5aff;
+
+}
+/* text */
+.imageSlider {
+    width: 1000px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+.slide {
+    display: flex;
+    transition: transform 0.5s ease;
+    &.active {
+      transform: translateX(0);
+    }
+    &:not(.active) {
+      transform: translateX(100%);
+    }
+}
+.imageSlider-arrow {
+    position: absolute;
+    top: 150px;
+    background-color: rgba(141, 141, 141, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+    z-index: 10;
+    &.left {
+      margin-left: 25px;
+    }
+    &.right {
+      left: 550px;
+      margin-right: 25px;
+    }
+  }
+.imageSlider> button{
+    display: inline-block;
+    width: 100px;
+    background-color: red;
+    position: absolute;
+    top: 300px;
+}
