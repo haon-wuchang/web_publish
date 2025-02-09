@@ -1794,8 +1794,10 @@ footer .etc .etc-right{
 }
 .haon-slide-box>div{
     margin: 0;
-    /* position: relative; */
+    position: relative;
     text-align: center;
+    align-items: center;
+    width: 100%;
 }
 .haon-slide-box>div>img{
     width: 507px;
@@ -1809,6 +1811,7 @@ footer .etc .etc-right{
     left: 10px;
     opacity: 0.5;
     padding: 10px;
+    z-index: 100;
 }
 .slide-rightBtn{
     position: absolute;
@@ -1847,6 +1850,7 @@ footer .etc .etc-right{
     padding: 10px;
     background-color: black;
     border-radius: 10px;
+    z-index: 100;
 }
 .slide-rightBtn-hover{
     position: absolute;
@@ -1872,25 +1876,35 @@ footer .etc .etc-right{
 }
 .slide-title{
     position: absolute;
-    top: 250px;
+    top: 248px;
     text-align: center;
     font-size: 18px;
     font-weight: 500;
-    color: white;
+    color: rgb(255, 44, 227);
+    width: 507px;
+    border: 1px solid red;
+
 }
 .slide-desc1{
     position: absolute;
-    top: 290px;
+    top: 288px;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
-    color: white;
+    color: rgb(255, 31, 161);
+    width: 507px;
+    border: 1px solid red;
+
 
 }
 .slide-desc2{
     position: absolute;
-    top: 350px;
+    top: 348px;
     text-align: center;
     font-size: 16px;
-    color: white;
+    color: rgb(255, 16, 183);
+    width: 507px;
+    border: 1px solid red;
+
+
 }
