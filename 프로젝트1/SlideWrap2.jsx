@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { CiPlay1 } from "react-icons/ci";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { FaArrowAltCircleRight } from "react-icons/fa";
 import axios from 'axios';
+import { CiPlay1 } from "react-icons/ci";
 import { BsPause } from "react-icons/bs";
+import { SlArrowLeft } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
 
-export default function HaonSlide() {
+export default function SlideWrap2() {
     const [data,setData] = useState([]);  // 이미지 데이터 
     const [isPlay , setIsPlay] = useState(true); // 슬라이드 재생,멈춤 관리
     const [current, setCurrent] = useState(0);  // 이미지 index 값 
     const length = data.length;  // 이미지 전체 갯수    
 
     useEffect(() => {
-        axios.get('/data/haon.json')
+        axios.get('/data/slide.json')
             .then((res) => {setData(res.data)})
             .catch((error) => console.log(error));
     }, []);
@@ -38,15 +38,29 @@ export default function HaonSlide() {
         }else{
             handleStop();
         }
-    }, 10000); 
+    }, 1000); 
     
     return () => clearInterval(interval); 
     }, [current, length,isPlay]);
 
+    // 슬라이드 컨테이너 호버 시 버튼 백그라운드css 생성됨
+    const [isHover, setIsHover] = useState(false);
+
+    const handleEnter = () => {
+        setIsHover(true);
+    }
+    const handleLeave = () => {
+        setIsHover(false);
+    }
+
+
+
     return (
         <>
-        <div className='haon-slide-box'>
-            <FaArrowAltCircleLeft className='slide-leftBtn' onClick={prevSlide}/>
+        <div className='haon-slide-box'
+        onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+            <SlArrowLeft     onClick={prevSlide}
+                className= {isHover === true ? 'slide-leftBtn-hover': 'slide-leftBtn'} />
             {data.map((item,index)=>
             <>
                 <div className={index === current ? 'slide active' : 'slide'} key={index}>
@@ -60,10 +74,13 @@ export default function HaonSlide() {
                 </div>     
             </>        
             )}
-            <FaArrowAltCircleRight className='slide-rightBtn' onClick={nextSlide} />    
+            <SlArrowRight   onClick={nextSlide}
+                 className= {isHover === true ? 'slide-rightBtn-hover': 'slide-rightBtn'}  />    
             {isPlay === true ? 
-                (<CiPlay1 className='slide-playBtn' onClick={handleStop}/>):
-                (<BsPause className='slide-stopBtn' onClick={handlePlay}/> )                                 
+                (<CiPlay1 onClick={handleStop}
+                    className= {isHover === true ? 'slide-playBtn-hover': 'slide-playBtn'}/>):
+                (<BsPause onClick={handlePlay}
+                    className= {isHover === true ? 'slide-stopBtn-hover': 'slide-stopBtn'}/> )                                 
             }      
         </div>
         </>

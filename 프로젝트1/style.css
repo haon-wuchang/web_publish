@@ -1790,9 +1790,8 @@ footer .etc .etc-right{
     justify-content: space-between;
     padding-bottom: 100px;
     position: relative;
+    overflow: hidden;
 }
-
-
 .haon-slide-box>div{
     margin: 0;
 }
@@ -1802,74 +1801,71 @@ footer .etc .etc-right{
 }
 .slide-leftBtn{
     position: absolute;
-    top: 300px;
-    font-size: 50px;
-    color: #ef5aff;
-    left: 40px;
+    top: 280px;
+    font-size: 40px;
+    color: #ffffff;
+    left: 10px;
+    opacity: 0.5;
+    padding: 10px;
 }
 .slide-rightBtn{
     position: absolute;
-    font-size: 50px;
-    right: 100px;
-    top: 300px;
-    color: #ef5aff;
-
+    font-size: 40px;
+    right: 65px;
+    top: 280px;
+    color: #ffffff;
+    opacity: 0.5;
+    padding: 10px 5px 10px 10px;
 }
 .slide-stopBtn{
     position: absolute;
-    font-size: 50px;
-    right: 40px;
-    top: 300px;
-    color: #ef5aff;
-
+    font-size: 40px;
+    right: 10px;
+    top: 280px;
+    color: #ffffff;
+    opacity: 0.5;
+    padding: 10px 10px 10px 5px;
 }
 .slide-playBtn {
     position: absolute;
-    font-size: 50px;
-    right: 40px;
-    top: 300px;
-    color: #ef5aff;
+    font-size: 40px;
+    right: 10px;
+    top: 280px;
+    color: #ffffff;
+    opacity: 0.5;
+    padding: 10px 10px 10px 5px;
+}
+.slide-leftBtn-hover{
+    position: absolute;
+    top: 280px;
+    font-size: 40px;
+    color: #ffffff;
+    left: 10px;
+    opacity: 0.5;
+    padding: 10px;
+    background-color: black;
+    border-radius: 10px;
+}
+.slide-rightBtn-hover{
+    position: absolute;
+    font-size: 40px;
+    right: 65px;
+    top: 280px;
+    color: #ffffff;
+    opacity: 0.5;
+    padding: 10px 5px 10px 10px;
+    background-color: black;
+    border-radius: 10px 0 0 10px;
+}
+.slide-playBtn-hover, .slide-stopBtn-hover{
+    position: absolute;
+    font-size: 40px;
+    right: 10px;
+    top: 280px;
+    color: #ffffff;
+    opacity: 0.5;
+    padding: 10px 10px 10px 5px;
+    background-color: black;
+    border-radius: 0 10px 10px 0;
+}
 
-}
-/* text */
-.imageSlider {
-    width: 1000px;
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
-    z-index: 1;
-}
-.slide {
-    display: flex;
-    transition: transform 0.5s ease;
-    &.active {
-      transform: translateX(0);
-    }
-    &:not(.active) {
-      transform: translateX(100%);
-    }
-}
-.imageSlider-arrow {
-    position: absolute;
-    top: 150px;
-    background-color: rgba(141, 141, 141, 0.5);
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.5s ease;
-    z-index: 10;
-    &.left {
-      margin-left: 25px;
-    }
-    &.right {
-      left: 550px;
-      margin-right: 25px;
-    }
-  }
-.imageSlider> button{
-    display: inline-block;
-    width: 100px;
-    background-color: red;
-    position: absolute;
-    top: 300px;
-}
