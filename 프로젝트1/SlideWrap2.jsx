@@ -5,6 +5,9 @@ import { BsPause } from "react-icons/bs";
 import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 
+// 슬라이드 넘어가는css  작업 해야함
+
+
 export default function SlideWrap2() {
     const [data,setData] = useState([]);  // 이미지 데이터 
     const [isPlay , setIsPlay] = useState(true); // 슬라이드 재생,멈춤 관리
@@ -38,7 +41,7 @@ export default function SlideWrap2() {
         }else{
             handleStop();
         }
-    }, 1000); 
+    }, 5000); 
     
     return () => clearInterval(interval); 
     }, [current, length,isPlay]);
@@ -54,6 +57,7 @@ export default function SlideWrap2() {
     }
 
 
+// 메세지가 1번 이미지에 자꾸 중첩이 되는데 왜이러지?
 
     return (
         <>
@@ -63,13 +67,22 @@ export default function SlideWrap2() {
                 className= {isHover === true ? 'slide-leftBtn-hover': 'slide-leftBtn'} />
             {data.map((item,index)=>
             <>
-                <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                <div className={index === current ? 'slide active' : 'slide'}>
+                    <p className='slide-title'>{item.item1Msg[0]}</p>
+                    <p className='slide-desc1'>{item.item1Msg[1]}</p>
+                    <p className='slide-desc2'>{item.item1Msg[2]}</p>
                     {index === current && <img src={item.item1}/>}
                 </div>             
-                <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                <div className={index === current ? 'slide active' : 'slide' } >
+                    <p className='slide-title'>{item.item2Msg[0]}</p>
+                    <p className='slide-desc1'>{item.item2Msg[1]}</p>
+                    <p className='slide-desc2'>{item.item2Msg[2]}</p>
                     {index === current && <img src={item.item2}/>}
                 </div>             
-                <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                <div className={index === current ? 'slide active' : 'slide'} >
+                    <p className='slide-title'>{item.item3Msg[0]}</p>
+                    <p className='slide-desc1'>{item.item3Msg[1]}</p>
+                    <p className='slide-desc2'>{item.item3Msg[2]}</p>
                     {index === current && <img src={item.item3}/>}
                 </div>     
             </>        

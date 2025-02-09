@@ -1,11 +1,19 @@
 [
     { 
      "item1":"https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345842_196_KOR_20250117112951.jpg",
-     "item1Msg":null,
+     "item1Msg":["1","1","1"],
      "item2":  "https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345842_201_KOR_20250117114230.jpg",
-     "item2Msg":["EVENT","다시, 새롭게 할인의 축제","아울렛 슈퍼위크 ~92% + 추가 2종 쿠폰"],
+     "item2Msg":[
+        "EVENT",
+        "다시, 새롭게<br/>할인의 축제",
+        "아울렛 슈퍼위크 ~92% + 추가 2종 쿠폰"
+        ],
      "item3": "https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345842_193_KOR_20250124105839.jpg",
-     "item3Msg":["BEAKER","누구든지 취향 저격","초콜릿부터 에코백까지 선물 지원 10% 쿠폰으로 마음을 전하세요"]
+     "item3Msg":[
+        "BEAKER",
+        "누구든지<br/>취향 저격",
+        "초콜릿부터 에코백까지<br/> 선물 지원 10% 쿠폰으로 마음을 전하세요"
+    ]
      },
      {
      "item1":"https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345836_168_KOR_20250124110027.jpg",
@@ -81,7 +89,7 @@
      },
      {
       "item1":"https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345842_196_KOR_20250117112951.jpg",
-      "item1Msg":null,
+      "item1Msg":["1","1","1"],
       "item2":"https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345842_201_KOR_20250117114230.jpg",
       "item2Msg":["EVENT","다시, 새롭게<br/>할인의 축제","아울렛 슈퍼위크 ~92% + 추가 2종 쿠폰"],
       "item3":"https://img.ssfshop.com/display/category/THM/A30/A16/contents/23357_345842_193_KOR_20250124105839.jpg",

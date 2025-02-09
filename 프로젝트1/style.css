@@ -1794,6 +1794,8 @@ footer .etc .etc-right{
 }
 .haon-slide-box>div{
     margin: 0;
+    /* position: relative; */
+    text-align: center;
 }
 .haon-slide-box>div>img{
     width: 507px;
@@ -1868,4 +1870,27 @@ footer .etc .etc-right{
     background-color: black;
     border-radius: 0 10px 10px 0;
 }
+.slide-title{
+    position: absolute;
+    top: 250px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+.slide-desc1{
+    position: absolute;
+    top: 290px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
 
+}
+.slide-desc2{
+    position: absolute;
+    top: 350px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
