@@ -2,7 +2,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs'; 
 
-const storage = multer.diskStorage({
+const storage = multer.diskStorage({ // 디스크스토리지에는 파일 하나만 넣을수잇댕..
     destination: function (req, file, cb) {
       cb(null, 'upload_files/')
     },
