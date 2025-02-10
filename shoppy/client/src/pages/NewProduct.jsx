@@ -11,12 +11,15 @@ export default function NewProduct() {
     let [formData, setFormData] = useState({});
     const [preview, setPreview] = useState('');
     const productNameRef = useRef(null);
+    // ㄱ.
+    const [previewList, setPreviewList] = useState([]);
 
     const getFileName = (filesNames) => { //10-2. getFileName으로 넘어온 res.data를 여기서 받아옴
         setFnames(filesNames);  
         // setPreview(`http://localhost:9000/${filesNames.uploadFileName}`);
         console.log('newProduct===fileNames',filesNames); //10-6. 
          //11. 등록버튼 누르면 db 까지 연동되게 작업 ㄱ
+        setPreviewList(filesNames.uploadFileName); //ㄴ.
     }
     const handleChange = (e) => {
         const {name, value } = e.target;
@@ -52,7 +55,6 @@ export default function NewProduct() {
         }
     }
 
-
     return (
         <div className='content'>
             <h1>상품등록페이지</h1>
@@ -86,6 +88,9 @@ export default function NewProduct() {
                         <label htmlFor="">파일업로드(다중)</label>
                         {/* 10. */}
                         <ImageUploadMultiple getFileName={getFileName}/>
+                        {previewList&& previewList.map((preview)=>   // ㄷ.
+                            <img src={`http://localhost:9000/${preview}`} alt="미리보기"  style={{'width':'200px'}} />                        
+                        )}
                     </li>
                     <li>
                         <input type="hidden"/* 나중에 hidden 으로 변경 */ name='uploadFile' 

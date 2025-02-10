@@ -14,6 +14,7 @@ export default function ProductList() {
             .catch(err => console.log(err));
     }, []);
     
+    
     //출력 리스트 생성 [[{},{},{}], [{},{},{}], [{},{},{}]]
     const rows = [];
     for(let i = 0; i < list.length; i+=3){ //[{0},{1},{2}]

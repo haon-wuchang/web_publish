@@ -45,8 +45,8 @@ create table shoppy_product(
 	pname varchar(50) not null,   -- not null 은 벨리데이션 체크 꼭
     price int,
     description varchar(200) ,
-    upload_file varchar(100),
-    source_file varchar(100),
+    upload_file json,
+    source_file json,
     pdate datetime -- 상품등록날짜
 );
 
@@ -61,17 +61,29 @@ set sql_safe_updates = 0;
 delete from shoppy_product;
 commit;
 
+
 select * from shoppy_product;
 
 
 
+-- 11-3.
+--  upload_file varchar(100),
+--     source_file varchar(100), 를 json 으로 바꾸기
 
-
-
-
-
-
-
+select 
+                    pid,
+                    pname as name,
+                    price,
+                    description as info,
+                    concat('http://localhost:9000/', upload_file->>'$[0]') image,
+                    source_file,
+                    pdate
+                from shoppy_product
+                
+-- 13. image 컬럼이 화면에 보여지는 상품부분이자넝 
+-- http://localhost:9000/["upload_files\\1739164141851-560959021-review-image1.jpeg", "upload_files\\1739164141852-776970967-review-image2.jpeg"]
+-- http://localhost:9000/upload_files\\1739164141851-560959021-review-image1.jpeg이케 한개만가져오게 수정해야함
+-- => concat('http://localhost:9000/', upload_file->>'$[0]') image, 이케수정하면댄댱(데이터타입이 json 일때만 이케수정!)
 
 
 
