@@ -11,10 +11,13 @@ const storage = multer.diskStorage({ // 디스크스토리지에는 파일 하�
       cb(null, uniqueSuffix + '-' + file.originalname); 
     }
   })
-const fupload = multer({storage:storage}).array('files',5); 
-
 // 8.
 export const fileUploadMultiple = (req,res) => {
+    // 9. 갯수제한 없애기(7번에 내용 추가로 적어) => 이미지업로드멀티플컴포넌트와 여기 바꿔주기
+    //9-1. .array('files',);   //url 타고넘어오는 데이터는 다 string 임 => maxFiles 도 url 타고오니까 숫자로 바꿔줘야함
+  const maxFiles = parseInt(req.query.maxFiles);
+  const fupload = multer({storage:storage}).array('files',maxFiles); 
+
         fupload (req,res,(err) => {
             if(err) {
                 console.log(err);            
