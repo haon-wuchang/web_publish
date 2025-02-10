@@ -3,24 +3,31 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 
 export default function ImageUploadMultiple() {
-    //1.
+
     const handleFileUploadMultiple = (e) => {
         const formData = new FormData();
-            // formdata 가 다른함수에도 사용되면 얘(핸들멀티플) 밖에서 선언하면댕
         const files = e.target.files;
-        console.log('files==>',files); //3.
-        //3-1. 파일을 5,4,3,2,1  이 순서로 선택해도 자동으로 파일명으로정렬되서 오름차순으로 찍힘
+        if(files.length < 6){            
+            //formData 에 append  
+            // for(let i ; i<files.length ; i++){
+            //     formData.append('files',files[i]);
+            // }
+            for(const file of files){
+                formData.append('files',file);  
+            }
+            // for (const [key ,value] of formData)
+            // console.log(key,value); 
         
-        //4.formData 에 append => file 개별로 append 되어야한다 통채로 불가능 (for of 나 forEach 사용)
-        // 4-0. files.forEach((file)=>formData.append(file));
-        for(const file of files){
-            formData.append('files',file);   // 4-1.append 안에 files는 multer 로 넘어갈 key 값임
-        }
+            // server.js 로 전송
+            axios.post('http://localhost:9000/uploads/multiple', formData)
+                    .then(res => {
+                        console.log(res.data)//8-5. 배열로 잘 가져오는지 확인
 
-        // 5. server.js 로 전송 => axios 사용
-        axios.post('http://localhost:9000/uploads/multiple', formData)
-                .then(res => console.log(res.data))
-                .catch(error => console.log(error));
+                    }) 
+                    .catch(error => console.log(error));
+        }else{
+            alert('파일업로드는 최대 5개까지 가능');
+        }
     }
 
     return (

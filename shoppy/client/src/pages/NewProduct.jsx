@@ -81,8 +81,8 @@ export default function NewProduct() {
                         <ImageUpload getFileName={getFileName}/> 
                         {preview && <img src={preview} alt="파일미리보기" style={{'width':'200px'}} />}
                     </li> */}
-                    <li> {/*2. */}
-                        <label htmlFor="">멀티 파일업로드</label>
+                    <li> 
+                        <label htmlFor="">파일업로드(다중)-5개까지만 업로드 가능</label>
                         <ImageUploadMultiple />
                     </li>
                     <li>
