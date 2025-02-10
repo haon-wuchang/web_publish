@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
 export default function ImageUploadMultiple({getFileName}) {
-    const [oldFile,setOldFile] = useState([]);  //10-3.
+    const [oldFile,setOldFile] = useState([]); 
 
     const handleFileUploadMultiple = (e) => {
         const formData = new FormData();
@@ -22,8 +22,8 @@ export default function ImageUploadMultiple({getFileName}) {
             })                        
                     .then(res => {
                         console.log(res.data);                        
-                        getFileName(res.data); //10-1.
-                        setOldFile(res.data.oldFile); // 10-4.
+                        getFileName(res.data); 
+                        setOldFile(res.data.oldFile); 
                     }) 
                     .catch(error => console.log(error));
                     }

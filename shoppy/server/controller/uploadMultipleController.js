@@ -27,7 +27,7 @@ export const fileUploadMultiple = (req,res) => {
               console.log('oldFileArray==>',oldFileArray);
               
               
-            // 올드파일(이전파일) 존재 시 삭제로직 16.
+            // 올드파일(이전파일) 존재 시 삭제로직 
               // const oldFile = req.body.oldFile;
               for(const oldFile of oldFileArray){   // c.
                 if(oldFile){
