@@ -13,12 +13,12 @@ export default function ImageUploadMultiple({getFileName}) {
             for(const file of files){
                 formData.append('files',file);  
             }
-                formData.append('oldFiles',oldFile);   //17. 
+            formData.append('oldFiles',oldFile);  
             
         
             // server.js 로 전송
             axios.post(`http://localhost:9000/uploads/multiple?maxFiles=${files.length}`, formData,{
-                headers :{ "Content-Type":"multipart/form-data"},  // a. 올드파일 지우기위한 작업=>업로드멀티컴포넌트이동
+                headers :{ "Content-Type":"multipart/form-data"}, 
             })                        
                     .then(res => {
                         console.log(res.data);                        

@@ -11,7 +11,7 @@ const storage = multer.diskStorage({ // 디스크스토리지에는 파일 하�
       cb(null, uniqueSuffix + '-' + file.originalname); 
     }
   })
-// 8.
+
 export const fileUploadMultiple = (req,res) => {
      
   const maxFiles = parseInt(req.query.maxFiles);
@@ -22,14 +22,14 @@ export const fileUploadMultiple = (req,res) => {
                 console.log(err);            
             } else {
               // console.log('uploadfile===',req.files);   
-              console.log('업로드삭제파일 올드파일',req.body.oldFiles);  //b. 
+              console.log('업로드삭제파일 올드파일',req.body.oldFiles); 
               const oldFileArray = req.body.oldFiles.split(",");
               console.log('oldFileArray==>',oldFileArray);
               
               
             // 올드파일(이전파일) 존재 시 삭제로직 
               // const oldFile = req.body.oldFile;
-              for(const oldFile of oldFileArray){   // c.
+              for(const oldFile of oldFileArray){   
                 if(oldFile){
                   const oldFilePath = path.join('upload_files/',oldFile);
                   if(fs.existsSync(oldFilePath)){

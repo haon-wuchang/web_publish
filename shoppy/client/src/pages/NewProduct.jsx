@@ -11,14 +11,13 @@ export default function NewProduct() {
     let [formData, setFormData] = useState({});
     const [preview, setPreview] = useState('');
     const productNameRef = useRef(null);
-    // ㄱ.
     const [previewList, setPreviewList] = useState([]);
 
     const getFileName = (filesNames) => { 
         setFnames(filesNames);  
         // setPreview(`http://localhost:9000/${filesNames.uploadFileName}`);
         console.log('newProduct===fileNames',filesNames);  
-        setPreviewList(filesNames.uploadFileName); //ㄴ.
+        setPreviewList(filesNames.uploadFileName); 
     }
     const handleChange = (e) => {
         const {name, value } = e.target;
@@ -86,7 +85,7 @@ export default function NewProduct() {
                     <li> 
                         <label htmlFor="">파일업로드(다중)</label>
                         <ImageUploadMultiple getFileName={getFileName}/>
-                        {previewList&& previewList.map((preview)=>   // ㄷ.
+                        {previewList&& previewList.map((preview)=>  
                             <img src={`http://localhost:9000/${preview}`} alt="미리보기"  style={{'width':'200px'}} />                        
                         )}
                     </li>
