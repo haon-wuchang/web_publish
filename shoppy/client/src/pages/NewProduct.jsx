@@ -1,6 +1,7 @@
 
 import React, { useState ,useRef} from 'react';
 import ImageUpload from '../components/ImageUpload.jsx';
+import ImageUploadMultiple from '../components/ImageUploadMultiple.jsx';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
@@ -75,10 +76,14 @@ export default function NewProduct() {
                         <input type="text" name='productDescription'
                                 onChange={handleChange}/>
                     </li>
-                    <li>
+                    {/* <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName}/> 
                         {preview && <img src={preview} alt="파일미리보기" style={{'width':'200px'}} />}
+                    </li> */}
+                    <li> {/*2. */}
+                        <label htmlFor="">멀티 파일업로드</label>
+                        <ImageUploadMultiple />
                     </li>
                     <li>
                         <input type="hidden"/* 나중에 hidden 으로 변경 */ name='uploadFile' 
