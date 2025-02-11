@@ -16,30 +16,29 @@ export default function DetailProduct({ addCart }) {
         {'name': 'RETURN & DELIVERY'}
     ];
 
-
-    const { pid } = useParams();
+    // 1. 이 pid 를 서버-MVC 레파지토리까지 넘겨줘야함
+    const { pid } = useParams();  // url 통해서 넘어온느거닌 다 get 방식이야
     const [product, setProduct] = useState({});
     const [size, setSize] = useState("XS"); 
     const [category, setCategory] = useState('Q&A');
-
     const [select, setSelect] = useState('Q&A');
+
     const handleChangeSelect = (name) => {
         setSelect(name);
         setCategory(name);
     }
 
+    // 1-1. 데이터잇는 서버 주소 받아오고 pid 는 서버로 넘겨주기
     useEffect(() => {
         axios
-            .get("/data/products.json") // http://localhost:3000/data/products.json
+            .post("http://localhost:9000/product/detail",{"pid":pid}) //1-2. 이 서버주소 만들기
             .then((res) => {
-                res.data.filter((product) => {
-                    if (product.pid === pid) setProduct(product);
-                });
-            })
+                console.log('res===>',res.data);
+                })            
             .catch((error) => console.log(error));
     }, []); 
-    //장바구니 추가 버튼 이벤트
 
+    //장바구니 추가 버튼 이벤트
     const addCartItem = () => {
       //장바구니 추가 항목 : { pid, size, count, price }
       // alert(`${pid} --> 장바구니 추가 완료!`);

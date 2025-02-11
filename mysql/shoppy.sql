@@ -84,10 +84,22 @@ select
 
 select * from shoppy_product;
 
+-- 2/11  . 리액트는 카멜케이스 쓰니까 sql 만들떄도 카멜케이스로 만드는게 좋다
+-- 서버는 확장이 가능해 주소 변경이 될수잇어서 업로드파일앞에 서버주소까지는 안붙임.
+-- 게시판, 공지사항, 리뷰리스트 애들은 다 프라이머리키 가지고 잇어야해
+desc shoppy_product;
 
-
-
-
+-- 레파지토리 할때 select * 쓰지말고 컬럼명 다 써랑, 한줄로 쫙 쓰기도 금지! 
+select 
+	pid,
+	pname,
+	price, 
+	description,
+	upload_file as uploadFile,
+	source_file as sourceFile,
+	pdate
+from shoppy_product 
+where pid=7;
 
 
 

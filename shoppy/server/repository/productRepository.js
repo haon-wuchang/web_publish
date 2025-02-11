@@ -36,3 +36,27 @@ export const getList = async() => {
 
     return result;
 }
+
+//1-5. 레파지토리 만들기
+export const getProduct = async(pid) => {  //1-5-0. 컨트롤러가 보낸 pid 받아오기 변수로 보냈으니 pid 로만 받은거임 {pid} 이렇게 객체로 받으면 안돼.(변수로 넘기면 변수로 받고 객체({})로 넘기면 객체로 받기!!!1)
+    // console.log('pid===>',pid); // 1-5-0. 우선 잘 넘어오는지 확인
+
+    //sql
+    const sql = `
+            select 
+                pid,
+                pname,
+                price, 
+                description,
+                upload_file as uploadFile,
+                source_file as sourceFile,
+                pdate
+            from shoppy_product 
+            where pid=?
+                `;
+    //execute
+    let [result,field] = await db.execute(sql,pid);   // sql 이 select 일때는 무조건 이차원배열로 결과값 받아옴 그래서 구조분해할당으로 1번째 배열만 필요하니까 받아오는거임
+
+    //return
+    return ;
+}
