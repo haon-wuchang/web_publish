@@ -89,18 +89,31 @@ select * from shoppy_product;
 -- 게시판, 공지사항, 리뷰리스트 애들은 다 프라이머리키 가지고 잇어야해
 desc shoppy_product;
 
--- 레파지토리 할때 select * 쓰지말고 컬럼명 다 써랑, 한줄로 쫙 쓰기도 금지! 
 select 
 	pid,
-	pname,
+	pname as name,
 	price, 
-	description,
+	description as info,
 	upload_file as uploadFile,
 	source_file as sourceFile,
-	pdate
-from shoppy_product 
-where pid=7;
-
+	pdate,
+    concat('http://localhost:9000/',upload_file->>'$[0]') as image,
+    -- json_array(n 번지의 이미지를 가져와서 배열객체로 생성하는 함수 ) as imgList
+	 json_array(
+		 concat('http://localhost:9000/',upload_file->>'$[0]'),
+		 concat('http://localhost:9000/',upload_file->>'$[1]'),
+		 concat('http://localhost:9000/',upload_file->>'$[2]')
+     ) as imgList, 
+     json_arrayagg(    
+		concat('http://localhost:9000/',jt.filename) 
+     ) as detailImgList
+from shoppy_product , 
+	json_table(shoppy_product.upload_file,'$[*]' 
+		columns(filename varchar(100) path '$')) as jt   
+        -- 0번지데이터가져와서 문자로 리턴할거라서 varchar100
+        -- path 부분은 => 호출되는부분(filename)에 n번지 데이터를 $에 넣어서 보낸다는거?..
+where pid=7
+group by pid;
 
 
 

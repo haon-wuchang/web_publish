@@ -37,26 +37,37 @@ export const getList = async() => {
     return result;
 }
 
-//1-5. 레파지토리 만들기
-export const getProduct = async(pid) => {  //1-5-0. 컨트롤러가 보낸 pid 받아오기 변수로 보냈으니 pid 로만 받은거임 {pid} 이렇게 객체로 받으면 안돼.(변수로 넘기면 변수로 받고 객체({})로 넘기면 객체로 받기!!!1)
-    // console.log('pid===>',pid); // 1-5-0. 우선 잘 넘어오는지 확인
-
+export const getProduct = async(pid) => {  
+    // console.log('pid===>',pid);
     //sql
     const sql = `
-            select 
-                pid,
-                pname,
-                price, 
-                description,
-                upload_file as uploadFile,
-                source_file as sourceFile,
-                pdate
-            from shoppy_product 
-            where pid=?
+           select 
+            pid,
+            pname as name,
+            price, 
+            description as info,
+            upload_file as uploadFile,
+            source_file as sourceFile,
+            pdate,
+            concat('http://localhost:9000/',upload_file->>'$[0]') as image,
+            json_array(
+                concat('http://localhost:9000/',upload_file->>'$[0]'),
+                concat('http://localhost:9000/',upload_file->>'$[1]'),
+                concat('http://localhost:9000/',upload_file->>'$[2]')
+            ) as imgList, 
+            json_arrayagg(
+                concat('http://localhost:9000/',jt.filename) 
+            ) as detailImgList
+        from shoppy_product , 
+            json_table(shoppy_product.upload_file,'$[*]' 
+                columns(filename varchar(100) path '$')) as jt 
+        where pid=?
+        group by pid
                 `;
     //execute
-    let [result,field] = await db.execute(sql,pid);   // sql 이 select 일때는 무조건 이차원배열로 결과값 받아옴 그래서 구조분해할당으로 1번째 배열만 필요하니까 받아오는거임
+    const [result,field] = await db.execute(sql,[pid]);   
+    // console.log(result); 
 
-    //return
-    return ;
+    //return   
+    return result[0];   
 }

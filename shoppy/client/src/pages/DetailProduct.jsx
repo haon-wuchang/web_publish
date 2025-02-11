@@ -3,10 +3,11 @@ import ReactDom from 'react-dom';
 import { useParams } from "react-router-dom";
 import { PiGiftThin } from "react-icons/pi";
 import axios from "axios";
-import Detail from "../components/Detail.jsx";
+import TeacherDetail from "../components/TeacherDetail.jsx";
 import Review from '../components/Review.jsx'
 import QnA from "../components/QnA.jsx";
 import ReturnDelivery from '../components/ReturnDelivery.jsx'
+import TeacherImgList from '../components/TeacherImgList.jsx';
 
 export default function DetailProduct({ addCart }) {
     const tabList = [
@@ -16,27 +17,33 @@ export default function DetailProduct({ addCart }) {
         {'name': 'RETURN & DELIVERY'}
     ];
 
-    // 1. 이 pid 를 서버-MVC 레파지토리까지 넘겨줘야함
     const { pid } = useParams();  // url 통해서 넘어온느거닌 다 get 방식이야
     const [product, setProduct] = useState({});
     const [size, setSize] = useState("XS"); 
     const [category, setCategory] = useState('Q&A');
     const [select, setSelect] = useState('Q&A');
 
+    const [imgList,setImgList]=useState([]); 
+    const [detailImgList, setDetailImgList] = useState([]); 
+    // detailImgList 를 상품상세페이지 디테일탭컴포넌트에 보내기
     const handleChangeSelect = (name) => {
         setSelect(name);
         setCategory(name);
     }
 
-    // 1-1. 데이터잇는 서버 주소 받아오고 pid 는 서버로 넘겨주기
     useEffect(() => {
         axios
-            .post("http://localhost:9000/product/detail",{"pid":pid}) //1-2. 이 서버주소 만들기
+            .post("http://localhost:9000/product/detail",{"pid":pid}) 
             .then((res) => {
-                console.log('res===>',res.data);
+                console.log('res===>',res.data);               
+                setProduct(res.data);                 
+                setImgList(res.data.imgList); 
+                setDetailImgList(res.data.detailImgList); 
                 })            
             .catch((error) => console.log(error));
     }, []); 
+    // console.log('imgList',imgList); 
+    
 
     //장바구니 추가 버튼 이벤트
     const addCartItem = () => {
@@ -56,34 +63,22 @@ export default function DetailProduct({ addCart }) {
     const handleDetail = () => {
         setCategory('detail');
     }
-
     const handleReview = () => {
         setCategory('review');
     }
-
     const handleQnA = () => {
         setCategory('qna');
     }
     const handleReturnDelivery = () => {
         setCategory('returndelivery');
-    }
+    }   
 
     return (
         <div className="content">
             <div className="product-detail-top">
                 <div className="product-detail-image-top">
-                    <img src={product.image} />
-                    <ul className="product-detail-image-top-list">
-                        <li>
-                            <img src={product.image} alt="" />
-                        </li>
-                        <li>
-                            <img src={product.image} alt="" />
-                        </li>
-                        <li>
-                            <img src={product.image} alt="" />
-                        </li>
-                    </ul>
+                    <img src={product.image} /> 
+                    <TeacherImgList imgList={imgList} className="product-detail-image-top-list"/>  
                 </div>    
                 <ul className="product-detail-info-top">
                     <li className="product-detail-title">{product.name}</li>
@@ -140,8 +135,8 @@ export default function DetailProduct({ addCart }) {
                         </li>
                     )) }
                 </ul>
-                <div className="una-qna-list">
-                    { category === 'DETAIL' ? <Detail /> : null }
+                <div className="una-qna-list">               
+                    { category === 'DETAIL' ? <TeacherDetail imgList={detailImgList}/> : null } 
                     { category === 'REVIEW' ? <Review /> : null }
                     { category === 'Q&A' ? <QnA /> : null }
                     { category === 'RETURN & DELIVERY' ? <ReturnDelivery /> : null }
@@ -150,4 +145,5 @@ export default function DetailProduct({ addCart }) {
         </div>
     );
 }
-
+// 카트에 담긴 상품정보 db에 들어가야함
+//카트는 로그인햇을떄만 보이게 설정
