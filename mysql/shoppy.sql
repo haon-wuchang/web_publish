@@ -115,6 +115,6 @@ from shoppy_product ,
 where pid=7
 group by pid;
 
-
+-- 2/12
 
 
