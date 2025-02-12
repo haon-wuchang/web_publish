@@ -23,13 +23,13 @@ export default function Carts() {
                 console.log('res=',res.data);   //6. 레파지토리-컨트롤러에서 보낸값 받음         
             //6-2. cartItems 에 res.data 의 정보 추가
             const updateCartItems = cartItems.map((item,index)=>
-                                            item.pid === res.data[index].pid ?
+                                            item.pid === res.data[index].pid &&
                                             {...item, 
                                                 'pname':res.data[index].pname, 
                                                 'price':res.data[index].price,
                                                 'image':res.data[index].image,
                                                 'description':res.data[index].description
-                                            } : item
+                                            } 
                                         );
                                         //6-3.updateCartItems 를 setCartItems 에 넣어주기
                 setCartItems(updateCartItems);           
