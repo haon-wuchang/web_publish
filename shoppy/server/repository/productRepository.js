@@ -71,3 +71,15 @@ export const getProduct = async(pid) => {
     //return   
     return result[0];   
 }
+
+
+//5-3.
+export const getCartItems = ({pids}) => {
+    const sql = `
+    
+                `;
+
+    const [result] = db.execute(sql,pids);
+
+    return ;
+}

@@ -45,16 +45,13 @@ export default function DetailProduct({ addCart }) {
     // console.log('imgList',imgList); 
     
 
-    //장바구니 추가 버튼 이벤트
+    //장바구니 추가 버튼 이벤트함수 1.
     const addCartItem = () => {
-      //장바구니 추가 항목 : { pid, size, count, price }
-      // alert(`${pid} --> 장바구니 추가 완료!`);
-      // console.log(product.pid, product.price, size, 1);
+      //장바구니 추가 항목 : { pid, size, qty }
         const cartItem = {
             pid: product.pid,
             size: size,
             qty: 1,
-            price: product.price,
         };
         addCart(cartItem); // App.js의 addCart 함수 호출
     };  
@@ -104,14 +101,14 @@ export default function DetailProduct({ addCart }) {
                     </li>
                     <li className="flex">
                         <button type="button" className="product-detail-button order">
-                        바로 구매
+                            바로 구매
                         </button>
                         <button
                             type="button"
                             className="product-detail-button cart"
                             onClick={addCartItem}
                         >
-                        쇼핑백 담기
+                            쇼핑백 담기
                         </button>
                         <div type="button" className="gift">
                             <PiGiftThin />
