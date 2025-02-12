@@ -115,6 +115,28 @@ from shoppy_product ,
 where pid=7
 group by pid;
 
--- 2/12
+-- 2/12  5-4.
+select pid,
+		pname,
+        price,
+        description,
+        concat('http://localhost:9000/',upload_file->>'$[0]') as image
+from shoppy_product
+-- 5-4-0.이렇게하면 상품 여러개가져오게 수정 ( or 사용 )
+where pid in (7,8,9);
+-- 이 789 부분을 ? 로 넣어야하는데 이 갯수가 pids 갯수와 동일하면 된다
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
