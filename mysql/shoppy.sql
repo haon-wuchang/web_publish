@@ -130,7 +130,8 @@ where pid in (7,8,9);
 
 select * from shoppy_member;
 select * from shoppy_product;
--- 2/13 ㄹ.
+
+-- 2/13 
 -- 어떤 회원(pk:id)이 어떤상품(pk:pid)을 넣었는지 구분해야함
 -- shoppy_cart table 만들기
 	-- 컬럼리스트 : cid(pk) auto_increment, id(fk(참조키):shoppy_member), pid(fk(참조키):shoppy_product) ,

@@ -12,8 +12,6 @@ import { AuthProvider } from './auth/AuthContext.js';
 import NewProduct from './pages/NewProduct.jsx';
 
 export default function App() {
-  //ㄴ-3.
-  // const [cartList,setCartList] = useState([]);  수정 전 
   const [cartList,setCartList] = useState(()=>{
     try {
       const initCartList = localStorage.getItem('cartItems');
@@ -24,8 +22,6 @@ export default function App() {
     }    
   });  
 
-  // ㄴ-2. 
-  // const [cartCount,setCartCount] = useState(0); 수정 전 
   const [cartCount,setCartCount] = useState(()=>{
     try {
       const initCartList = localStorage.getItem('cartItems');
@@ -57,10 +53,7 @@ export default function App() {
       }
       setCartList(updateCartList); //장바구니에 새로 추가한 순으로 상품이 들어가게 된다
     }
-// ㄴ.새로고침하면 카트데이터를 그대로 가져와야함
-//ㄴ-1.App.js 가 로컬스토리지 의 길이를 카트카운트로 넘겨준다 => cartCount
-  // 로컬스토리지는 외부에 있는거니까 얘의 길이를 가져올때 에러가 생길수있다 그래서 
-  // 에러가발생할수잇는 부분이니까 참고해 라는뜻으로 try ~ catch 를 사용한다
+
 
     return (
     <div >

@@ -23,7 +23,7 @@ server.use('/upload_files',express.static(path.join('upload_files'))); // => 이
 server.use('/member',memberRouter);
 server.use('/uploads',uploadRouter);
 server.use('/product',productRouter);  
-server.use('/cart',cartRouter);  //c. 서버 만들고 mvc 파일만들기
+server.use('/cart',cartRouter); 
 
 server.listen(port,()=>{
     console.log('서버실행ㅈ유ㅠ');
