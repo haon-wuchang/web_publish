@@ -38,6 +38,8 @@ export default function Login() {
                     if(res.data.result_rows === 1){
                         alert('로그인성공');
                         localStorage.setItem('token',res.data.token);
+                        // ㅂ-1.
+                        localStorage.setItem('user_id',formData.id); //ㅂ-2. 로그인 시 로컬스토리지에 아이디 잘 저장되는지 확인
                         setIsLoggedIn(true);
                         navigate('/');
                     } else {

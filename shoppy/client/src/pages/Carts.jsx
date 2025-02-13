@@ -53,6 +53,15 @@ export default function Carts() {
         //7. 근데 이케하면 콘솔이 무한으로 찍히게 된다 얘를 useEffect 를 사용해서 react 가 관리하게 만들어준다
         console.log('cartItems',cartItems);
         
+        // ㅁ-1. 
+        const handleOrder = () => {
+            // 1.로그인 여부확인 => ㅂ.로그인 토큰에 아이디 추가하기
+
+            // 2. 로그인 상태이면 DB 연동 후 저장 
+
+            //2-1. 로그아웃 상태이면 로그인 페이지로 넘기고 db 연동 후 저장
+        }
+
     return (
         <div className='content'>
             <table border='1' style={{width:'1400px'}}>
@@ -68,7 +77,7 @@ export default function Carts() {
                 {/* 7-2. */}
                 {cartItems&& cartItems.map((cartItems)=>
                 <tr style={{textAlign:'center', fontSize:'25px'}}>
-                    <td><img src={cartItems.image} alt="" style={{width:'200px'}} /></td>
+                    <td><img src={cartItems.image} alt="" style={{width:'100px'}} /></td>
                     <td>{cartItems.pid}</td>
                     <td>{cartItems.pname}</td>
                     <td>{cartItems.description}</td>
@@ -78,6 +87,11 @@ export default function Carts() {
                 </tr> 
                 )}
             </table>
+            {/* ㅁ. 주문하기 버튼생성 - 누르면 로그인하라고 뜨고 로그인정보와 카트정보를 같이 넘기면된다 */}
+            <button onClick={handleOrder}
+            style={{width:'200px', padding:'20px', backgroundColor:'yellow'}}>
+                주문하기
+            </button>
         </div>
     );
 }

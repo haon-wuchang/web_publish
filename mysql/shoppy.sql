@@ -128,14 +128,35 @@ where pid in (7,8,9);
 
 
 
+select * from shoppy_member;
+select * from shoppy_product;
+-- 2/13 ㄹ.
+-- 어떤 회원(pk:id)이 어떤상품(pk:pid)을 넣었는지 구분해야함
+-- shoppy_cart table 만들기
+	-- 컬럼리스트 : cid(pk) auto_increment, id(fk(참조키):shoppy_member), pid(fk(참조키):shoppy_product) ,
+				-- qty, size, cdate(장바구니 등록날짜)
+desc shoppy_member;  -- id carchar(30)  !!
+desc shoppy_product;  -- pid int 이 데이터타입에 맞춰서 만들어주기!!
 
-
-
-
-
-
-
-
+create table shoppy_cart(
+		cid int primary key auto_increment,
+        qty int not null,
+        size varchar(10) not null ,
+        cdate datetime,
+        id varchar(30)  not null  ,
+        pid int not null,
+	-- constraint 제약명 foreign key(카트에서정한컬럼명)
+-- 			reference (참조하는 테이블과 컬럼명)
+	constraint fk_id_shoppy_member_id foreign key(id)
+			references shoppy_member(id),
+	constraint fk_pid_shoppy_product_pid foreign key(pid)
+			references shoppy_product(pid)
+);
+-- fk 만들고나면 다이어그램으로 잘 연결됐는지 확인해야대
+-- 회원정보,상품정보 가져오기 위해서 3개테이블 조인하기
+show tables;
+desc shoppy_cart;
+select * from shoppy_cart;
 
 
 
