@@ -28,8 +28,8 @@ export default function Carts() {
             .post('http://localhost:9000/product/cartItems',{'pids':pids}) 
             .then(
                 res =>{ 
-                console.log('res=',res.data);   //6. 레파지토리-컨트롤러에서 보낸값 받음         
-            //6-2. cartItems 에 res.data 의 정보 추가 
+                console.log('res=',res.data);          
+            //6-2. cartList 에 res.data 의 정보 추가 
             const updateCartItems = cartList.map((item)=>{
                 const filterItem = res.data.find((ritem)=>ritem.pid === item.pid)
                 return filterItem ? 
@@ -41,7 +41,7 @@ export default function Carts() {
                     }
                     :item
             })
-                  //6-3.updateCartItems 를 setCartItems 에 넣어주기
+                  //6-3.updateCartItems 를 setCartList 에 넣어주기
                   setCartList(updateCartItems);           
                                     })
             .catch(error => console.log(error));                                    

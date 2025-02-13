@@ -74,13 +74,9 @@ export const getProduct = async(pid) => {
 
 
 export const getCartItems = async({pids}) => {
-    // 5-5. pids 를 이용해서 ? 갯수 만들기
-    //pids 가 여러개니까 우선 배열만들기
+
     const strArray = [];
     pids.forEach(pid => strArray.push('?'));
-    // console.log(strArray);  
-    // 5-6. strArray 는 배열이라 얘를 문자열로 바꿔주는 함수를 사용한다
-    //배열에잇는내용꺼내서 문자열로 바꿔주는건 join 함수
 
     const sql = `
                 select pid,
@@ -91,7 +87,7 @@ export const getCartItems = async({pids}) => {
                 from shoppy_product
                 where pid in (${strArray.join(',')})
                 `;
-    // console.log('sql',sql); // 5-7. sql 잘찍히는지 먼저 콘솔로 확인하기
+    // console.log('sql',sql);
     
     const [result] = await db.execute(sql,pids);
 
