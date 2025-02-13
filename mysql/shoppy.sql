@@ -157,7 +157,7 @@ create table shoppy_cart(
 show tables;
 desc shoppy_cart;
 select * from shoppy_cart;
-
-
+-- c-3.
+insert into shoppy_cart (size, qty, id, pid ) values(?,?,?,? );
 
 

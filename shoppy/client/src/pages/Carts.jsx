@@ -63,7 +63,10 @@ export default function Carts() {
                     //b-1. post 로 넘길떄 {}이렇게 넘겨야하는데 이안에  {'id':'test1', 'cartList':[~~~~]} 이렇게 들어가야한다
                     .then(res => {
                         console.log('res=',res.data) ;
-                        // res.data.result_rows === 1 && alert('장바구니에 추가되었습니다')   // d. db 에서 넘어온값 받음                  
+                        if(res.data.result_rows){// d. db 에서 넘어온값 받음
+                            alert('장바구니에 추가되었습니다'); 
+                            localStorage.removeItem('cartItems'); 
+                        }
                     })
                     .catch(error => console.log(error));
             }else { 
@@ -71,7 +74,6 @@ export default function Carts() {
                 const select = window.confirm('로그인 먼저 해');
                 select && navigate('/login'); 
             }
-
         }
 
     return (
@@ -85,6 +87,7 @@ export default function Carts() {
                     <th>size</th>
                     <th>qty</th>
                     <th>price</th>
+                    <th></th>
                 </tr> 
                 {/* 7-2. */}
                 {cartList&& cartList.map((cartItems)=>
@@ -96,6 +99,7 @@ export default function Carts() {
                     <td>{cartItems.size}</td>
                     <td>{cartItems.qty}</td>
                     <td>{cartItems.price}</td>
+                    <td><button>계속담아두기</button></td>  {/*e. 누르면 해당상품만 저장되게*/}
                 </tr> 
                 )}
             </table>
