@@ -1,15 +1,15 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect ,useContext } from 'react'; //a-1. AuthContext얘를 전역에서 사용하기위해 useContext 추가
 import axios from 'axios';
+import { AuthContext } from '../auth/AuthContext.js'; //a-1.
+import { useNavigate } from 'react-router-dom'; // a-5.
 
 export default function Carts() {
-    //6-1. 받아온데이터를 cartItems 에 넣을꺼라 얘를 useState 가 관리하게 만들기
-    // 4.로컬스토리지에 담긴 cartItems의 배열객체 출력
-    const [cartItems,setCartItems] =useState(JSON.parse(localStorage.getItem('cartItems')));  //겟아이템으로 로컬스토리지의 데이터를 가져온다
-   // 로컬스토리지값을 받아와서 문자열로 변경? => JSON.parse  얘는 좀 찾아바..
-    
-   
+    const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext);  // a-2.isLoggedIn로  로그인됐는지 확인
+    const navigate = useNavigate();  // a-5.
+
+
    //ㄷ. 장바구니아이템 저장 => 배열로
-    const [cartList,setCartList] = useState(()=>{   //💦 얘네는 안쓰이는뎁...
+    const [cartList,setCartList] = useState(()=>{  
         try {
           const initCartList = localStorage.getItem('cartItems');
           return initCartList ? JSON.parse(initCartList) : []; 
@@ -19,21 +19,18 @@ export default function Carts() {
         }    
     });  
     
-    //4-1. cartItems의 pid 값을 받는 배열 생성 후 pid 값을 생성한 배열에 추가
-    const pids = cartItems&&cartItems.map((item)=>item.pid); 
-     // map 실행한결과는 새로운배열에 만들어짐 ( 그래서 따로 변수로 배열안만들어도 됨 ,push 도 안해도되고)
+    const pids = cartList&&cartList.map((item)=>item.pid); 
     
     //7-1.
     useEffect(()=>{
-        if(pids.length > 0){
-            //5. axios 이용하여 db 연동작업
+        if(pids.length > 0){           
             axios
-            .post('http://localhost:9000/product/cartItems',{'pids':pids}) //5-1. 오브젝트리터럴형태로 넘어가야해서 {pids} 
+            .post('http://localhost:9000/product/cartItems',{'pids':pids}) 
             .then(
                 res =>{ 
                 console.log('res=',res.data);   //6. 레파지토리-컨트롤러에서 보낸값 받음         
             //6-2. cartItems 에 res.data 의 정보 추가 
-            const updateCartItems = cartItems.map((item)=>{
+            const updateCartItems = cartList.map((item)=>{
                 const filterItem = res.data.find((ritem)=>ritem.pid === item.pid)
                 return filterItem ? 
                     {...item, 
@@ -45,21 +42,36 @@ export default function Carts() {
                     :item
             })
                   //6-3.updateCartItems 를 setCartItems 에 넣어주기
-                setCartItems(updateCartItems);           
+                  setCartList(updateCartItems);           
                                     })
             .catch(error => console.log(error));                                    
            }
         },[]);
         //7. 근데 이케하면 콘솔이 무한으로 찍히게 된다 얘를 useEffect 를 사용해서 react 가 관리하게 만들어준다
-        console.log('cartItems',cartItems);
+        console.log('cartList',cartList);
         
-        // ㅁ-1. 
+        // ㅁ-1. 함수선언   
         const handleOrder = () => {
-            // 1.로그인 여부확인 => ㅂ.로그인 토큰에 아이디 추가하기
+            // 로그인 여부확인 => ㅂ.로그인 토큰에 아이디 추가하기
+            // console.log('isLoggedIn==',isLoggedIn); // a-3.  버튼클릭했을때 로그인인지 아닌지 ture ,false 로 나옴
+            if(isLoggedIn){  // a-4. if문 작성
+                // b. 로그인 상태이면 DB 연동 후 저장 
+                const id = localStorage.getItem('user_id'); //b-2.
+                const formData = {'id':id, 'cartList':cartList} //b-3.
+                 axios
+                    .post('http://localhost:9000/cart/add',formData)  //b-4. 서버로 formData 넘기기 
+                    //b-1. post 로 넘길떄 {}이렇게 넘겨야하는데 이안에  {'id':'test1', 'cartList':[~~~~]} 이렇게 들어가야한다
+                    .then(res => {
+                        console.log('res=',res.data) ;
+                        // res.data.result_rows === 1 && alert('장바구니에 추가되었습니다')   // d. db 에서 넘어온값 받음                  
+                    })
+                    .catch(error => console.log(error));
+            }else { 
+                // a-5.로그아웃 상태이면 로그인 페이지로 넘기고 db 연동 후 저장
+                const select = window.confirm('로그인 먼저 해');
+                select && navigate('/login'); 
+            }
 
-            // 2. 로그인 상태이면 DB 연동 후 저장 
-
-            //2-1. 로그아웃 상태이면 로그인 페이지로 넘기고 db 연동 후 저장
         }
 
     return (
@@ -75,7 +87,7 @@ export default function Carts() {
                     <th>price</th>
                 </tr> 
                 {/* 7-2. */}
-                {cartItems&& cartItems.map((cartItems)=>
+                {cartList&& cartList.map((cartItems)=>
                 <tr style={{textAlign:'center', fontSize:'25px'}}>
                     <td><img src={cartItems.image} alt="" style={{width:'100px'}} /></td>
                     <td>{cartItems.pid}</td>

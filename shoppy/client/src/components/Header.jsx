@@ -14,6 +14,7 @@ export default function Header({cartCount}) {
             const select = window.confirm('ㄹㅇ 로그아웃할꺼?');
             if(select){
                 localStorage.removeItem('token');
+                localStorage.removeItem('user_id');  // a.  로그아웃 눌렀을때 토큰,유저아이디가 로컬스토리지에서 지워지는지 확인하기
                 setIsLoggedIn(false);
                 navigate('/'); 
             }            

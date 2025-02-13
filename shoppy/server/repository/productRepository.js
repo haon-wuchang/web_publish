@@ -73,7 +73,6 @@ export const getProduct = async(pid) => {
 }
 
 
-//5-3.
 export const getCartItems = async({pids}) => {
     // 5-5. pids 를 이용해서 ? 갯수 만들기
     //pids 가 여러개니까 우선 배열만들기

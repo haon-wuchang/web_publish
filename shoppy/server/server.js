@@ -3,6 +3,7 @@ import cors from 'cors';
 import memberRouter from './router/memberRouter.js';
 import uploadRouter from './router/uploadRouter.js';
 import productRouter from './router/productRouter.js';
+import cartRouter from './router/cartRouter.js';
 import path from 'path'; 
 
 const server = express();
@@ -22,6 +23,7 @@ server.use('/upload_files',express.static(path.join('upload_files'))); // => 이
 server.use('/member',memberRouter);
 server.use('/uploads',uploadRouter);
 server.use('/product',productRouter);  
+server.use('/cart',cartRouter);  //c. 서버 만들고 mvc 파일만들기
 
 server.listen(port,()=>{
     console.log('서버실행ㅈ유ㅠ');
