@@ -6,12 +6,23 @@ export default function Carts() {
     // 4.로컬스토리지에 담긴 cartItems의 배열객체 출력
     const [cartItems,setCartItems] =useState(JSON.parse(localStorage.getItem('cartItems')));  //겟아이템으로 로컬스토리지의 데이터를 가져온다
    // 로컬스토리지값을 받아와서 문자열로 변경? => JSON.parse  얘는 좀 찾아바..
-    // console.log('c',cartItems); 
+    
+   
+   //ㄷ. 장바구니아이템 저장 => 배열로
+    const [cartList,setCartList] = useState(()=>{   //💦 얘네는 안쓰이는뎁...
+        try {
+          const initCartList = localStorage.getItem('cartItems');
+          return initCartList ? JSON.parse(initCartList) : []; 
+        } catch (error) {
+          console.log('로컬스토리지 데이터 작업 중 에러발생');
+          console.log(error);      
+        }    
+    });  
+    
     //4-1. cartItems의 pid 값을 받는 배열 생성 후 pid 값을 생성한 배열에 추가
     const pids = cartItems&&cartItems.map((item)=>item.pid); 
      // map 실행한결과는 새로운배열에 만들어짐 ( 그래서 따로 변수로 배열안만들어도 됨 ,push 도 안해도되고)
-    // console.log('pids',pids);
-
+    
     //7-1.
     useEffect(()=>{
         if(pids.length > 0){
@@ -21,17 +32,19 @@ export default function Carts() {
             .then(
                 res =>{ 
                 console.log('res=',res.data);   //6. 레파지토리-컨트롤러에서 보낸값 받음         
-            //6-2. cartItems 에 res.data 의 정보 추가
-            const updateCartItems = cartItems.map((item,index)=>
-                                            item.pid === res.data[index].pid &&
-                                            {...item, 
-                                                'pname':res.data[index].pname, 
-                                                'price':res.data[index].price,
-                                                'image':res.data[index].image,
-                                                'description':res.data[index].description
-                                            } 
-                                        );
-                                        //6-3.updateCartItems 를 setCartItems 에 넣어주기
+            //6-2. cartItems 에 res.data 의 정보 추가 
+            const updateCartItems = cartItems.map((item)=>{
+                const filterItem = res.data.find((ritem)=>ritem.pid === item.pid)
+                return filterItem ? 
+                    {...item, 
+                        'pname':filterItem.pname, 
+                        'price':filterItem.price,
+                        'image':filterItem.image,
+                        'description':filterItem.description
+                    }
+                    :item
+            })
+                  //6-3.updateCartItems 를 setCartItems 에 넣어주기
                 setCartItems(updateCartItems);           
                                     })
             .catch(error => console.log(error));                                    

@@ -79,8 +79,7 @@ export default function App() {
         updateCartList = [...cartList, cartItem];
         setCartCount(cartCount +1 );
       }
-      const sortUpdateCartList = updateCartList.sort((a,b)=>a.pid - b.pid);  //sort 함수: 장바구니에 담긴 상품을 pid기준으로 오름차순으로 맞춰줌
-      setCartList(sortUpdateCartList);  // db 에서는 데이터 가져올떄 index 순서맞춰서 가져오기때문에 sort 써준거임 흠;;
+      setCartList(updateCartList); //장바구니에 새로 추가한 순으로 상품이 들어가게 된다
     }
 // ㄴ.새로고침하면 카트데이터를 그대로 가져와야함
 //ㄴ-1.App.js 가 로컬스토리지 의 길이를 카트카운트로 넘겨준다 => cartCount
