@@ -6,6 +6,7 @@ import Products from './pages/Products.jsx';
 import Carts from './pages/Carts.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
+import CartDB from './pages/CartDB.jsx'; //ㄱ-2.
 import DetailProduct from './pages/DetailProduct.jsx';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js'; 
@@ -77,6 +78,7 @@ export default function App() {
               <Route path='/signup' element={<Signup />} /> 
               <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 
               <Route path='/products/new' element={<NewProduct />} /> 
+              <Route path='/cartdb' element={<CartDB />} />  {/*ㄱ-2.  얘는 실제 db연동한거 보여줌,Carts 는로컬스토리지에잇는거 보여주ㅡ는거임*/}
             </Route >
           </Routes>
         </BrowserRouter>
