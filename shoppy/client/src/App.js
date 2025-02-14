@@ -25,12 +25,21 @@ export default function App() {
   const [cartCount,setCartCount] = useState(()=>{
     try {
       const initCartList = localStorage.getItem('cartItems');
-      return initCartList ? JSON.parse(initCartList).length : 0; //{} 로 묶었으니까 return
+      return initCartList ? JSON.parse(initCartList).length : 0; 
     } catch (error) {
       console.log('로컬스토리지 데이터 작업 중 에러발생');
       console.log(error);      
     }    
   }); 
+
+  // 5-1. 카트에서 주문하기 눌러서 삭제한 로컬스토리지 재호출되면 => 카트리스트 카트카운트 업데이트 진행
+    const refreshStorage = () => { // 5-2. 얘를 카트한테 넘겨주기
+      setCartList([]);
+      setCartCount(0);
+    }
+
+
+
 
   useEffect(()=>{
     localStorage.setItem('cartItems',JSON.stringify(cartList)); 
@@ -63,7 +72,7 @@ export default function App() {
             <Route path='/'element={<Layout cartCount ={cartCount} />} >          
               <Route index element={<Home />} /> 
               <Route path='/all' element={<Products />} /> 
-              <Route path='/cart' element={<Carts />} /> 
+              <Route path='/cart' element={<Carts refreshStorage={refreshStorage}/>} />  {/*5-3.*/}
               <Route path='/login' element={<Login />} /> 
               <Route path='/signup' element={<Signup />} /> 
               <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 

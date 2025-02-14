@@ -161,4 +161,4 @@ select * from shoppy_cart;
 -- c-3.
 insert into shoppy_cart (size, qty, id, pid ) values(?,?,?,? );
 
-
+truncate table shoppy_cart;  -- 해당 테이블 내용 전체 삭제
