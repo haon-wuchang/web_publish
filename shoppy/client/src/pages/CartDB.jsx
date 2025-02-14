@@ -13,7 +13,7 @@ export default function Carts({refreshStorage}) { // 6. app 이 보낸거 받아
           const initCartList = localStorage.getItem('cartItems');
           return initCartList ? JSON.parse(initCartList) : []; 
         } catch (error) {
-          console.log('로컬스토리지 데이터 작업 중 에러발생');
+          console.error('로컬스토리지 데이터 작업 중 에러발생',error);
           console.log(error);      
         }    
     });  
@@ -88,9 +88,9 @@ export default function Carts({refreshStorage}) { // 6. app 이 보낸거 받아
 
         const clearStorageAll = () => {
             localStorage.removeItem('cartItems');
-            // setTimeout(() => {
-            //     setCartList([]);      // 근데 이거 안하는데 어케 장바구니 초기화대지?          
-            // }, 0);
+            setTimeout(() => {
+                setCartList([]);        
+            }, 0);
             navigate('/cart');  //ㄱ-1.주문하기누르면 해당페이지 재호출
         };
         //7-1.로컬스로리지 개별 아이템 삭제 = 기존꺼삭제하고 카트리스트애들중에 삭제애빼고 전부나오게
