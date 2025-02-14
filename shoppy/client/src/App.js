@@ -33,9 +33,9 @@ export default function App() {
   }); 
 
   // 5-1. 카트에서 주문하기 눌러서 삭제한 로컬스토리지 재호출되면 => 카트리스트 카트카운트 업데이트 진행
-    const refreshStorage = () => { // 5-2. 얘를 카트한테 넘겨주기
-      setCartList([]);
-      setCartCount(0);
+    const refreshStorage = (updateCart,updateCartCount) => { // 5-2. refreshStorage를 카트한테 넘겨주기  //8-4. 카트에서 넘긴 값들 받아오기
+      setCartList(updateCart);  //8-5. 
+      setCartCount(updateCartCount);  //8-5. 
     }
 
 
