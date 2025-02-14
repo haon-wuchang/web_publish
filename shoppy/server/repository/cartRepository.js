@@ -21,3 +21,29 @@ export const addCart = async({id,cartList}) => {
     return {'result_rows':result_rows};
     // console.log({'result_rows':result_rows});
 }
+
+//ㄱ-5. 
+//장바구니 전체 조회
+export const getItems = async() => {
+    //ㄱ-6. 장바구니,고객,상품정보 테이블 다 조인하기
+    const sql = `
+                select sc.cid,	
+                    sc.size,
+                    sc.qty,
+                    sm.zipcode,
+                    sm.address,
+                    sp.pid,
+                    sp.pname,
+                    sp.price,
+                    sp.description as info,
+                    concat('http://localhost:9000/',sp.upload_file->>'$[0]') as image
+                from shoppy_member as sm, 
+                    shoppy_cart as sc , 
+                    shoppy_product as sp
+                where sm.id = sc.id and sc.pid = sp.pid
+                `;
+    
+    const result =await  db.execute(sql,);
+
+    return '';
+}

@@ -154,7 +154,7 @@ create table shoppy_cart(
 			references shoppy_product(pid)
 );
 -- fk 만들고나면 다이어그램으로 잘 연결됐는지 확인해야대
--- 회원정보,상품정보 가져오기 위해서 3개테이블 조인하기
+
 show tables;
 desc shoppy_cart;
 select * from shoppy_cart;
@@ -162,3 +162,30 @@ select * from shoppy_cart;
 insert into shoppy_cart (size, qty, id, pid ) values(?,?,?,? );
 
 truncate table shoppy_cart;  -- 해당 테이블 내용 전체 삭제
+
+desc shoppy_cart;
+desc shoppy_product;
+desc shoppy_member;
+
+insert into shoppy_cart(size,qty,cdate,id,pid)
+values('xs',1,now(),'test2','10');
+-- 2/13
+-- 회원정보,상품정보 가져오기 위해서 3개테이블 조인하기 (shoppy_cart, shoppy_member, shoppy_product)
+select * 
+from shoppy_member as sm, 
+	shoppy_cart as sc , 
+	shoppy_product as sp
+where sm.id = sc.id and sc.pid = sp.pid;
+
+
+
+
+
+
+
+
+
+
+
+
+

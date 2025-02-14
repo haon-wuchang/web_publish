@@ -3,11 +3,26 @@ import axios from 'axios';
 import { AuthContext } from '../auth/AuthContext.js'; 
 import { useNavigate } from 'react-router-dom'; 
 
-export default function Carts({refreshStorage}) { // 6. app 이 보낸거 받아오기 
+export default function Carts() { 
+    const navigate = useNavigate();
     const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext); 
-    const navigate = useNavigate();  
+    const [cartList, setCartList] = useState([]); //
 
-
+    useEffect(()=>{  //ㄱ. 장바구니페이지에 들어오면 바로 로그인체크 진행, 
+        if(isLoggedIn){ 
+            //db 에있는 쇼피카트에서 상품정보 가져오기
+            console.log('db'); 
+            axios  // ㄱ-2. 서버로보내기 
+                .post('http://localhost:9000/cart/items')  // 전체데이터 넘길꺼라 안적음
+                .then(res => 
+                    console.log(res.data)
+                )
+                .catch(error => console.log(error));
+        }else{
+            //로컬스토리지에 저장된 정보를 가져오고, 주문하기를 누르면 로그인으로 넘어감
+            console.log('로컬스토리지');
+        }
+    },[isLoggedIn]); // ㄱ-1.로그인정보가 바뀔떄마다 계쏙 체크가 된다
 
     return (
         <div className='content'>
@@ -20,9 +35,9 @@ export default function Carts({refreshStorage}) { // 6. app 이 보낸거 받아
                     <th>size</th>
                     <th>qty</th>
                     <th>price</th>
-                    {/* <th></th> */}
+                    <th></th>
                 </tr> 
-                {cartList&& cartList.map((cartItems)=>
+                {/* {cartList&& cartList.map((cartItems)=>
                 <tr style={{textAlign:'center', fontSize:'25px'}}>
                     <td><img src={cartItems.image} alt="" style={{width:'100px'}} /></td>
                     <td>{cartItems.pid}</td>
@@ -31,18 +46,18 @@ export default function Carts({refreshStorage}) { // 6. app 이 보낸거 받아
                     <td>{cartItems.size}</td>
                     <td>{cartItems.qty}</td>
                     <td>{cartItems.price}</td>
-                    {/* <td><button  
+                    <td><button  
                         onClick={()=>{handleOrder('each',cartItems.pid, cartItems.size)}}
                         style={{width:'200px', padding:'30px', backgroundColor:'lightcyan'}}>계속담아두기 ( 개별 주문 )
                         </button> 
-                    </td>   */}
+                    </td>  
                 </tr> 
-                )}
+                )} */}
             </table>
-            <button onClick={()=>{handleOrder('all')}}  
+            {/* <button onClick={()=>{handleOrder('all')}}  
             style={{width:'200px', padding:'20px', backgroundColor:'yellow'}}>
                 주문하기
-            </button>
+            </button> */}
         </div>
     );
 }
