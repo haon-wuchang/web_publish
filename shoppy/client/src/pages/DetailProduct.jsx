@@ -83,12 +83,13 @@ export default function DetailProduct() {
                         //3-9.
                         if(res.data.result_rows) {
                             alert('장바구니에 추가되었습니다'); 
+                            // ㄴ-1.db 연동해서 cartList 를 재호출해야한다 (axios 먼저 실행하도록하고 그다음에 setCartList 에 넣어줘야한다)
                             //ㄱ.
                             const updateCartList = cartList.map((item)=>
                                 (item.cid === findItem.cid) ? {...item, pty : item.qty+1} : item                                                                 
                         );
                         setCartList(updateCartList); //ㄱ-1.
-                        // ㄴ. 둘다 비동기라서 누가 먼저 처리될지모르니까 자꾸 같은데이터가 추가됨(수량안늘어나); 그래서 커스텀훅을 사용해서 비동기로 만들어줘야한다
+                        // ㄴ. 둘다(axios 랑 setCartList에 updateCartList ) 비동기라서 누가 먼저 처리될지모르니까 자꾸 같은데이터가 추가됨(수량안늘어나); 그래서 커스텀훅을 사용해서 비동기로 만들어줘야한다
                         }
                     })
                     .catch(error => console.log(error)); 
@@ -103,7 +104,6 @@ export default function DetailProduct() {
                     if(res.data.result_rows) {
                         alert('장바구니에 추가되었습니다'); 
                         setCartCount(cartCount+1);
-                        //ㄷ . 엄..??
                         setCartList([...cartList,cartItem]);                
                     }
                 })
