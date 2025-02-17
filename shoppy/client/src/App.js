@@ -11,6 +11,7 @@ import DetailProduct from './pages/DetailProduct.jsx';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js'; 
 import NewProduct from './pages/NewProduct.jsx';
+import { cartProvider } from './context/cartContext.js'; //5.
 
 export default function App() {
   const [cartList,setCartList] = useState(()=>{
@@ -67,22 +68,25 @@ export default function App() {
 
     return (
     <div >
+      {/* 5.cartProvider 로 감싸면 감싸진애들이 카트프로바이더를 사용할수잇음 */}
+      <cartProvider>
       <AuthProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/'element={<Layout cartCount ={cartCount} />} >          
-              <Route index element={<Home />} /> 
-              <Route path='/all' element={<Products />} /> 
-              <Route path='/cart' element={<Carts refreshStorage={refreshStorage}/>} />  {/*5-3.*/}
-              <Route path='/login' element={<Login />} /> 
-              <Route path='/signup' element={<Signup />} /> 
-              <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 
-              <Route path='/products/new' element={<NewProduct />} /> 
-              <Route path='/cartdb' element={<CartDB />} />  {/*ㄱ-2.  얘는 실제 db연동한거 보여줌,Carts 는로컬스토리지에잇는거 보여주ㅡ는거임*/}
-            </Route >
-          </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/'element={<Layout cartCount ={cartCount} />} >          
+            <Route index element={<Home />} /> 
+            <Route path='/all' element={<Products />} /> 
+            <Route path='/cart' element={<Carts refreshStorage={refreshStorage}/>} /> 
+            <Route path='/login' element={<Login />} /> 
+            <Route path='/signup' element={<Signup />} /> 
+            <Route path='/products/:pid' element={<DetailProduct addCart={addMomCart}/>} /> 
+            <Route path='/products/new' element={<NewProduct />} /> 
+            <Route path='/cartdb' element={<CartDB />} />  
+          </Route >
+        </Routes>
+      </BrowserRouter>
       </AuthProvider>
+      </cartProvider>
     </div>
   );
 }
