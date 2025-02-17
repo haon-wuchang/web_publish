@@ -2,6 +2,8 @@ import React, { useState,useEffect ,useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../auth/AuthContext.js'; 
 import { useNavigate } from 'react-router-dom'; 
+// cart 원본
+
 
 export default function Carts({refreshStorage}) { // 6. app 이 보낸거 받아오기 
     const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext); 
