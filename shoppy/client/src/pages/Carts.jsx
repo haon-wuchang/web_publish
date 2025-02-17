@@ -49,7 +49,7 @@ export default function Carts() {
                         <div className="cart-item-details">
                             <p className="cart-item-title">{item.pname}</p>
                             <p className="cart-item-title">{item.size}</p> 
-                            <p className="cart-item-price">{item.price}</p>                           
+                            <p className="cart-item-price">{item.price}원</p>                           
                         </div> 
                         <div className="cart-quantity">
                             <button >

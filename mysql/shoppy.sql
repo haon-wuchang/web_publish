@@ -171,7 +171,7 @@ insert into shoppy_cart(size,qty,cdate,id,pid)
 values('xs',1,now(),'test2','10');
 -- 2/13
 -- 회원정보,상품정보 가져오기 위해서 3개테이블 조인하기 (shoppy_cart, shoppy_member, shoppy_product)
-select * 
+select *
 from shoppy_member as sm, 
 	shoppy_cart as sc , 
 	shoppy_product as sp
@@ -181,7 +181,7 @@ select *  from shoppy_cart;
 
 truncate table shoppy_cart;
 
-
+select count(*)  from shoppy_cart where id = 'test1';
 
 
 
