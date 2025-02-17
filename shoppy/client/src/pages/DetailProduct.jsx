@@ -64,14 +64,10 @@ export default function DetailProduct() {
             // console.log('formData',formData);
             
             console.log('detail',cartList); 
-            // 3-4. 
             const findItem = cartList && cartList.find(item => item.pid === product.pid
                 && item.size === size);
-                // some 함수를 쓰면 결과가 true,false 로 나온다 
-                // find 함수를 쓰면 결과가 해당하는 cartList의 요소가 나온다 => cid 도 나옴
                 
                 // async await 는 함수에만 쓸수잇다
-                //3-5. findItem이 없으면 undefined 가 나오기 때문에 이케 비교
                 if(findItem !== undefined){
                     console.log('수량업데이트');
                     //qty+1 로 업데이트 진행 => 얘는 cid 로 처리하는거임
