@@ -177,6 +177,9 @@ from shoppy_member as sm,
 	shoppy_product as sp
 where sm.id = sc.id and sc.pid = sp.pid;
 
+select *  from shoppy_cart;
+
+truncate table shoppy_cart;
 
 
 

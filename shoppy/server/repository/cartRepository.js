@@ -1,5 +1,4 @@
 import {db} from './db.js';
-
 // 장바구니 추가
 export const addCart = async({id,cartList}) => {
     let result_rows = 0;  
@@ -22,7 +21,7 @@ export const addCart = async({id,cartList}) => {
     // console.log({'result_rows':result_rows});
 }
 
-//ㄱ-5. 
+
 //장바구니 전체 조회
 export const getItems = async({id}) => {
     //ㄱ-6. 장바구니,고객,상품정보 테이블 다 조인하기
@@ -48,4 +47,17 @@ export const getItems = async({id}) => {
     const [result] = await  db.execute(sql,[id]);
 
     return result;
+}
+
+//1-2.
+// 장바구니 수량 조회
+export const getCount = async({id}) => {
+    const sql = `
+            select count(*) as count 
+                from shoppy_cart 
+                where id = ? ;
+                `;
+    const [result] = await db.execute(sql,[id]);
+
+    return result[0];
 }

@@ -6,14 +6,22 @@ import Products from './pages/Products.jsx';
 import Carts from './pages/Carts.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
-import CartDB from './pages/CartDB.jsx'; //ㄱ-2.
+import CartDB from './pages/CartDB.jsx'; 
 import DetailProduct from './pages/DetailProduct.jsx';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js'; 
 import NewProduct from './pages/NewProduct.jsx';
-import { cartProvider } from './context/cartContext.js'; //5.
+import { CartProvider } from './context/cartContext.js'; 
 
 export default function App() {
+
+
+
+
+
+
+
+  // 이전에 햇던 작업들ㄹ ////////////////////////////
   const [cartList,setCartList] = useState(()=>{
     try {
       const initCartList = localStorage.getItem('cartItems');
@@ -34,20 +42,15 @@ export default function App() {
     }    
   }); 
 
-  // 5-1. 카트에서 주문하기 눌러서 삭제한 로컬스토리지 재호출되면 => 카트리스트 카트카운트 업데이트 진행
-    const refreshStorage = (updateCart,updateCartCount) => { // 5-2. refreshStorage를 카트한테 넘겨주기  //8-4. 카트에서 넘긴 값들 받아오기
-      setCartList(updateCart);  //8-5. 
-      setCartCount(updateCartCount);  //8-5. 
+    const refreshStorage = (updateCart,updateCartCount) => { 
+      setCartList(updateCart);  
+      setCartCount(updateCartCount); 
     }
-
-
-
 
   useEffect(()=>{
     localStorage.setItem('cartItems',JSON.stringify(cartList)); 
   },[cartCount]);  
     
-
     const addMomCart = (cartItem) => {
       const isCheck = cartList.some(checkItem => checkItem.pid === cartItem.pid && 
                                 checkItem.size === cartItem.size);
@@ -62,18 +65,17 @@ export default function App() {
         updateCartList = [...cartList, cartItem];
         setCartCount(cartCount +1 );
       }
-      setCartList(updateCartList); //장바구니에 새로 추가한 순으로 상품이 들어가게 된다
+      setCartList(updateCartList); 
     }
 
 
     return (
     <div >
-      {/* 5.cartProvider 로 감싸면 감싸진애들이 카트프로바이더를 사용할수잇음 */}
-      <cartProvider>
+      <CartProvider>
       <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/'element={<Layout cartCount ={cartCount} />} >          
+          <Route path='/'element={<Layout />} >          
             <Route index element={<Home />} /> 
             <Route path='/all' element={<Products />} /> 
             <Route path='/cart' element={<Carts refreshStorage={refreshStorage}/>} /> 
@@ -86,7 +88,7 @@ export default function App() {
         </Routes>
       </BrowserRouter>
       </AuthProvider>
-      </cartProvider>
+      </CartProvider>
     </div>
   );
 }

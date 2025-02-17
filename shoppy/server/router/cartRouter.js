@@ -3,10 +3,10 @@ import * as controller from '../controller/cartController.js';
 
 const router = express.Router();
 
-router.post('/add',controller.addCart);
-router.post('/items',controller.getItems);   //ㄱ-3.
-
-
+router.post('/add',controller.addCart); 
+router.post('/items',controller.getItems);   
+//1-2.
+router.post('/count',controller.getCount);
 
 
 

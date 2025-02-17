@@ -9,10 +9,18 @@ export const addCart = async (req,res) => {
     res.end();
 }
 
-//ㄱ-4.
+
 //장바구니 전체 조회
 export const getItems = async(req,res) => {
     const result = await repository.getItems(req.body);  
+    res.json(result);
+    res.end();
+}
+
+//1-2.
+// 장바구니 수량 조회
+export const getCount = async(req,res) => {
+    const result = await repository.getCount(req.body);
     res.json(result);
     res.end();
 }
