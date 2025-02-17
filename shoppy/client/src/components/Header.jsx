@@ -9,7 +9,7 @@ import axios from 'axios';
 export default function Header() {
     const navigate = useNavigate(); 
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
-    const {cartCount,setCartCount} = useContext(CartContext); 
+    const {cartCount,setCartCount, cartList, setCartList} = useContext(CartContext); 
     //1. 로그아웃햇을때는 마이카트 숫자를 0 으로 만들고 로그인상태면 기존에 내가 추가했던 수량만큼 뜨게하고싶다
     // => useEffect 사용(isLoggedIn 값이 바뀔때마다 useEffect 안에 함수를 다시실행함) , 로그인상태에 따라 cartCount 값 변경 
     useEffect(()=>{
@@ -20,16 +20,28 @@ export default function Header() {
                 .post('http://localhost:9000/cart/count',{'id':id})
                 .then(res =>{
                     //1-3. count 잘 가져오는지 확인후 setCartCount 에 넣어주기 
-                    console.log('count',res.data.count);
+                    // console.log('count',res.data.count);
                     setCartCount(res.data.count);
 
                 })
-                .catch(error => console.log(error));    
+                .catch(error => console.log(error));   
+            
+            //3-1.
+            axios 
+            .post('http://localhost:9000/cart/items',{'id':id})
+            .then(res =>{
+                setCartList(res.data);
+            })
+            .catch(error => console.log(error));  
+
+
         }else{
             setCartCount(0);
         }
     },[isLoggedIn]);
-    
+
+    console.log('header-cartList',cartList); //3-2.
+    console.log('header - count',cartCount);
 
     const handleLoginToggle = () => {
         if(isLoggedIn){ 

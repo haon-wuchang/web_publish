@@ -23,7 +23,7 @@ export default function Carts() {
             axios 
                 .post('http://localhost:9000/cart/items',{'id':id})
                 .then(res =>{
-                    console.log('list',res.data);
+                    // console.log('list',res.data);
                     setCartList(res.data);
 
                 })

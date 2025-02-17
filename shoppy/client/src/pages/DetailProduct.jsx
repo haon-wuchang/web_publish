@@ -61,18 +61,50 @@ export default function DetailProduct() {
                 qty: 1,
             };
             const id = localStorage.getItem('user_id');
-            const formData = {id:id, cartList:[cartItem]};
             // console.log('formData',formData);
-            axios
-            .post('http://localhost:9000/cart/add',formData)
-            .then(res =>{
-                // console.log(res.data);
-                if(res.data.result_rows) {
-                    alert('장바구니에 추가되었습니다'); 
-                    setCartCount(cartCount+1)                     
-                }
-            })
-            .catch(error => console.log(error));           
+            
+            // 3. 쇼핑백담기 할때 기존장바구니에서 같은사이즈,같은상품이면 qty+1 진행할거임
+            //cartItem에 잇는 pid,size 를 cartList(로그인 성공 시 cartList 준비하기 )의 item 과 비교해서 있으면
+            // qty+1 진행하고 없으면 그냥 새로추가 
+            console.log('detail',cartList); // 3-3. Header 에서 추가한 cartList값을 받아오는지 확인 
+            // 3-4. 
+            const findItem = cartList && cartList.find(item => item.pid === product.pid
+                && item.size === size);
+                // some 함수를 쓰면 결과가 true,false 로 나온다 
+                // find 함수를 쓰면 결과가 해당하는 cartList의 요소가 나온다 => cid 도 나옴
+                
+                //3-5. findItem이 없으면 undefined 가 나오기 때문에 이케 비교
+                if(findItem !== undefined){
+                    console.log('수량업데이트');
+                    //qty+1 로 업데이트 진행 => 얘는 cid 로 처리하는거임
+                    //3-7. 업데이트 할 애 만들기 ( 업데이트는 put사용)
+                    axios  
+                    .put('http://localhost:9000/cart/updateQty',{'cid':findItem.cid})
+                    .then(res =>{
+                        // console.log(res.data);
+                        if(res.data.result_rows) {
+                            alert('장바구니에 추가되었습니다'); 
+                        }
+                    })
+                    .catch(error => console.log(error)); 
+                    
+                }else{
+                console.log('새로추가');
+                const formData = {id:id, cartList:[cartItem]}; //3-6 formData 는 새로추가일떄만 사용해서 여기스콥안에 넣어줌
+                axios  
+                .post('http://localhost:9000/cart/add',formData)
+                .then(res =>{
+                    // console.log(res.data);
+                    if(res.data.result_rows) {
+                        alert('장바구니에 추가되었습니다'); 
+                        setCartCount(cartCount+1)                     
+                    }
+                })
+                .catch(error => console.log(error));           
+                
+            }
+
+
 
         }else{ 
             const select = window.confirm('로그인 서비스가 필요합니다 \n 로그인 하시겠습니까');

@@ -183,7 +183,7 @@ truncate table shoppy_cart;
 
 select count(*)  from shoppy_cart where id = 'test1';
 
-
+-- 3. 장바구니담기 할때 기존장바구니에서 같은사이즈,같은상품이면 qty+1 진행할거임
 
 
 
