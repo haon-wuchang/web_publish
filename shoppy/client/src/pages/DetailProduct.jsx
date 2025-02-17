@@ -52,7 +52,7 @@ export default function DetailProduct() {
     // console.log('imgList',imgList); 
     
 
-    const addCartItem = () => {
+    const addCartItem = () => { 
         if(isLoggedIn){            
             //장바구니 추가 항목 : { pid, size, qty }
             const cartItem = {
@@ -63,16 +63,14 @@ export default function DetailProduct() {
             const id = localStorage.getItem('user_id');
             // console.log('formData',formData);
             
-            // 3. 쇼핑백담기 할때 기존장바구니에서 같은사이즈,같은상품이면 qty+1 진행할거임
-            //cartItem에 잇는 pid,size 를 cartList(로그인 성공 시 cartList 준비하기 )의 item 과 비교해서 있으면
-            // qty+1 진행하고 없으면 그냥 새로추가 
-            console.log('detail',cartList); // 3-3. Header 에서 추가한 cartList값을 받아오는지 확인 
+            console.log('detail',cartList); 
             // 3-4. 
             const findItem = cartList && cartList.find(item => item.pid === product.pid
                 && item.size === size);
                 // some 함수를 쓰면 결과가 true,false 로 나온다 
                 // find 함수를 쓰면 결과가 해당하는 cartList의 요소가 나온다 => cid 도 나옴
                 
+                // async await 는 함수에만 쓸수잇다
                 //3-5. findItem이 없으면 undefined 가 나오기 때문에 이케 비교
                 if(findItem !== undefined){
                     console.log('수량업데이트');
@@ -82,8 +80,15 @@ export default function DetailProduct() {
                     .put('http://localhost:9000/cart/updateQty',{'cid':findItem.cid})
                     .then(res =>{
                         // console.log(res.data);
+                        //3-9.
                         if(res.data.result_rows) {
                             alert('장바구니에 추가되었습니다'); 
+                            //ㄱ.
+                            const updateCartList = cartList.map((item)=>
+                                (item.cid === findItem.cid) ? {...item, pty : item.qty+1} : item                                                                 
+                        );
+                        setCartList(updateCartList); //ㄱ-1.
+                        // ㄴ. 둘다 비동기라서 누가 먼저 처리될지모르니까 자꾸 같은데이터가 추가됨(수량안늘어나); 그래서 커스텀훅을 사용해서 비동기로 만들어줘야한다
                         }
                     })
                     .catch(error => console.log(error)); 
@@ -97,7 +102,9 @@ export default function DetailProduct() {
                     // console.log(res.data);
                     if(res.data.result_rows) {
                         alert('장바구니에 추가되었습니다'); 
-                        setCartCount(cartCount+1)                     
+                        setCartCount(cartCount+1);
+                        //ㄷ . 엄..??
+                        setCartList([...cartList,cartItem]);                
                     }
                 })
                 .catch(error => console.log(error));           

@@ -17,7 +17,7 @@ export const getItems = async(req,res) => {
     res.end();
 }
 
-//1-2.
+
 // 장바구니 수량 조회
 export const getCount = async(req,res) => {
     const result = await repository.getCount(req.body);

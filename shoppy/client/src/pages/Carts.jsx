@@ -7,18 +7,12 @@ import axios from "axios";
 
 export default function Carts() {
     const navigate = useNavigate();
-//2. 마이카트페이지 클릭시 로그인 체크하고
-    // 로그인이면 db 에 저장된 상품들 가져와서 보여주기
-    // 로그아웃이면 로그인필요한 서비스입니다. 하고 로그인페이지로 연동
 
-    //2-1. 로그인정보, 카트리스트 정보 가져오기
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
     const {cartList,setCartList}= useContext(CartContext);
 
-    //2-2.
     useEffect(()=>{
         if(isLoggedIn){
-            //2-3. db 가서 로그인 아이디의 장바구니 아이템 가져오기
             const id = localStorage.getItem('user_id');
             axios 
                 .post('http://localhost:9000/cart/items',{'id':id})
@@ -38,7 +32,6 @@ export default function Carts() {
     },[isLoggedIn]);
 
     // console.log('cartList',cartList);
-    //2-4. 콘솔로 찍고 잘 가져오면 jsx 수정하기 
 
     return (
         <div className="cart-container">
@@ -55,7 +48,7 @@ export default function Carts() {
                             <button >
                             -
                             </button>
-                            <input type="text" value="1" readOnly />
+                            <input type="text" value={item.qty} readOnly />
                             <button >
                             +
                             </button>
