@@ -12,22 +12,15 @@ export function useCart(){
         //b-1. db 연동해서 가져온 값을 넣어준다        
         setCartList(result.data);// useContext 에 있는 애들의 값이 업데이트되면 useContext 에 연결된 애들전부(헤더나 카트 컴포넌트 등) 값 업데이트가 된다
     }
-
-    // 함수 생성해서 비동기 로직과 useContext 가 관리하는 변수는 await async 를 통해 순서를 보장하도록 만들기
-    //a-1.장바구니에 새로운 아이템 저장 함수 생성
-    const saveToCartList = async(formData) => { //a-5. 파라미터로 받아오기 
-        // a-6. 로직작성 ( 순서맞춰서 진행되도록 await 붙임)
-        const result = await axios.post('http://localhost:9000/cart/add',formData);// a-7. 디비까지 갓다온 결과 => {'result_rows':result_rows}        
+    const saveToCartList = async(formData) => { 
+        const result = await axios.post('http://localhost:9000/cart/add',formData);
+        // // a-7. 디비까지 갓다온 결과 => {'result_rows':result_rows}        
         if(result.data.result_rows){
             setCartCount(cartCount+1);  
             getCartList();
         }
-        return result.data.result_rows; // return해서 detailProduct 에서 result_rows값 받을수잇게함
-        
-        
-        
+        return result.data.result_rows; // return해서 detailProduct 에서 result_rows값 받을수잇게함         
     }
-    //a-2.장바구니 아이템 수량 업데이트 함수 생성
     const updateCartList = async(cid) => {
         //c.
         const result = await axios.put('http://localhost:9000/cart/updateQty',{'cid':cid})
@@ -36,7 +29,7 @@ export function useCart(){
     }
     
     // 이케 만든 함수를 다른곳에서도 사용할거기때문에 return {생성한함수,...};
-    return {saveToCartList, updateCartList};  // reurn 안하면 다른곳에서 절대못쓴당
+    return {saveToCartList, updateCartList,getCartList};  // reurn 안하면 다른곳에서 절대못쓴당
 }
 
 

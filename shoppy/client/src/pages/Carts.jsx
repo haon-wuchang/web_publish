@@ -4,22 +4,18 @@ import { AuthContext } from "../auth/AuthContext";
 import { CartContext } from "../context/cartContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useCart } from "../hooks/useCart.js"; //ㄱ.
 
 export default function Carts() {
+    const {getCartList} = useCart(); //ㄱ.
     const navigate = useNavigate();
     const {isLoggedIn} = useContext(AuthContext);
     const {cartList,setCartList}= useContext(CartContext);
 
     useEffect(()=>{
         if(isLoggedIn){
-            const id = localStorage.getItem('user_id');
-            axios 
-                .post('http://localhost:9000/cart/items',{'id':id})
-                .then(res =>{
-                    setCartList(res.data);
-
-                })
-                .catch(error => console.log(error));    
+            //ㄴ. axios 지우고 커스텀 훅파일에서 사용할 함수가져오기
+            getCartList();
         }else{
             const select = window.confirm('로그인 서비스가 필요합니다 \n 로그인 하시겠습니까');
             if(select){

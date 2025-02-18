@@ -11,11 +11,10 @@ import { CartContext } from "../context/cartContext.js";
 import { useContext } from "react"; 
 import { AuthContext } from "../auth/AuthContext.js"; 
 import { useNavigate } from "react-router-dom";
-import {useCart} from '../hooks/useCart.js'; //a-3. 사용할 커스텀훅함수 임포트
+import {useCart} from '../hooks/useCart.js';
 
-//2/18 수업
 export default function DetailProduct() {
-    const {saveToCartList,updateCartList} = useCart(); //a-3. 사용할 커스텀훅함수 임포트
+    const {saveToCartList,updateCartList} = useCart(); 
     const navigate = useNavigate();
     const {cartList} = useContext(CartContext);
     const {isLoggedIn} = useContext(AuthContext);
@@ -73,7 +72,7 @@ export default function DetailProduct() {
                     console.log('새로추가');
                     const id = localStorage.getItem('user_id');
                     const formData = {id:id, cartList:[cartItem]};
-                    const result = saveToCartList(formData); //a-4. db연동할 데이터인 formdata 받아온다       
+                    const result = saveToCartList(formData);       
                     result && alert('장바구니에 추가되었습니다'); //e.
             }
         }else{ 
