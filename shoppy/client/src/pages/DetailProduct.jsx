@@ -66,7 +66,7 @@ export default function DetailProduct() {
                 && item.size === size);
                 if(findItem !== undefined){
                     console.log('수량업데이트'); 
-                    const result = updateCartList(findItem.cid); //c.
+                    const result = updateCartList(findItem.cid, 'increase');   //12. type 추가해주기
                     result && alert('수량이 변경되었습니다'); //e-1.
                 }else{
                     console.log('새로추가');

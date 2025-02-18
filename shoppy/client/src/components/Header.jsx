@@ -4,39 +4,20 @@ import { AuthContext } from "../auth/AuthContext.js";
 import {useContext, useEffect} from 'react'; 
 import {useNavigate} from 'react-router-dom'; 
 import { CartContext } from '../context/cartContext.js';
-import axios from 'axios';
+import {useCart} from '../hooks/useCart.js'; //1-1.
+// 오후수업 header 도 바꿔주기
 
 export default function Header() {
+    const {getCount,setCount} = useCart(); //1-1.
     const navigate = useNavigate(); 
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
-    const {cartCount,setCartCount, cartList, setCartList} = useContext(CartContext); 
+    const {cartCount} = useContext(CartContext); 
 
     useEffect(()=>{
-        if(isLoggedIn){
-            const id = localStorage.getItem('user_id');
-            axios 
-                .post('http://localhost:9000/cart/count',{'id':id})
-                .then(res =>{
-                    // console.log('count',res.data.count);
-                    setCartCount(res.data.count);
-
-                })
-                .catch(error => console.log(error));   
-            
-            axios 
-            .post('http://localhost:9000/cart/items',{'id':id})
-            .then(res =>{
-                setCartList(res.data);
-            })
-            .catch(error => console.log(error));  
-
-        }else{
-            setCartCount(0);
-        }
+        (isLoggedIn) ? getCount() : setCount(0);  //1-3.                   
     },[isLoggedIn]);
-
-    console.log('header-cartList',cartList); 
-    console.log('header - count',cartCount);
+    // console.log('header-cartList',cartList); 
+    // console.log('header - count',cartCount);
 
     const handleLoginToggle = () => {
         if(isLoggedIn){ 

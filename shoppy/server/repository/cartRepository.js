@@ -63,15 +63,20 @@ export const getCount = async({id}) => {
 
 // 3-8.
 // 장바구니 같은상품,같은사이즈인 경우 수량 업데이트 
-export const updateQty = async({cid}) => {
-    // console.log('cid',cid);
+export const updateQty = async({cid,type}) => { //11-4. type 받아오기
+    console.log('cid',cid, 'type',type); // 11-5. 콘솔에 잘나오는지 우선 확인 
+    // 11-6. 삼항만들고 이거 sql 에 수정해서 넣기
+    const str = (type === 'increase') ? qty = qty +1 : qty = qty -1  ;
     
-    const sql = `
-        update shoppy_cart 
-            set qty = qty + 1
-            where cid = ?
-                `
-    const [result] = await db.execute(sql,[cid]);
+//     const sql = `
+//         update shoppy_cart 
+//             set ${str}
+//             where cid = ?
+//                 `;
+//     const [result] = await db.execute(sql,[cid]);
 
-    return {'result_rows' : result.affectedRows};
+//     return {'result_rows' : result.affectedRows};
 }
+
+
+
