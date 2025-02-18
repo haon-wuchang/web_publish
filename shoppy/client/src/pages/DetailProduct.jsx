@@ -17,8 +17,8 @@ import {useCart} from '../hooks/useCart.js'; //a-3. 사용할 커스텀훅함수
 export default function DetailProduct() {
     const {saveToCartList,updateCartList} = useCart(); //a-3. 사용할 커스텀훅함수 임포트
     const navigate = useNavigate();
-    const {cartList,setCartList , cartCount,setCartCount} = useContext(CartContext);
-    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
+    const {cartList} = useContext(CartContext);
+    const {isLoggedIn} = useContext(AuthContext);
 
     const tabList = [
         {'name': 'DETAIL'},
@@ -47,7 +47,7 @@ export default function DetailProduct() {
             .then((res) => {
                 console.log('res===>',res.data);               
                 setProduct(res.data);                 
-                setImgList(res.data.imgList); 
+                setImgList(res.data.imgList); // 얘네는 여기서만 선언해서 쓰고 다른데서 공유를 안하니까 걍 이케써도됨
                 setDetailImgList(res.data.detailImgList); 
                 })            
             .catch((error) => console.log(error));

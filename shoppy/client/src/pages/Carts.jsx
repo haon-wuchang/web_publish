@@ -7,8 +7,7 @@ import axios from "axios";
 
 export default function Carts() {
     const navigate = useNavigate();
-
-    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
+    const {isLoggedIn} = useContext(AuthContext);
     const {cartList,setCartList}= useContext(CartContext);
 
     useEffect(()=>{

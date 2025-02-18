@@ -10,7 +10,7 @@ export function useCart(){
         const id = localStorage.getItem('user_id');
         const result = await axios.post('http://localhost:9000/cart/items',{'id':id});
         //b-1. db 연동해서 가져온 값을 넣어준다        
-        setCartList(result.data);// 여기서 값 업데이트되면 useContext 에 연결된 애들전부(헤더나 카트 컴포넌트 등) 값 업데이트가 된다
+        setCartList(result.data);// useContext 에 있는 애들의 값이 업데이트되면 useContext 에 연결된 애들전부(헤더나 카트 컴포넌트 등) 값 업데이트가 된다
     }
 
     // 함수 생성해서 비동기 로직과 useContext 가 관리하는 변수는 await async 를 통해 순서를 보장하도록 만들기
@@ -31,7 +31,7 @@ export function useCart(){
     const updateCartList = async(cid) => {
         //c.
         const result = await axios.put('http://localhost:9000/cart/updateQty',{'cid':cid})
-        result.data.result_rows && getCartList(); // 1은 true 라서 ===1 안적어도됨
+        result.data.result_rows && getCartList(); // 1은 true 라서 result.data.result_rows ===1 안적어도됨
         return result.data.result_rows;           
     }
     
