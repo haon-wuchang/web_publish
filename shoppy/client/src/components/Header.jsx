@@ -4,17 +4,16 @@ import { AuthContext } from "../auth/AuthContext.js";
 import {useContext, useEffect} from 'react'; 
 import {useNavigate} from 'react-router-dom'; 
 import { CartContext } from '../context/cartContext.js';
-import {useCart} from '../hooks/useCart.js'; //1-1.
-// 오후수업 header 도 바꿔주기
+import {useCart} from '../hooks/useCart.js'; 
 
 export default function Header() {
-    const {getCount,setCount} = useCart(); //1-1.
+    const {getCount,setCount} = useCart();
     const navigate = useNavigate(); 
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
     const {cartCount} = useContext(CartContext); 
 
     useEffect(()=>{
-        (isLoggedIn) ? getCount() : setCount(0);  //1-3.                   
+        (isLoggedIn) ? getCount() : setCount(0);                  
     },[isLoggedIn]);
     // console.log('header-cartList',cartList); 
     // console.log('header - count',cartCount);

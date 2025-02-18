@@ -66,14 +66,14 @@ export default function DetailProduct() {
                 && item.size === size);
                 if(findItem !== undefined){
                     console.log('수량업데이트'); 
-                    const result = updateCartList(findItem.cid, 'increase');   //12. type 추가해주기
-                    result && alert('수량이 변경되었습니다'); //e-1.
+                    const result = updateCartList(findItem.cid, 'increase');  
+                    result && alert('수량이 변경되었습니다');
                 }else{
                     console.log('새로추가');
                     const id = localStorage.getItem('user_id');
                     const formData = {id:id, cartList:[cartItem]};
                     const result = saveToCartList(formData);       
-                    result && alert('장바구니에 추가되었습니다'); //e.
+                    result && alert('장바구니에 추가되었습니다'); 
             }
         }else{ 
             const select = window.confirm('로그인 서비스가 필요합니다 \n 로그인 하시겠습니까');

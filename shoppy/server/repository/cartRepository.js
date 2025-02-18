@@ -66,17 +66,25 @@ export const getCount = async({id}) => {
 export const updateQty = async({cid,type}) => { //11-4. type 받아오기
     console.log('cid',cid, 'type',type); // 11-5. 콘솔에 잘나오는지 우선 확인 
     // 11-6. 삼항만들고 이거 sql 에 수정해서 넣기
-    const str = (type === 'increase') ? qty = qty +1 : qty = qty -1  ;
+    const str = (type === 'increase') ? 'qty = qty +1' : 'qty = qty -1'  ;
     
-//     const sql = `
-//         update shoppy_cart 
-//             set ${str}
-//             where cid = ?
-//                 `;
-//     const [result] = await db.execute(sql,[cid]);
+    const sql = `
+                update shoppy_cart 
+                    set ${str}
+                    where cid = ?
+                `;
+    const [result] = await db.execute(sql,[cid]);
 
-//     return {'result_rows' : result.affectedRows};
+    return {'result_rows' : result.affectedRows};
 }
 
 
-
+//장바구니 해당 상품 삭제 (선택해서 여러개 삭제할때는 where in (?,?,?,,,,, 이케하면댐))
+export const deleteItem = async({cid}) => {
+    const sql = `
+                delete from shoppy_cart  
+                    where cid = ?
+                `;
+    const [result] = await db.execute(sql,[cid]);
+    return {'result_rows' : result.affectedRows};
+}

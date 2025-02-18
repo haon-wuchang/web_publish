@@ -6,8 +6,8 @@ const router = express.Router();
 router.post('/add',controller.addCart); 
 router.post('/items',controller.getItems);   
 router.post('/count',controller.getCount);
-//3-8.
 router.put('/updateQty',controller.updateQty);
+router.delete('/deleteItem',controller.deleteItem); 
 
 
 export default router;
