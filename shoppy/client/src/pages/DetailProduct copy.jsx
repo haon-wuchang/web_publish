@@ -11,7 +11,8 @@ import { CartContext } from "../context/cartContext.js";
 import { useContext } from "react"; 
 import { AuthContext } from "../auth/AuthContext.js"; 
 import { useNavigate } from "react-router-dom";
-//2/18 수업
+// 2/17 수업임 아직 정리 덜함 ㅣㅣ
+
 export default function DetailProduct() {
     const navigate = useNavigate();
     const {cartList,setCartList , cartCount,setCartCount} = useContext(CartContext);
@@ -24,7 +25,7 @@ export default function DetailProduct() {
         {'name': 'RETURN & DELIVERY'}
     ];
 
-    const { pid } = useParams();  
+    const { pid } = useParams();  // url 통해서 넘어온느거닌 다 get 방식이야
     const [product, setProduct] = useState({});
     const [size, setSize] = useState("XS"); 
     const [category, setCategory] = useState('Q&A');
@@ -32,7 +33,7 @@ export default function DetailProduct() {
 
     const [imgList,setImgList]=useState([]); 
     const [detailImgList, setDetailImgList] = useState([]); 
-
+    // detailImgList 를 상품상세페이지 디테일탭컴포넌트에 보내기
     const handleChangeSelect = (name) => {
         setSelect(name);
         setCategory(name);
@@ -61,29 +62,38 @@ export default function DetailProduct() {
                 qty: 1,
             };
             const id = localStorage.getItem('user_id');
+            // console.log('formData',formData);
+            
+            console.log('detail',cartList); 
             const findItem = cartList && cartList.find(item => item.pid === product.pid
                 && item.size === size);
+                
+                // async await 는 함수에만 쓸수잇다
                 if(findItem !== undefined){
-                    console.log('수량업데이트'); 
-
+                    console.log('수량업데이트');
+                    //qty+1 로 업데이트 진행 => 얘는 cid 로 처리하는거임
+                    //3-7. 업데이트 할 애 만들기 ( 업데이트는 put사용)
                     axios  
                     .put('http://localhost:9000/cart/updateQty',{'cid':findItem.cid})
                     .then(res =>{
                         // console.log(res.data);
+                        //3-9.
                         if(res.data.result_rows) {
                             alert('장바구니에 추가되었습니다'); 
+                            // ㄴ-1.db 연동해서 cartList 를 재호출해야한다 (axios 먼저 실행하도록하고 그다음에 setCartList 에 넣어줘야한다)
+                            //ㄱ.
                             const updateCartList = cartList.map((item)=>
                                 (item.cid === findItem.cid) ? {...item, pty : item.qty+1} : item                                                                 
                         );
-                        setCartList(updateCartList); 
+                        setCartList(updateCartList); //ㄱ-1.
+                        // ㄴ. 둘다(axios 랑 setCartList에 updateCartList ) 비동기라서 누가 먼저 처리될지모르니까 자꾸 같은데이터가 추가됨(수량안늘어나); 그래서 커스텀훅을 사용해서 비동기로 만들어줘야한다
                         }
                     })
                     .catch(error => console.log(error)); 
                     
                 }else{
                 console.log('새로추가');
-                const formData = {id:id, cartList:[cartItem]};
-
+                const formData = {id:id, cartList:[cartItem]}; //3-6 formData 는 새로추가일떄만 사용해서 여기스콥안에 넣어줌
                 axios  
                 .post('http://localhost:9000/cart/add',formData)
                 .then(res =>{
@@ -94,7 +104,6 @@ export default function DetailProduct() {
                         setCartList([...cartList,cartItem]);                
                     }
                 })
-
                 .catch(error => console.log(error));           
                 
             }

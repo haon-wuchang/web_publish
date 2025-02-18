@@ -17,21 +17,17 @@ export default function Carts() {
             axios 
                 .post('http://localhost:9000/cart/items',{'id':id})
                 .then(res =>{
-                    // console.log('list',res.data);
                     setCartList(res.data);
 
                 })
                 .catch(error => console.log(error));    
         }else{
-            // setCartList([]);
             const select = window.confirm('로그인 서비스가 필요합니다 \n 로그인 하시겠습니까');
             if(select){
                 navigate('/login'); 
             }  
         }
     },[isLoggedIn]);
-
-    // console.log('cartList',cartList);
 
     return (
         <div className="cart-container">
