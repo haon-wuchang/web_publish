@@ -11,8 +11,11 @@ import { CartContext } from "../context/cartContext.js";
 import { useContext } from "react"; 
 import { AuthContext } from "../auth/AuthContext.js"; 
 import { useNavigate } from "react-router-dom";
+import {useCart} from '../hooks/useCart.js'; //a-3. 사용할 커스텀훅함수 임포트
+
 //2/18 수업
 export default function DetailProduct() {
+    const {saveToCartList,updateCartList} = useCart(); //a-3. 사용할 커스텀훅함수 임포트
     const navigate = useNavigate();
     const {cartList,setCartList , cartCount,setCartCount} = useContext(CartContext);
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
@@ -60,47 +63,19 @@ export default function DetailProduct() {
                 size: size,
                 qty: 1,
             };
-            const id = localStorage.getItem('user_id');
             const findItem = cartList && cartList.find(item => item.pid === product.pid
                 && item.size === size);
                 if(findItem !== undefined){
                     console.log('수량업데이트'); 
-
-                    axios  
-                    .put('http://localhost:9000/cart/updateQty',{'cid':findItem.cid})
-                    .then(res =>{
-                        // console.log(res.data);
-                        if(res.data.result_rows) {
-                            alert('장바구니에 추가되었습니다'); 
-                            const updateCartList = cartList.map((item)=>
-                                (item.cid === findItem.cid) ? {...item, pty : item.qty+1} : item                                                                 
-                        );
-                        setCartList(updateCartList); 
-                        }
-                    })
-                    .catch(error => console.log(error)); 
-                    
+                    const result = updateCartList(findItem.cid); //c.
+                    result && alert('수량이 변경되었습니다'); //e-1.
                 }else{
-                console.log('새로추가');
-                const formData = {id:id, cartList:[cartItem]};
-
-                axios  
-                .post('http://localhost:9000/cart/add',formData)
-                .then(res =>{
-                    // console.log(res.data);
-                    if(res.data.result_rows) {
-                        alert('장바구니에 추가되었습니다'); 
-                        setCartCount(cartCount+1);
-                        setCartList([...cartList,cartItem]);                
-                    }
-                })
-
-                .catch(error => console.log(error));           
-                
+                    console.log('새로추가');
+                    const id = localStorage.getItem('user_id');
+                    const formData = {id:id, cartList:[cartItem]};
+                    const result = saveToCartList(formData); //a-4. db연동할 데이터인 formdata 받아온다       
+                    result && alert('장바구니에 추가되었습니다'); //e.
             }
-
-
-
         }else{ 
             const select = window.confirm('로그인 서비스가 필요합니다 \n 로그인 하시겠습니까');
             if(select){
