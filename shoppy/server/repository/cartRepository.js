@@ -64,7 +64,7 @@ export const getCount = async({id}) => {
 // 3-8.
 // 장바구니 같은상품,같은사이즈인 경우 수량 업데이트 
 export const updateQty = async({cid}) => {
-    console.log('cid',cid);
+    // console.log('cid',cid);
     
     const sql = `
         update shoppy_cart 

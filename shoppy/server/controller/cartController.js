@@ -28,7 +28,6 @@ export const getCount = async(req,res) => {
 //3-8.
 // 장바구니 같은상품,같은사이즈인 경우 수량 업데이트 
 export const updateQty = async(req,res) => {
-    
     const result = await repository.updateQty(req.body);
     res.json(result);
     res.end();

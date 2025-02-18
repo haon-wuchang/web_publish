@@ -29,8 +29,6 @@ export function useCart(){
     }
     //a-2.장바구니 아이템 수량 업데이트 함수 생성
     const updateCartList = async(cid) => {
-        console.log('cid',cid);
-        
         //c.
         const result = await axios.put('http://localhost:9000/cart/updateQty',{'cid':cid})
         result.data.result_rows && getCartList(); // 1은 true 라서 ===1 안적어도됨
