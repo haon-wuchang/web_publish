@@ -205,7 +205,7 @@ select
 from shoppy_member as sm,  
 	shoppy_cart as sc , 
 	shoppy_product as sp
-where sm.id = sc.id and sc.pid = sp.pid;
+where sm.id = sc.id and sc.pid = sp.pid and sm.id = '';
 
 
 

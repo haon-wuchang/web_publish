@@ -1,15 +1,27 @@
 import React, { useState } from "react";
-
 import DaumPostcode from "react-daum-postcode";
-
 import "../styles/cart.css";
 import "../styles/checkoutinfo.css";
+import { useEffect } from "react";
+import { AuthContext } from "../auth/AuthContext.js";
+import { useContext } from "react";
+import { useOrder } from "../hooks/useOrder.js";
+// 함수만들떄 default 붙이면 다른데서 임포트해올때 {} 없이 그냥 쓰고 default 없으면 { 안에 함수명} 이케 해야함
 
 // 1. 주문서에서 불러올 데이터 : 회원정보, 장바구니 템 , 총금액 
-
+// 1-1.order컨텍스트 새로만들고, App.js 에도 추가 , 커스텀훅만들기 ( 컨텍스트만들면 짝꿍처럼 커스텀훅도 만든다)
 export default function CheckoutInfo() {
-    // 1-1.order컨텍스트 새로만들고, App.js 에도 추가 , 커스텀훅만들기 
+    //1-6.  사용할거 임포트하기 => 얘는 로그인 상태에서만 보여야하니까 authContext 임포트하기 
+    const {getOrderList} = useOrder();
+    const {isLoggedIn} = useContext(AuthContext); //1-7.
+    // 1-8. 로그인상태에서만 주문서보이게 작업 
+    useEffect(()=>{
+        if(isLoggedIn) getOrderList();
+    },[isLoggedIn]);
 
+
+
+    
 
 /** 주소검색 버튼Toggle */
 const [isOpen, setIsOpen] = useState(false);

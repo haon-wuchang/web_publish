@@ -4,6 +4,7 @@ import memberRouter from './router/memberRouter.js';
 import uploadRouter from './router/uploadRouter.js';
 import productRouter from './router/productRouter.js';
 import cartRouter from './router/cartRouter.js';
+import orderRouter from './router/orderRouter.js';
 import path from 'path'; 
 
 const server = express();
@@ -23,7 +24,8 @@ server.use('/upload_files',express.static(path.join('upload_files'))); // => 이
 server.use('/member',memberRouter);
 server.use('/uploads',uploadRouter);
 server.use('/product',productRouter);  
-server.use('/cart',cartRouter); 
+server.use('/cart',cartRouter);
+server.use('/order',orderRouter); 
 
 server.listen(port,()=>{
     console.log('서버실행ㅈ유ㅠ');
