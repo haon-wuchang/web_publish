@@ -179,7 +179,7 @@ where sm.id = sc.id and sc.pid = sp.pid;
 
 select *  from shoppy_cart;
 
-truncate table shoppy_cart;
+-- truncate table shoppy_cart;
 
 select count(*)  from shoppy_cart where id = 'test1';
 
