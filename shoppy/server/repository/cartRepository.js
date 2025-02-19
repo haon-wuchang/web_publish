@@ -26,22 +26,7 @@ export const addCart = async({id,cartList}) => {
 export const getItems = async({id}) => {
     //ㄱ-6. 장바구니,고객,상품정보 테이블 다 조인하기
     const sql = `
-            select sc.cid,	
-                    sc.size,
-                    sc.qty,
-                    sm.id,
-                    sm.zipcode,
-                    sm.address,
-                    sp.pid,
-                    sp.pname,
-                    sp.price,
-                    sp.description as info,
-                    concat('http://localhost:9000/',sp.upload_file->>'$[0]') as image
-                from shoppy_member as sm, 
-                    shoppy_cart as sc , 
-                    shoppy_product as sp
-                where sm.id = sc.id and sc.pid = sp.pid
-                        and sm.id = ?
+                select * from view_cartList where id = ?
                 `;
     //ㄴ. ? 에 로컬스토리지의 user_id 넘겨주기 =>카트에서 로컬스토리지꺼 가져와서 서버로 넘기기
     const [result] = await  db.execute(sql,[id]);

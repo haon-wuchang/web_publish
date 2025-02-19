@@ -55,7 +55,7 @@ export function useCart(){
     
     // 이케 만든 함수를 다른곳에서도 사용할거기때문에 return {생성한함수,...};
     return {saveToCartList, updateCartList,getCartList,
-        getCount,setCount,deleteCartItems};  // reurn 안하면 다른곳에서 절대못쓴당
+        getCount,setCount,deleteCartItems,calculateTotalPrice};  // reurn 안하면 다른곳에서 절대못쓴당
 }
 
 

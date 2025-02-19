@@ -5,6 +5,8 @@ import "../styles/checkoutinfo.css";
 import { useEffect } from "react";
 import { AuthContext } from "../auth/AuthContext.js";
 import { useContext } from "react";
+import { OrderContext } from "../context/OrderContext.js";
+import { CartContext } from "../context/cartContext.js";
 import { useOrder } from "../hooks/useOrder.js";
 // 함수만들떄 default 붙이면 다른데서 임포트해올때 {} 없이 그냥 쓰고 default 없으면 { 안에 함수명} 이케 해야함
 
@@ -12,16 +14,24 @@ import { useOrder } from "../hooks/useOrder.js";
 // 1-1.order컨텍스트 새로만들고, App.js 에도 추가 , 커스텀훅만들기 ( 컨텍스트만들면 짝꿍처럼 커스텀훅도 만든다)
 export default function CheckoutInfo() {
     //1-6.  사용할거 임포트하기 => 얘는 로그인 상태에서만 보여야하니까 authContext 임포트하기 
-    const {getOrderList} = useOrder();
     const {isLoggedIn} = useContext(AuthContext); //1-7.
+    const {getOrderList} = useOrder();
+    const{ totalPrice} = useContext(CartContext);  //5. 총금액 가져와서 추가 (새로고침하면 값 못가져와서 useOrder에서 useCart 에잇는 caalculate어쩌구 를 가져온다)
+    //3-1. db 에서 받아온 정보를 화면에 뿌리기 위한 orderList 임포트하기
+    const {orderList,member,setMember} = useContext(OrderContext); //3-1.
+    // const [member,setMember] = useState({}); //3-1. 회원정보 가져오기 위한 변수
     // 1-8. 로그인상태에서만 주문서보이게 작업 
     useEffect(()=>{
-        if(isLoggedIn) getOrderList();
+        if(isLoggedIn) {
+            getOrderList();     
+            // setMember(orderList[0]);  
+        // 4. 오더리스트는 전역에 잇고 멤버는 로컬에 잇어서 새로고침 누르면 데이터를 못가져와서 에러가 뜰수잇다
+        // 그래서 멤버를 오더 컨텍스트에서 만드는걸로 한다 
+        }
     },[isLoggedIn]);
 
-
-
-    
+// console.log('orderlist',orderList);
+// console.log('member',member); 
 
 /** 주소검색 버튼Toggle */
 const [isOpen, setIsOpen] = useState(false);
@@ -32,32 +42,32 @@ const handleToggle = () => {
 };
 
 //---- DaumPostcode 관련 디자인 및 이벤트 시작 ----//
-const themeObj = {
-    bgColor: "#FFFFFF",
-    pageBgColor: "#FFFFFF",
-    postcodeTextColor: "#C05850",
-    emphTextColor: "#222222",
-};
+    const themeObj = {
+        bgColor: "#FFFFFF",
+        pageBgColor: "#FFFFFF",
+        postcodeTextColor: "#C05850",
+        emphTextColor: "#222222",
+    };
 
-const postCodeStyle = {
-    width: "360px",
-    height: "480px",
-};
+    const postCodeStyle = {
+        width: "360px",
+        height: "480px",
+    };
 
-const completeHandler = (data) => {
-    const { address, zonecode } = data;
-    // handleAddress({ zipcode: zonecode, address: address });
-};
+    const completeHandler = (data) => {
+        const { address, zonecode } = data;
+        // handleAddress({ zipcode: zonecode, address: address });
+    };
 
-const closeHandler = (state) => {
-    if (state === "FORCE_CLOSE") {
-    setIsOpen(false);
-    } else if (state === "COMPLETE_CLOSE") {
-    setIsOpen(false);
-    // refs.detailAddressRef.current.value = "";
-    // refs.detailAddressRef.current.focus();
-    }
-};
+    const closeHandler = (state) => {
+        if (state === "FORCE_CLOSE") {
+        setIsOpen(false);
+        } else if (state === "COMPLETE_CLOSE") {
+        setIsOpen(false);
+        // refs.detailAddressRef.current.value = "";
+        // refs.detailAddressRef.current.focus();
+        }
+    };
 //---- DaumPostcode 관련 디자인 및 이벤트 종료 ----//
 
 return (
@@ -69,14 +79,14 @@ return (
         <div className="info-box">
         <div className="info-grid">
             <div className="label">이름</div>
-            <div className="value">홍길동</div>
+            <div className="value">{member.name}</div>
 
             <div className="label">이메일</div>
-            <div className="value">hong1234@naver.com</div>
+            <div className="value">{member.email}</div>
 
             <div className="label">휴대폰 번호</div>
             <div className="value phone-input">
-            <input type="text" defaultValue="010-1234-5678" />
+            <input type="text" defaultValue={member.phone} />
             <button className="btn">수정</button>
             </div>
         </div>
@@ -91,13 +101,16 @@ return (
         <div className="info-box">
         <div className="info-grid">
             <div className="label">이름</div>
-            <div className="value">홍길동</div>
+            <div className="value">{member.name}</div>
 
             <div className="label">배송주소</div>
-            <div className="value">서울시 강남구 123</div>
+            {member.zipcode ? 
+                <div className="value">{member.zipcode}/{member.address}</div>
+               : <div className="value">배송지를 추가해주세요</div>
+            }
 
             <div className="label">연락처</div>
-            <div className="value">010 - 1234 - 5678 / 010 - 9919 - 1234</div>
+            <div className="value">{member.phone} / 010 - 9919 - 1234</div>
 
             <div className="label">배송 요청사항</div>
             <div className="value phone-input">
@@ -110,11 +123,11 @@ return (
     {isOpen && (
         <div>
         <DaumPostcode
-            className="postmodal"
-            theme={themeObj}
-            style={postCodeStyle}
-            onComplete={completeHandler}
-            onClose={closeHandler}
+        className="postmodal"
+        theme={themeObj}
+        style={postCodeStyle}
+        onComplete={completeHandler}  //주소 검색해서 선택할때임
+        onClose={closeHandler}
         />
         </div>
     )}
@@ -122,26 +135,23 @@ return (
     {/* 주문 정보 */}
     <div className="section">
         <h2 className="section-title">주문 상품</h2>
+        {orderList.map((item)=>
         <div className="info-box">
         <div className="info-grid">
-            <div className="label">상품명</div>
-            <div className="value">니트</div>
-
-            <div className="label">가격</div>
-            <div className="value">10,000원</div>
-
-            <div className="label">이미지</div>
-            <div className="value">옷</div>
+            <div className="value">
+                <img src={item.image} alt="" style={{width: '100px'}}/>
+                {item.pname}/{item.qty}/{item.price}
+            </div>
         </div>
         </div>
+        )}
     </div>
-
     <div class="section">
         <h2>결제정보</h2>
         <table class="payment-table">
         <tr>
             <td>총상품가격</td>
-            <td class="price">54,900원</td>
+            <td class="price">{totalPrice.toLocaleString()}원</td>
         </tr>
         <tr>
             <td>즉시할인</td>
@@ -165,7 +175,7 @@ return (
         </tr>
         <tr class="total">
             <td>총결제금액</td>
-            <td class="total-price">18,900원</td>
+            <td class="total-price">{(totalPrice-36000).toLocaleString()}원</td>
         </tr>
         </table>
     </div>

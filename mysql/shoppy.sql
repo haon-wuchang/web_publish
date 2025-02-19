@@ -187,6 +187,10 @@ select * from shoppy_cart where cid = '1';
 
 
 -- 1. 주문서 페이지에서 보여줄 테이터 조인작업 
+-- 2-1. view만들기 조건절에잇는 sm.id 빼고 
+
+create view view_orderList
+as 
 select 
 	sm.id,
     sm.name,
@@ -205,9 +209,59 @@ select
 from shoppy_member as sm,  
 	shoppy_cart as sc , 
 	shoppy_product as sp
-where sm.id = sc.id and sc.pid = sp.pid and sm.id = '';
+where sm.id = sc.id and sc.pid = sp.pid;
+	-- and sm.id = 'test1';
+
+select * from view_orderList where id = 'test1';
+-- view 에 내용추가 삭제 되면 뷰 삭제하고 다시만들어ㅑ대 
+-- 2-2. 만든 쿼리를 레파지토리에 수정하기 
+
+-- 다른데도 코드 긴애 잇으면 뷰로 만들기 
+-- 안쓰는 뷰는 삭제해야함 메모리 용량차지 많이함 '
+-- 오라클은 뷰 생성 시 별도의 권한이 필요함 
+create view view_cartList as
+            select sc.cid,	
+                    sc.size,
+                    sc.qty,
+                    sm.id,
+                    sm.zipcode,
+                    sm.address,
+                    sp.pid,
+                    sp.pname,
+                    sp.price,
+                    sp.description as info,
+                    concat('http://localhost:9000/',sp.upload_file->>'$[0]') as image
+                from shoppy_member as sm, 
+                    shoppy_cart as sc , 
+                    shoppy_product as sp
+                where sm.id = sc.id and sc.pid = sp.pid;
+                        -- and sm.id = 'test1';
+					select * from view_cartList where id = 'test1';
 
 
-
-
-
+create view view_getProduct as
+           select 
+            pid,
+            pname as name,
+            price, 
+            description as info,
+            upload_file as uploadFile,
+            source_file as sourceFile,
+            pdate,
+            concat('http://localhost:9000/',upload_file->>'$[0]') as image,
+            json_array(
+                concat('http://localhost:9000/',upload_file->>'$[0]'),
+                concat('http://localhost:9000/',upload_file->>'$[1]'),
+                concat('http://localhost:9000/',upload_file->>'$[2]')
+            ) as imgList, 
+            json_arrayagg(
+                concat('http://localhost:9000/',jt.filename) 
+            ) as detailImgList
+        from shoppy_product , 
+            json_table(shoppy_product.upload_file,'$[*]' 
+                columns(filename varchar(100) path '$')) as jt 
+        -- where pid='7'
+        group by pid;
+        
+        
+        select * from view_getProduct where pid = '10';
