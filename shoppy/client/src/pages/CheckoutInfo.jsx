@@ -5,7 +5,12 @@ import DaumPostcode from "react-daum-postcode";
 import "../styles/cart.css";
 import "../styles/checkoutinfo.css";
 
+// 1. 주문서에서 불러올 데이터 : 회원정보, 장바구니 템 , 총금액 
+
 export default function CheckoutInfo() {
+    // 1-1.order컨텍스트 새로만들고, App.js 에도 추가 , 커스텀훅만들기 
+
+
 /** 주소검색 버튼Toggle */
 const [isOpen, setIsOpen] = useState(false);
 
@@ -108,13 +113,13 @@ return (
         <div className="info-box">
         <div className="info-grid">
             <div className="label">상품명</div>
-            <div className="value">홍길동</div>
+            <div className="value">니트</div>
 
-            <div className="label">배송주소</div>
-            <div className="value">서울시 강남구 123</div>
+            <div className="label">가격</div>
+            <div className="value">10,000원</div>
 
-            <div className="label">연락처</div>
-            <div className="value">010 - 1234 - 5678 / 010 - 9919 - 1234</div>
+            <div className="label">이미지</div>
+            <div className="value">옷</div>
         </div>
         </div>
     </div>

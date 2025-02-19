@@ -11,11 +11,13 @@ import { AuthProvider } from './auth/AuthContext.js';
 import NewProduct from './pages/NewProduct.jsx';
 import { CartProvider } from './context/cartContext.js'; 
 import CheckoutInfo from './pages/CheckoutInfo.jsx';
+import { OrderProvider } from './context/OrderContext.js';
 
 export default function App() {
 
     return (
     <div >
+      <OrderProvider>
       <CartProvider>
       <AuthProvider>
       <BrowserRouter>
@@ -28,13 +30,13 @@ export default function App() {
             <Route path='/signup' element={<Signup />} /> 
             <Route path='/products/:pid' element={<DetailProduct/>} /> 
             <Route path='/products/new' element={<NewProduct />} /> 
-            {/*  2-1. 주문서 컴포넌트 추가  */}
             <Route path='/checkout' element={<CheckoutInfo />} />  
           </Route >
         </Routes>
       </BrowserRouter>
       </AuthProvider>
       </CartProvider>
+      </OrderProvider>
     </div>
   );
 }

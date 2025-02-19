@@ -11,7 +11,7 @@ export default function Carts() {
     const {getCartList, updateCartList,deleteCartItems} = useCart(); 
     const navigate = useNavigate();
     const {isLoggedIn} = useContext(AuthContext);
-    const {cartList,setCartList, cartCount, totalPrice}= useContext(CartContext);  // 1-7. totalPrice 사용할거라 가져오기
+    const {cartList,setCartList, cartCount, totalPrice}= useContext(CartContext);
     const hasCheckedLogin = useRef(false);
 
     useEffect(()=>{
@@ -47,7 +47,7 @@ export default function Carts() {
                             <p className="cart-item-price">{item.price}원</p>                           
                         </div> 
                         <div className="cart-quantity">
-                            {/*  최소수량 1밑으로 안가게 작업 */}
+                            {/*  최소수량 1밑으로 안가게 작업  이건 어제꺼에 정리*/}
                             <button onClick={()=>{item.qty > 1 && handleQtyUpdate(item.cid, 'decrease')}}>
                             -
                             </button>
@@ -69,7 +69,6 @@ export default function Carts() {
                     <div className="cart-summary-sub">
                         <p className="cart-total">
                         <label>총 상품가격 :</label>
-                        {/* 1-8. 토탈프라이스 가져와서 총금액 나타내기  */}
                         <span>{totalPrice.toLocaleString()}원</span>
                         </p>
                         <p className="cart-total">
@@ -88,10 +87,9 @@ export default function Carts() {
                     {/* <button className="checkout-btn">결제하기</button> */}
                     </div>
                     <div className="cart-actions">
-                    {/* 2. 주문하기 누르면 주문 페이지로 넘어가게 작업  */}
-                    <Link to="/checkout">
-                        <button>주문하기</button>
-                    </Link>
+                        <Link to="/checkout">
+                            <button>주문하기</button>
+                        </Link>
                     </div>
                 </>
                 ) : (

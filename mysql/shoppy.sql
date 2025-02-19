@@ -186,6 +186,26 @@ select count(*)  from shoppy_cart where id = 'test1';
 select * from shoppy_cart where cid = '1';
 
 
+-- 1. 주문서 페이지에서 보여줄 테이터 조인작업 
+select 
+	sm.id,
+    sm.name,
+    sm.phone,
+    concat(sm.emailname, '@', sm.emaildomain) as email,
+	sm.zipcode,
+    sm.address,
+    sp.pid,
+    sp.pname,
+    sp.price,
+    sp.description as info,
+    concat('http://localhost:9000/',sp.upload_file->>'$[0]') as image,
+	sc.cid,
+    sc.size,
+    sc.qty
+from shoppy_member as sm,  
+	shoppy_cart as sc , 
+	shoppy_product as sp
+where sm.id = sc.id and sc.pid = sp.pid;
 
 
 
