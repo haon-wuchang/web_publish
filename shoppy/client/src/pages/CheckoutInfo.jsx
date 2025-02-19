@@ -8,25 +8,15 @@ import { useContext } from "react";
 import { OrderContext } from "../context/OrderContext.js";
 import { CartContext } from "../context/cartContext.js";
 import { useOrder } from "../hooks/useOrder.js";
-// 함수만들떄 default 붙이면 다른데서 임포트해올때 {} 없이 그냥 쓰고 default 없으면 { 안에 함수명} 이케 해야함
 
-// 1. 주문서에서 불러올 데이터 : 회원정보, 장바구니 템 , 총금액 
-// 1-1.order컨텍스트 새로만들고, App.js 에도 추가 , 커스텀훅만들기 ( 컨텍스트만들면 짝꿍처럼 커스텀훅도 만든다)
 export default function CheckoutInfo() {
-    //1-6.  사용할거 임포트하기 => 얘는 로그인 상태에서만 보여야하니까 authContext 임포트하기 
-    const {isLoggedIn} = useContext(AuthContext); //1-7.
+    const {isLoggedIn} = useContext(AuthContext);
     const {getOrderList} = useOrder();
-    const{ totalPrice} = useContext(CartContext);  //5. 총금액 가져와서 추가 (새로고침하면 값 못가져와서 useOrder에서 useCart 에잇는 caalculate어쩌구 를 가져온다)
-    //3-1. db 에서 받아온 정보를 화면에 뿌리기 위한 orderList 임포트하기
-    const {orderList,member,setMember} = useContext(OrderContext); //3-1.
-    // const [member,setMember] = useState({}); //3-1. 회원정보 가져오기 위한 변수
-    // 1-8. 로그인상태에서만 주문서보이게 작업 
+    const{ totalPrice} = useContext(CartContext);  
+    const {orderList,member,setMember} = useContext(OrderContext);
     useEffect(()=>{
         if(isLoggedIn) {
             getOrderList();     
-            // setMember(orderList[0]);  
-        // 4. 오더리스트는 전역에 잇고 멤버는 로컬에 잇어서 새로고침 누르면 데이터를 못가져와서 에러가 뜰수잇다
-        // 그래서 멤버를 오더 컨텍스트에서 만드는걸로 한다 
         }
     },[isLoggedIn]);
 

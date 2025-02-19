@@ -9,4 +9,3 @@ export const getOrderList = async({id}) => {
     return result;
 }
 
-// 2. 조인하는애들은 쿼리가 길자나 그래서우리가 공통적으로 사용하는부분은 view로 만든다 
