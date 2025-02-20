@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { OrderContext } from "../context/OrderContext.js";
 import { CartContext } from "../context/cartContext.js";
 import { useOrder } from "../hooks/useOrder.js";
+import axios from "axios";
 
 export default function CheckoutInfo() {
     const {isLoggedIn} = useContext(AuthContext);
@@ -59,6 +60,36 @@ const handleToggle = () => {
         }
     };
 //---- DaumPostcode 관련 디자인 및 이벤트 종료 ----//
+
+// 결제함수  - 카카오페이 qr 결제 연동 //
+//1-1. 함수 선언
+const handlePayment = () => {
+    //1-2. 로그인햇을때만 결제가능해야하므로 아이디 가져오기 
+    const id  = localStorage.getItem('user_id');
+    // 1-3. 서버 연동    -> 1-5. 서버에서 주소 만들기 mv 고고 
+    try {
+        const res = axios
+                        .post('http://localhost:9000/payment/qr',{
+                            'id':id , 
+                            'item_name':'테스트상품',
+                            'total_price':1000
+                        });
+            console.log(res.data);
+        
+    } catch (error) {
+        //1-4.  그냥 axios 만 쓰면(프로미스 아닐때임 => then. catch 있는게 프로미스로 받는거임, 
+            //  then,catch있으면 catch가 에러를 잡으니까 애를 또 try catch 로 감싸지않아도된다 ) 
+        // 에러를 받아올애가없기때문에 try catch 로 감싼다 
+        console.log('카카오페이 qr 결제 에러 발생',error);
+    }        
+}
+
+
+
+
+
+
+
 
 return (
     <div className="cart-container">
@@ -175,6 +206,12 @@ return (
         <div class="payment-method">
         <label class="radio-label">
             <input type="radio" name="payment" checked />
+            카카오페이 
+        </label>
+        </div>
+        {/* <div class="payment-method">
+        <label class="radio-label">
+            <input type="radio" name="payment"  />
             신용/체크카드
         </label>
         <select>
@@ -189,7 +226,7 @@ return (
         <a href="#" class="link">
             카드할인 및 무이자할부 안내
         </a>
-        </div>
+        </div> */}
 
         <div class="payment-method">
         <label class="radio-label">
@@ -213,8 +250,8 @@ return (
         <input type="checkbox" id="privacy" />
         <label for="privacy">개인정보 국외 이전 동의</label>
     </div>
-
-    <button className="pay-button">결제하기</button>
+{/* 1. 이벤트함수 선언 */}
+    <button className="pay-button" onClick={handlePayment}>결제하기</button>
     </div>
 );
 }
