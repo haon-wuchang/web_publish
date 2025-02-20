@@ -71,9 +71,10 @@ const handlePayment = async() => {
                             'item_name':'테스트상품',
                             'total_amount':1000   
                         });
-            console.log(res.data.next_redirect_pc_url);  
+            console.log(res.data);  
             if(res.data.next_redirect_pc_url){ 
                 window.location.href = res.data.next_redirect_pc_url;
+                localStorage.setItem('tid',res.data.tid); 
             }
         
     } catch (error) {

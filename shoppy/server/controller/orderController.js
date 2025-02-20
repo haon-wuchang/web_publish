@@ -6,3 +6,9 @@ export const getOrderList = async(req,res) => {
     res.json(result);
     res.end();
 }   
+
+export const addToOrder = async(req,res) =>{
+    const result = await repository.addToOrder(req.body);
+    res.json(result);
+    res.end();
+}

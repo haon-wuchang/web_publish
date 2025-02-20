@@ -265,3 +265,25 @@ create view view_getProduct as
         
         
         select * from view_getProduct where pid = '10';
+
+-- 2-1. shoopy_order 테이블 만들기
+-- 들어갈 정보 : oid(pk) , tid(주문번호), type(결제타입: 카카오인지 페이팔인지 등 ),
+--  pid(fk), size, qty, id(fk) , odate(주문날짜) , tprice(총가격) 등
+create table shoppy_order (
+		oid int primary key auto_increment,
+        qty int not null,
+        size varchar(10) not null ,
+        odate date,
+        tprice int not null ,
+        tid varchar(50) not null ,
+        type varchar(30) not null,
+        id varchar(30)  not null  ,
+        pid int not null,
+	constraint fk_order_id_shoppy_member_id foreign key(id)
+			references shoppy_member(id),
+	constraint fk_order_pid_shoppy_product_pid foreign key(pid)
+			references shoppy_product(pid)
+);
+select * from shoppy_order;
+show tables;
+
