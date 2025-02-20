@@ -16,6 +16,8 @@ export function useOrder() {
         setMember(result.data[0]); 
         calculateTotalPrice(result.data); 
         
+        return result.data;   // 오더리스트의 결과를 바로 받도록 리턴해준당
+        
     }
     // 3-3. 
     const saveToOrder = async(orderList,totalPrice,tid, type) => {
