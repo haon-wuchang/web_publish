@@ -1,4 +1,4 @@
-import React,{useContext, useEffect} from 'react';
+import React,{useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import {useSearchParams} from 'react-router-dom';
 import { OrderContext } from '../context/OrderContext'; 
@@ -6,31 +6,33 @@ import { useOrder } from '../hooks/useOrder';
 
 export default function PaymentSuccess() {
     const {getOrderList,saveToOrder} = useOrder();
-    const { orderList} = useContext(OrderContext); 
     const [searchParams] = useSearchParams();
     const pg_token = searchParams.get('pg_token');
-    const tid = localStorage.getItem('tid'); 
-    console.log(' 티아디',tid, '토큰',pg_token); 
+    const [isRun ,setIsRun] = useState(false);
     
-
+    
+    const tid = localStorage.getItem('tid'); 
     //2-3.
     useEffect(()=>{
+        tid && setIsRun(true);  //5-1. tid 가 있으면 isRun 이 true 가 되고
+        
         const fetchOrderList = async() => {
             const orderList = await getOrderList();   
-           if(orderList.length > 0){
-               const totalPrice = orderList.reduce((sum,item) => sum + item.price * item.qty , 0);
+            
+            if(orderList.length > 0){
+                const totalPrice = orderList.reduce((sum,item) => sum + item.price * item.qty , 0);
                if(pg_token && tid ){
                    //3-1. 여기서 axios db 연동을한다면  orderList, totalPrice 를 사용하면된다
                    //3-2. useOrder 커스텀훅을 사용해서 db 연동하는 방법도 잇다 (이걸로할거얌) 
                    saveToOrder(orderList,totalPrice, tid, 'kakaopay_qr'); //3-4.
-               }
-           } 
-        }
-
-        if(pg_token && tid ) {fetchOrderList();}
-        },[pg_token, tid]);  // 얘가 종료되야 밑에 만든totalPrice 의  orderList 에 반영이 된다 
-    // 5. !! 근데 얘가  두번씩 insert가 된다 
-        
+                }
+            } 
+        }        
+        if(isRun) {fetchOrderList();}  //5-2. isrun 이 true 일때만 fetch 를 실행한다
+    },[isRun]);  // 얘가 종료되야 밑에 만든totalPrice 의  orderList 에 반영이 된다 
+    // 5. !! 근데 얘가  두번씩 insert가 된다 그래서 isRun 만들어서 넣어줌 
+    
+    console.log(' 티아디', tid, '토큰',pg_token); 
     
 
     // console.log('orderList',orderList); //2-4. 잘가져오는지 확인
