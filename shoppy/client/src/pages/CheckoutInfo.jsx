@@ -62,32 +62,24 @@ const handleToggle = () => {
 //---- DaumPostcode 관련 디자인 및 이벤트 종료 ----//
 
 // 결제함수  - 카카오페이 qr 결제 연동 //
-//1-1. 함수 선언
-const handlePayment = () => {
-    //1-2. 로그인햇을때만 결제가능해야하므로 아이디 가져오기 
+const handlePayment = async() => {
     const id  = localStorage.getItem('user_id');
-    // 1-3. 서버 연동    -> 1-5. 서버에서 주소 만들기 mv 고고 
     try {
-        const res = axios
+        const res = await axios
                         .post('http://localhost:9000/payment/qr',{
                             'id':id , 
                             'item_name':'테스트상품',
-                            'total_price':1000
+                            'total_amount':1000   
                         });
-            console.log(res.data);
+            console.log(res.data.next_redirect_pc_url);  
+            if(res.data.next_redirect_pc_url){ 
+                window.location.href = res.data.next_redirect_pc_url;
+            }
         
     } catch (error) {
-        //1-4.  그냥 axios 만 쓰면(프로미스 아닐때임 => then. catch 있는게 프로미스로 받는거임, 
-            //  then,catch있으면 catch가 에러를 잡으니까 애를 또 try catch 로 감싸지않아도된다 ) 
-        // 에러를 받아올애가없기때문에 try catch 로 감싼다 
         console.log('카카오페이 qr 결제 에러 발생',error);
     }        
 }
-
-
-
-
-
 
 
 

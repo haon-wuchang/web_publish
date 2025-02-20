@@ -12,6 +12,7 @@ import NewProduct from './pages/NewProduct.jsx';
 import { CartProvider } from './context/cartContext.js'; 
 import CheckoutInfo from './pages/CheckoutInfo.jsx';
 import { OrderProvider } from './context/OrderContext.js';
+import PaymentSuccess from './pages/PaymentSuccess.jsx';
 
 export default function App() {
 
@@ -31,6 +32,8 @@ export default function App() {
             <Route path='/products/:pid' element={<DetailProduct/>} /> 
             <Route path='/products/new' element={<NewProduct />} /> 
             <Route path='/checkout' element={<CheckoutInfo />} />  
+            <Route path='/payment/success' element={<PaymentSuccess />} />  
+            {/* <Route path='/payment/:type' element={<PaymentSuccess />} />   나중에 결제qpi 여러개쓸때는이케 사용 */}
           </Route >
         </Routes>
       </BrowserRouter>
