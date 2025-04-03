@@ -42,7 +42,6 @@ npm i react-bootstrap
 npm i react-daum-postcode
 npm i jsonwebtoken
 npm i antd
-npm i append-field  -- 근데 이거 설치한거 맞음? 뭔지 모르겟음
 npm i axios
 npm i framer-motion
 ```
@@ -55,7 +54,10 @@ npm i express --save
 npm i mysql2
 npm i cors
 npm i nodemon --save-dev
-npm i
+npm i multer
+npm i react-kakao-login
+npm i axios
+npm i jsonwebtoken
 ```
  </div>
 
