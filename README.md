@@ -31,6 +31,20 @@
 npm i
 npm i framer-motion  
 npm i antd
+npm i react-slick
+npm i slick-carousel
+npm i react-icons
+npm i react-kakao-login
+npm i react-modal
+npm i react-paginate
+npm i react-router-dom
+npm i react-bootstrap
+npm i react-daum-postcode
+npm i jsonwebtoken
+npm i antd
+npm i append-field  -- 근데 이거 설치한거 맞음? 뭔지 모르겟음
+npm i axios
+npm i framer-motion
 ```
 
 ### server
