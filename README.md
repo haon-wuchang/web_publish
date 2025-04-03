@@ -16,10 +16,12 @@
 <img src="https://img.shields.io/badge/sass-%23CC6699.svg?&style=for-the-badge&logo=sass&logoColor=white" />
 
    <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white&link=">
-프로젝트 소개
-개발 기간
-배포 주소 
-팀원 소개
+   
+<h1>프로젝트 소개</h1>
+<h2>개발 기간</h2>
+<h2>주요 기능</h2>
+<h2>배포 주소 </h2>
+<h2>팀원 소개</h2>
 <table>
   <tbody>
     <tr>
@@ -30,12 +32,13 @@
     </tr>
   </tbody>
 </table>
-    
+
+<div align=left>
 ## ⚙️ 설치 라이브러리  
 
 ### client
 
-```bash
+```bash 
 npm i
 npm i framer-motion  
 npm i antd
@@ -67,6 +70,8 @@ npm i react-kakao-login
 npm i axios
 npm i jsonwebtoken
 ```
+</div>
+
  </div>
 
 --- 참고 사이트
