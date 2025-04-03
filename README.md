@@ -24,14 +24,8 @@
   <tbody>
     <tr>
       <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 이하온 </b></sub></a><br /></td>
-    </tr>
-      <tr>
       <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김유나 </b></sub></a><br /></td>
-    </tr>
-      <tr>
       <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김다희 </b></sub></a><br /></td>
-    </tr>
-      <tr>
       <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 정서령 </b></sub></a><br /></td>
     </tr>
   </tbody>
