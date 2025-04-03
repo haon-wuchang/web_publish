@@ -5,11 +5,15 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com/?lines=First+line+of+text;Second+line+of+text)](https://git.io/typing-svg)
 
-"https://img.shields.id/badge/React-61DAFB?style=flat-square&logo=html5&logoColor=white"
+
 <div align=center>
 
-<img src="https://img.shields.io/badge/React-61DAFB.svg?&style=for-the-badge&logo=fortran&logoColor=white" />
-"https://img.shields.id/badge/React-61DAFB?style=flat-square&logo=html5&logoColor=white"
+<img src="https://img.shields.io/badge/react-%2361DAFB.svg?&style=for-the-badge&logo=react&logoColor=black" />
+<img src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" />
+<img src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" />
+<img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" />
+<img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
+
 
   
 # 1
