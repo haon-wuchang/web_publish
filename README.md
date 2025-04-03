@@ -17,7 +17,7 @@
    <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white&link=">
     </div>
 <h1>프로젝트 소개</h1>
-<h2>개발 기간</h2>
+<h2>:date:개발 기간</h2>
 <h2>💡주요 기능</h2>
 로그인 & 회원가입
 장바구니 & 카카오페이 결제
