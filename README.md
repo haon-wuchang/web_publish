@@ -2,8 +2,8 @@
 
 ![header](https://capsule-render.vercel.app/api?type=Waving&color=gradient&height=200&section=header&text=하온연습%20&fontSize=90)
 
-![haon-wuchang's GitHub stats](https://github-readme-stats.vercel.app/api?username=haon-wuchang&theme=dark&show_icons=true)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=haon-wuchang&langs_count=5&layout=compact&theme=highcontrast)](https://github.com/anuraghazra/github-readme-stats)
+![haon-wuchang's GitHub stats](https://github-readme-stats.vercel.app/api?username=haon-wuchang&theme=dracula&show_icons=true)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=haon-wuchang&langs_count=5&layout=compact&theme=dracula)](https://github.com/anuraghazra/github-readme-stats)
 
 [![Typing SVG](https://readme-typing-svg.demolab.com/?lines=First+line+of+text;Second+line+of+text)](https://git.io/typing-svg)
 
