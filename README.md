@@ -8,7 +8,7 @@
 
 <div align=center>
 
-<img src="https://img.shields.io/badge/react-#61DAFB.svg?&style=for-the-badge&logo=fortran&logoColor=white" />
+<img src="https://img.shields.io/badge/React-61DAFB.svg?&style=for-the-badge&logo=fortran&logoColor=white" />
 
 
   
