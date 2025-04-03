@@ -5,11 +5,11 @@
 
 [![Typing SVG](https://readme-typing-svg.demolab.com/?lines=First+line+of+text;Second+line+of+text)](https://git.io/typing-svg)
 
-
+"https://img.shields.id/badge/React-61DAFB?style=flat-square&logo=html5&logoColor=white"
 <div align=center>
 
 <img src="https://img.shields.io/badge/React-61DAFB.svg?&style=for-the-badge&logo=fortran&logoColor=white" />
-
+"https://img.shields.id/badge/React-61DAFB?style=flat-square&logo=html5&logoColor=white"
 
   
 # 1
