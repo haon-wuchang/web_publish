@@ -14,9 +14,8 @@
 <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" />
 <img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
 <img src="https://img.shields.io/badge/sass-%23CC6699.svg?&style=for-the-badge&logo=sass&logoColor=white" />
-
    <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white&link=">
-   
+    </div>
 <h1>프로젝트 소개</h1>
 <h2>개발 기간</h2>
 <h2>주요 기능</h2>
@@ -85,7 +84,7 @@ npm i jsonwebtoken
 ```
 </div>
 
- </div>
+
 
 --- 참고 사이트
 https://readme-typing-svg.demolab.com/demo/?color=F7E1BB&repeat=false&lines=%ED%9D%A0%ED%9D%A0%ED%9D%A0
