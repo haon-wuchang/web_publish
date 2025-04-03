@@ -37,10 +37,10 @@
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 이하온 </b></sub></a><br /></td>
-      <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김유나 </b></sub></a><br /></td>
-      <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김다희 </b></sub></a><br /></td>
-      <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 정서령 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/haon-wuchang"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 이하온 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Yuna-Kim98"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김유나 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/dahee-05"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김다희 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/2eo2yeo"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 정서령 </b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
