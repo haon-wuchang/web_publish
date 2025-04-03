@@ -16,10 +16,18 @@
 <img src="https://img.shields.io/badge/sass-%23CC6699.svg?&style=for-the-badge&logo=sass&logoColor=white" />
 
    <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white&link=">
-# 1
-## 1
-### 1
-#### 1
+프로젝트 소개
+개발 기간
+배포 주소 
+팀원 소개
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="깃허브 주소"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 팀원이름 </b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
+
     <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;"> 안녕 </h2>  
     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #c9d1d9;"> 난 하온 </div> 
     
