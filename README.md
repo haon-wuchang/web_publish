@@ -116,10 +116,10 @@ https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/haon-wuchang"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 이하온 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/Yuna-Kim98"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김유나 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/dahee-05"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김다희 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/2eo2yeo"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 정서령 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/haon-wuchang"><img src="https://github.com/user-attachments/assets/8862290a-2ca8-4887-a833-27e2830d427e" width="100px;" alt=""/><br /><sub><b> 이하온 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Yuna-Kim98"><img src="https://github.com/user-attachments/assets/3809da48-ac91-4a14-a5ba-c4a96fc18ce9" width="100px;" alt=""/><br /><sub><b> 김유나 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/dahee-05"><img src="https://github.com/user-attachments/assets/a1859292-7357-4cf4-a9f6-d066d76ae6b5" width="100px;" alt=""/><br /><sub><b> 김다희 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/2eo2yeo"><img src="https://github.com/user-attachments/assets/62615ab1-fd17-40a0-b2cd-bd9a7a1c7553" width="100px;" alt=""/><br /><sub><b> 정서령 </b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
