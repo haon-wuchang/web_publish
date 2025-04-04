@@ -21,7 +21,8 @@
 <h2>:date:개발 기간</h2>
 <h2>💡주요 기능</h2>
 º 로그인 & 회원가입
-![Image](https://github.com/user-attachments/assets/df8b0fa2-3f3d-4121-bf1d-6ddda5f8f7b4)
+<img src="https://github.com/user-attachments/assets/df8b0fa2-3f3d-4121-bf1d-6ddda5f8f7b4">
+
 장바구니 & 카카오페이 결제
 상품 검색
 주문 내역 확인
