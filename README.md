@@ -93,19 +93,36 @@ https://readme-typing-svg.demolab.com/demo/?color=F7E1BB&repeat=false&lines=%ED%
 https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 
 
+
 ## 프로젝트 소개
-- 진에어 클론 코딩 팀 프로젝트
+- 조선미녀 클론 코딩 팀 프로젝트
 
 ### 📄 개요
 - 준비중
 
 ### 📆 프로젝트 기간
-- 2025.03.24 ~ 진행중
+- 2025.03.10 ~ 2025.04.04
+
+### ✒️ 프로젝트 목표
+1. 첫 팀프로젝트인 해당 프로젝트를 통한 팀원과의 협업 능력 향상
+2. REACT를 활용한 UI/UX 구현으로 SPA방식으로 빠른 UI 렌더링과 반응성 구현하기
+3. 데이터 CRUD와 다양한 이벤트 처리 기능을 구현하여 비즈니스 로직 학습하기
+4. MySQL을 활용한 데이터 관리
+5. Client와 Server, DB간의 연동 경험
 
 <br>
 
 ### 🙋‍♀️ 팀구성
-
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/haon-wuchang"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 이하온 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Yuna-Kim98"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김유나 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/dahee-05"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 김다희 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/2eo2yeo"><img src="이미지주소" width="100px;" alt=""/><br /><sub><b> 정서령 </b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
 <br>
 
 ## 프로젝트 설명
